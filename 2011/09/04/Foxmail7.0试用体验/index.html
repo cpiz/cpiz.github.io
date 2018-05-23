@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="2000年我还在读高中，在某个小网吧里初次接触Foxmail，用它的远程邮件管理帮同学删邮件炸弹。那个时候它还有着浓重的个人软件风格，Logo旁写着作者张小龙。工作后每天面对无数邮件，我尝遍了OutLook、DreamMail、TheBat、ThunderBird…之后，还是留下了Foxmail，因为它的简单轻巧。 我习惯不删工作邮件，为了让邮件更有条理，创建了很多过滤器与目录。而老Foxmai">
+<meta name="keywords" content="Foxmail, QQMail, 产品">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Foxmail 7.0 试用体验">
+<meta property="og:url" content="http://cpiz.com/2011/09/04/Foxmail7.0试用体验/index.html">
+<meta property="og:site_name" content="Cpiz&#39;s blog">
+<meta property="og:description" content="2000年我还在读高中，在某个小网吧里初次接触Foxmail，用它的远程邮件管理帮同学删邮件炸弹。那个时候它还有着浓重的个人软件风格，Logo旁写着作者张小龙。工作后每天面对无数邮件，我尝遍了OutLook、DreamMail、TheBat、ThunderBird…之后，还是留下了Foxmail，因为它的简单轻巧。 我习惯不删工作邮件，为了让邮件更有条理，创建了很多过滤器与目录。而老Foxmai">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://cpiz.com/2011/09/04/Foxmail7.0试用体验/foxmail7.png">
+<meta property="og:updated_time" content="2018-05-23T16:27:43.025Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Foxmail 7.0 试用体验">
+<meta name="twitter:description" content="2000年我还在读高中，在某个小网吧里初次接触Foxmail，用它的远程邮件管理帮同学删邮件炸弹。那个时候它还有着浓重的个人软件风格，Logo旁写着作者张小龙。工作后每天面对无数邮件，我尝遍了OutLook、DreamMail、TheBat、ThunderBird…之后，还是留下了Foxmail，因为它的简单轻巧。 我习惯不删工作邮件，为了让邮件更有条理，创建了很多过滤器与目录。而老Foxmai">
+<meta name="twitter:image" content="http://cpiz.com/2011/09/04/Foxmail7.0试用体验/foxmail7.png">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Cpiz's blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="canonical" href="http://cpiz.com/2011/09/04/Foxmail7.0试用体验/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Foxmail 7.0 试用体验 | Cpiz's blog</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Cpiz's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+  
+  
+  
+    
+      
+    
+    <a href="https://github.com/cpiz" class="github-corner" target="_blank" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#222; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg>
+    
+      </a>
+    
+
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://cpiz.com/2011/09/04/Foxmail7.0试用体验/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cpiz">
+      <meta itemprop="description" content="Cpiz's blog">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cpiz's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Foxmail 7.0 试用体验
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2011-09-04 22:50:00" itemprop="dateCreated datePublished" datetime="2011-09-04T22:50:00+08:00">2011-09-04</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-05-24 00:27:43" itemprop="dateModified" datetime="2018-05-24T00:27:43+08:00">2018-05-24</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <img src="/2011/09/04/Foxmail7.0试用体验/foxmail7.png">
+<p>2000年我还在读高中，在某个小网吧里初次接触Foxmail，用它的远程邮件管理帮同学删邮件炸弹。那个时候它还有着浓重的个人软件风格，Logo旁写着作者张小龙。工作后每天面对无数邮件，我尝遍了OutLook、DreamMail、TheBat、ThunderBird…之后，还是留下了Foxmail，因为它的简单轻巧。</p>
+<p>我习惯不删工作邮件，为了让邮件更有条理，创建了很多过滤器与目录。而老Foxmail中每一个邮件目录对应磁盘上的一个物理文件，要让文件不太大影响效率，还得按时间建目录进行归档，归档完了还压缩，控制每个存储文件在100M以下，很快就堆了几G。那时候WEB开始流行标签化，而Foxmail虽然能给邮件打标签，但不支持标签管理，比较遗憾。Foxmail6.5提高了搜索速度，加入了搜索文件夹方便邮件组织，但受限于文件存储方式，效果提升有限。</p>
+<p>时隔两年，腾讯最近终于吐出了Foxmail7.0，马上下载体验，有不少惊喜。</p>
+<p>7.0这次最大的改进在于彻底修改了邮件的存储方式，<strong>由之前每个邮件夹对应一个文件，变成每封邮件对应一个文件</strong>。存储粒度的减小让邮件摆脱了文件的限制，能支持更加灵活的组织方式，我久盼的标签化也就顺理成章。通过标签化管理，对邮件的存放组织更加符合真实应用，看着舒心用着顺心。<br>还有邮件在不同目录之间的移动，只须更改文件索引的位置，不用再做数据的分离与追加，可以瞬间完成（类似文件的同盘剪切-粘贴）。更不用像历史版本一样，还要对原目录压缩以收回空间。<br>另外，我电脑之前速度挺快，后来越来越卡，经常硬盘灯狂闪，换硬盘重装系统都无效，换上了Foxmail7后这几天却表现极好，这让我很怀疑Foxmail老版本在邮件堆积后会影响严重系统IO。</p>
+<p>除了邮件存储，7.0开始全面支持MicrosoftExchange邮件服务，这个我用不上，估计是为了配合QQmail最近的终<a href="http://blog.mail.qq.com/?p=803" title="QQ邮箱推出Exchange移动终端同步服务" target="_blank" rel="noopener">端Exchange特性</a>。另外最大的改进是更强大的邮件编辑器，老版这点之前经常我抓狂，改个颜色或字号老不一致，这次总算满意了。搜索的速度提升不少，新增的附件预览和鼠标手势（strokeit用户对此无视）比较贴心。</p>
+<p>仅标签化这一改进已经有了让我不得不升级的理由，但作为一个软件控+细节控，我还是要列列bug，提提建议。</p>
+<h2 id="bug："><a href="#bug：" class="headerlink" title="bug："></a>bug：</h2><blockquote>
+<ul>
+<li>草稿箱的邮件，按回车键打开是阅读模式，且邮件无法编辑（双击打开编辑正常）</li>
+<li>转发邮件，将光标移到原邮件内容中，按Esc键，会插入自己的邮箱账号名</li>
+<li>软件帮助菜单，链接到网址<a href="http://help.foxmail.com/foxmail7/help.html#，竟然显示“正在建设中...”，然后是一片空白" target="_blank" rel="noopener">http://help.foxmail.com/foxmail7/help.html#，竟然显示“正在建设中...”，然后是一片空白</a></li>
+<li>创建过滤器，输入的搜索条件含有空格，如“x y”，保存会发现被保存了“x” And “y”，意义完全不一样了</li>
+<li>机器休眠一夜，或者过了0点，打开界面收取到邮件，新邮件会被放入昨天的列表，重新切换邮件夹后正常（这个bug很多年了）</li>
+<li>在我的两台机器上，Office文档预览不成功</li>
+<li>对在“存档文件夹”中的邮件右键 - 复制/备份 - 存档，会在存档文件夹下再创建一个存档文件夹的子目录，有点无聊</li>
+<li>没有新邮件时，点击收取新邮件，弹出的“正在收取”对话框会显示上一封邮件的标题，看着不舒服</li>
+<li>邮件列表视图中的发件人会根据通讯录进行翻译，但附件列表视图中发件人不会</li>
+</ul>
+<p>还有很多小地方，一时数罗不出，以后补充。</p>
+</blockquote>
+<h2 id="建议："><a href="#建议：" class="headerlink" title="建议："></a>建议：</h2><blockquote>
+<ul>
+<li>搜索文件夹支持搜索条件“最近xx天”，而不是仅基于一个固定的日期之前或之后</li>
+<li>过滤器还可以更加丰富，要方便测试，再不济也要将老版本中“使用过滤器处理选中邮件”的功能弄回来</li>
+<li>继续强化标签列表，支持标签的分层与隐藏</li>
+<li>附件预览支持自定义格式或“以文本方式预览”，很多附件都是后缀名怪异，其实都是文本的。</li>
+<li>建议增加过滤器、反垃圾规则的云端保存</li>
+<li>能在邮件列表中直接输入，按拼音首字母查找发件人姓名或主题，类似Total Commander的快速搜索，7.0的搜索界面设计简直是种倒退</li>
+<li><strong>既然能用贝叶斯过滤垃圾邮件，那自然能用来做邮件归类，手工创建过滤器什么的太out了</strong></li>
+<li>既然跟着QQMail后已经增加了RSS和日程管理，那也可以考虑实现记事的功能了，对一个工作用的软件来说，记事比RSS更有意义，当然这些都得存在QQMail云端</li>
+</ul>
+<p>新版本在界面上的修改很大，有极多的细节可以改进，如用词不当，还有控件位置导致的视线、鼠标移动过长等等，我再列下去就太龟毛了，但请体谅下下一个老用户的憋闷太久终于释放的心情。</p>
+</blockquote>
+<h2 id="总的来说QQMaill团队花了两年时间，让Foxmail7连个Beta的帽子都不戴就出门，还是有点不负责任。最初发布的版本，有6-5导入的账号不能收取邮件的问题，让我受挫不小，好在上周发布的Build79版本解决了这一问题。但瑕不掩瑜，试用几天下来，惊喜程度还是超过了缺陷带来的影响，推荐追求速度的朋友使用。对那些不怎么在意6-5效率的朋友，还可以等几个月。"><a href="#总的来说QQMaill团队花了两年时间，让Foxmail7连个Beta的帽子都不戴就出门，还是有点不负责任。最初发布的版本，有6-5导入的账号不能收取邮件的问题，让我受挫不小，好在上周发布的Build79版本解决了这一问题。但瑕不掩瑜，试用几天下来，惊喜程度还是超过了缺陷带来的影响，推荐追求速度的朋友使用。对那些不怎么在意6-5效率的朋友，还可以等几个月。" class="headerlink" title="总的来说QQMaill团队花了两年时间，让Foxmail7连个Beta的帽子都不戴就出门，还是有点不负责任。最初发布的版本，有6.5导入的账号不能收取邮件的问题，让我受挫不小，好在上周发布的Build79版本解决了这一问题。但瑕不掩瑜，试用几天下来，惊喜程度还是超过了缺陷带来的影响，推荐追求速度的朋友使用。对那些不怎么在意6.5效率的朋友，还可以等几个月。"></a>总的来说QQMaill团队花了两年时间，让Foxmail7连个Beta的帽子都不戴就出门，还是有点不负责任。最初发布的版本，有6.5导入的账号不能收取邮件的问题，让我受挫不小，好在上周发布的Build79版本解决了这一问题。但瑕不掩瑜，试用几天下来，惊喜程度还是超过了缺陷带来的影响，推荐追求速度的朋友使用。对那些不怎么在意6.5效率的朋友，还可以等几个月。</h2><p>收件箱是个信息的大泥塘，无论是Web端还是客户端，让用户能更及时更有效的分拣与处理信息，都应当是最核心的需求。QQMail与Foxmail这几年增加了很多功能，追求新增长的同时还是要不忘根本，在这方面永远还有创新可挖。</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Foxmail-QQMail-产品/" rel="tag"># Foxmail, QQMail, 产品</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2011/07/14/贷款计算器Excel版/" rel="next" title="贷款计算器Excel版">
+                <i class="fa fa-chevron-left"></i> 贷款计算器Excel版
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2011/10/11/有幸与你并肩，不得不说再见/" rel="prev" title="有幸与你并肩，不得不说再见">
+                有幸与你并肩，不得不说再见 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Cpiz</p>
+              <p class="site-description motion-element" itemprop="description">Cpiz's blog</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">143</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">10</span>
+                    <span class="site-state-item-name">分类</span>
+                  
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">117</span>
+                    <span class="site-state-item-name">标签</span>
+                  
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/cpiz" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:cpiz@qq.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-cpiz"></i>E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#bug："><span class="nav-number">1.</span> <span class="nav-text">bug：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#建议："><span class="nav-number">2.</span> <span class="nav-text">建议：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总的来说QQMaill团队花了两年时间，让Foxmail7连个Beta的帽子都不戴就出门，还是有点不负责任。最初发布的版本，有6-5导入的账号不能收取邮件的问题，让我受挫不小，好在上周发布的Build79版本解决了这一问题。但瑕不掩瑜，试用几天下来，惊喜程度还是超过了缺陷带来的影响，推荐追求速度的朋友使用。对那些不怎么在意6-5效率的朋友，还可以等几个月。"><span class="nav-number">3.</span> <span class="nav-text">总的来说QQMaill团队花了两年时间，让Foxmail7连个Beta的帽子都不戴就出门，还是有点不负责任。最初发布的版本，有6.5导入的账号不能收取邮件的问题，让我受挫不小，好在上周发布的Build79版本解决了这一问题。但瑕不掩瑜，试用几天下来，惊喜程度还是超过了缺陷带来的影响，推荐追求速度的朋友使用。对那些不怎么在意6.5效率的朋友，还可以等几个月。</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Cpiz</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Muse</a> v6.3.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

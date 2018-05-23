@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="又要批评自己了，真不是推就不想动。放着N门数学重修不急，现在发神经又想做个俱乐部会员系统了。今天听到风声，前湖那边下周就高数考试，如果我们南区也同步的话，那不就是死期将至？无论是从形式上还是从良心上，今天都得去自习一次了。 难得来回自习就受回磨难，昨天才打了一天的球，落个腰酸背痛腿摔青，今天还是一楼一楼找教室直到顶楼才找到好位子。我已经不知道是第多少次翻开高数下册的第一章了，可每次的感觉都像是在翻">
+<meta name="keywords" content="三国演义, 水浒传, 红楼梦, 西游记, 读书, 高数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="从高等数学到《西游记》">
+<meta property="og:url" content="http://cpiz.com/2005/11/28/从高等数学到《西游记》/index.html">
+<meta property="og:site_name" content="Cpiz&#39;s blog">
+<meta property="og:description" content="又要批评自己了，真不是推就不想动。放着N门数学重修不急，现在发神经又想做个俱乐部会员系统了。今天听到风声，前湖那边下周就高数考试，如果我们南区也同步的话，那不就是死期将至？无论是从形式上还是从良心上，今天都得去自习一次了。 难得来回自习就受回磨难，昨天才打了一天的球，落个腰酸背痛腿摔青，今天还是一楼一楼找教室直到顶楼才找到好位子。我已经不知道是第多少次翻开高数下册的第一章了，可每次的感觉都像是在翻">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-05-23T10:56:47.221Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="从高等数学到《西游记》">
+<meta name="twitter:description" content="又要批评自己了，真不是推就不想动。放着N门数学重修不急，现在发神经又想做个俱乐部会员系统了。今天听到风声，前湖那边下周就高数考试，如果我们南区也同步的话，那不就是死期将至？无论是从形式上还是从良心上，今天都得去自习一次了。 难得来回自习就受回磨难，昨天才打了一天的球，落个腰酸背痛腿摔青，今天还是一楼一楼找教室直到顶楼才找到好位子。我已经不知道是第多少次翻开高数下册的第一章了，可每次的感觉都像是在翻">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Cpiz's blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="canonical" href="http://cpiz.com/2005/11/28/从高等数学到《西游记》/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>从高等数学到《西游记》 | Cpiz's blog</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Cpiz's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+  
+  
+  
+    
+      
+    
+    <a href="https://github.com/cpiz" class="github-corner" target="_blank" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#222; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg>
+    
+      </a>
+    
+
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://cpiz.com/2005/11/28/从高等数学到《西游记》/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cpiz">
+      <meta itemprop="description" content="Cpiz's blog">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cpiz's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">从高等数学到《西游记》
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2005-11-28 00:56:00" itemprop="dateCreated datePublished" datetime="2005-11-28T00:56:00+08:00">2005-11-28</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-05-23 18:56:47" itemprop="dateModified" datetime="2018-05-23T18:56:47+08:00">2018-05-23</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/扯淡/" itemprop="url" rel="index"><span itemprop="name">扯淡</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>又要批评自己了，真不是推就不想动。放着N门数学重修不急，现在发神经又想做个俱乐部会员系统了。今天听到风声，前湖那边下周就高数考试，如果我们南区也同步的话，那不就是死期将至？无论是从形式上还是从良心上，今天都得去自习一次了。</p>
+<p>难得来回自习就受回磨难，昨天才打了一天的球，落个腰酸背痛腿摔青，今天还是一楼一楼找教室直到顶楼才找到好位子。我已经不知道是第多少次翻开高数下册的第一章了，可每次的感觉都像是在翻一本从没看过的书一样。硬着头皮，看着那一团一团的豆芽符号，总算是背完了一张卷子（当然是最容易的第一张）。困意渐渐袭来，为了不着凉，为了不影响旁边学习的同学，我放下了题卷，选择了一种不容易睡着的方式，看本的确从没看过的书——《西游记》。</p>
+<p>中国四大名著太过有名，我还识不会全书里字的时候电视剧都纷纷上演了。但看了多年的金庸小说，我知道，电视剧怎么好看也比不过原著。只是看了N回后电视剧已经先入为主，占据了我心中那四套厚书的位置。现在大了，看东西都抱一种挑刺的眼光，最近看了些《西游记》，更是失望。</p>
+<p>《红楼梦》最先给我的印象是电视剧里那个油头粉面的贾宝玉，演不了几分钟然后大家就嗲嗲的唱上一段，有啥话一口气说完不就得了，唱来唱去不是在费咱家的电么（我承认，我不懂戏剧）？后来找书看了一段，尽是些风月之事，也许女人们会很喜欢吧。有占了中国人口一半的女性力争，《红》进入四大名著之列我也就不好说什么了。</p>
+<p>《三国演义》出来的时候我正小，那时候讨厌历史，连带把《三》也烦上了，至今也没看几集。但高中时我爸在地摊上买了一套旧三国，绿色的，两本。我没事的时候翻了翻，很快喜欢上了它。与其说爱这书不如说爱书里的英雄，这英雄便是诸葛亮。谈笑三国的气度，空城退敌的自信，鞠躬尽瘁的忠义，悲天悯人的情怀都让我心折不已，至今仍是我的偶像。可他是个宿命主义者，且又看错了这扶不起的阿斗，让我心痛不已。唉，毕竟我不是他，他有他生活的年代，他有他的想法，说不定也还真有宿命这一说。后来看到有人批评此书一味宣扬正统，迎合统治者的喜好，我一笑了之，三国的历史和是非对我没有任何意义，管他刘备是大人奸人，我欣赏的是孔明的智慧~！</p>
+<p>《水》是四大名著里最晚拍成电视剧的，那个时代电视制作水平已经很高，《水》自然是拍得最好的一部，音乐也制作得很好，看得我热血沸腾。可这结局是个悲剧，当初风风火火闯九州的英雄们穷途末路，一个一个倒下，看得倍不是滋味。现在我想开了，其实《水》从另一个角度上来说就是描写一帮小混混走到一起，发展成黑社会，破坏社会安定团结，最后被政府巧计奸灭的过程，看到这结局任何一个良民都应该拍手称快才行。这些只用四肢思考，杀人不负责任者个个都应该赏个死刑，甚至还有用人肉制作食品的家伙，更应该送到海牙国际法庭去判个反人类罪。</p>
+<p>《西游记》似乎应该划分到儿童电视剧这个类别里，我从幼儿园年代直到现在读大学，每年的寒暑假都能如约的看到屏幕上那孙子跳来跳去。估计是想用这片子来教育孩子们要识善恶，要勇于和恶势力做斗争。我当童年那会也是很喜欢孙悟空的，随便拿根棍子就要舞。人们赞这猴子不畏强权，正义勇敢，是追求自由的代表，是真善美的化身。现在我大了，终于认真起来想翻翻这书，却让我大失所望。本质上说，孙悟空和上面那108流氓是一个性质，无礼法律规范和道德约束，善恶只凭个人所断，加之力量又这么强大，就是一独裁者，和希特勒相比，也就差在一念之间了。说孙悟空是自由主义者，那我们良民都得远远躲着去，他要是自由了我们就全完了。这孙悟空要不就压在那五行山上安静着，要不就取一辈子经把他牵扯着，现在这经一取完，说不定又上哪找刺激犯事去了。</p>
+<p>再说这西游记里所描写的天界，跟现在的人间社会没多大区别，同一般的黑暗。佛家讲的是修行积善，追求心灵的完美，最后方能得道成仙到那天界去享福，料想那肯定就是传说中的共产主义了。先说说这最高统治者玉帝，如来有语：“你那厮乃是个猴子成精，焉敢欺心，要夺玉皇上帝尊位？他自幼修持，苦历过一千七百五十劫。每劫该十二万九千六百年。你算，他该多少年数，方能享受此无极大道？你那个初世为人的畜生，如何出此大言！”，可知这玉帝修行之漫长，料想修行了这么久，定是一大善之人，可再看看他表现：</p>
+<p>1。修行了十几万年的人，看到只小猴子不顺眼就派个十万大军去缴，此为没气量。西行路上那么多妖魔，其中不乏比孙猴子能力广大者，怎么就看不到了？</p>
+<p>2。看二郎神出场这段：”真君喝道：‘你这厮有眼无珠，认不得我么！吾乃玉帝外甥，敕封昭惠灵王二郎是也。’“。这厮一出场就搬出玉帝的关系，跟现在这些官家子子弟摆仗势欺人一模一样。这招他想必是经常用的，很可能屡试不爽，吓退过不少人，但这次碰上个不给面子的孙悟空，只好开打。这玉帝即使不是纵人行凶，管教不严也是有的。</p>
+<p>3。下面是孙悟空几们同事的自白。<br>怪物闻言，连声喏喏，收了宝杖，让木吒揪了去见观音。纳头下拜，告道：“菩萨，恕我之罪，待我诉告。我不是妖邪，我是灵霄殿下侍銮舆的卷帘大将。只因在蟋桃会上，失手打碎了玻璃盏，玉帝把我打了八百，贬下界来，变得这般模样；又教七日一次，将飞剑来穿我胸胁百余下方回，故此这般苦恼。没奈何，饥寒难忍，三二日间，出波涛寻一个行人食用。不期今日无知，冲撞了大慈菩萨。”这是沙和尚。</p>
+<p>那怪道：“我不是野豕，亦不是老彘，我本是天河里天蓬元帅。只因带酒戏弄嫦娥，玉帝把我打了二千锤，贬下尘凡；一灵真性，竟来夺舍投胎，不期错了道路，投在个母猪胎里，变得这般模样。是我咬杀母猪，打死群彘，在此处占了山场，吃人度日。不期撞着菩萨，万望拨救拔救。”这是猪八戒。</p>
+<p>打碎个杯子的事，就施加这等烈刑，可见心胸之狭窄。八戒戏弄一下嫦娥，从另一方面说是给她在这天宫无尽的寂寞里添点情趣，说不定人家因此而心中暗喜。却给这玉帝打成这样，最后让人还再度不幸变成了猪的样子。完全可以怀疑玉帝暗恋仙子，表白遭拒，嫉恨帅哥天蓬夺得芳心，从而制造事端，对天蓬实施惨无人道的打击报复，贬其下人间后，恨犹未解，又暗中安排投胎，使其毁容，一则使其相见而不能认，二则打击他再次追求嫦娥的信心，三更是造成其种族隔离不能与人类正常生育。心之狠毒，令人发指！！</p>
+<p>正是绝对的权力使人绝对的腐化，玉帝自己做了独裁者，自然容不下又来个挑战其权力，试想齐天的孙悟空。于是一切都有了合理的解释，以他修行十多万年的心智，自孙悟空出生便看出其威胁，又自凭现有的力量收拾不了。于是把他招安进天界让他养马来侮辱，他生气后又给他个“齐天大圣”的空衔安慰，潘桃胜会不邀，这些一松一紧的行动，就是要激怒猴子，为的是让对方先出手，然后自己就可以名正言顺的派天兵，把事情闹大，达到请得佛祖如来收拾他的目的。这一切做得不留丝毫痕迹，连招安的请求也是来自他人之口，实际上早就已暗中安排。</p>
+<p>上头腐败如此，下面正常才奇怪了，所以那些妖怪才敢横行霸道，斗不过孙悟空了就逃回庇护伞中，可怜我们的猴子不知疲惫的只想着战、战、战……<br>（也许未完待续，反正今天困了）</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/三国演义-水浒传-红楼梦-西游记-读书-高数/" rel="tag"># 三国演义, 水浒传, 红楼梦, 西游记, 读书, 高数</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2005/11/25/极速快感——极品飞车9体验/" rel="next" title="极速快感——极品飞车9体验">
+                <i class="fa fa-chevron-left"></i> 极速快感——极品飞车9体验
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2005/11/28/超女 超女 超女!!!/" rel="prev" title="超女?超女?超女!!!">
+                超女?超女?超女!!! <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Cpiz</p>
+              <p class="site-description motion-element" itemprop="description">Cpiz's blog</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">143</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">10</span>
+                    <span class="site-state-item-name">分类</span>
+                  
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">117</span>
+                    <span class="site-state-item-name">标签</span>
+                  
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/cpiz" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:cpiz@qq.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-cpiz"></i>E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Cpiz</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Muse</a> v6.3.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

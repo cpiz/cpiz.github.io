@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="前几天搞那个邮件接口的程序，用到一个叫1st smtp server的程序来做smtp服务器，但这个东西是不支持以服务方式运行的，又不能像java一样使用java service wrapper。Google了几个小时，看到有介绍用sc.exe注册系统服务的文章，但压根就不能用，新添加的服务怎么也启不来，有说要改注册表的，又说了半天也说不清楚。后来发动鸡肉搜索引擎，帮我找到篇比较靠谱的文章《把EX">
+<meta name="keywords" content="nt服务, windows服务, 注册, 系统服务">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一懒到底——轻松注册Exe程序为Windows系统服务">
+<meta property="og:url" content="http://cpiz.com/2008/06/13/一懒到底——轻松注册Exe程序为Windows系统服务/index.html">
+<meta property="og:site_name" content="Cpiz&#39;s blog">
+<meta property="og:description" content="前几天搞那个邮件接口的程序，用到一个叫1st smtp server的程序来做smtp服务器，但这个东西是不支持以服务方式运行的，又不能像java一样使用java service wrapper。Google了几个小时，看到有介绍用sc.exe注册系统服务的文章，但压根就不能用，新添加的服务怎么也启不来，有说要改注册表的，又说了半天也说不清楚。后来发动鸡肉搜索引擎，帮我找到篇比较靠谱的文章《把EX">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-05-23T10:53:57.332Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="一懒到底——轻松注册Exe程序为Windows系统服务">
+<meta name="twitter:description" content="前几天搞那个邮件接口的程序，用到一个叫1st smtp server的程序来做smtp服务器，但这个东西是不支持以服务方式运行的，又不能像java一样使用java service wrapper。Google了几个小时，看到有介绍用sc.exe注册系统服务的文章，但压根就不能用，新添加的服务怎么也启不来，有说要改注册表的，又说了半天也说不清楚。后来发动鸡肉搜索引擎，帮我找到篇比较靠谱的文章《把EX">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Cpiz's blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="canonical" href="http://cpiz.com/2008/06/13/一懒到底——轻松注册Exe程序为Windows系统服务/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>一懒到底——轻松注册Exe程序为Windows系统服务 | Cpiz's blog</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Cpiz's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+  
+  
+  
+    
+      
+    
+    <a href="https://github.com/cpiz" class="github-corner" target="_blank" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#222; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg>
+    
+      </a>
+    
+
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://cpiz.com/2008/06/13/一懒到底——轻松注册Exe程序为Windows系统服务/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cpiz">
+      <meta itemprop="description" content="Cpiz's blog">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cpiz's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">一懒到底——轻松注册Exe程序为Windows系统服务
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2008-06-13 22:26:00" itemprop="dateCreated datePublished" datetime="2008-06-13T22:26:00+08:00">2008-06-13</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-05-23 18:53:57" itemprop="dateModified" datetime="2018-05-23T18:53:57+08:00">2018-05-23</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/项目/" itemprop="url" rel="index"><span itemprop="name">项目</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>前几天搞那个邮件接口的程序，用到一个叫1st smtp server的程序来做smtp服务器，但这个东西是不支持以服务方式运行的，又不能像java一样使用java service wrapper。Google了几个小时，看到有介绍用sc.exe注册系统服务的文章，但压根就不能用，新添加的服务怎么也启不来，有说要改注册表的，又说了半天也说不清楚。后来发动鸡肉搜索引擎，帮我找到篇比较靠谱的文章《<a href="http://hi.baidu.com/zzz0058/blog/item/0db80c0848b73a35e8248848.html" target="_blank" rel="noopener">把EXE文件注册成服务的方法</a>》，介绍了使用Windows 2000 Resource Kit Tools中两个小程序Instsrv.exe和Srvany.exe可以达到目的，虽然找这两个程序又花了很久，但最终还是搞定了。</p>
+<p>该文提到的步骤比较繁琐，原理大概是以Srvany.exe作为一个shell来启动其它的exe程序作为服务，Instsrv.exe是配合注册服务用的，作为服务的程序路径要记在注册表里。我在实施的时候顺便结合了一下新学习到的sc.exe，为该服务更改了启动方式，并修改描述内容。</p>
+<p>为了方便和我有同样想法的人，干脆写了个批处理脚本，一步实现停止-&gt;删除-&gt;注册-&gt;启动的功能，包括生成注册表文件并导入。</p>
+<ul>
+<li>脚本内容如下：</li>
+</ul>
+<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line"></span><br><span class="line">::设置服务名称</span><br><span class="line"><span class="built_in">set</span> service_name=smtpsvr</span><br><span class="line"></span><br><span class="line">::设置服务描述</span><br><span class="line"><span class="built_in">set</span> service_description=<span class="number">1</span>st smtp server 服务</span><br><span class="line"></span><br><span class="line">::设置服务程序路径</span><br><span class="line"><span class="built_in">set</span> prog_path=D:\\Green Programs\\fstsmtp\\smtpserver.exe</span><br><span class="line"></span><br><span class="line">::设置服务的启动方式 auto:自动 demand:手动 disabled:禁用</span><br><span class="line"><span class="built_in">set</span> strt=auto</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span>                     EasyService 一键服务</span><br><span class="line"><span class="built_in">echo</span> =========================================================== </span><br><span class="line">::<span class="built_in">pause</span></span><br><span class="line">::======================以下部分勿随意修改==========================</span><br><span class="line"><span class="built_in">set</span> s32=<span class="variable">%windir%</span>\system32</span><br><span class="line"><span class="built_in">set</span> reg_file=EasyService.reg</span><br><span class="line"></span><br><span class="line"><span class="built_in">net</span> stop <span class="variable">%service_name%</span> <span class="number">2</span>&gt;<span class="built_in">nul</span></span><br><span class="line"><span class="built_in">copy</span> instsrv.exe <span class="variable">%s32%</span></span><br><span class="line"><span class="built_in">copy</span> srvany.exe <span class="variable">%s32%</span></span><br><span class="line"></span><br><span class="line"><span class="variable">%s32%</span>\instsrv.exe <span class="variable">%service_name%</span> remove <span class="number">2</span>&gt;<span class="built_in">nul</span></span><br><span class="line"><span class="variable">%s32%</span>\instsrv.exe <span class="variable">%service_name%</span> <span class="variable">%s32%</span>\srvany.exe &gt;<span class="built_in">nul</span></span><br><span class="line"></span><br><span class="line">::设置服务的启动方式 auto:自动 demand:手动 disabled:禁用</span><br><span class="line">sc config <span class="variable">%service_name%</span> <span class="built_in">start</span>= <span class="variable">%strt%</span></span><br><span class="line">sc description <span class="variable">%service_name%</span> "<span class="variable">%service_description%</span>"</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> 生成注册表文件...</span><br><span class="line"><span class="built_in">echo</span> Windows Registry Editor Version <span class="number">5</span>.<span class="number">00</span> &gt; <span class="variable">%reg_file%</span></span><br><span class="line"><span class="built_in">echo</span> [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\<span class="variable">%service_name%</span>\Parameters] &gt;&gt; <span class="variable">%reg_file%</span></span><br><span class="line"><span class="built_in">echo</span> "Application"="<span class="variable">%prog_path%</span>" &gt;&gt; <span class="variable">%reg_file%</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> 导入注册表文件...</span><br><span class="line"><span class="variable">%reg_file%</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">net</span> <span class="built_in">start</span> <span class="variable">%service_name%</span></span><br><span class="line"><span class="built_in">echo</span> ===========================完成============================</span><br><span class="line"><span class="built_in">pause</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>使用方法：</li>
+</ul>
+<p>修改脚本中service_name、service_description、prog_path、strt这4个变量的内容，分别设置为服务名、功能描述、程序路径、启动方式，保存后运行脚本，弹出是否导入注册表，选是，大功告成，已在winxp及win2k下测试通过。</p>
+<ul>
+<li>下载：<br><a href="/项目/_attachment/一懒到底——轻松注册Exe程序为Windows系统服务/EasyService.rar">EasyService.rar</a>  包括了Instsrv.exe、Srvany.exe、sc.exe三个程序，是脚本运行的基础。</li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/nt服务-windows服务-注册-系统服务/" rel="tag"># nt服务, windows服务, 注册, 系统服务</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2008/06/12/幸福的程序员/" rel="next" title="幸福的程序员">
+                <i class="fa fa-chevron-left"></i> 幸福的程序员
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2008/07/16/搬家Again/" rel="prev" title="搬家Again">
+                搬家Again <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Cpiz</p>
+              <p class="site-description motion-element" itemprop="description">Cpiz's blog</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">143</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">10</span>
+                    <span class="site-state-item-name">分类</span>
+                  
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">117</span>
+                    <span class="site-state-item-name">标签</span>
+                  
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/cpiz" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:cpiz@qq.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-cpiz"></i>E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Cpiz</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Muse</a> v6.3.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

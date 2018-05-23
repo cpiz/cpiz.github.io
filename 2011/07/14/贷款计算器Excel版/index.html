@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="昨天兴冲冲到农行申请部分提前还款，被银行大姐鄙视了一把。 对话1：  她：你提前还6w5其实意义不大 我：我之前在网上查过，好像能省不止6w5的利息 她：不可能有那么多的 我：那麻烦你帮我算算，我假如今天提前换6w，到最后能少交多少利息？ 她一脸不耐烦算了几分钟，最后说：7w多 我：能省7w多，这对我意义太大了 她：。。。 （大姐是你不懂呢还是真觉得7w块没意义啊？）对话2：我：表格你帮我看看，我">
+<meta name="keywords" content="Excel, 原创, 按揭计算器, 提前还贷计算器, 月供计算器, 贷款计算器">
+<meta property="og:type" content="article">
+<meta property="og:title" content="贷款计算器Excel版">
+<meta property="og:url" content="http://cpiz.com/2011/07/14/贷款计算器Excel版/index.html">
+<meta property="og:site_name" content="Cpiz&#39;s blog">
+<meta property="og:description" content="昨天兴冲冲到农行申请部分提前还款，被银行大姐鄙视了一把。 对话1：  她：你提前还6w5其实意义不大 我：我之前在网上查过，好像能省不止6w5的利息 她：不可能有那么多的 我：那麻烦你帮我算算，我假如今天提前换6w，到最后能少交多少利息？ 她一脸不耐烦算了几分钟，最后说：7w多 我：能省7w多，这对我意义太大了 她：。。。 （大姐是你不懂呢还是真觉得7w块没意义啊？）对话2：我：表格你帮我看看，我">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://cpiz.com/2011/07/14/贷款计算器Excel版/mortgage_loan_calc.jpg">
+<meta property="og:updated_time" content="2018-05-23T16:28:49.581Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="贷款计算器Excel版">
+<meta name="twitter:description" content="昨天兴冲冲到农行申请部分提前还款，被银行大姐鄙视了一把。 对话1：  她：你提前还6w5其实意义不大 我：我之前在网上查过，好像能省不止6w5的利息 她：不可能有那么多的 我：那麻烦你帮我算算，我假如今天提前换6w，到最后能少交多少利息？ 她一脸不耐烦算了几分钟，最后说：7w多 我：能省7w多，这对我意义太大了 她：。。。 （大姐是你不懂呢还是真觉得7w块没意义啊？）对话2：我：表格你帮我看看，我">
+<meta name="twitter:image" content="http://cpiz.com/2011/07/14/贷款计算器Excel版/mortgage_loan_calc.jpg">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Cpiz's blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="canonical" href="http://cpiz.com/2011/07/14/贷款计算器Excel版/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>贷款计算器Excel版 | Cpiz's blog</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Cpiz's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+  
+  
+  
+    
+      
+    
+    <a href="https://github.com/cpiz" class="github-corner" target="_blank" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#222; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg>
+    
+      </a>
+    
+
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://cpiz.com/2011/07/14/贷款计算器Excel版/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cpiz">
+      <meta itemprop="description" content="Cpiz's blog">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cpiz's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">贷款计算器Excel版
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2011-07-14 00:03:00" itemprop="dateCreated datePublished" datetime="2011-07-14T00:03:00+08:00">2011-07-14</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-05-24 00:28:49" itemprop="dateModified" datetime="2018-05-24T00:28:49+08:00">2018-05-24</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/项目/" itemprop="url" rel="index"><span itemprop="name">项目</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>昨天兴冲冲到农行申请部分提前还款，被银行大姐鄙视了一把。</p>
+<p>对话1：</p>
+<blockquote>
+<p>她：你提前还6w5其实意义不大</p>
+<p>我：我之前在网上查过，好像能省不止6w5的利息</p>
+<p>她：不可能有那么多的</p>
+<p>我：那麻烦你帮我算算，我假如今天提前换6w，到最后能少交多少利息？</p>
+<p>她一脸不耐烦算了几分钟，最后说：7w多</p>
+<p>我：能省7w多，这对我意义太大了</p>
+<p>她：。。。</p>
+<p>（大姐是你不懂呢还是真觉得7w块没意义啊？）<br>对话2：<br>我：表格你帮我看看，我提前还贷6w5，想缩短期限，这个调整期数一栏我该怎么填？</p>
+<p>她：你怎么想的嘛？想怎么填就怎么填！</p>
+<p>我：我听说有很多种，比如月供不变缩短期限，或者期限不变减少月供的。我就是不知道具体怎么算，咨询你嘛！</p>
+<p>她：那要看你要怎么样，你怎么填利息就怎么算</p>
+<p>（费了半天劲还是没说不清）</p>
+<p>我：那你帮我算算要是减两年的话，我调整后月供多少？</p>
+<p>她：xxxx</p>
+<p>我：那就行了！<br>吃了没文化的亏，回来后在网上找了不少提前还贷计算器想仔细算一下，能搜到的web版计算器基本都是一个模样的，<strong>不支持浮动利率</strong>，<strong>不支持多次提前还贷</strong>，甚至全都有<a href="http://t.qq.com/p/t/64523082478080" title="提前还贷0元，节省贷款利息数千，新浪教我“发财大计”" target="_blank" rel="noopener">一个可笑的bug：输入提前还贷0元，最后都计算出能省几千大洋</a>。</p>
+</blockquote>
+<p>好，不话唠了。最后我学习了一下等额本息与等额本金的计算方式，用Excel写了一个按揭与提前还贷计算器，基本合意。</p>
+<p>特性如下：</p>
+<ol>
+<li>支持等额本金与等额本息两种计算方式</li>
+<li>支持公积金与商业贷款两种利率，支持利率折扣</li>
+<li>支持调息后录入新利率，<strong>支持浮动利率</strong>（首年按贷款时间点的利率，之后按每年当年1月1号的利息值）</li>
+<li>支持计算每月还款额度，本金与利息的组成，本金剩余与已缴纳利息总计</li>
+<li><strong>支持多次提前还贷</strong>，自动计算每阶段的月供、利息</li>
+<li>支持打印（废话了，excel还能不支持打印？）</li>
+</ol>
+<img src="/2011/07/14/贷款计算器Excel版/mortgage_loan_calc.jpg">
+<p>上图是个例子，我用我自己的情况做参数输入进去是能准确计算的。网上这方面的工具实在不好找，验算可能不完全，有发现问题的同学请回复此文告知。</p>
+<p>补充说明：</p>
+<ol>
+<li>绿色单元格是允许修改的参数</li>
+<li>为了防止失误操作破坏公司公式，增加了工作表保护，密码123</li>
+<li>新利率发布后，可以在利率定义的两个页面进行补充</li>
+</ol>
+<p>20151207 - v1.14</p>
+<p>更新至最新利率表（2015/10/24）</p>
+<p>20141121 - v1.13</p>
+<p>更新2014-11-22日起新利率</p>
+<p>20120808 - v1.12</p>
+<p>-修复自定义利率执行日不准确的问题</p>
+<p>-更新最新的利率表（2012年7月6号）</p>
+<p>20120111 - v1.11</p>
+<p>-增加自定义利率执行日</p>
+<p>-修复商贷5年(含)以下利率选择错误的Bug（之前5年内的商贷利息完全错了-_-!!!，谢谢mm同学的提醒）</p>
+<p>20110911 - v1.01</p>
+<p>-修复了部分Excel2003用户设置首次还款日后不能正确显示还款日期的Bug，版本更新到1.01，之前能正常使用的用户可以不用下载</p>
+<p>下载：</p>
+<p>Excel2003以上版本[download id=”15”]</p>
+<p>Excel97-2003版[download id=”16”]</p>
+<p><strong>由于各家银行制度不一，此计算结果仅用于参考，具体还贷金额以银行通知为准</strong></p>
+<p>原创作品，转载请注明出处</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Excel-原创-按揭计算器-提前还贷计算器-月供计算器-贷款计算器/" rel="tag"># Excel, 原创, 按揭计算器, 提前还贷计算器, 月供计算器, 贷款计算器</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2011/06/22/喜糖记/" rel="next" title="喜糖记">
+                <i class="fa fa-chevron-left"></i> 喜糖记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2011/09/04/Foxmail7.0试用体验/" rel="prev" title="Foxmail 7.0 试用体验">
+                Foxmail 7.0 试用体验 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Cpiz</p>
+              <p class="site-description motion-element" itemprop="description">Cpiz's blog</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">143</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">10</span>
+                    <span class="site-state-item-name">分类</span>
+                  
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">117</span>
+                    <span class="site-state-item-name">标签</span>
+                  
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/cpiz" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:cpiz@qq.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-cpiz"></i>E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Cpiz</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Muse</a> v6.3.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

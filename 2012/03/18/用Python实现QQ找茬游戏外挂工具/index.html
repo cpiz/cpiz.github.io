@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="(原创作品，转载请注明出处)好久没写技术相关的博文，这次写篇有意思的，关于一个有意思的游戏——QQ找茬，关于一种有意思的语音——Python，关于一个有意思的库——Qt。 这是一个用于QQ大家来找茬（美女找茬）的辅助外挂，开发的原因是看到老爸天天在玩这个游戏，分数是惨不忍睹的负4000多。他玩游戏有他的乐趣，并不很在意输赢，我做这个也只是自我娱乐，顺便讨他个好，毕竟我们搞编程的实在难有机会在父辈面">
+<meta name="keywords" content="cx_Freeze, PIL, PyQt4, Python, QQ游戏, 外挂, 大家来找茬">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用Python实现QQ找茬游戏外挂工具">
+<meta property="og:url" content="http://cpiz.com/2012/03/18/用Python实现QQ找茬游戏外挂工具/index.html">
+<meta property="og:site_name" content="Cpiz&#39;s blog">
+<meta property="og:description" content="(原创作品，转载请注明出处)好久没写技术相关的博文，这次写篇有意思的，关于一个有意思的游戏——QQ找茬，关于一种有意思的语音——Python，关于一个有意思的库——Qt。 这是一个用于QQ大家来找茬（美女找茬）的辅助外挂，开发的原因是看到老爸天天在玩这个游戏，分数是惨不忍睹的负4000多。他玩游戏有他的乐趣，并不很在意输赢，我做这个也只是自我娱乐，顺便讨他个好，毕竟我们搞编程的实在难有机会在父辈面">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://pic.yupoo.com/cpiz/BOTyq2xX/medish.jpg">
+<meta property="og:image" content="http://pic.yupoo.com/cpiz/BPaTsP88/uhP9C.png">
+<meta property="og:updated_time" content="2018-05-23T10:53:57.574Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="用Python实现QQ找茬游戏外挂工具">
+<meta name="twitter:description" content="(原创作品，转载请注明出处)好久没写技术相关的博文，这次写篇有意思的，关于一个有意思的游戏——QQ找茬，关于一种有意思的语音——Python，关于一个有意思的库——Qt。 这是一个用于QQ大家来找茬（美女找茬）的辅助外挂，开发的原因是看到老爸天天在玩这个游戏，分数是惨不忍睹的负4000多。他玩游戏有他的乐趣，并不很在意输赢，我做这个也只是自我娱乐，顺便讨他个好，毕竟我们搞编程的实在难有机会在父辈面">
+<meta name="twitter:image" content="http://pic.yupoo.com/cpiz/BOTyq2xX/medish.jpg">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Cpiz's blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="canonical" href="http://cpiz.com/2012/03/18/用Python实现QQ找茬游戏外挂工具/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>用Python实现QQ找茬游戏外挂工具 | Cpiz's blog</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Cpiz's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+  
+  
+  
+    
+      
+    
+    <a href="https://github.com/cpiz" class="github-corner" target="_blank" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#222; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg>
+    
+      </a>
+    
+
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://cpiz.com/2012/03/18/用Python实现QQ找茬游戏外挂工具/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cpiz">
+      <meta itemprop="description" content="Cpiz's blog">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cpiz's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">用Python实现QQ找茬游戏外挂工具
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2012-03-18 19:27:00" itemprop="dateCreated datePublished" datetime="2012-03-18T19:27:00+08:00">2012-03-18</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-05-23 18:53:57" itemprop="dateModified" datetime="2018-05-23T18:53:57+08:00">2018-05-23</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/项目/" itemprop="url" rel="index"><span itemprop="name">项目</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>(原创作品，转载请注明出处)<br>好久没写技术相关的博文，这次写篇有意思的，关于一个有意思的游戏——QQ找茬，关于一种有意思的语音——Python，关于一个有意思的库——Qt。</p>
+<p>这是一个用于QQ大家来找茬（美女找茬）的辅助外挂，开发的原因是看到老爸天天在玩这个游戏，分数是惨不忍睹的负4000多。他玩游戏有他的乐趣，并不很在意输赢，我做这个也只是自我娱乐，顺便讨他个好，毕竟我们搞编程的实在难有机会在父辈面前露露手。本来是想写个很简单的东西，但由于过程中老爸的多次嘲讽，逼得我不得不尽力完善，最后形成了一个小小的产品。</p>
+<p>接触Python是2010年，相见恨晚，去年拿它写了些小玩意，离职前给前公司留下了一个Python+wxPython的工作工具，还挺受欢迎。换公司后努力学习C++&amp;Qt，很后悔当初选择了wxPython而不是PyQt，没能一脉相承。使用Qt越久，不得不越来越喜欢，写这个东西正好就用上了。</p>
+<p>话不多说，进入正题。这不是一篇完整的代码讲解，只是过程中的一些技术做个分享，包括后来被放弃的一些技术点。当初搜索这些东西也挺费力的，在这做个笔记，后来者也许能搜到收益。</p>
+<p>先上个图：</p>
+<p>[caption id=”” align=”aligncenter” width=”600” caption=”话说这位是游戏中出镜最多的MM，和QQ什么关系啊？”]<a href="http://www.yupoo.com/photos/cpiz/84787761/" target="_blank" rel="noopener"><img src="http://pic.yupoo.com/cpiz/BOTyq2xX/medish.jpg" alt="QQ找茬助手" title="QQ找茬助手"></a>[/caption]</p>
+<p>辅助工具在游戏中增加了两个按钮，点击“对比”则自动找“茬”，用蓝色小框标识，点击“擦除”清除标识。more</p>
+<h2 id="游戏窗口探查"><a href="#游戏窗口探查" class="headerlink" title="游戏窗口探查"></a>游戏窗口探查</h2><p>这得用PyWin32库，它是对windows接口的Python封装，VC能做的它基本都行。</p>
+<p>下载地址：<a href="http://sourceforge.net/projects/pywin32/" target="_blank" rel="noopener">http://sourceforge.net/projects/pywin32/</a>，但不能直接点Download图标，不然下下来是一个Readme.txt，点“<a href="http://sourceforge.net/projects/pywin32/files/" title="Browse All Files" target="_blank" rel="noopener">Browse All Files</a>”寻找需要的版本。</p>
+<p>#coding=gbk</p>
+<p>import win32gui</p>
+<p>game_hwnd = win32gui.FindWindow(“#32770”, “大家来找茬”)<br>print game_hwnd<br>QQ找茬是个对话框窗口，Class是“#32770”，这种窗口桌面上有很多，所以还配合了标题“大家来找茬”匹配，又因为是中文，所以第一行指定了使用gbk编码，否则要么找不到，要么运行出错。</p>
+<h2 id="游戏图片提取"><a href="#游戏图片提取" class="headerlink" title="游戏图片提取"></a>游戏图片提取</h2><p>提取图片采用了截屏的方式，找到窗口后将窗口提到最前，再作窗口截屏。截屏使用了大名鼎鼎的<a href="http://www.pythonware.com/products/pil/" title="PIL" target="_blank" rel="noopener">Python Imaging Library (PIL)</a>库。<br>import ImageGrab<br>import win32con</p>
+<p>win32gui.ShowWindow(game_hwnd, win32con.SW_RESTORE)    # 强行显示界面后才好截图<br>win32gui.SetForegroundWindow(game_hwnd)                # 将游戏窗口提到最前</p>
+<h1 id="裁剪得到全图"><a href="#裁剪得到全图" class="headerlink" title="裁剪得到全图"></a>裁剪得到全图</h1><p>game_rect = win32gui.GetWindowRect(game_hwnd)<br>src_image = ImageGrab.grab((game_rect[0] + 9, game_rect[1] + 190, game_rect[2] - 9, game_rect[1] + 190 + 450))</p>
+<h1 id="src-image-show"><a href="#src-image-show" class="headerlink" title="src_image.show()"></a>src_image.show()</h1><h1 id="分别裁剪左右内容图片"><a href="#分别裁剪左右内容图片" class="headerlink" title="分别裁剪左右内容图片"></a>分别裁剪左右内容图片</h1><p>left_box = (9, 0, 500, 450)<br>right_box = (517, 0, 517 + 500, 450)<br>image_left = src_image.crop(left_box)<br>image_right = src_image.crop(right_box)</p>
+<h1 id="image-left-show"><a href="#image-left-show" class="headerlink" title="image_left.show()"></a>image_left.show()</h1><h1 id="image-right-show"><a href="#image-right-show" class="headerlink" title="image_right.show()"></a>image_right.show()</h1><p>上面用到的坐标都为为了演示代码简单填的，实际上使用了变量参数，而且要区分分辨率什么的。<br>PIL是一个强大的Python图形库（<a href="http://www.pythonware.com/library/pil/handbook/index.htm" title="PIL文档" target="_blank" rel="noopener">使用文档</a>），待会的对比分析也须要用到。ImageGrab是PIL的一个模块，用于图像的抓取。不带参数的ImageGrab.grab()进行全屏截屏，返回一个Image对象，也可使用一个元组作为参数指定要截取的范围（左上与右下两点的坐标），这两种截屏都是不带鼠标指针的，还有一个ImageGrab.grabclipboard()可从系统剪贴板采集图像。</p>
+<p>得到Image图像后可用show()方法，使用系统默认的图像查看工具打开，方便调试，也可以用save(filename)保存成文件，对应的可以Image.open(filename)打开获得。</p>
+<p>grab得到了一个包含左右图片的Image对象后，用crop(box)方法可裁剪得到其中指定的区域，分别拿到左右两个游戏图片。</p>
+<h2 id="对比获得两图内容不同的区域"><a href="#对比获得两图内容不同的区域" class="headerlink" title="对比获得两图内容不同的区域"></a>对比获得两图内容不同的区域</h2><p>很自然想到把两图裁剪成N个小图片分别对比，左右统一区域对应的小图片不相等则为“茬”区，唯一的问题是怎么判断两个图片内容不一致？</p>
+<p>一开始以为很会有些麻烦，直到发现了Image.histogram()函数，该函数用于得到图像的颜色直方图。我平常也爱好摄影，知道直方图可以表示一张图片中各种亮度（或颜色）的数量，两张<strong>自然图片</strong>的直方图基本是不一样的，除非两图对称、颜色一致但排列不一，但就算如此，将两图继续分割下去，其子图的直方图也会不一样。直方图就是一种图形到数值的转换，对比两图的颜色数值就可知是否存在差异。</p>
+<p>一张用RBG颜色格式的图像，histogram()函数将返回一个长度为768的数组，第0-255表示红色的0-255，第256-511表色绿色的0-255，第512-767表色蓝色的0-255，数值表示该颜色像素的个数。因此，histogram()列表所有成员之和等于改图像的像素值 x 3。</p>
+<p>写了一个函数，用来获得两图比较的数值差：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">compare</span><span class="params">(image_a, image_b)</span>:</span></span><br><span class="line">    <span class="string">'''返回两图的差异值</span></span><br><span class="line"><span class="string">    返回两图红绿蓝差值万分比之和'''</span></span><br><span class="line">    histogram_a = image_a.histogram()</span><br><span class="line">    histogram_b = image_b.histogram()</span><br><span class="line">    <span class="keyword">if</span> len(histogram_a) != <span class="number">768</span> <span class="keyword">or</span> len(histogram_b) != <span class="number">768</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">None</span></span><br><span class="line"></span><br><span class="line">    red_a = <span class="number">0</span></span><br><span class="line">    red_b = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> xrange(<span class="number">0</span>, <span class="number">256</span>):</span><br><span class="line">        red_a += histogram_a[i + <span class="number">0</span>] * i</span><br><span class="line">        red_b += histogram_b[i + <span class="number">0</span>] * i</span><br><span class="line">    diff_red = <span class="number">0</span></span><br><span class="line">    <span class="keyword">if</span> red_a + red_b &amp;gt; <span class="number">0</span>:</span><br><span class="line">        diff_red = abs(red_a - red_b) * <span class="number">10000</span> / max(red_a, red_b)</span><br><span class="line"></span><br><span class="line">    green_a = <span class="number">0</span></span><br><span class="line">    green_b = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> xrange(<span class="number">0</span>, <span class="number">256</span>):</span><br><span class="line">        green_a += histogram_a[i + <span class="number">256</span>] * i</span><br><span class="line">        green_b += histogram_b[i + <span class="number">256</span>] * i</span><br><span class="line">    diff_green = <span class="number">0</span></span><br><span class="line">    <span class="keyword">if</span> green_a + green_b &amp;gt; <span class="number">0</span>:</span><br><span class="line">        diff_green = abs(green_a - green_b) * <span class="number">10000</span> / max(green_a, green_b)</span><br><span class="line"></span><br><span class="line">    blue_a = <span class="number">0</span></span><br><span class="line">    blue_b = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> xrange(<span class="number">0</span>, <span class="number">256</span>):</span><br><span class="line">        blue_a += histogram_a[i + <span class="number">512</span>] * i</span><br><span class="line">        blue_b += histogram_b[i + <span class="number">512</span>] * i</span><br><span class="line">    diff_blue = <span class="number">0</span></span><br><span class="line">    <span class="keyword">if</span> blue_a + blue_b &amp;gt; <span class="number">0</span>:</span><br><span class="line">        diff_blue = abs(blue_a - blue_b) * <span class="number">10000</span> / max(blue_a, blue_b)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> diff_red, diff_green, diff_blue</span><br></pre></td></tr></table></figure></p>
+<p>将函数返回的红绿蓝差值相加，如果超过了预定定的阀值2000，则表示该区域不同。这个计算方式有点“土”，但对这次要解决的问题很有效，就没再继续改进。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#将左右大图裁剪成多个小图分别进行对比</span></span><br><span class="line">result = [[<span class="number">0</span> <span class="keyword">for</span> a <span class="keyword">in</span> xrange(<span class="number">0</span>, <span class="number">50</span>)] <span class="keyword">for</span> b <span class="keyword">in</span> xrange(<span class="number">0</span>, <span class="number">45</span>)]</span><br><span class="line"><span class="keyword">for</span> col <span class="keyword">in</span> xrange(<span class="number">0</span>, <span class="number">50</span>):</span><br><span class="line">    <span class="keyword">for</span> row <span class="keyword">in</span> xrange(<span class="number">0</span>, <span class="number">45</span>):</span><br><span class="line">        clip_box = (col * <span class="number">10</span>, row * <span class="number">10</span>, (col + <span class="number">1</span>) * <span class="number">10</span>, (row + <span class="number">1</span>) * <span class="number">10</span>)</span><br><span class="line">        clip_image_left = image_left.crop(clip_box)</span><br><span class="line">        clip_image_right = image_right.crop(clip_box)</span><br><span class="line">        clip_diff = self.compare(clip_image_left, clip_image_right)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> sum(clip_diff) &amp;gt; <span class="number">2000</span>:</span><br><span class="line">            result[row][col] = <span class="number">1</span></span><br></pre></td></tr></table></figure></p>
+<p>大图是500x450，分隔成10x10的小块，定义一个50x45的二位数组存储结果，分别比较后将差值大于阀值的数组区域标记为1.</p>
+<h2 id="在游戏上标记两边不同的区域"><a href="#在游戏上标记两边不同的区域" class="headerlink" title="在游戏上标记两边不同的区域"></a>在游戏上标记两边不同的区域</h2><p>最初我用了PyWin32的一些函数，获得游戏窗口句柄后直接在上面绘制，但我不太熟悉Windows编程，不知道如何解决游戏自身重绘后将我的标记擦除的问题，然后搬来了Qt。用Qt创建了一个和游戏大小一样透明的QWidget窗口，叠加在游戏窗口上，用遮罩来绘制标记。标记数据已记录在result数组中，在指定的位置绘制一个方格则表示该区域左右不同，要注意两个方格间的边界不要绘制，避免格子太多干扰了游戏。除标记外，还绘制了两个按钮来触发对比与擦除。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">paintEvent</span><span class="params">(self, event)</span>:</span></span><br><span class="line">    <span class="comment"># 重置遮罩图像</span></span><br><span class="line">    self.pixmap.fill()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 创建绘制用的QPainter，笔画粗细为2像素</span></span><br><span class="line">    <span class="comment"># 事先已经在Qt窗体上铺了一个蓝色的背景图片，因此投过遮罩图案看下去标记线条是蓝色的</span></span><br><span class="line">    p = QPainter(self.pixmap)</span><br><span class="line">    p.setPen(QPen(QBrush(QColor(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>)), <span class="number">2</span>))</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> row <span class="keyword">in</span> xrange(len(self.result)):</span><br><span class="line">        <span class="keyword">for</span> col <span class="keyword">in</span> xrange(len(self.result[<span class="number">0</span>])):</span><br><span class="line">            <span class="keyword">if</span> self.result[row][col] != <span class="number">0</span>:</span><br><span class="line">                <span class="comment"># 定一个基点，避免算数太难看</span></span><br><span class="line">                base_l_x = self.ANCHOR_LEFT_X + self.CLIP_WIDTH * col</span><br><span class="line">                base_r_x = self.ANCHOR_RIGHT_X + self.CLIP_WIDTH * col</span><br><span class="line">                base_y = self.ANCHOR_Y + self.CLIP_HEIGHT * row</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> row == <span class="number">0</span> <span class="keyword">or</span> self.result[row - <span class="number">1</span>][col] == <span class="number">0</span>:</span><br><span class="line">                    <span class="comment"># 如果是第一行，或者上面的格子为空，画一条上边</span></span><br><span class="line">                    p.drawLine(base_l_x, base_y, base_l_x + self.CLIP_WIDTH, base_y)</span><br><span class="line">                    p.drawLine(base_r_x, base_y, base_r_x + self.CLIP_WIDTH, base_y)</span><br><span class="line">                <span class="keyword">if</span> row == len(self.result) - <span class="number">1</span> <span class="keyword">or</span> self.result[row + <span class="number">1</span>][col] == <span class="number">0</span>:</span><br><span class="line">                    <span class="comment"># 如果是最后一行，或者下面的格子为空，画一条下边</span></span><br><span class="line">                    p.drawLine(base_l_x, base_y + self.CLIP_HEIGHT, base_l_x + self.CLIP_WIDTH, base_y + self.CLIP_HEIGHT)</span><br><span class="line">                    p.drawLine(base_r_x, base_y + self.CLIP_HEIGHT, base_r_x + self.CLIP_WIDTH, base_y + self.CLIP_HEIGHT)</span><br><span class="line">                <span class="keyword">if</span> col == <span class="number">0</span> <span class="keyword">or</span> self.result[row][col - <span class="number">1</span>] == <span class="number">0</span>:</span><br><span class="line">                    <span class="comment"># 如果是第一列，或者左边的格子为空，画一条左边</span></span><br><span class="line">                    p.drawLine(base_l_x, base_y, base_l_x, base_y + self.CLIP_HEIGHT)</span><br><span class="line">                    p.drawLine(base_r_x, base_y, base_r_x, base_y + self.CLIP_HEIGHT)</span><br><span class="line">                <span class="keyword">if</span> col == len(self.result[<span class="number">0</span>]) - <span class="number">1</span> <span class="keyword">or</span> self.result[row][col + <span class="number">1</span>] == <span class="number">0</span>:</span><br><span class="line">                    <span class="comment"># 如果是第一列，或者右边的格子为空，画一条右边</span></span><br><span class="line">                    p.drawLine(base_l_x + self.CLIP_WIDTH, base_y, base_l_x + self.CLIP_WIDTH, base_y + self.CLIP_HEIGHT)</span><br><span class="line">                    p.drawLine(base_r_x + self.CLIP_WIDTH, base_y, base_r_x + self.CLIP_WIDTH, base_y + self.CLIP_HEIGHT)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 在遮罩上绘制按钮区域，避免按钮被遮罩挡住看不见</span></span><br><span class="line">    p.fillRect(self.btn_compare.geometry(), QBrush(QColor(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>)))</span><br><span class="line">    p.fillRect(self.btn_toggle.geometry(), QBrush(QColor(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>)))</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 将遮罩图像作为遮罩</span></span><br><span class="line">    self.setMask(QBitmap(self.pixmap))</span><br></pre></td></tr></table></figure></p>
+<p>这里我没有替换变量，太麻烦了，能看清楚算法就行。</p>
+<h2 id="让PyQt程序在任务栏隐藏"><a href="#让PyQt程序在任务栏隐藏" class="headerlink" title="让PyQt程序在任务栏隐藏"></a>让PyQt程序在任务栏隐藏</h2><p>为了让PyQt程序不出现在任务栏，构造QWidget设置了这些属性<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">self.setWindowFlags(Qt.FramelessWindowHint | Qt.WindowStaysOnTopHint | Qt.Popup | Qt.Tool)</span><br></pre></td></tr></table></figure></p>
+<h2 id="让PyQt程序加入系统托盘、资源文件使用"><a href="#让PyQt程序加入系统托盘、资源文件使用" class="headerlink" title="让PyQt程序加入系统托盘、资源文件使用"></a>让PyQt程序加入系统托盘、资源文件使用</h2><p>PyQt添加托盘菜单非常容易，几行代码就可以<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建托盘</span></span><br><span class="line">self.icon = QIcon(<span class="string">":\icon.png"</span>)</span><br><span class="line"></span><br><span class="line">self.trayIcon = QSystemTrayIcon(self)</span><br><span class="line">self.trayIcon.setIcon(self.icon)</span><br><span class="line">self.trayIcon.setToolTip(<span class="string">u"QQ找茬助手"</span>)</span><br><span class="line">self.trayIcon.show()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 托盘气泡消息</span></span><br><span class="line">self.trayIcon.showMessage(<span class="string">u"QQ找茬助手"</span>, <span class="string">u"QQ找茬助手已经待命，进入游戏即可激活"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 托盘菜单</span></span><br><span class="line">self.action = QAction(<span class="string">u"退出QQ找茬助手"</span>, self, triggered = sys.exit) <span class="comment"># 触发点击后调用sys.exit()命令，即退出</span></span><br><span class="line">self.menu = QMenu(self)</span><br><span class="line">self.menu.addAction(self.action)</span><br><span class="line">self.trayIcon.setContextMenu(self.menu)</span><br></pre></td></tr></table></figure></p>
+<p><img src="http://pic.yupoo.com/cpiz/BPaTsP88/uhP9C.png" alt="托盘效果" title="托盘效果"><br>最初我是用的托盘图标是一个.ico文件，执行脚本可以正常显示，但打包成exe后执行在托盘上显示为一个空白图标，用Python的idle工具编译运行也是空白。尝试多次后发现：PyQt的托盘图标不能使用.ico文件，否则会显示空白，换成png格式素材就没问题！</p>
+<h2 id="PyQt资源文件打包"><a href="#PyQt资源文件打包" class="headerlink" title="PyQt资源文件打包"></a>PyQt资源文件打包</h2><p>Qt使用一个.qrc格式的xml文件管理素材，代码用可用:\xxx\xxx.png的方式引用资源文件中的素材，这在PyQt中同样支持。<br>这里我创建了一个resources.qrc文件</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE RCC&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">RCC</span> <span class="attr">version</span>=<span class="string">"1.0"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">qresource</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">file</span>&gt;</span>icon.png<span class="tag">&lt;/<span class="name">file</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">qresource</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">RCC</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>然后用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pyrcc4 resources.qrc &amp;gt; resources.py</span><br></pre></td></tr></table></figure></p>
+<p>命令，将资源文件转成一个python模块，在代码中import resources，则可以用这样的方式使用图像素材<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">self.icon = QIcon(&quot;:\icon.png&quot;)</span><br></pre></td></tr></table></figure></p>
+<h2 id="打包成可执行程序"><a href="#打包成可执行程序" class="headerlink" title="打包成可执行程序"></a>打包成可执行程序</h2><p>这个工具是给别人用的，肯定不能以py脚本的形式发布，我使用了<a href="http://cx-freeze.sourceforge.net/" title="cx_Freeze" target="_blank" rel="noopener">cx_Freeze</a>来打包为可执行程序。<br>为此要写一个打包命令脚本convert2exe.py<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!Python</span></span><br><span class="line"><span class="comment">#coding=gbk</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># python转exe脚本</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># 安装cx_Freeze</span></span><br><span class="line"><span class="comment"># 执行 python convert2exe.py build</span></span><br><span class="line"><span class="comment"># 将自动生成build目录, 其下所有文件都必须打包</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">from</span> cx_Freeze <span class="keyword">import</span> setup, Executable</span><br><span class="line"></span><br><span class="line">base = <span class="keyword">None</span></span><br><span class="line"><span class="keyword">if</span> sys.platform == <span class="string">"win32"</span>:</span><br><span class="line">    base = <span class="string">"Win32GUI"</span></span><br><span class="line"></span><br><span class="line">buildOptions = dict(</span><br><span class="line">    compressed = <span class="keyword">True</span>)</span><br><span class="line"></span><br><span class="line">setup(</span><br><span class="line">        name = <span class="string">"ZhaoChaAssistant"</span>,</span><br><span class="line">        version = <span class="string">"1.0"</span>,</span><br><span class="line">        description = <span class="string">"ZhaoChaAssistant"</span>,</span><br><span class="line">        options = dict(build_exe = buildOptions),</span><br><span class="line">        executables = [Executable(<span class="string">"zhaochaassistant.py"</span>, base = base, icon = <span class="string">"icon.ico"</span>)])</span><br></pre></td></tr></table></figure></p>
+<p>最后执行一个命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python convert2exe.py build</span><br></pre></td></tr></table></figure></p>
+<p>则会在当前路径下创建个build目录，打包的程序就在其中一个exe.win-amd64-2.7的目录中，运行exe即可执行，与Python无二。可惜这个包太大了一些，整个目录达到了30M。<br>为了让exe程序也有一个好看的图标，在最后一行中的executables参数中指定了icon = “icon.ico”，这个图标就最好使用多页的.ico格式(16x16,32x32,48x48…)，让程序在各种显示环境下（桌面、文件夹）都有原生的显示。<br>如果打包的时候必须使用独立的资源，可在buildOptions字典参数中增加一条include_files = [‘xxx.dat’]配置，这样在打包时会将python脚本目录中的xxx.dat文件拷贝到exe目录中，不写的话就得人工拷贝了。</p>
+<h2 id="小技巧：Python获得自己的绝对路径"><a href="#小技巧：Python获得自己的绝对路径" class="headerlink" title="小技巧：Python获得自己的绝对路径"></a>小技巧：Python获得自己的绝对路径</h2><p>Python中有个魔术变量可以得到脚本自身的名称，但转换成exe后该变量失效，这时得改用sys.executable获得可执行程序的名称，可用hasattr(sys, “frozen”)判断自己是否已被打包，下面是一个方便取绝对路径的函数：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">module_path</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">if</span> hasattr(sys, <span class="string">"frozen"</span>):</span><br><span class="line">        <span class="keyword">return</span> os.path.dirname(os.path.abspath(unicode(sys.executable, sys.getfilesystemencoding())))</span><br><span class="line">    <span class="keyword">return</span> os.path.dirname(os.path.abspath(unicode(__file__, sys.getfilesystemencoding())))</span><br></pre></td></tr></table></figure></p>
+<h2 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a>结束语</h2><p>Python可能是程序员最好的玩具，什么都能粘起来，日常写点小工具再合适不过了。</p>
+<p>文中的第三方模块都可以Google获得下载地址，有些库没有Win7 64位的原始版本(比如PIL)，但可到<br><a href="http://www.lfd.uci.edu/~gohlke/pythonlibs/" title="http://www.lfd.uci.edu/~gohlke/pythonlibs/" target="_blank" rel="noopener">http://www.lfd.uci.edu/~gohlke/pythonlibs/</a><br>下载别人编译好的，也很方便。</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/cx-Freeze-PIL-PyQt4-Python-QQ游戏-外挂-大家来找茬/" rel="tag"># cx_Freeze, PIL, PyQt4, Python, QQ游戏, 外挂, 大家来找茬</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2012/02/26/我的手机编年史/" rel="next" title="我的手机编年史">
+                <i class="fa fa-chevron-left"></i> 我的手机编年史
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2012/09/17/海与星——9月15陆丰观音滩露营记/" rel="prev" title="海与星——9月15陆丰观音滩露营记">
+                海与星——9月15陆丰观音滩露营记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Cpiz</p>
+              <p class="site-description motion-element" itemprop="description">Cpiz's blog</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">143</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">10</span>
+                    <span class="site-state-item-name">分类</span>
+                  
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">117</span>
+                    <span class="site-state-item-name">标签</span>
+                  
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/cpiz" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:cpiz@qq.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-cpiz"></i>E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#游戏窗口探查"><span class="nav-number">1.</span> <span class="nav-text">游戏窗口探查</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#游戏图片提取"><span class="nav-number">2.</span> <span class="nav-text">游戏图片提取</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#裁剪得到全图"><span class="nav-number"></span> <span class="nav-text">裁剪得到全图</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#src-image-show"><span class="nav-number"></span> <span class="nav-text">src_image.show()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#分别裁剪左右内容图片"><span class="nav-number"></span> <span class="nav-text">分别裁剪左右内容图片</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#image-left-show"><span class="nav-number"></span> <span class="nav-text">image_left.show()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#image-right-show"><span class="nav-number"></span> <span class="nav-text">image_right.show()</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#对比获得两图内容不同的区域"><span class="nav-number">1.</span> <span class="nav-text">对比获得两图内容不同的区域</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在游戏上标记两边不同的区域"><span class="nav-number">2.</span> <span class="nav-text">在游戏上标记两边不同的区域</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#让PyQt程序在任务栏隐藏"><span class="nav-number">3.</span> <span class="nav-text">让PyQt程序在任务栏隐藏</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#让PyQt程序加入系统托盘、资源文件使用"><span class="nav-number">4.</span> <span class="nav-text">让PyQt程序加入系统托盘、资源文件使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PyQt资源文件打包"><span class="nav-number">5.</span> <span class="nav-text">PyQt资源文件打包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#打包成可执行程序"><span class="nav-number">6.</span> <span class="nav-text">打包成可执行程序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小技巧：Python获得自己的绝对路径"><span class="nav-number">7.</span> <span class="nav-text">小技巧：Python获得自己的绝对路径</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结束语"><span class="nav-number">8.</span> <span class="nav-text">结束语</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Cpiz</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Muse</a> v6.3.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

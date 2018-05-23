@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="今年的互联网媒体们可能不太容易，大行业不景气，风投退缩，巨头抱团，新概念泡沫，没什么话题好挖掘。9月，微信宣布小程序的概念，开始内测，媒体们仿佛鲨鱼闻到血，东西还没看见就炸开了锅，漫天评论：“微信要成操作系统了”、“没必要再开发APP了”、“H5要一统天下了”…… 技术圈子也被点炸，这两年iOS和Android系统趋于稳定，大家终于踩完了坑开始琢磨造点新轮子，突然发现又要被前端抢饭碗，这怎么坐得住">
+<meta property="og:type" content="article">
+<meta property="og:title" content="我看微信小程序">
+<meta property="og:url" content="http://cpiz.com/2016/12/21/我看微信小程序/index.html">
+<meta property="og:site_name" content="Cpiz&#39;s blog">
+<meta property="og:description" content="今年的互联网媒体们可能不太容易，大行业不景气，风投退缩，巨头抱团，新概念泡沫，没什么话题好挖掘。9月，微信宣布小程序的概念，开始内测，媒体们仿佛鲨鱼闻到血，东西还没看见就炸开了锅，漫天评论：“微信要成操作系统了”、“没必要再开发APP了”、“H5要一统天下了”…… 技术圈子也被点炸，这两年iOS和Android系统趋于稳定，大家终于踩完了坑开始琢磨造点新轮子，突然发现又要被前端抢饭碗，这怎么坐得住">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://oi7ynvrxf.bkt.clouddn.com/snap/20161222004453.png">
+<meta property="og:image" content="http://oi7ynvrxf.bkt.clouddn.com/snap/20161222010152.png">
+<meta property="og:updated_time" content="2018-05-23T10:53:13.119Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="我看微信小程序">
+<meta name="twitter:description" content="今年的互联网媒体们可能不太容易，大行业不景气，风投退缩，巨头抱团，新概念泡沫，没什么话题好挖掘。9月，微信宣布小程序的概念，开始内测，媒体们仿佛鲨鱼闻到血，东西还没看见就炸开了锅，漫天评论：“微信要成操作系统了”、“没必要再开发APP了”、“H5要一统天下了”…… 技术圈子也被点炸，这两年iOS和Android系统趋于稳定，大家终于踩完了坑开始琢磨造点新轮子，突然发现又要被前端抢饭碗，这怎么坐得住">
+<meta name="twitter:image" content="http://oi7ynvrxf.bkt.clouddn.com/snap/20161222004453.png">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Cpiz's blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="canonical" href="http://cpiz.com/2016/12/21/我看微信小程序/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>我看微信小程序 | Cpiz's blog</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Cpiz's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+  
+  
+  
+    
+      
+    
+    <a href="https://github.com/cpiz" class="github-corner" target="_blank" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#222; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg>
+    
+      </a>
+    
+
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://cpiz.com/2016/12/21/我看微信小程序/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cpiz">
+      <meta itemprop="description" content="Cpiz's blog">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cpiz's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">我看微信小程序
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2016-12-21 01:38:00" itemprop="dateCreated datePublished" datetime="2016-12-21T01:38:00+08:00">2016-12-21</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-05-23 18:53:13" itemprop="dateModified" datetime="2018-05-23T18:53:13+08:00">2018-05-23</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技术/" itemprop="url" rel="index"><span itemprop="name">技术</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>今年的互联网媒体们可能不太容易，大行业不景气，风投退缩，巨头抱团，新概念泡沫，没什么话题好挖掘。9月，微信宣布小程序的概念，开始内测，媒体们仿佛鲨鱼闻到血，东西还没看见就炸开了锅，漫天评论：“微信要成操作系统了”、“没必要再开发APP了”、“H5要一统天下了”……</p>
+<p>技术圈子也被点炸，这两年iOS和Android系统趋于稳定，大家终于踩完了坑开始琢磨造点新轮子，突然发现又要被前端抢饭碗，这怎么坐得住。</p>
+<p>我对此也挺感兴趣，之前一直想业余做个贷款计算的小APP，又嫌兼顾iOS和Android麻烦一直没动手。小程序如果真能跨平台，这是最好的时机，正好也了解一下这项可能要“抢饭碗”的技术。</p>
+<p>11月，微信开始小程序公测，经过了一番波折的注册与开发，目前我的程序已经通过审核，我也算对这个新平台有了真切的认识，可以谈谈看法了。</p>
+<h2 id="小程序与微信"><a href="#小程序与微信" class="headerlink" title="小程序与微信"></a>小程序与微信</h2><p>先说结论：<strong>短期来看，小程序对于微信的价值远大于对企业的价值</strong>。</p>
+<p>微信早已稳坐国内社交工具的头把交椅，基础功能已经很久没什么大革新，更多的努力在营造生态上，通过统一登录、二维码、支付、公众号等等把自己打造为联接一切的入口。</p>
+<p>小程序对于微信，不是从0到1的新内容，它本身的能力并没有和之前的内嵌H5有本质的飞越。此时推出小程序平台，是因为<strong>微信对自己的生态的过去和未来都有了更清晰的洞见</strong>。</p>
+<h3 id="不是红利，是清流"><a href="#不是红利，是清流" class="headerlink" title="不是红利，是清流"></a>不是红利，是清流</h3><p>2013年8月，微信推出公众号，打开了生态的大门。无数媒体、商家和机构的涌入，将微信从基础的工具建设为繁荣的平台。从市场的结果上来说这是巨大的成功，但从产品的角度上微信并不满意。第一次承担规则的制定者，微信已经足够谨慎，但仍然低估了商家无孔不入的手段。</p>
+<p><strong>微信希望商家提供服务，用户用完即走</strong>，而<strong>商家希望用户订阅，以便日后勾搭</strong>。往往一个扫码 + H5的就能搞定的服务，却得通过扫码 + 关注 + 菜单来达成。繁琐的操作影响了用户的即时体验，后续的广告又伤害了长期的用户体验。</p>
+<p>2016年1月11微信公开课Pro，张小龙首次公开演讲谈微信4大价值观，很不留情地指出商家过度营销实际伤害了微信，并在最后曝光了正在构思的应用号（即小程序）。<strong>小程序通过更强的能力来吸引商家支持，无须下载且无法关注（故意），并进一步限制了推送</strong>。</p>
+<p>前两天的2017公开课上，张小龙提到小程序的启动日是16年1月9日，这就是说他在项目启动两天后就迫不及待地进行了宣布，可见当时他对小程序的期待。</p>
+<p>我大胆揣测一下他的愿景：</p>
+<ul>
+<li>小程序搞定所有服务</li>
+<li>卡券维持商家与用户的关系</li>
+<li>订阅号专心做阅读</li>
+<li>服务号老子不要了</li>
+</ul>
+<p>所以小程序不是什么操作系统和新红利，它目标是成为服务号与部分订阅号的升级替代，天生就带着限制商家的使命，是一股净化环境的清流。</p>
+<h3 id="关键入口：二维码"><a href="#关键入口：二维码" class="headerlink" title="关键入口：二维码"></a>关键入口：二维码</h3><p>二维码其实是个古老的发明，早在Windows Mobile时代就出现在智能手机。当时在日本和台湾有一点应用，但在大陆还很鲜见，偶有新潮人士用来印在名片上别人也看不懂。</p>
+<p>微信在11年底的3.5版本中就引入了二维码，是国内大厂里启动最早的，扫一扫加好友和登录Web微信都还是很新鲜的体验。12年5月，张小龙已经在朋友圈称二维码将是移动互联网的入口。当时我还没有太在意，如今，看见身边各种商品、广告和公共设施上都印上了二维码，中国成为世界上二维码最便利的国家，不得不佩服他的判断和感谢微信的推广。</p>
+<p><img src="http://oi7ynvrxf.bkt.clouddn.com/snap/20161222004453.png" alt="张小龙朋友圈"></p>
+<p><img src="http://oi7ynvrxf.bkt.clouddn.com/snap/20161222010152.png" alt="二维码百度指数"></p>
+<p>从摇一摇到扫一扫，每一次入口的抢占与打通，都是微信的一次超越。小程序这次做的，就是进一步打通微信与服务，而且其关键的入口将仍然是二维码。</p>
+<p>通过扫描二维码，我们通常能够到达：</p>
+<ol>
+<li>人（用户/群名片）</li>
+<li>信息、服务的提供者（订阅号、服务号）</li>
+<li>信息、服务（网页）</li>
+<li>其他微信内置功能，如授权、支付</li>
+</ol>
+<p>小程序将改进第3点的体验与能力，让其达到与原生功能（第4点）相近的程度。尽管通过网页也能实现大部分的服务，但这种量变的影响很可能带来质变的反应。一旦成功，那微信将成为一切服务的入口</p>
+<h3 id="线上入口在哪里"><a href="#线上入口在哪里" class="headerlink" title="线上入口在哪里"></a>线上入口在哪里</h3><p>官方的说法是仅提供有限的搜索和消息转发，结合小程序注册要求的命名推荐和唯一性要求，应该可以确定小程序搜索逻辑将和目前公众号的搜索区别不大。微信只提供运行的环境，用户应该由服务商自己去搞定。而且以小程序用完即走的目标，不急着用服务的用户根本不应该被打扰，所以干脆连分享到朋友圈的口子都不开。</p>
+<p>我挺喜欢这个逻辑，简单又粗暴，微信从技术的角度也只能做到如此。只是等到1月9号开闸之后，一定有无数的公众号开始发布小程序的推荐和榜单，因为还有二维码这个口子在，朋友圈也难逃轰炸。</p>
+<p>当用户使用过小程序之后，会有一个地方存放它们的图标，可以通过它们再次使用。而且这次安卓用户有特别的福利，如果你喜欢一个小程序，可以为它建立桌面图标，像普通应用一样运行。</p>
+<p>对于这一点我倒是持保留意见，这增加了不同平台体验的差异，而且对小程序用完即走的精神是个反面的引导。</p>
+<h2 id="什么样的小程序是好程序"><a href="#什么样的小程序是好程序" class="headerlink" title="什么样的小程序是好程序"></a>什么样的小程序是好程序</h2><p>任何对开发小程序有兴趣的公司或机构都应该先阅读这篇<a href="https://mp.weixin.qq.com/debug/wxadoc/product/index.html" target="_blank" rel="noopener">微信小程序平台运营规范</a>，有空的话再去看看张小龙这两届公开课上的演讲。我提炼后的大白话是只要<strong>能立即给用户带来价值的服务</strong>，关键字是<strong>立即</strong>和<strong>价值</strong>。</p>
+<p>微信努力把小程序做到小而迅速，就是为了让用户能直达目标，所以<strong>应该努力避免让用户在小程序里做选择，而将这个过程前移，让用户看到二维码或链接名称的时候就知道将得到什么</strong>，经典的榜样是二维码支付。用户进入小程序后，最好在一两个页面内解决问题（原则上就不允许你超过5个页面），然后赶紧离开（每个页面都强制增加了关闭按钮）。</p>
+<p>小程序发布前必须提交微信审核，提审时要求开发者选择一个类目。目前小程序类目的开放非常有限（<a href="http://www.wxapp-union.com/article-811-1.html" target="_blank" rel="noopener">参考</a>），而且审核非常严格，一旦不符就可能耽误近一周的审核时间（我的亲历）。还有，小程序最多圈定5个类目，这个范围每个月才允许修改一次。最近看到一些同学开发了不少社区类的小程序，我没有找到对应的类目，不知道到时候上不了线是怎样一种心情。</p>
+<p>从诸多的限制上看，微信对于小程序的开发秉持了异常谨慎的态度。小程序的类目未来一定会逐渐开放，但现在不欢迎的东西以后也不会欢迎，很多厂商现在就可以死心了。</p>
+<h2 id="适合小程序的业务场景"><a href="#适合小程序的业务场景" class="headerlink" title="适合小程序的业务场景"></a>适合小程序的业务场景</h2><p>首先繁荣的是将会是线下，一切你需要信息、服务、联接的场景的都可能有小程序需求，无脑列举一批</p>
+<ul>
+<li>生活、交通、旅游、餐饮类信息与服务获取（当你需要的时候，身边可能就有二维码）</li>
+<li>医务、政务、商务的指引和办理（以前微信内的城市服务，很可能会被导出）</li>
+<li>企业自己的办公小程序，家庭自己的内务小程序</li>
+<li>智能硬件的控制类小程序，甚至任何商品上可能有服务类小程序（没准这才是物联网的第一阶段）</li>
+</ul>
+<p>线上入口更多会集中资讯、电商、工具类，我个人特别期待在教育类方向会出现一些新创新。</p>
+<h2 id="小程序的未来"><a href="#小程序的未来" class="headerlink" title="小程序的未来"></a>小程序的未来</h2><p>距离小程序发布还有10来天，目前舆论的声音都是欣喜多于担忧，跌了好久的腾讯股票也在公开课后抬头。但就如我之前的结论：短期内小程序对于微信的价值大于企业，它的设计目标偏重用户单向索取服务，对于的收费服务这是利好，对于占大头的免费服务，却看得见用户摸不着钱包。如何满足这类企业的胃口，是微信下一个课题。</p>
+<p>根据后续的反馈，小程序未来肯定会开放更多的类目，也有可能向个人开发者开放。我最期待的是增加盈利的途径，如广点通、捐赠，喂饱了开发者的平台才是好平台。</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/12/16/使用IDEA单步调试Leancloud云引擎服务/" rel="next" title="使用IDEA单步调试Leancloud云引擎服务（Java）">
+                <i class="fa fa-chevron-left"></i> 使用IDEA单步调试Leancloud云引擎服务（Java）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/01/10/小程序「100房贷助手」诞生记/" rel="prev" title="小程序「100房贷助手」诞生记">
+                小程序「100房贷助手」诞生记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Cpiz</p>
+              <p class="site-description motion-element" itemprop="description">Cpiz's blog</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">143</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">10</span>
+                    <span class="site-state-item-name">分类</span>
+                  
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">117</span>
+                    <span class="site-state-item-name">标签</span>
+                  
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/cpiz" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:cpiz@qq.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-cpiz"></i>E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#小程序与微信"><span class="nav-number">1.</span> <span class="nav-text">小程序与微信</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#不是红利，是清流"><span class="nav-number">1.1.</span> <span class="nav-text">不是红利，是清流</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关键入口：二维码"><span class="nav-number">1.2.</span> <span class="nav-text">关键入口：二维码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线上入口在哪里"><span class="nav-number">1.3.</span> <span class="nav-text">线上入口在哪里</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么样的小程序是好程序"><span class="nav-number">2.</span> <span class="nav-text">什么样的小程序是好程序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#适合小程序的业务场景"><span class="nav-number">3.</span> <span class="nav-text">适合小程序的业务场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小程序的未来"><span class="nav-number">4.</span> <span class="nav-text">小程序的未来</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Cpiz</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Muse</a> v6.3.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

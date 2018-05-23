@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="截止今日，微信小程序正式开放一周。作为一个参与者，同时也是观察者，我来回顾一下这周微信小程序见闻与体验。 前夜1月8日，小程序发布前夜。我加入的两个小程序微信群开始热闹起来，大家纷纷猜测小程序究竟会当夜开放还是次日开放，或者是延期。有部分觉悟慢的同学还在临时抱佛脚，问一些很基础的问题。我当时猜测应该会等到9号白天上班后发布，理由是系统太庞大，夜里发布如果出了问题，可能不好找人解决。 9日0点，群里">
+<meta property="og:type" content="article">
+<meta property="og:title" content="小程序周记">
+<meta property="og:url" content="http://cpiz.com/2017/01/17/小程序周记/index.html">
+<meta property="og:site_name" content="Cpiz&#39;s blog">
+<meta property="og:description" content="截止今日，微信小程序正式开放一周。作为一个参与者，同时也是观察者，我来回顾一下这周微信小程序见闻与体验。 前夜1月8日，小程序发布前夜。我加入的两个小程序微信群开始热闹起来，大家纷纷猜测小程序究竟会当夜开放还是次日开放，或者是延期。有部分觉悟慢的同学还在临时抱佛脚，问一些很基础的问题。我当时猜测应该会等到9号白天上班后发布，理由是系统太庞大，夜里发布如果出了问题，可能不好找人解决。 9日0点，群里">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://static.zybuluo.com/caipiz/3nm8fcqtv5cdmjebk67x9434/image_1b6jp9kru1tdl36j15lfrsokph9.png">
+<meta property="og:image" content="http://static.zybuluo.com/caipiz/br6yxtxml02vzm9ot10d6cj0/image_1b6k0bi911m9iehh1j2d1gtf4qi13.png">
+<meta property="og:image" content="http://static.zybuluo.com/caipiz/cu3x76xxs3ofp05plmq3klzj/image_1b6k19kct1j0d8ng1gl0oek4v51g.png">
+<meta property="og:image" content="http://static.zybuluo.com/caipiz/7xbmsxxw8sgzfhjqw29g9l4b/image_1b6m50srbuqektnr1nob1166e9.png">
+<meta property="og:updated_time" content="2018-05-23T10:53:13.128Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="小程序周记">
+<meta name="twitter:description" content="截止今日，微信小程序正式开放一周。作为一个参与者，同时也是观察者，我来回顾一下这周微信小程序见闻与体验。 前夜1月8日，小程序发布前夜。我加入的两个小程序微信群开始热闹起来，大家纷纷猜测小程序究竟会当夜开放还是次日开放，或者是延期。有部分觉悟慢的同学还在临时抱佛脚，问一些很基础的问题。我当时猜测应该会等到9号白天上班后发布，理由是系统太庞大，夜里发布如果出了问题，可能不好找人解决。 9日0点，群里">
+<meta name="twitter:image" content="http://static.zybuluo.com/caipiz/3nm8fcqtv5cdmjebk67x9434/image_1b6jp9kru1tdl36j15lfrsokph9.png">
+
+
+  
+
+
+  <link rel="alternate" href="/atom.xml" title="Cpiz's blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="canonical" href="http://cpiz.com/2017/01/17/小程序周记/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>小程序周记 | Cpiz's blog</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Cpiz's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+  
+  
+  
+    
+      
+    
+    <a href="https://github.com/cpiz" class="github-corner" target="_blank" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#222; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg>
+    
+      </a>
+    
+
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://cpiz.com/2017/01/17/小程序周记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cpiz">
+      <meta itemprop="description" content="Cpiz's blog">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cpiz's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">小程序周记
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2017-01-17 20:49:00" itemprop="dateCreated datePublished" datetime="2017-01-17T20:49:00+08:00">2017-01-17</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-05-23 18:53:13" itemprop="dateModified" datetime="2018-05-23T18:53:13+08:00">2018-05-23</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技术/" itemprop="url" rel="index"><span itemprop="name">技术</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>截止今日，微信小程序正式开放一周。作为一个参与者，同时也是观察者，我来回顾一下这周微信小程序见闻与体验。</p>
+<h2 id="前夜"><a href="#前夜" class="headerlink" title="前夜"></a>前夜</h2><p>1月8日，小程序发布前夜。我加入的两个小程序微信群开始热闹起来，大家纷纷猜测小程序究竟会当夜开放还是次日开放，或者是延期。有部分觉悟慢的同学还在临时抱佛脚，问一些很基础的问题。我当时猜测应该会等到9号白天上班后发布，理由是系统太庞大，夜里发布如果出了问题，可能不好找人解决。</p>
+<p>9日0点，群里突然炸开，连续出现了小程序的分享名片，微信小程序踩着0点正式开放了！捂着热辣辣的脸，我只能佩服微信团队艺高胆大，半夜发布意味着整个鹅厂与此相关的员工都在待命。</p>
+<p>匆忙打开电脑进入小程序后台，原来不可用的发布按钮已经可以点击了，接下来扫描二维码确认身份，发布了我的小程序「100房贷助手」几天前的已过审版本，然后又把最近提的一个体验版本提交了审核。由于微信审核的不可测原理，估计很多开发者都和我一样：尽早提审了第一个版本来确保赶上9号的发布，等到通过审核时，第二个版本也准备好了，只能Hold着等首个版本发出后再提。</p>
+<p>微信群里越来越热，大家都在发自己的小程序名片，也分享在别处看到的小程序，还有抱着不同目的的人迅速组织了更多的微信群，我进了两三个，质量都不高。这两天读了一篇某个小程序项目团队的分享，说他们当晚加了200多个微信群和300多个QQ群来做产品曝光，这确实给我上了一课。</p>
+<p>微信半夜小程序发布的好处是夜里用户量少，对系统冲击也少。让一批开发者和IT媒体们提前体验正好相当于灰度，也能趁天亮前有时间做些调整。更大的好处是：大多数小程序开发者都在等零点可能发布，媒体们也在摩拳擦掌，等普通用户们第二天起床处于信息饥饿状态时，新鲜的小程序资讯正好送上。</p>
+<h2 id="发布日"><a href="#发布日" class="headerlink" title="发布日"></a>发布日</h2><p>9日早晨，我起床注意到的第一条消息不是新闻，而是昨晚提交的版本已经审核通过的通知。<br><img src="http://static.zybuluo.com/caipiz/3nm8fcqtv5cdmjebk67x9434/image_1b6jp9kru1tdl36j15lfrsokph9.png" alt="image_1b6jp9kru1tdl36j15lfrsokph9.png-90.6kB"><br>之前两次审核分别用了6天值1天，这次竟然8小时神速过审，应该是微信预料了发布日的拥挤，安排了加班甚至是通宵在处理审核。</p>
+<p>我擦了擦眼睛，迅速进行了发布。同时注意到，不同于首个版本的发布即可见，当已经有旧版本在线上时，新版本发布大概要延后3分钟生效。当然这比我们传统的APP发布要等待用户逐渐升级快速多了。</p>
+<p>媒体果然爆炸了，朋友圈和知乎里到处是小程序的话题。得益于赶上了首批发布，我在几个微信群里做了入口分享，而且发布的前几天我在<code>知晓程序</code>的小程序商店(minapp.com)里提交了产品介绍。「100房贷助手」在当天很多小程序新闻稿中得到了曝光，后台监控到不断有新用户进来体验，为此我赶紧多加了一个服务节点避免过载。</p>
+<p>其实首日发布的小程序并不多，微信在9月份开放了200个小程序内测名额，这些公司也成了首日为微信小程序站台的主体。我个人看来，除了通过微信分享卡片式的小程序页面能提升一些体验，其他惊喜并不多，很少有H5做不到只能小程序才能完成的场景。</p>
+<p>更大的尴尬是：越有影响力的大厂们越能更早开发出更完善的小程序，也有更大的吸引力来让用户体验他们的小程序。但往往这样的大厂都是通过线上来变现的，当把用户吸引进了一个他们无法变现的小程序黑洞中，那自己也就没了生路。很多低频的APP被用户卸载，这让厂家很心痛，但却合理至极。</p>
+<h2 id="后续"><a href="#后续" class="headerlink" title="后续"></a>后续</h2><p>第一天结束时媒体们傻眼了，昨天通宵赶文章还写微信即将要统治手机，看了一天下来发现不是这么回事，只能拿点段子交差。</p>
+<p>接下来几天小程序热度明显下降，开有有少数公司停止了微信小程序的服务，还有部分类目被监管叫停。现在又有媒体出来泼冷水了，嘲笑微信没格局不开放。</p>
+<p>其实微信也很委屈，本来期望的场景是线下，但反应最快传播也最快的总是线上，他们来了不爽就走。而线下的企业反应慢一些，服务铺开也需要时间，这需要更多的耐心来栽培。媒体自作多情，怪我咯？</p>
+<h2 id="数据分享"><a href="#数据分享" class="headerlink" title="数据分享"></a>数据分享</h2><p>目前在小程序后台已经可以看到一周的数据统计，拿「100房贷助手」两个数据做一个简单的解读。</p>
+<p><img src="http://static.zybuluo.com/caipiz/br6yxtxml02vzm9ot10d6cj0/image_1b6k0bi911m9iehh1j2d1gtf4qi13.png" alt="image_1b6k0bi911m9iehh1j2d1gtf4qi13.png-81.7kB"></p>
+<p>第一天因为赶上首发名单得到了不错的曝光，用户量较高，但第二天数据则出现大幅下降，直到第6、7天开始趋稳。对于一个没有持续投放的小工具产品来说，这个趋势是很正常的。但这无疑也吻合了微信小程序的热度，即5天后该来尝鲜的用户已经来得差不多了。</p>
+<p><img src="http://static.zybuluo.com/caipiz/cu3x76xxs3ofp05plmq3klzj/image_1b6k19kct1j0d8ng1gl0oek4v51g.png" alt="image_1b6k19kct1j0d8ng1gl0oek4v51g.png-173.3kB"></p>
+<p>以上是小程序的百度指数，趋势接近。</p>
+<p>虽然大部分用户是尝鲜游客，而且其中大部分并没有真正的使用（无有效数据录入），但也值得高兴。正是因为程序赶上了首发，获得了一定的曝光，才带来的这波“蜜蜂”。这些尝鲜的用户会帮忙分享给有需要的朋友，以后自已有需求了也可能再来。</p>
+<p>另一个数据是平均停留时长<br><img src="http://static.zybuluo.com/caipiz/7xbmsxxw8sgzfhjqw29g9l4b/image_1b6m50srbuqektnr1nob1166e9.png" alt="image_1b6m50srbuqektnr1nob1166e9.png-86kB"><br>总体在缓慢增长，说明用户开始在正在的使用产品，这是好的现象。</p>
+<p>微信可能在用完即走这个概念上走太极端了，后台竟然不支持最关键的用户存留分析，希望未来能够加入。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>一点经验和教训，如果再重来一次，怎么低成本让小程序在发布首日后获得更多用户呢？</p>
+<ol>
+<li>前期和发布日的大范围分享、投递。这会带来首批媒体稿中较高的曝光。</li>
+<li>精美图标 + 有趣的名字。最好让人一看到就痒，产品曝光后更容易被尝鲜客试用。</li>
+<li>有趣的内容，促使用户强烈的分享冲动（我相信分享是未来小程序的革命级特性）。</li>
+<li>持续的价值 + 精美的制作。必须有持续的价值才能长久，精美制作有助于第二波的曝光与用户分享。</li>
+</ol>
+<p>最后再自问自答一次：小程序有没有红利？<br>没有通常意义的流量红利，只能算一次热点事件，而且已经结束了。我相信更长远的红利是有的，可能需要等待下一个杀手级小程序的引爆。</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/01/10/小程序「100房贷助手」诞生记/" rel="next" title="小程序「100房贷助手」诞生记">
+                <i class="fa fa-chevron-left"></i> 小程序「100房贷助手」诞生记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Cpiz</p>
+              <p class="site-description motion-element" itemprop="description">Cpiz's blog</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">143</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">10</span>
+                    <span class="site-state-item-name">分类</span>
+                  
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">117</span>
+                    <span class="site-state-item-name">标签</span>
+                  
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/cpiz" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:cpiz@qq.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-cpiz"></i>E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前夜"><span class="nav-number">1.</span> <span class="nav-text">前夜</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#发布日"><span class="nav-number">2.</span> <span class="nav-text">发布日</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#后续"><span class="nav-number">3.</span> <span class="nav-text">后续</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据分享"><span class="nav-number">4.</span> <span class="nav-text">数据分享</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Cpiz</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Muse</a> v6.3.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

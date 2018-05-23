@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="把自己的爱好作为职业是怎么样的体验？  知乎有很多类似的讨论，我算是很符合要求的一人吧。从高中开始，编程就是我的爱好，因为爱好，选择了大学专业，选择了最终的职业。 做自己喜欢的事当然开心，但职业中的选择有限，很多的时候只能重复无聊或执行并不认同的工作。累觉不爱的时候就得找点真心想做的项目来弥补一下，所以对我来说编程既是工作，也是消遣。 11年的时候由于自己有需求，写了一个Excel版贷款计算器">
+<meta property="og:type" content="article">
+<meta property="og:title" content="小程序「100房贷助手」诞生记">
+<meta property="og:url" content="http://cpiz.com/2017/01/10/小程序「100房贷助手」诞生记/index.html">
+<meta property="og:site_name" content="Cpiz&#39;s blog">
+<meta property="og:description" content="把自己的爱好作为职业是怎么样的体验？  知乎有很多类似的讨论，我算是很符合要求的一人吧。从高中开始，编程就是我的爱好，因为爱好，选择了大学专业，选择了最终的职业。 做自己喜欢的事当然开心，但职业中的选择有限，很多的时候只能重复无聊或执行并不认同的工作。累觉不爱的时候就得找点真心想做的项目来弥补一下，所以对我来说编程既是工作，也是消遣。 11年的时候由于自己有需求，写了一个Excel版贷款计算器">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://cpiz.com/2017/01/10/小程序「100房贷助手」诞生记/Mortgage_Calculator_title.png">
+<meta property="og:image" content="http://static.zybuluo.com/caipiz/0vyts9drr28iqbridxhdttpp/gh_1786c7d53423_258.jpg">
+<meta property="og:updated_time" content="2018-05-23T16:05:27.400Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="小程序「100房贷助手」诞生记">
+<meta name="twitter:description" content="把自己的爱好作为职业是怎么样的体验？  知乎有很多类似的讨论，我算是很符合要求的一人吧。从高中开始，编程就是我的爱好，因为爱好，选择了大学专业，选择了最终的职业。 做自己喜欢的事当然开心，但职业中的选择有限，很多的时候只能重复无聊或执行并不认同的工作。累觉不爱的时候就得找点真心想做的项目来弥补一下，所以对我来说编程既是工作，也是消遣。 11年的时候由于自己有需求，写了一个Excel版贷款计算器">
+<meta name="twitter:image" content="http://cpiz.com/2017/01/10/小程序「100房贷助手」诞生记/Mortgage_Calculator_title.png">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Cpiz's blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="canonical" href="http://cpiz.com/2017/01/10/小程序「100房贷助手」诞生记/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>小程序「100房贷助手」诞生记 | Cpiz's blog</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Cpiz's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+  
+  
+  
+    
+      
+    
+    <a href="https://github.com/cpiz" class="github-corner" target="_blank" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#222; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg>
+    
+      </a>
+    
+
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://cpiz.com/2017/01/10/小程序「100房贷助手」诞生记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cpiz">
+      <meta itemprop="description" content="Cpiz's blog">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cpiz's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">小程序「100房贷助手」诞生记
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2017-01-10 21:40:00" itemprop="dateCreated datePublished" datetime="2017-01-10T21:40:00+08:00">2017-01-10</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-05-24 00:05:27" itemprop="dateModified" datetime="2018-05-24T00:05:27+08:00">2018-05-24</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/项目/" itemprop="url" rel="index"><span itemprop="name">项目</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <img src="/2017/01/10/小程序「100房贷助手」诞生记/Mortgage_Calculator_title.png">
+<blockquote>
+<p>把自己的爱好作为职业是怎么样的体验？</p>
+</blockquote>
+<p>知乎有很多类似的讨论，我算是很符合要求的一人吧。从高中开始，编程就是我的爱好，因为爱好，选择了大学专业，选择了最终的职业。</p>
+<p>做自己喜欢的事当然开心，但职业中的选择有限，很多的时候只能重复无聊或执行并不认同的工作。累觉不爱的时候就得找点真心想做的项目来弥补一下，所以对我来说编程既是工作，也是消遣。</p>
+<p>11年的时候由于自己有需求，写了一个<a href="http://cpiz.com/post/blog/2011/07/mortgage_loan_calculator_excel_edition/">Excel版贷款计算器</a>，解决了<strong>利率变更</strong>和<strong>提前还款计算</strong>两个痛点，程序发布在网上也收获了不少用户的好评。但现在已经是移动互联网时代，经常只是想看一眼数据却得掏出PC和Excel这种重武器，还是不太方便，如果改成APP就好了。我把这个想法告诉了我的用户，他们也表示了很大的期待。</p>
+<p>前阵子学习Android的新语言Kotlin，正好拿这个项目练手。Kotlin很赞，我很快上手并完成了核心算法，开始写界面。然后微信小程序来了，经过短暂的了解，我决定转向用小程序来实现。</p>
+<h2 id="为什么用小程序？"><a href="#为什么用小程序？" class="headerlink" title="为什么用小程序？"></a>为什么用小程序？</h2><p>能力上，小程序基于阉割的H5，但微信提供了丰富的组件和API并保证了足够的性能，体验上和原生应用几乎无异，足够支持大部分的功能型应用。</p>
+<p>成本上，它天生解决了跨平台的问题，意味着开发工作量可以减少一半，或者开发人员可以减掉一半。</p>
+<p>交付上，有微信这个国民应用做Runtime，小程序只需要打包核心的代码逻辑，可以做到秒下秒开，将传统的APP扫码下载安装过程中的流失减到最低。直接发布的特性同时也解决了传统APP多平台、多版本兼容的问题。</p>
+<p>推广上，微信已经占有了线上（消息）和线下（二维码）最大的渠道和入口，传统应用都不可避免要支持分享到微信和微信扫码。而小程序天然内置在微信中，基于微信好友和群的现成关系，很容易被传播分享。</p>
+<p>以上都是我们传统APP开发者多年梦寐以求的特性，虽然小程序也有很多限制和不足，但对于我要做的这个小工具，它是完美的选择。</p>
+<h2 id="我能收获什么？"><a href="#我能收获什么？" class="headerlink" title="我能收获什么？"></a>我能收获什么？</h2><p>我不打算在最短的时间内把它搞定然后不管，否则这比赶工作还更无趣，我更希望把它当做一次有趣的实践，尽可能体验从0到1这个过程中相关的一切。</p>
+<p>JavaScript是现在最活跃的编程语言，不仅跨过了Web页和服务端，近一年大热的React Native和Weex已经开始攻占移动端的地盘。移动端开发者如果还不主动了解，那就太迟钝了。从小程序入门，正好是一个机会。</p>
+<p>小程序是微信近两年最大的动作，目标和特性都昭示了巨大的野心。它究竟能做到什么程度，未来会如何发展，只有参与了才有可靠的判断。</p>
+<p>工作中我负责客户端，跟产品磨跟UI磨跟后端跟测试磨，大量的时间用在沟通和等待上，最终的交付也有很多不甘的妥协。这次我一人全栈，终于有机会做一个只让自己满意的产品，顺便体验一下不同职能的思考，对未来工作也有益处。</p>
+<p>从未接触过产品的运营和推广，想在小程序的生态中探索一下盈利模式。先定一个小目标：收回成本！</p>
+<p>张小龙对微信的寄托是“做一款伟大的产品取悦自己”，不知道此生我有没有这样的机会，至少目前我还可以<strong>做一款满意的小程序取悦自己</strong>。</p>
+<h2 id="「100房贷助手」的目标"><a href="#「100房贷助手」的目标" class="headerlink" title="「100房贷助手」的目标"></a>「100房贷助手」的目标</h2><p>买房是成家的必经之路，贷款又是买房的必经之路，起码中国如此。我经历过在银行办贷款签几十个名字的激动与担忧，合同还没看清楚就欠了上百万的负债，每月省吃俭用担心破产，央行降息让我暗暗开心，好不容易存了点钱去提前还款，又被银行大姐问到蒙圈。直到我认真研究了一下贷款的机制，开启了对理财的新认识。</p>
+<p>我将我对贷款的知识与经验，装进这个小程序，并赋予它随时访问，轻松分享的能力。希望这个小工具，能<strong>帮助要购房和已购房的年轻人做点决策，清楚掌握自己的债务情况，做好财务规划，维持信用</strong>。</p>
+<p>目前已经完成了基础的功能，还在继续打磨。如果你有更多的需要和建议，可以给我反馈。</p>
+<p>谢谢！</p>
+<hr>
+<blockquote>
+<p>准备贷款，想知道能承受多高的额度，月供多少。</p>
+<p>已经贷款，央行宣布利息下/上调xx点，想知道月供会如何变化。</p>
+<p>提前还款，想知道能缩短多少期限，节约多少利息。</p>
+<p>用100房贷助手，让一切简单！</p>
+</blockquote>
+<p><img src="http://static.zybuluo.com/caipiz/0vyts9drr28iqbridxhdttpp/gh_1786c7d53423_258.jpg" alt="gh_1786c7d53423_258.jpg-29.7kB"></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/12/21/我看微信小程序/" rel="next" title="我看微信小程序">
+                <i class="fa fa-chevron-left"></i> 我看微信小程序
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/01/17/小程序周记/" rel="prev" title="小程序周记">
+                小程序周记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Cpiz</p>
+              <p class="site-description motion-element" itemprop="description">Cpiz's blog</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">143</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">10</span>
+                    <span class="site-state-item-name">分类</span>
+                  
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">117</span>
+                    <span class="site-state-item-name">标签</span>
+                  
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/cpiz" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:cpiz@qq.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-cpiz"></i>E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么用小程序？"><span class="nav-number">1.</span> <span class="nav-text">为什么用小程序？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#我能收获什么？"><span class="nav-number">2.</span> <span class="nav-text">我能收获什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#「100房贷助手」的目标"><span class="nav-number">3.</span> <span class="nav-text">「100房贷助手」的目标</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Cpiz</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Muse</a> v6.3.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
