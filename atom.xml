@@ -35,14 +35,14 @@
     
     </summary>
     
-      <category term="技术" scheme="http://cpiz.com/categories/%E6%8A%80%E6%9C%AF/"/>
+      <category term="技术" scheme="http://cpiz.com/category/%E6%8A%80%E6%9C%AF/"/>
     
     
-      <category term="小程序" scheme="http://cpiz.com/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
+      <category term="小程序" scheme="http://cpiz.com/tag/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
     
-      <category term="微信" scheme="http://cpiz.com/tags/%E5%BE%AE%E4%BF%A1/"/>
+      <category term="微信" scheme="http://cpiz.com/tag/%E5%BE%AE%E4%BF%A1/"/>
     
-      <category term="房贷助手" scheme="http://cpiz.com/tags/%E6%88%BF%E8%B4%B7%E5%8A%A9%E6%89%8B/"/>
+      <category term="房贷助手" scheme="http://cpiz.com/tag/%E6%88%BF%E8%B4%B7%E5%8A%A9%E6%89%8B/"/>
     
   </entry>
   
@@ -68,14 +68,14 @@
     
     </summary>
     
-      <category term="项目" scheme="http://cpiz.com/categories/%E9%A1%B9%E7%9B%AE/"/>
+      <category term="项目" scheme="http://cpiz.com/category/%E9%A1%B9%E7%9B%AE/"/>
     
     
-      <category term="小程序" scheme="http://cpiz.com/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
+      <category term="小程序" scheme="http://cpiz.com/tag/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
     
-      <category term="微信" scheme="http://cpiz.com/tags/%E5%BE%AE%E4%BF%A1/"/>
+      <category term="微信" scheme="http://cpiz.com/tag/%E5%BE%AE%E4%BF%A1/"/>
     
-      <category term="房贷助手" scheme="http://cpiz.com/tags/%E6%88%BF%E8%B4%B7%E5%8A%A9%E6%89%8B/"/>
+      <category term="房贷助手" scheme="http://cpiz.com/tag/%E6%88%BF%E8%B4%B7%E5%8A%A9%E6%89%8B/"/>
     
   </entry>
   
@@ -98,12 +98,12 @@
     
     </summary>
     
-      <category term="技术" scheme="http://cpiz.com/categories/%E6%8A%80%E6%9C%AF/"/>
+      <category term="技术" scheme="http://cpiz.com/category/%E6%8A%80%E6%9C%AF/"/>
     
     
-      <category term="小程序" scheme="http://cpiz.com/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
+      <category term="小程序" scheme="http://cpiz.com/tag/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
     
-      <category term="微信" scheme="http://cpiz.com/tags/%E5%BE%AE%E4%BF%A1/"/>
+      <category term="微信" scheme="http://cpiz.com/tag/%E5%BE%AE%E4%BF%A1/"/>
     
   </entry>
   
@@ -125,12 +125,12 @@
     
     </summary>
     
-      <category term="技术" scheme="http://cpiz.com/categories/%E6%8A%80%E6%9C%AF/"/>
+      <category term="技术" scheme="http://cpiz.com/category/%E6%8A%80%E6%9C%AF/"/>
     
     
-      <category term="IDEA" scheme="http://cpiz.com/tags/IDEA/"/>
+      <category term="IDEA" scheme="http://cpiz.com/tag/IDEA/"/>
     
-      <category term="LeanCloud" scheme="http://cpiz.com/tags/LeanCloud/"/>
+      <category term="LeanCloud" scheme="http://cpiz.com/tag/LeanCloud/"/>
     
   </entry>
   
@@ -152,12 +152,12 @@
     
     </summary>
     
-      <category term="技术" scheme="http://cpiz.com/categories/%E6%8A%80%E6%9C%AF/"/>
+      <category term="技术" scheme="http://cpiz.com/category/%E6%8A%80%E6%9C%AF/"/>
     
     
-      <category term="LeanCloud" scheme="http://cpiz.com/tags/LeanCloud/"/>
+      <category term="LeanCloud" scheme="http://cpiz.com/tag/LeanCloud/"/>
     
-      <category term="Kotlin" scheme="http://cpiz.com/tags/Kotlin/"/>
+      <category term="Kotlin" scheme="http://cpiz.com/tag/Kotlin/"/>
     
   </entry>
   
@@ -180,12 +180,12 @@
     
     </summary>
     
-      <category term="建站" scheme="http://cpiz.com/categories/%E5%BB%BA%E7%AB%99/"/>
+      <category term="建站" scheme="http://cpiz.com/category/%E5%BB%BA%E7%AB%99/"/>
     
     
-      <category term="博客" scheme="http://cpiz.com/tags/%E5%8D%9A%E5%AE%A2/"/>
+      <category term="博客" scheme="http://cpiz.com/tag/%E5%8D%9A%E5%AE%A2/"/>
     
-      <category term="建站" scheme="http://cpiz.com/tags/%E5%BB%BA%E7%AB%99/"/>
+      <category term="建站" scheme="http://cpiz.com/tag/%E5%BB%BA%E7%AB%99/"/>
     
   </entry>
   
@@ -208,12 +208,12 @@
     
     </summary>
     
-      <category term="生活" scheme="http://cpiz.com/categories/%E7%94%9F%E6%B4%BB/"/>
+      <category term="生活" scheme="http://cpiz.com/category/%E7%94%9F%E6%B4%BB/"/>
     
     
-      <category term="旅行" scheme="http://cpiz.com/tags/%E6%97%85%E8%A1%8C/"/>
+      <category term="旅行" scheme="http://cpiz.com/tag/%E6%97%85%E8%A1%8C/"/>
     
-      <category term="车" scheme="http://cpiz.com/tags/%E8%BD%A6/"/>
+      <category term="车" scheme="http://cpiz.com/tag/%E8%BD%A6/"/>
     
   </entry>
   
@@ -236,14 +236,14 @@
     
     </summary>
     
-      <category term="项目" scheme="http://cpiz.com/categories/%E9%A1%B9%E7%9B%AE/"/>
+      <category term="项目" scheme="http://cpiz.com/category/%E9%A1%B9%E7%9B%AE/"/>
     
     
-      <category term="Clarisonic" scheme="http://cpiz.com/tags/Clarisonic/"/>
+      <category term="Clarisonic" scheme="http://cpiz.com/tag/Clarisonic/"/>
     
-      <category term="DIY" scheme="http://cpiz.com/tags/DIY/"/>
+      <category term="DIY" scheme="http://cpiz.com/tag/DIY/"/>
     
-      <category term="修理" scheme="http://cpiz.com/tags/%E4%BF%AE%E7%90%86/"/>
+      <category term="修理" scheme="http://cpiz.com/tag/%E4%BF%AE%E7%90%86/"/>
     
   </entry>
   
@@ -266,14 +266,14 @@
     
     </summary>
     
-      <category term="生活" scheme="http://cpiz.com/categories/%E7%94%9F%E6%B4%BB/"/>
+      <category term="生活" scheme="http://cpiz.com/category/%E7%94%9F%E6%B4%BB/"/>
     
     
-      <category term="摄影" scheme="http://cpiz.com/tags/%E6%91%84%E5%BD%B1/"/>
+      <category term="摄影" scheme="http://cpiz.com/tag/%E6%91%84%E5%BD%B1/"/>
     
-      <category term="旅行" scheme="http://cpiz.com/tags/%E6%97%85%E8%A1%8C/"/>
+      <category term="旅行" scheme="http://cpiz.com/tag/%E6%97%85%E8%A1%8C/"/>
     
-      <category term="沙巴" scheme="http://cpiz.com/tags/%E6%B2%99%E5%B7%B4/"/>
+      <category term="沙巴" scheme="http://cpiz.com/tag/%E6%B2%99%E5%B7%B4/"/>
     
   </entry>
   
@@ -295,14 +295,14 @@
     
     </summary>
     
-      <category term="生活" scheme="http://cpiz.com/categories/%E7%94%9F%E6%B4%BB/"/>
+      <category term="生活" scheme="http://cpiz.com/category/%E7%94%9F%E6%B4%BB/"/>
     
     
-      <category term="摄影" scheme="http://cpiz.com/tags/%E6%91%84%E5%BD%B1/"/>
+      <category term="摄影" scheme="http://cpiz.com/tag/%E6%91%84%E5%BD%B1/"/>
     
-      <category term="旅行" scheme="http://cpiz.com/tags/%E6%97%85%E8%A1%8C/"/>
+      <category term="旅行" scheme="http://cpiz.com/tag/%E6%97%85%E8%A1%8C/"/>
     
-      <category term="沙巴" scheme="http://cpiz.com/tags/%E6%B2%99%E5%B7%B4/"/>
+      <category term="沙巴" scheme="http://cpiz.com/tag/%E6%B2%99%E5%B7%B4/"/>
     
   </entry>
   
@@ -325,14 +325,14 @@
     
     </summary>
     
-      <category term="生活" scheme="http://cpiz.com/categories/%E7%94%9F%E6%B4%BB/"/>
+      <category term="生活" scheme="http://cpiz.com/category/%E7%94%9F%E6%B4%BB/"/>
     
     
-      <category term="摄影" scheme="http://cpiz.com/tags/%E6%91%84%E5%BD%B1/"/>
+      <category term="摄影" scheme="http://cpiz.com/tag/%E6%91%84%E5%BD%B1/"/>
     
-      <category term="旅行" scheme="http://cpiz.com/tags/%E6%97%85%E8%A1%8C/"/>
+      <category term="旅行" scheme="http://cpiz.com/tag/%E6%97%85%E8%A1%8C/"/>
     
-      <category term="沙巴" scheme="http://cpiz.com/tags/%E6%B2%99%E5%B7%B4/"/>
+      <category term="沙巴" scheme="http://cpiz.com/tag/%E6%B2%99%E5%B7%B4/"/>
     
   </entry>
   
@@ -355,16 +355,16 @@
     
     </summary>
     
-      <category term="项目" scheme="http://cpiz.com/categories/%E9%A1%B9%E7%9B%AE/"/>
+      <category term="项目" scheme="http://cpiz.com/category/%E9%A1%B9%E7%9B%AE/"/>
     
     
-      <category term="GFW" scheme="http://cpiz.com/tags/GFW/"/>
+      <category term="GFW" scheme="http://cpiz.com/tag/GFW/"/>
     
-      <category term="Dropbox" scheme="http://cpiz.com/tags/Dropbox/"/>
+      <category term="Dropbox" scheme="http://cpiz.com/tag/Dropbox/"/>
     
-      <category term="VBS" scheme="http://cpiz.com/tags/VBS/"/>
+      <category term="VBS" scheme="http://cpiz.com/tag/VBS/"/>
     
-      <category term="Script" scheme="http://cpiz.com/tags/Script/"/>
+      <category term="Script" scheme="http://cpiz.com/tag/Script/"/>
     
   </entry>
   
@@ -386,18 +386,18 @@
     
     </summary>
     
-      <category term="生活" scheme="http://cpiz.com/categories/%E7%94%9F%E6%B4%BB/"/>
+      <category term="生活" scheme="http://cpiz.com/category/%E7%94%9F%E6%B4%BB/"/>
     
     
-      <category term="旅游" scheme="http://cpiz.com/tags/%E6%97%85%E6%B8%B8/"/>
+      <category term="旅游" scheme="http://cpiz.com/tag/%E6%97%85%E6%B8%B8/"/>
     
-      <category term="户外" scheme="http://cpiz.com/tags/%E6%88%B7%E5%A4%96/"/>
+      <category term="户外" scheme="http://cpiz.com/tag/%E6%88%B7%E5%A4%96/"/>
     
-      <category term="海" scheme="http://cpiz.com/tags/%E6%B5%B7/"/>
+      <category term="海" scheme="http://cpiz.com/tag/%E6%B5%B7/"/>
     
-      <category term="露营" scheme="http://cpiz.com/tags/%E9%9C%B2%E8%90%A5/"/>
+      <category term="露营" scheme="http://cpiz.com/tag/%E9%9C%B2%E8%90%A5/"/>
     
-      <category term="驴友" scheme="http://cpiz.com/tags/%E9%A9%B4%E5%8F%8B/"/>
+      <category term="驴友" scheme="http://cpiz.com/tag/%E9%A9%B4%E5%8F%8B/"/>
     
   </entry>
   
@@ -420,22 +420,22 @@
     
     </summary>
     
-      <category term="项目" scheme="http://cpiz.com/categories/%E9%A1%B9%E7%9B%AE/"/>
+      <category term="项目" scheme="http://cpiz.com/category/%E9%A1%B9%E7%9B%AE/"/>
     
     
-      <category term="cx_Freeze" scheme="http://cpiz.com/tags/cx-Freeze/"/>
+      <category term="cx_Freeze" scheme="http://cpiz.com/tag/cx-Freeze/"/>
     
-      <category term="PIL" scheme="http://cpiz.com/tags/PIL/"/>
+      <category term="PIL" scheme="http://cpiz.com/tag/PIL/"/>
     
-      <category term="PyQt4" scheme="http://cpiz.com/tags/PyQt4/"/>
+      <category term="PyQt4" scheme="http://cpiz.com/tag/PyQt4/"/>
     
-      <category term="Python" scheme="http://cpiz.com/tags/Python/"/>
+      <category term="Python" scheme="http://cpiz.com/tag/Python/"/>
     
-      <category term="QQ游戏" scheme="http://cpiz.com/tags/QQ%E6%B8%B8%E6%88%8F/"/>
+      <category term="QQ游戏" scheme="http://cpiz.com/tag/QQ%E6%B8%B8%E6%88%8F/"/>
     
-      <category term="外挂" scheme="http://cpiz.com/tags/%E5%A4%96%E6%8C%82/"/>
+      <category term="外挂" scheme="http://cpiz.com/tag/%E5%A4%96%E6%8C%82/"/>
     
-      <category term="大家来找茬" scheme="http://cpiz.com/tags/%E5%A4%A7%E5%AE%B6%E6%9D%A5%E6%89%BE%E8%8C%AC/"/>
+      <category term="大家来找茬" scheme="http://cpiz.com/tag/%E5%A4%A7%E5%AE%B6%E6%9D%A5%E6%89%BE%E8%8C%AC/"/>
     
   </entry>
   
@@ -457,10 +457,10 @@
     
     </summary>
     
-      <category term="生活" scheme="http://cpiz.com/categories/%E7%94%9F%E6%B4%BB/"/>
+      <category term="生活" scheme="http://cpiz.com/category/%E7%94%9F%E6%B4%BB/"/>
     
     
-      <category term="手机" scheme="http://cpiz.com/tags/%E6%89%8B%E6%9C%BA/"/>
+      <category term="手机" scheme="http://cpiz.com/tag/%E6%89%8B%E6%9C%BA/"/>
     
   </entry>
   
@@ -484,18 +484,18 @@
     
     </summary>
     
-      <category term="生活" scheme="http://cpiz.com/categories/%E7%94%9F%E6%B4%BB/"/>
+      <category term="生活" scheme="http://cpiz.com/category/%E7%94%9F%E6%B4%BB/"/>
     
     
-      <category term="总结" scheme="http://cpiz.com/tags/%E6%80%BB%E7%BB%93/"/>
+      <category term="总结" scheme="http://cpiz.com/tag/%E6%80%BB%E7%BB%93/"/>
     
-      <category term="青春" scheme="http://cpiz.com/tags/%E9%9D%92%E6%98%A5/"/>
+      <category term="青春" scheme="http://cpiz.com/tag/%E9%9D%92%E6%98%A5/"/>
     
-      <category term="工作" scheme="http://cpiz.com/tags/%E5%B7%A5%E4%BD%9C/"/>
+      <category term="工作" scheme="http://cpiz.com/tag/%E5%B7%A5%E4%BD%9C/"/>
     
-      <category term="理想" scheme="http://cpiz.com/tags/%E7%90%86%E6%83%B3/"/>
+      <category term="理想" scheme="http://cpiz.com/tag/%E7%90%86%E6%83%B3/"/>
     
-      <category term="生活" scheme="http://cpiz.com/tags/%E7%94%9F%E6%B4%BB/"/>
+      <category term="生活" scheme="http://cpiz.com/tag/%E7%94%9F%E6%B4%BB/"/>
     
   </entry>
   
@@ -518,7 +518,7 @@
     
     </summary>
     
-      <category term="扯淡" scheme="http://cpiz.com/categories/%E6%89%AF%E6%B7%A1/"/>
+      <category term="扯淡" scheme="http://cpiz.com/category/%E6%89%AF%E6%B7%A1/"/>
     
     
   </entry>
@@ -543,12 +543,12 @@
     
     </summary>
     
-      <category term="生活" scheme="http://cpiz.com/categories/%E7%94%9F%E6%B4%BB/"/>
+      <category term="生活" scheme="http://cpiz.com/category/%E7%94%9F%E6%B4%BB/"/>
     
     
-      <category term="摄影" scheme="http://cpiz.com/tags/%E6%91%84%E5%BD%B1/"/>
+      <category term="摄影" scheme="http://cpiz.com/tag/%E6%91%84%E5%BD%B1/"/>
     
-      <category term="旅游" scheme="http://cpiz.com/tags/%E6%97%85%E6%B8%B8/"/>
+      <category term="旅游" scheme="http://cpiz.com/tag/%E6%97%85%E6%B8%B8/"/>
     
   </entry>
   
@@ -572,14 +572,14 @@
     
     </summary>
     
-      <category term="生活" scheme="http://cpiz.com/categories/%E7%94%9F%E6%B4%BB/"/>
+      <category term="生活" scheme="http://cpiz.com/category/%E7%94%9F%E6%B4%BB/"/>
     
     
-      <category term="摄影" scheme="http://cpiz.com/tags/%E6%91%84%E5%BD%B1/"/>
+      <category term="摄影" scheme="http://cpiz.com/tag/%E6%91%84%E5%BD%B1/"/>
     
-      <category term="跑步" scheme="http://cpiz.com/tags/%E8%B7%91%E6%AD%A5/"/>
+      <category term="跑步" scheme="http://cpiz.com/tag/%E8%B7%91%E6%AD%A5/"/>
     
-      <category term="运动" scheme="http://cpiz.com/tags/%E8%BF%90%E5%8A%A8/"/>
+      <category term="运动" scheme="http://cpiz.com/tag/%E8%BF%90%E5%8A%A8/"/>
     
   </entry>
   
@@ -601,12 +601,12 @@
     
     </summary>
     
-      <category term="生活" scheme="http://cpiz.com/categories/%E7%94%9F%E6%B4%BB/"/>
+      <category term="生活" scheme="http://cpiz.com/category/%E7%94%9F%E6%B4%BB/"/>
     
     
-      <category term="跑步" scheme="http://cpiz.com/tags/%E8%B7%91%E6%AD%A5/"/>
+      <category term="跑步" scheme="http://cpiz.com/tag/%E8%B7%91%E6%AD%A5/"/>
     
-      <category term="运动" scheme="http://cpiz.com/tags/%E8%BF%90%E5%8A%A8/"/>
+      <category term="运动" scheme="http://cpiz.com/tag/%E8%BF%90%E5%8A%A8/"/>
     
   </entry>
   
