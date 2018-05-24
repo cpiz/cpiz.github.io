@@ -11,10 +11,8 @@
 
 
 
-  
 
-
-<html class="theme-next muse use-motion" lang="zh-CN">
+<html class="theme-next mist" lang="zh-CN">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -84,14 +82,14 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Mist',
     version: '6.3.0',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: false,
     fastclick: false,
     lazyload: false,
     tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     algolia: {
       applicationID: '',
       apiKey: '',
@@ -260,6 +258,14 @@
 
       
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+        </li>
+      
     </ul>
   
 
@@ -268,6 +274,29 @@
 
   
 
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
   
 </nav>
 
@@ -317,7 +346,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://cpiz.com/2008/06/13/一懒到底——轻松注册Exe程序为Windows系统服务/">
+    <link itemprop="mainEntityOfPage" href="http://cpiz.com/2008/09/23/钢琴/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Cpiz">
@@ -336,8 +365,8 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2008/06/13/一懒到底——轻松注册Exe程序为Windows系统服务/" itemprop="url">
-                  一懒到底——轻松注册Exe程序为Windows系统服务
+                <a class="post-title-link" href="/2008/09/23/钢琴/" itemprop="url">
+                  钢琴
                 </a>
               
             
@@ -363,7 +392,7 @@
                 
               
 
-              <time title="创建时间：2008-06-13 22:26:00" itemprop="dateCreated datePublished" datetime="2008-06-13T22:26:00+08:00">2008-06-13</time>
+              <time title="创建时间：2008-09-23 21:06:09" itemprop="dateCreated datePublished" datetime="2008-09-23T21:06:09+08:00">2008-09-23</time>
             
 
             
@@ -380,1591 +409,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-05-23 18:53:57" itemprop="dateModified" datetime="2018-05-23T18:53:57+08:00">2018-05-23</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/项目/" itemprop="url" rel="index"><span itemprop="name">项目</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>前几天搞那个邮件接口的程序，用到一个叫1st smtp server的程序来做smtp服务器，但这个东西是不支持以服务方式运行的，又不能像java一样使用java service wrapper。Google了几个小时，看到有介绍用sc.exe注册系统服务的文章，但压根就不能用，新添加的服务怎么也启不来，有说要改注册表的，又说了半天也说不清楚。后来发动鸡肉搜索引擎，帮我找到篇比较靠谱的文章《<a href="http://hi.baidu.com/zzz0058/blog/item/0db80c0848b73a35e8248848.html" target="_blank" rel="noopener">把EXE文件注册成服务的方法</a>》，介绍了使用Windows 2000 Resource Kit Tools中两个小程序Instsrv.exe和Srvany.exe可以达到目的，虽然找这两个程序又花了很久，但最终还是搞定了。</p>
-<p>该文提到的步骤比较繁琐，原理大概是以Srvany.exe作为一个shell来启动其它的exe程序作为服务，Instsrv.exe是配合注册服务用的，作为服务的程序路径要记在注册表里。我在实施的时候顺便结合了一下新学习到的sc.exe，为该服务更改了启动方式，并修改描述内容。</p>
-<p>为了方便和我有同样想法的人，干脆写了个批处理脚本，一步实现停止-&gt;删除-&gt;注册-&gt;启动的功能，包括生成注册表文件并导入。</p>
-<ul>
-<li>脚本内容如下：</li>
-</ul>
-<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line"></span><br><span class="line">::设置服务名称</span><br><span class="line"><span class="built_in">set</span> service_name=smtpsvr</span><br><span class="line"></span><br><span class="line">::设置服务描述</span><br><span class="line"><span class="built_in">set</span> service_description=<span class="number">1</span>st smtp server 服务</span><br><span class="line"></span><br><span class="line">::设置服务程序路径</span><br><span class="line"><span class="built_in">set</span> prog_path=D:\\Green Programs\\fstsmtp\\smtpserver.exe</span><br><span class="line"></span><br><span class="line">::设置服务的启动方式 auto:自动 demand:手动 disabled:禁用</span><br><span class="line"><span class="built_in">set</span> strt=auto</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span>                     EasyService 一键服务</span><br><span class="line"><span class="built_in">echo</span> =========================================================== </span><br><span class="line">::<span class="built_in">pause</span></span><br><span class="line">::======================以下部分勿随意修改==========================</span><br><span class="line"><span class="built_in">set</span> s32=<span class="variable">%windir%</span>\system32</span><br><span class="line"><span class="built_in">set</span> reg_file=EasyService.reg</span><br><span class="line"></span><br><span class="line"><span class="built_in">net</span> stop <span class="variable">%service_name%</span> <span class="number">2</span>&gt;<span class="built_in">nul</span></span><br><span class="line"><span class="built_in">copy</span> instsrv.exe <span class="variable">%s32%</span></span><br><span class="line"><span class="built_in">copy</span> srvany.exe <span class="variable">%s32%</span></span><br><span class="line"></span><br><span class="line"><span class="variable">%s32%</span>\instsrv.exe <span class="variable">%service_name%</span> remove <span class="number">2</span>&gt;<span class="built_in">nul</span></span><br><span class="line"><span class="variable">%s32%</span>\instsrv.exe <span class="variable">%service_name%</span> <span class="variable">%s32%</span>\srvany.exe &gt;<span class="built_in">nul</span></span><br><span class="line"></span><br><span class="line">::设置服务的启动方式 auto:自动 demand:手动 disabled:禁用</span><br><span class="line">sc config <span class="variable">%service_name%</span> <span class="built_in">start</span>= <span class="variable">%strt%</span></span><br><span class="line">sc description <span class="variable">%service_name%</span> "<span class="variable">%service_description%</span>"</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> 生成注册表文件...</span><br><span class="line"><span class="built_in">echo</span> Windows Registry Editor Version <span class="number">5</span>.<span class="number">00</span> &gt; <span class="variable">%reg_file%</span></span><br><span class="line"><span class="built_in">echo</span> [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\<span class="variable">%service_name%</span>\Parameters] &gt;&gt; <span class="variable">%reg_file%</span></span><br><span class="line"><span class="built_in">echo</span> "Application"="<span class="variable">%prog_path%</span>" &gt;&gt; <span class="variable">%reg_file%</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> 导入注册表文件...</span><br><span class="line"><span class="variable">%reg_file%</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">net</span> <span class="built_in">start</span> <span class="variable">%service_name%</span></span><br><span class="line"><span class="built_in">echo</span> ===========================完成============================</span><br><span class="line"><span class="built_in">pause</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>使用方法：</li>
-</ul>
-<p>修改脚本中service_name、service_description、prog_path、strt这4个变量的内容，分别设置为服务名、功能描述、程序路径、启动方式，保存后运行脚本，弹出是否导入注册表，选是，大功告成，已在winxp及win2k下测试通过。</p>
-<ul>
-<li>下载：<br><a href="/项目/_attachment/一懒到底——轻松注册Exe程序为Windows系统服务/EasyService.rar">EasyService.rar</a>  包括了Instsrv.exe、Srvany.exe、sc.exe三个程序，是脚本运行的基础。</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://cpiz.com/2008/06/12/幸福的程序员/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Cpiz">
-      <meta itemprop="description" content="Cpiz's blog">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Cpiz's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2008/06/12/幸福的程序员/" itemprop="url">
-                  幸福的程序员
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2008-06-12 01:54:53" itemprop="dateCreated datePublished" datetime="2008-06-12T01:54:53+08:00">2008-06-12</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-05-23 18:53:57" itemprop="dateModified" datetime="2018-05-23T18:53:57+08:00">2018-05-23</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/项目/" itemprop="url" rel="index"><span itemprop="name">项目</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>趁着端午的三天假，重拾java，写了一个小邮件程序：定期扫描一张数据表，其结构对应一份E-mail的，并有一个预期时间字段，当前时间如果大于设定的内容，则发出该E-mail。</p>
-<p>我每天收到的系统告警及运行状态之类的非人类短信从数十条到数百条，经常是等手机短信满了才看一遍，或者是根据铃声的密集度来确定告警级别，这种状况已经彻底消灭了我对短信的兴趣，也起不到及时通知的作用了。写这个程序的初衷是尝试把我从这无尽的短信之洋中解救出来，每天用shell去给自己及相关人员生成系统状态报告，写进程序的接口表里去，很快就发出了邮件，也能起到存档的作用。</p>
-<p>这几天里，越来越感到当一个java程序员是多么幸福，有如此多优秀工具及丰富的API库，开发的过程真的是很惬意。下面介绍一下我这个小项目中用到的各种好东西，可能是我比较孤陋寡闻，高手看了不要鄙视。。。</p>
-<p>开发环境自然首先Eclipse，陪伴多年的好工具了，回到那熟悉的编辑界面，再次用到那些快遗忘的的快捷键，顿时满足感Max。编辑XML自然有很cool的xmlbuddy插件帮忙，打包也有方便的fatjar。</p>
-<p>想发邮件，有现成的javamail库，引入项目后简单几行就能搞出个Hello World。本来是想用公网上的smtp服务器，后来才发现现在免费的服务并不像以前那么好使了。网易新注册的免费信箱已经停止了pop3和smtp服务，Google的偶尔会被盾，21cn.com的会被防垃圾邮件系统阻挡，后来找到了可用的sogou信箱，也因为调试得太频繁而被禁，不得已还是找了个软件自己建了个smtp服务器1st mail server，又好又强大，起码发件人可以自定义了。</p>
-<p>想整个完善点的日志系统，本来想搜索一下找点参考，才发现jdk从1.4起就内置了强大的java.util.logging包，欣喜地学习了一下。</p>
-<p>想灵活的读写配置文件，又找到了Apache Commons Configuration，支持8种常用的配置读写。顺着挖下去，看了下Apache Commons里的其它工具，幸福地哭了。。。</p>
-<p>在公司的机器上也改了下程序，和自己的电脑用邮件来同步代码颇不方便，于是又找到了Google Code，提供免费的版本控制服务，前提是得开源，再次激动了一下…顺便学习了一下svn，以后写些脚本什么的管理就方便了。</p>
-<p>程序写完后要部署才发现在Windows上想让程序后台运行可没Unix/Linux上方便，于是又搜到了Java Service Wrapper，可以把java程序部署为windows的系统服务。这又是一个强大的东西，还实现了我程序中的部分日志功能。</p>
-<p>感想：作为一个IT人员，<strong>眼界</strong>很大程度上决定了自身的发展，这么多的现成东西可以借用，如果还傻乎乎去写实在是很浪费时间。平常多搜集些实用的模块，自己也多注意代码的积累与复用，就能把更多精力放在那些更须要关注的地方，长而久之想不牛逼都难啊～</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://cpiz.com/2008/05/19/国殇/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Cpiz">
-      <meta itemprop="description" content="Cpiz's blog">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Cpiz's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2008/05/19/国殇/" itemprop="url">
-                  国殇
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2008-05-19 22:33:25" itemprop="dateCreated datePublished" datetime="2008-05-19T22:33:25+08:00">2008-05-19</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-05-23 18:53:12" itemprop="dateModified" datetime="2018-05-23T18:53:12+08:00">2018-05-23</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/思考/" itemprop="url" rel="index"><span itemprop="name">思考</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>早晨在去公司的路上，远远的看见民航花园酒店飘在旗杆中间的红旗，突然就有泪落的感觉。印象中上一次全国降半旗是邓小平辞世，这一次却有几万的生命消失，几十万的人家园被毁，我希望再也不会有下一次，我们就算有130亿的人口，也经受不住这么痛的伤。</p>
-<p>下午14：28分，全办公室的同事起立默哀，窗外笛声长鸣，无言的另一面是痛苦的吼。新浪的首页不知什么时候改成了灰，看到了天安门广场默哀后万人高喊加油的视频。这不是为某一个运动员加油，也不是为某一支队伍，这是为我们的民族在呐喊。全世界都看到，我们是最有爱的民族，无论是西藏人，无论是四川人，都是我们的家人。</p>
-<p><img src="http://i1.sinaimg.cn/dy/468/2008/0519/U1565P1T468D210F10665DT20080519184320.jpg" alt=""></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://cpiz.com/2008/05/18/平安中国/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Cpiz">
-      <meta itemprop="description" content="Cpiz's blog">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Cpiz's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2008/05/18/平安中国/" itemprop="url">
-                  平安中国
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2008-05-18 22:15:34" itemprop="dateCreated datePublished" datetime="2008-05-18T22:15:34+08:00">2008-05-18</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-05-23 18:53:12" itemprop="dateModified" datetime="2018-05-23T18:53:12+08:00">2018-05-23</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/思考/" itemprop="url" rel="index"><span itemprop="name">思考</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>期待了很久的2008年8月8日, 随着冻灾–藏独–脱轨–地震越来越近, 每一次都有众多的同胞受难, 每一步都让人泪落心伤.</p>
-<p>那天下午, 办公室有人说刚才地震了, 一开始还以为是玩笑, 随即QQ各个群里都传开了消息, 貌似全国都在地震, 心想这次级别肯定不低. 半个多小时后, 最终确认为震中在汶川, 7.8级. 因为还没有听到伤亡的消息, 我仍然在各个群里和网友们谈论着, 查知汶川是个小地方, 应该不会有非常大的损失. 最终估算的伤亡数字公布出来时, 呆了…今天, 国家地震局已经重新修正了震级为8.0, 目前已造成32477人遇难, 220109人受伤, 国务院确定5月19日至21日为全国哀悼日.</p>
-<p>央视这次非常迅速地进行了直播, 看着那些哭喊的画面, 一排排的尸体, 想想那些被砖石下孩子, 无比的痛心…好恨自己不能到现场去帮上忙. 下午从电视上看到一位同胞, 坚持了100多个小时后终于被救了出来, 却在送往治疗的路上结束了生命. 我们虽然在几天内捐了90个亿, 但再多的钱也买不回他们的性命, 无比的苦涩与无奈.</p>
-<p>想了很多, 堵在心里写不出来. 愿逝者安息, 生者当永远保持着此刻的凝聚, 让世界看到我们是最伟大的民族!</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://cpiz.com/2008/05/08/备案通过/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Cpiz">
-      <meta itemprop="description" content="Cpiz's blog">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Cpiz's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2008/05/08/备案通过/" itemprop="url">
-                  备案通过
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2008-05-08 00:20:56" itemprop="dateCreated datePublished" datetime="2008-05-08T00:20:56+08:00">2008-05-08</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-05-23 18:53:57" itemprop="dateModified" datetime="2018-05-23T18:53:57+08:00">2018-05-23</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/建站/" itemprop="url" rel="index"><span itemprop="name">建站</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>做个网站不容易, 从去年8月份开始申请备案, 历经4次失败, 到今天第5次总算是批下来了.</p>
-<p>第一次, 申请后石沉大海, 几个月没消息.</p>
-<p>第二,三,四次, 申请拒绝, 理由是”博客需办理专项审批。。”. 第一次收到这个拒绝, 感觉很莫名其妙.以我理解的博客类网站比较私人化, 影响较小, 申请应该比普通网站容易才对.也是在网摸爬滚打8年多的人了, 注册申请什么的表格填了无数次, 琢磨了N久, 就是不知道要怎么个申请法. 于是我又提交了一次, 希望是官人们搞错了, 几十天后又被同样理由打了回来. 我再研究了一下, 还是没懂怎么走这个专项审批. 然后又提交了一次, 希望官人们能被我执着的遵纪守法精神所感动, 把我给放过去.几十天后再一次失望了, 官人们保持着一不怕苦,二不怕累, 三不怕麻烦的作风, 再一次以同样的理由拒绝了我.难道要走后门, 搞点潜规则才成?</p>
-<p>当我已经绝望的时候, 我的空间商急了, 推出了代理备案的服务, 为我这种笨人开了方便之门, 免得连累上他们. 我在空间商的用户中心提交信息后, 同样过了几十天, 备案奇迹般完成了.</p>
-<h1 id="赣ICP备08001749号"><a href="#赣ICP备08001749号" class="headerlink" title="赣ICP备08001749号"></a>赣ICP备08001749号</h1><p>写得醒目点, 怕有人看不见, 同时置顶QQ/MSN两天庆祝下!</p>
-<p>你知道吗?我备案了耶</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://cpiz.com/2008/04/29/让人超级崩溃的猫版超级玛丽/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Cpiz">
-      <meta itemprop="description" content="Cpiz's blog">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Cpiz's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2008/04/29/让人超级崩溃的猫版超级玛丽/" itemprop="url">
-                  让人超级崩溃的猫版超级玛丽
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2008-04-29 00:08:22" itemprop="dateCreated datePublished" datetime="2008-04-29T00:08:22+08:00">2008-04-29</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-05-23 18:53:57" itemprop="dateModified" datetime="2018-05-23T18:53:57+08:00">2018-05-23</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/视听/" itemprop="url" rel="index"><span itemprop="name">视听</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>以前发过个<a href="http://cpiz.com/blog/archives/151">史上最烂的52合1游戏卡带</a>视频，看到了一个老外是如何被N多烂游戏弄崩溃的。下面贴的这个，比前者还要寒N倍，貌似是同一个衰人，肚子都笑疼了。</p>
-<p>[anyplayer:type=swf url=<a href="http://vlog.17173.com/playercs2008.swf?Flvid=238312" target="_blank" rel="noopener">http://vlog.17173.com/playercs2008.swf?Flvid=238312</a> width=480 height=400]</p>
-<p>发现自：<a href="http://www.u148.net/article_1145.html" target="_blank" rel="noopener">有意思吧</a></p>
-<p>我特意找来了这个游戏，<a href="http://www.namipan.com/d/b035c47e4fc5c713babbb52d8a6c1d836cef6a6eb3892a00" target="_blank" rel="noopener">点这儿可以下载</a></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://cpiz.com/2008/04/28/忙碌地四月/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Cpiz">
-      <meta itemprop="description" content="Cpiz's blog">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Cpiz's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2008/04/28/忙碌地四月/" itemprop="url">
-                  忙碌地四月
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2008-04-28 00:35:00" itemprop="dateCreated datePublished" datetime="2008-04-28T00:35:00+08:00">2008-04-28</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-05-23 18:53:12" itemprop="dateModified" datetime="2018-05-23T18:53:12+08:00">2018-05-23</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/工作/" itemprop="url" rel="index"><span itemprop="name">工作</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>上回说到自己重归正途要坚持写博客，到今天已经过去一个月了，这个月内发很了很多值得记录的事，让我一件一件道来。</p>
-<h2 id="07年的项目奖金终于揭晓"><a href="#07年的项目奖金终于揭晓" class="headerlink" title="07年的项目奖金终于揭晓"></a>07年的项目奖金终于揭晓</h2><p>公司每年4月发一次项目奖金，数目根据前一年公司的业绩和个人职务与表现而定。今年1月份进行了2007的绩效评定，考核科目涉及技能水平/业务能力/团队合作/客户关系/文档规范/工时填报是否及时等等等等。得之了分数后就很想知道用这分数能换来多少钱，因为公司不允许同事间交流薪酬与绩效，一切只能等到3月底才能揭晓，只是按我去年7月正式入职到12月，我只能拿到一半的奖金。最终的数字还是比较满意的，但随之得到的另一个消息就让人不是那么开心了，我因此而消沉了几天，思考了很多问题，这里就不再说了。</p>
-<h2 id="到2008年4月2日，我工作一周年了"><a href="#到2008年4月2日，我工作一周年了" class="headerlink" title="到2008年4月2日，我工作一周年了"></a>到2008年4月2日，我工作一周年了</h2><p>从去年糊里糊涂地面试、上班，再到今年的4月2号00：00我一个人在会议室里通宵工作，一年真的过得太快。这一年里我一直在努力，不停地在学习、尝试中改进工作，再累再困也撑起一副精神满满的样子，用笑容去面对每一个同事、客户，用事实去交付每一份承诺。从一个没人搭理的实习生到项目团队中重要的一员，甚至还能参与新人的招聘面试，我很为我换到的信任而欣慰。</p>
-<p>也许是进入了社会后的我变得更成熟了，也许是变得胆小了，我现在觉得学生时代的我太过理想主义，以前那么雄心勃勃地规划着未来，过了才发现自己曾经那么想要的原来并不是自己最需要的，而曾经并不在乎地东西现在却非常珍贵。总结过后，我和同事、朋友、父母也交流了几次，为自己制定了下一年的方向，虽然不是非常地具体，但我想有了一个方向就不会迷路，走得近了我才知道自己要什么。</p>
-<h2 id="爸妈来南昌住了一星期"><a href="#爸妈来南昌住了一星期" class="headerlink" title="爸妈来南昌住了一星期"></a>爸妈来南昌住了一星期</h2><p>过年的时候就和爸妈说好，天气不错的时候过来南昌住一阵子，正好发了工资和项目奖金，立刻就打电话请了他们。可惜他们到了以后南昌就天天下雨，而我又天天加班，没能陪他们到处走走。我爸背来了全套的渔具，可不是嫌抚河的水太脏就是嫌赣江的鱼太小，只能和我妈呆在家看电视剧，两人闲了几天呆不住就说要走，让我相当过意不去，这几天衣来伸手饭来伸口的日子过得实在是太幸福了。我们家的人都很有幽默感，特别是三个人凑一块吃饭的时候，每个人都特别贫，时不时爆出一两句话，不比《奋斗》里那些段子差，可惜文明君听不懂我们说萍乡话，只能端着碗对着电视。</p>
-<h2 id="莫名其妙遭了罚款"><a href="#莫名其妙遭了罚款" class="headerlink" title="莫名其妙遭了罚款"></a>莫名其妙遭了罚款</h2><p>我租的房子电表是集中装在二楼的，前阵子电力公司来检查，发现我家电表铅封被拆，于是拉了我电闸留了张条子在表箱里头，上面写着铅封被拆依窃电论处已拍照取证。。。ＳＨＩＴ！！人怎么能这么衰！我和室友马上找来房东让去电力公司去问问，告知要罚款4千6，最终的结果是找局长求了情，罚了3千，房东出2千及新电表费用，我和室友出1千。这事让我非常气愤，我们从来没在乎过一个月几十块的电费，却栽了个窃电的罪名。我能想出最合理的解释就是电力公司那帮家伙监守自盗，让我们为去年冬天的雪灾买单，苍天啊！做好人怎么就这么难？</p>
-<h2 id="BOSS优化二期工程顺利上线"><a href="#BOSS优化二期工程顺利上线" class="headerlink" title="BOSS优化二期工程顺利上线"></a>BOSS优化二期工程顺利上线</h2><p>这是我这一个月里的主要工作，任务非常紧张，从4月7号开始准备，计划25号在华南六省中第一个正式上线。20多天完成一个这样大版本的升级与数据割接，这几乎是一件不可能完成的任务。江西为这事特意从研发中心支调了几个研发与QA过来帮忙，大家分成了几个组，每组负责一部分测试任务与数据割接，几十号人都跟上紧了发条一样，推动团队产生出最大的工作效率，研发的兄弟们说终于体会到了现场的压力。我从第一天开始，几乎每天都是10点半以后回去，第二天又早早地来，不停地优化所负责割接的步骤，提交并跟踪测试出的故障，每一天都很亢奋，但后来客户说要放弃原来的升级计划，推迟到下月进行，支持着我连续工作十几天的动力突然消失，我差点在上班时间就睡倒在了桌上。还好最后经过我们华南区总监出面沟通，客户还是答应了按原计划上线。</p>
-<p>上线那天，我们在华南区的工作QQ群里宣布了升级计划，列出了当晚升级与第二天值班人员的名单，除了项目地现场的员工再加前阵子过来的研发和QA，新到了华南区总监、总工及一个研发中心负责人，还有一个研发人员当晚飞抵南昌，他省的兄弟们说这是“国家队”阵容，我认为再贴切不过了。</p>
-<p>当晚，所有人围坐在了一起，按照计划的步骤一步一步地停服务–&gt;更新程序–&gt;割接数据–&gt;配置变更……，期间不幸地发生一次数据库的故障，而被耽误了两个小时，正在操作的部分数据和因此而丢失，但因为事先充分的准备和灵活的应变，进度仍然在可控的范围之内。服务启动及期后的测试工作发现了N处问题，因为研发与QA的在场，原来走故障流程要几个小时才能搞定的一个问题，一个个飞快地解决。期间我们打出了N个电话，叫醒了全国各地N多睡得真酣的同事咨询。熬到凌晨二三点，我们的项目经理还跑出去买来了大堆的夜宵给我们填肚子。</p>
-<p><a href="http://www.yupoo.com/photos/view?id=ff80808119740ed8011990a46a702794" title="来YUPOO看我的照片" target="_blank" rel="noopener"><img src="http://pic.yupoo.com/cpiz/251775781aed/medium.jpg" alt="图像008"></a></p>
-<p>一夜没合眼挺到了早上七点，值班的同事陆续过来换岗，交待了一些要注意的问题后，总算得以回家爬上了床，立刻就睡得跟死了一样。以前升级后睡觉总会因为某些未能预料的问题而被电话叫醒，这一次睡得特别安静，反倒让人觉得不正常（-_-!!!）。起床查了下邮件，还真没出什么大事，国家队真牛！</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://cpiz.com/2008/04/02/工作一周年/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Cpiz">
-      <meta itemprop="description" content="Cpiz's blog">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Cpiz's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2008/04/02/工作一周年/" itemprop="url">
-                  工作一周年
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2008-04-02 05:15:06" itemprop="dateCreated datePublished" datetime="2008-04-02T05:15:06+08:00">2008-04-02</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-05-23 18:46:08" itemprop="dateModified" datetime="2018-05-23T18:46:08+08:00">2018-05-23</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/生活/" itemprop="url" rel="index"><span itemprop="name">生活</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>去年4月2号开始进入公司实习, 到今天正好一周年了.</p>
-<p>一年前的今天, 我们三个新人怀着兴奋, 打量着公司的一切, 憧憬着未来; 一年后的今天, 我独坐在空荡的办公室, 在加班中回味过去.</p>
-<p>一年有12个月, 这是第12次月初通宵, 五一、十一、元旦是这样过来, 若干个周末也是这样耗去, 其它大大小小的通宵升级与加班不计期数。多少次忙得身心疲惫，接到领导或局方发来的任务还要撑出一副精神百倍信心满满的样子欣然接受；多少次刚吞下半口粮食或刚躺下两个钟头，就被电话叫到公司去加班还要健步如飞；每天几十到几百条的告警，已经将我的短信交际完全驱逐。每到周末，最想做的事就是躺着，答应了同学朋友抽空聚聚，一直没能兑现。我一直希望我能为了生活而工作，现在感觉则是为了工作而活着！茫然，很茫然。。。</p>
-<p>像一块吸水的海绵，一年里我拼命挖掘着任何可用的知识与业务，尝试着各种可以提升效率的工作方法，终于我也学会在unix上运指如飞、各种SQL可以信手捻来、业务表与字段如数家珍，三两分钟解决一个投诉，一天处理十几封邮件，接打十几个电话。领导很满意，客户很满意，我不满意，换个地方，恐怕又得从头开始！茫然，很茫然。。。</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://cpiz.com/2008/03/26/曾经的自己/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Cpiz">
-      <meta itemprop="description" content="Cpiz's blog">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Cpiz's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2008/03/26/曾经的自己/" itemprop="url">
-                  曾经的自己
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2008-03-26 22:24:17" itemprop="dateCreated datePublished" datetime="2008-03-26T22:24:17+08:00">2008-03-26</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-05-23 18:53:12" itemprop="dateModified" datetime="2018-05-23T18:53:12+08:00">2018-05-23</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/思考/" itemprop="url" rel="index"><span itemprop="name">思考</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>前阵子买了个PSP, 最近一直泡在上面, 电脑都不怎么开, Blog也就一直荒废着, 今天我又重回正途了.</p>
-<p>今天是2008-03-26, 再过6天, 就是我工作一周年的纪念了.正好这几天公司在招应届生毕业生, 我也参与了一部分工作, 让我能够有机会用另一个角度来看看去年此时我走过的路.</p>
-<p>招聘的流程是: 宣讲 –&gt; 简历筛选 –&gt; 笔试 –&gt; 面试.</p>
-<p>宣讲我没有参与, 拿回来的简历还是看了不少. 除了几个人附有项目经历外, 其他的都很空泛. 组长说是学生越来越不行, 我坚持认为是我们公司去得太晚了.</p>
-<p>从简历中筛了些人来参加笔试, 这次的笔试题目难度比去年考我们时要简单几个数量级, 但大部分人答得都不够好, 可以明显判断出来没有什么项目经验, 知识仅局限在课堂上, 对技术的了解层面太窄.</p>
-<p>从分数比较高或者答题有亮点的学生中找了十来个人面试, 从回答技术方面问题的情况上看和笔试所表现的完全一致. 但交谈中可以看出每个人性格上的特点, 自然、自信、真诚的人可以获得额外加分，这是大多数工作都需要的品质，而太过内向或太过冲动的性格恐怕有些过犹不及。</p>
-<p>翻箱倒柜翻出了我去年找工作时的简历、成绩单、获奖情况，还有去年做的那套笔试题，再用今天的眼光去评价曾经的自己，还是觉得挺不错的，人只要肯努力，目标总是没有想象中那么远！</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://cpiz.com/2008/02/04/看上去很美的太阳照常升起/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Cpiz">
-      <meta itemprop="description" content="Cpiz's blog">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Cpiz's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2008/02/04/看上去很美的太阳照常升起/" itemprop="url">
-                  看上去很美的太阳照常升起
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2008-02-04 00:28:21" itemprop="dateCreated datePublished" datetime="2008-02-04T00:28:21+08:00">2008-02-04</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-05-23 18:53:12" itemprop="dateModified" datetime="2018-05-23T18:53:12+08:00">2018-05-23</time>
+                <time title="修改时间：2018-05-24 15:04:32" itemprop="dateModified" datetime="2018-05-24T15:04:32+08:00">2018-05-24</time>
               
             
           </span>
@@ -2017,11 +462,1739 @@
       
         
           
-            <p>转自<a href="http://www.u148.net/article_919.html" target="_blank" rel="noopener">http://www.u148.net/article_919.html</a></p>
-<p>看完想哭的搞笑漫画，故事中有你有我有他，结局很像《大电影2.0:两个傻瓜的荒唐事》。</p>
-<p>PS：原作标题就是“看上去很美的太阳照常升起”，被标题党换成了“谁动了我的JB”，让我想到了漫画中网友的投票，这何尝不也是一种阉割？画里画外相同的剧情上演着，一声叹息。。。</p>
-<p><strong>看上去很美的太阳照常升起<br>作者：CMJ</strong></p>
-<p><img src="http://www.u148.net/attachments/month_0802/k200822153755.jpg" alt=""><br>more<br><img src="http://www.u148.net/attachments/month_0802/d200822153154.jpg" alt=""><br><img src="http://www.u148.net/attachments/month_0802/b200822153652.jpg" alt=""><br><img src="http://www.u148.net/attachments/month_0802/t200822153734.jpg" alt=""><br><img src="http://www.u148.net/attachments/month_0802/t200822153827.jpg" alt=""><br><img src="http://www.u148.net/attachments/month_0802/t20082215398.jpg" alt=""><br><img src="http://www.u148.net/attachments/month_0802/y200822153947.jpg" alt=""><br><img src="http://www.u148.net/attachments/month_0802/8200822154023.jpg" alt=""><br><img src="http://www.u148.net/attachments/month_0802/w200822154129.jpg" alt=""><br><img src="http://www.u148.net/attachments/month_0802/t20082215420.jpg" alt=""><br><img src="http://www.u148.net/attachments/month_0802/i200822154225.jpg" alt=""><br><img src="http://www.u148.net/attachments/month_0802/5200822154252.jpg" alt=""><br><img src="http://www.u148.net/attachments/month_0802/a200822154320.jpg" alt=""><br><img src="http://www.u148.net/attachments/month_0802/l200822154358.jpg" alt=""><br><img src="http://www.u148.net/attachments/month_0802/0200822154432.jpg" alt=""><br><img src="http://www.u148.net/attachments/month_0802/k200822154454.jpg" alt=""><br><img src="http://www.u148.net/attachments/month_0802/8200822154521.jpg" alt=""><br><img src="http://www.u148.net/attachments/month_0802/a200822154546.jpg" alt=""><br><img src="http://www.u148.net/attachments/month_0802/d20082215468.jpg" alt=""><br><img src="http://www.u148.net/attachments/month_0802/m200822154630.jpg" alt=""><br><img src="http://www.u148.net/attachments/month_0802/e200822154652.jpg" alt=""><br><img src="http://www.u148.net/attachments/month_0802/i20082215478.jpg" alt=""><br><img src="http://www.u148.net/attachments/month_0802/g200822154724.jpg" alt=""><br><img src="http://www.u148.net/attachments/month_0802/e200822154740.jpg" alt=""><br><img src="http://www.u148.net/attachments/month_0802/020082215480.jpg" alt=""><br><img src="http://www.u148.net/attachments/month_0802/0200822154826.jpg" alt=""><br><img src="http://www.u148.net/attachments/month_0802/3200822154851.jpg" alt=""><br><img src="http://www.u148.net/attachments/month_0802/g200822154915.jpg" alt=""><br><img src="http://www.u148.net/attachments/month_0802/5200822154934.jpg" alt=""><br><img src="http://www.u148.net/attachments/month_0802/1200822154956.jpg" alt=""><br><img src="http://www.u148.net/attachments/month_0802/p200822155035.jpg" alt=""><br><img src="http://www.u148.net/attachments/month_0802/2200822155054.jpg" alt=""><br><img src="http://www.u148.net/attachments/month_0802/0200822155127.jpg" alt=""><br><img src="http://www.u148.net/attachments/month_0802/d200822155158.jpg" alt=""><br><img src="http://www.u148.net/attachments/month_0802/p200822155220.jpg" alt=""><br><img src="http://www.u148.net/attachments/month_0802/0200822155236.jpg" alt=""><br><img src="http://www.u148.net/attachments/month_0802/1200822155256.jpg" alt=""><br><img src="http://www.u148.net/attachments/month_0802/s200822155315.jpg" alt=""><br><img src="http://www.u148.net/attachments/month_0802/l200822155331.jpg" alt=""><br><img src="http://www.u148.net/attachments/month_0802/e200822155352.jpg" alt=""><br><img src="http://www.u148.net/attachments/month_0802/r200822155413.jpg" alt=""><br><img src="http://www.u148.net/attachments/month_0802/z200822155430.jpg" alt=""><br><img src="http://www.u148.net/attachments/month_0802/5200822155443.jpg" alt=""><br><img src="http://www.u148.net/attachments/month_0802/q200822155457.jpg" alt=""><br><img src="http://www.u148.net/attachments/month_0802/b200822155516.jpg" alt=""><br><img src="http://www.u148.net/attachments/month_0802/x200822155534.jpg" alt=""><br><img src="http://www.u148.net/attachments/month_0802/q200822155555.jpg" alt=""><br><img src="http://www.u148.net/attachments/month_0802/j20082215569.jpg" alt=""><br><img src="http://www.u148.net/attachments/month_0802/l200822155616.jpg" alt=""><br><img src="http://www.u148.net/attachments/month_0802/r200822155635.jpg" alt=""><br><img src="http://www.u148.net/attachments/month_0802/620082215571.jpg" alt=""><br><img src="http://www.u148.net/attachments/month_0802/m200822155720.jpg" alt=""><br><img src="http://www.u148.net/attachments/month_0802/m200822155737.jpg" alt=""><br><img src="http://www.u148.net/attachments/month_0802/y20082215587.jpg" alt=""><br><img src="http://www.u148.net/attachments/month_0802/920082215596.jpg" alt=""><br><img src="http://www.u148.net/attachments/month_0802/i200822155921.jpg" alt=""></p>
+            <p>一个Flash版的钢琴，琴键共26个，对应键盘的A-Z。玩的时候注意切换为E文输入法，并且用鼠标先点击一下Flash，以保证焦点。</p>
+<p><strong>A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</strong></p>
+<p>[anyplayer:type=swf url=<a href="http://cpiz.com/files/piano.swf">http://cpiz.com/files/piano.swf</a> width=400 height=300]</p>
+<p><strong>这里有一些现成的歌</strong></p>
+<p>《月亮代表我的心》<br>LOQSONQS STUVTS<br>QPOOO QPOOO<br>PQPOMPQP<br>LOQSONQS STUVTS<br>QPOOO QPOOO<br>PQPMNOPO<br>QSQPOSN MNMNMLQ<br>SQPOSN MNOOOPQP<br>LOQSONQS STUVTS<br>QPOOO QPOOO<br>PQPMNOPO</p>
+<p>《童话》<br>LONOL LONOL LONO OOMML<br>LONOL LQPPO LONOM MMOTS<br>PPRRQQ QQNPOONO ONOR LSRQP<br>PPRRQQ QQVUTUV VPOT TTSSS<br>LSRQQRQ QRQ RQPO<br>OQST TTSPPRQ OQST<br>TTSPPRQRQPO PQMMOONO</p>
+<p>《安静》<br>QQQQPONPPPO LQPOOOLQPOOP<br>QQQQPONPPPO LQPOOOLQPOOPPQR<br>RRRRQPOOOPP LSSSRQPPPQQ<br>MRQRQPOONOL QRQRQPOPS<br>LQRSRQSLQRSRQS LQRSRQOPPPQO<br>SSOONOOSSOONOO RRQQPPORRQQPPO<br>LQRSRQSLQRSRQS LQRSRQOPPPQO<br>SSOONOOSSOONOO RRQQPPOORQPOMOO</p>
+<p>《好好恋爱》<br>JKLLLLLKJIIL NNONOOOPQNNL<br>HMMMJMOLLLLJH KKKJKLMMMOML<br>JKJJKLLLLJIHHO NMLML<br>JHHMMLLLKJ OOOONOPP<br>LRQLLRPLRQRQRQPO ONMMQMQMLLQLQL<br>RQRQOP LRQLLRSPLRQQQRQPQ<br>ONMMQMQMLLQLQPOM OPNMNMNQPOO</p>
+<p>《痴心绝对》<br>OPQQQRQPPOPPSP ONOOOQQOOMNNQN<br>MLMMMRRQSO MLMMMRROOMP<br>OOPQQQRQPPOPPSP ONOOOQQOOMNNQN<br>MLMMRRQSO MLMMMRROOONO</p>
+<p>《会呼吸的痛》<br>STVTXXTW WWVUVWXWSV<br>VUTUVRRRVVWVSSS SYXWXX<br>STVTXXTW WWVUVWXWSVV<br>VUTUVRRRVVWVSSS STUVVUVV</p>
+<p>《欢乐颂》<br>J J K L L K J I H H I J J I I<br>J J K L L K J I H H I J I H H<br>I I J H I J K J H I J K J I H I E<br>J J K L L K J I H H I J I H H</p>
+<p>《小星星》<br>OOSSTTS RRQQPPO<br>SSRRQQP SSRRQQP<br>OOSSTTS RRQQPPO</p>
+<p>《千千阙歌》<br>HHIJ LMONNNLJ<br>IIIJK MOQPPNL<br>HHIJ LMONNNLJ<br>IIIJK MOQPPNL<br>MLMLMNNMN PPPPNOPQ<br>QQPPPOQ NLM<br>LMOPQQPQ QPOP OMM<br>LMOP QQPQ QSTSQQ<br>QQPPOPOM QQRQPOP QQ Q P<br>POP OMOO</p>
+<p>《婚礼进行曲》<br>HKKK HLJK HKNNMLKJKL<br>HKKK HLJK HKMOMKILMK<br>NMLII JKLL NMLII JKLL<br>HKKK HLJK HKMOMKILMK<br>ILMKK</p>
+<p>转载自<a href="http://user.qzone.qq.com/32329610/blog/1222054273" title="http://user.qzone.qq.com/32329610/blog/1222054273" target="_blank" rel="noopener">http://user.qzone.qq.com/32329610/blog/1222054273</a></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://cpiz.com/2008/09/23/体检/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cpiz">
+      <meta itemprop="description" content="Cpiz's blog">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cpiz's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2008/09/23/体检/" itemprop="url">
+                  体检
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2008-09-23 21:05:43" itemprop="dateCreated datePublished" datetime="2008-09-23T21:05:43+08:00">2008-09-23</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-05-24 15:04:32" itemprop="dateModified" datetime="2018-05-24T15:04:32+08:00">2018-05-24</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/生活/" itemprop="url" rel="index"><span itemprop="name">生活</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>入职一年半，在即将要滚蛋的时候，正好赶上了公司一年一度的体检。</p>
+<p>地点在南昌大学第四附属医院，去年来时还是破破烂烂的体检中心已经换了新地方，装修和灯光的效果让人还以为到了酒店，加上护士MM们热情的笑容与招待，一向惧医的我顿时紧张全消。</p>
+<p><img src="http://pic.yupoo.com/cpiz/2021263b0805/medium.jpg" alt=""></p>
+<p>检查科目包括血液、B超、尿液、内/外科、五官、视力、血压、体重、心力图、胸透。我多交了10块钱加上了血型检查，迷糊了二十多年，这回终于能知道自己是什么型号的了。。。<br>more </p>
+<p>医院还准备了简单的早餐，牛奶 + 包子/馒头，附一张餐台的照片</p>
+<p><img src="http://pic.yupoo.com/cpiz/6746063b07fc/medium.jpg" alt=""></p>
+<p><strong>目前已知的结果是：</strong></p>
+<p>血压，正常；</p>
+<p>视力，眼镜矫正后，左右眼都是1.0。不戴眼镜怎么样？大夫，我看不清您那棍棍。。。</p>
+<p>体重，56.2kg65.2kg，欣慰不少。。。（知道为什么要空腹来体检了吧）</p>
+<p>B超，大夫问我有没喝三鹿牛奶，我说没，他说你很健康-_-!!!</p>
+<p>咽喉，不出所料，的确是有慢性咽炎。我问大夫怎么办，她说不要抽烟喝酒，我说我都不会，她说平时少吃辣的，我心想这不是要饿死我么。</p>
+<p>内外科，正常；</p>
+<p>其它的检查项还在等结果。。。猜猜我是啥型号。 : )</p>
+<p>—————————————————11.02补充:————–</p>
+<p>汗…上回写错了，是65.2kg!!!</p>
+<p>本来以为自己蛮健康的，但体检结果严重打击了我：血脂高/心律不齐/屈光不正/慢性咽炎/乙肝无病毒抗体。。。整个一残疾人。</p>
+<p>PS：血型是A</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://cpiz.com/2008/08/24/休假归来/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cpiz">
+      <meta itemprop="description" content="Cpiz's blog">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cpiz's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2008/08/24/休假归来/" itemprop="url">
+                  休假归来
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2008-08-24 23:38:27" itemprop="dateCreated datePublished" datetime="2008-08-24T23:38:27+08:00">2008-08-24</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-05-24 14:44:42" itemprop="dateModified" datetime="2018-05-24T14:44:42+08:00">2018-05-24</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/生活/" itemprop="url" rel="index"><span itemprop="name">生活</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>好日子总是过得很快，从16号开始在家休假，转眼明天又要开始上班了。</p>
+<p>工作一年多，极少特意调休或请假，这是第一次享受年假。申请了5天，加上前后两个周末，跟春节假期一样能休9天。但这个时候回家，远没有春节期间那么多应酬，加上企盼了N年的北京奥运，这可是经27层过滤的纯假期。</p>
+<p>除了出门买了个空调，和老友游了回泳外，生活就是吃、睡、看奥运、上网。</p>
+<p>最大的遗憾，那天看到了中学时的化学老师，却突然忘了他姓什么，装作无视飘过。。。自责很久</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://cpiz.com/2008/08/20/如果这也是奥林匹克。。。/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cpiz">
+      <meta itemprop="description" content="Cpiz's blog">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cpiz's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2008/08/20/如果这也是奥林匹克。。。/" itemprop="url">
+                  如果这也是奥林匹克。。。
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2008-08-20 00:19:52" itemprop="dateCreated datePublished" datetime="2008-08-20T00:19:52+08:00">2008-08-20</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-05-24 15:04:32" itemprop="dateModified" datetime="2018-05-24T15:04:32+08:00">2018-05-24</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/视听/" itemprop="url" rel="index"><span itemprop="name">视听</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>看到奥运会体操中没有男子高低杠、平衡木项目，某大叔很不服气，化装报名了。光那穿着女子健身装、扎着辫子、留着马里奥胡子的造型，就已经囧到了不行。。。</p>
+<p><strong>高低杠：</strong></p>
+<p>[anyplayer:type=swf url=<a href="http://www.youtube.com/v/tu-YAMiS5wA&amp;hl=en&amp;fs=1" target="_blank" rel="noopener">http://www.youtube.com/v/tu-YAMiS5wA&amp;hl=en&amp;fs=1</a> width=425 height=355]</p>
+<p><strong>自由体操：</strong></p>
+<p>[anyplayer:type=swf url=<a href="http://www.youtube.com/v/_JaEtgL8mcM&amp;hl=en&amp;fs=1" target="_blank" rel="noopener">http://www.youtube.com/v/_JaEtgL8mcM&amp;hl=en&amp;fs=1</a> width=425 height=355]</p>
+<p><strong>平衡木：</strong></p>
+<p>[anyplayer:type=swf url=<a href="http://www.youtube.com/v/EO_BnsrWMnI&amp;hl=en&amp;fs=1" target="_blank" rel="noopener">http://www.youtube.com/v/EO_BnsrWMnI&amp;hl=en&amp;fs=1</a> width=425 height=355]</p>
+<p>笑归笑，对他的体操水平还是要表示无比的佩服！</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://cpiz.com/2008/07/27/亚信江西PSO2008年新年晚会讲稿/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cpiz">
+      <meta itemprop="description" content="Cpiz's blog">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cpiz's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2008/07/27/亚信江西PSO2008年新年晚会讲稿/" itemprop="url">
+                  亚信江西PSO2008年新年晚会讲稿
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2008-07-27 00:34:47" itemprop="dateCreated datePublished" datetime="2008-07-27T00:34:47+08:00">2008-07-27</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-05-24 15:04:32" itemprop="dateModified" datetime="2018-05-24T15:04:32+08:00">2018-05-24</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/生活/" itemprop="url" rel="index"><span itemprop="name">生活</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>这是今年新年年会上念的稿子, 仿照的央视新闻评论部2002年晚会。当时觉得特搞笑，这回终于整来了稿子，贴出来纪念。男女主持人系我们项目经理胖子与助理娟娟。</p>
+<hr>
+<p><strong>第一幕：成立</strong><br>[主持人]</p>
+<p>[女]亚信江西PSO年末吃饱喝足后的娱乐节目现在开始</p>
+<p>[男]雄鸡一唱天下白，咱们的队伍拉出来</p>
+<p>[女]雄鸡一唱出太阳，咱们的队伍兵强马又壮</p>
+<p>[男]雄鸡一唱东方红，江西出了个亚信PSO</p>
+<p>[女]雄鸡一唱百鸡唱，咱们的事业正兴旺</p>
+<p>[男]2004年4月，亚信江西PSO成立</p>
+<p>2004年12月，BOSS1.0上线</p>
+<p>2005年7月，经分1.5上线</p>
+<p>[女]上线了，上线了，上线了，激动人心的一刻就要到来了，我们期盼着盼望着</p>
+<p>[合]时刻准备着</p>
+<p>[女]在那个不堪回首的2004年，就那么7、8个人，4、5杆枪。</p>
+<p>[男]在那个不堪回首的2004年，我们还要奔走在各个地市之间。</p>
+<p>[女]在那个不堪回首的2004年，客户几乎对我们丧失了信心。</p>
+<p>[男]在那个不堪回首的2004年，我们卷起铺盖搬到公司争当优秀员工。</p>
+<p>[女]沉沉黑暗，一夜又一夜的战斗，漫漫长夜，一次又一次的呻吟，路漫漫、夜漫漫、星光颤抖，长夜漫漫</p>
+<p>[男]夜正长，足够把路灯一盏盏点亮，夜正黑，足够把灯油一点点熬干。千万次的问这是人过的日子吗</p>
+<p>[女]残酷啊，现实！这正是IT人不堪忍受的所谓加班生活</p>
+<p>[男]耕地靠牛，点灯靠油，日复一日娱乐靠个球</p>
+<p>[女]这样的夜晚，连创造人类的时间都没有，我们还能有什么追求。我们曾经一忍再忍如今已经忍无可忍</p>
+<p>[男]唱吧、叫吧、呐喊吧！不在放荡中变坏，就在沉默中变态</p>
+<p><strong>第二幕：初春</strong></p>
+<p>[女]没有雄鸡报晓，黎明一样如期而至了。2005年初，随着各级领导的支持，我们的队伍壮大了。我们的系统逐步稳定了，客户又重新对我们有了信心，我们睡觉也可以回家了。</p>
+<p>[男]哈哈哈</p>
+<p>[女]哈哈哈</p>
+<p>[男]我们的生活多美好</p>
+<p>[女]哈哈哈，哈哈哈</p>
+<p>[合]我们的生活多美好，我们期盼着春天的来到！</p>
+<p>[女]春天在哪里？春天在客户期盼的目光里</p>
+<p>[男]春天在哪里？春天在亚信人的心坎里</p>
+<p>[女]春风吹绿江南岸，春风已过玉门关，春风二月似剪刀啊，是春风换了朔风寒</p>
+<p>[男]不管是加晚班，还是加假日班，只要客户能满意，我们的付出就是值得的</p>
+<p>[女]一年一度桃花盛，东方风来，满眼春</p>
+<p>[男]历史的经验又一次告诉我们：春从来不是叫出来的</p>
+<p>[女]春那是真刀真枪干出来的</p>
+<p>[男]看：我们制造春天的队伍来了</p>
+<p>[女]来了！来了！该来的来了！不该来的也来了<br>―――――――――――――――――――――――――――<br>[鹏]我们天津人来了<br>[威]我们湖南人也来了<br>[陈]我们湖北人也来了<br>[姚]我们重庆人也来了<br>[刘]我们山东人也来了<br>[黄]我们浙江人也来了<br>[刘]俺们广东人都来了<br>[叶]我们南昌人该来的都来了<br>[合]我们抹干净嘴角的油迹，安抚好同床的伴侣，轻装上阵，步伐整齐</p>
+<p><strong>第三幕：发展</strong></p>
+<p>[男]宝剑锋从磨砺来，梅花香自苦寒来，经理都从基层来，牛B得靠熬出来</p>
+<p>[女]火车不是推的，泰山不是堆的，牛皮不是吹出来的</p>
+<p>[男]PSO的经理吃得比猪少，干得比牛多，睡得比狗晚，起得比鸡还早</p>
+<p>[女]PSO的工程师们没日没夜，任劳任怨，抱着测试好的版本就进了11楼</p>
+<p>[男]不怕你鸡蛋里面挑骨头，不怕你沙子里面挑石头，不怕你瘦肉里面挑肥肉，我们已经百炼成钢，身经百战</p>
+<p>[女]你看人家刘jia都长成那样了，都敢当项目经理，我们还能怕客户测试吗。。。投入新的战斗吧，为了不改变一切的理想，为了改变不理想的一切</p>
+<p>[男]我们是光荣的江西PSO人，我们是千锤百炼的硬骨头，纪律严明的好枪手，三大纪律不敢忘，八项注意记心头</p>
+<p>[女]听：经理给我们讲纪律，能战斗的队伍要有规矩</p>
+<p>[合]政治合格，军事过硬，作风优良，纪律严明</p>
+<p>[女]徐～总～</p>
+<p>[徐]哎[唱]江西队伍是根常青藤，你们都是藤上的瓜，瓜儿连着藤，藤儿牵着瓜，你们越听话，我官儿越大，我心情越好，钱越多发呀啊</p>
+<p>[男]我们的事业，是正义的事业，正义的事业是不可战胜的。江西PSO的队伍不断扩大，人马汇聚，群英汇聚，人才济济，群雄汇聚</p>
+<p>[女]但是从我们身边还是有人悄悄地离开，悄悄地他们走了，正如他们悄悄地来，悄悄地挥手，作别西天的云彩。</p>
+<p>[男]不如意事常八九，瓜不甜不能使劲扭，牛不喝水不能强摁头，人往高处走，水往低处流，离开我们他们走上更重要的工作岗位，天要下雨水要流，儿打不中留</p>
+<p>[男]江西PSO是一片人才辈出的黑土地，优秀的工程师、牛B的管理者就像丰产的韭菜，一茬又一茬地生出来。</p>
+<p>[女]我们的人到了一个地方就要和那里的人们联合起来，在祖国各地生根开花</p>
+<p>[男]谢他们都是江西PSO播撒出去的良种啊，他们已经在各个重要岗位上生根发芽</p>
+<p>[女]种豆得豆，种瓜得瓜，江西PSO的种子遍天下</p>
+<p>[男]走掉的光荣，留下来的也光荣，一日夫妻百日恩，一日同事终生朋友</p>
+<p>[女]天之涯地之角，我们是莫逆之交，君子之交，歃血为盟刎颈之交，生死与共患难之交，千载难逢世纪之交</p>
+<p>[男]大浪行船，我们风雨同舟，精诚团结，我们并肩携手，打虎亲兄弟，上阵父子兵，在家靠父母，出外靠朋友。40人团结如一人，试看天下谁更牛</p>
+<p><strong>第四幕：我们的2008</strong></p>
+<p>[女]无论经历狂风暴雨，无论远隔天涯海角，我们的心永远在一个楼道，我们本来就是一母同胞，我们是同一个人的奶水养大的，俗话说得好：血比水浓，命运把我们联系在一起。心往一处想，劲往一处使，我们正在湛瑞、徐青、刘佳第二代领导集体的集体领导下昂首走进2008奥运年。<br>[男]我好像是一代的。。。。。。</p>
+<p>[女]我们对着高山喊徐总、小青、死胖子</p>
+<p>[男]哎来了</p>
+<p>[唱]大海航行全靠我</p>
+<p>[唱]大海航行全靠我</p>
+<p><a href="靠你靠你靠你">女</a></p>
+<p>[唱]万物生长也靠我</p>
+<p><a href="靠你靠你靠你">女</a></p>
+<p>[女]亚信的事业蓬勃发展，江西PSO焕发出勃勃生机</p>
+<p>[男]我们是鸡，是那昂然报晓的雄鸡</p>
+<p>[女]我们是鸡，是那辛勤下蛋的母鸡</p>
+<p>[男]鸡！我们是真诚面对客户的播种机</p>
+<p>[女]鸡！我们是亚信领导的收割机</p>
+<p>[男]鸡！我们是系统稳定的侦察机</p>
+<p>[女]鸡！我们是实话实说的录音机</p>
+<p>[女]。。。呻吟。。。</p>
+<p>[男]飞翔啊～曾经是鸡！如今像烈火中永生的凤凰，向着太阳，向着自由，向着新世纪</p>
+<p>[合]发出万丈光芒</p>
+<p>[女]亚信江西PSO2008年新年聚会到此结束。最后为大家奉献今天的大奖。。。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://cpiz.com/2008/07/26/[转]唐骏大连理工演讲：自爆当年八卦故事/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cpiz">
+      <meta itemprop="description" content="Cpiz's blog">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cpiz's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2008/07/26/[转]唐骏大连理工演讲：自爆当年八卦故事/" itemprop="url">
+                  [转]唐骏大连理工演讲：自爆当年八卦故事
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2008-07-26 21:31:13" itemprop="dateCreated datePublished" datetime="2008-07-26T21:31:13+08:00">2008-07-26</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-05-24 15:37:32" itemprop="dateModified" datetime="2018-05-24T15:37:32+08:00">2018-05-24</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/文摘/" itemprop="url" rel="index"><span itemprop="name">文摘</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>近日这篇文章在网上很流行，内容与三年前在听他在南昌大学讲的基本相同，现在看来仍然非常有意思，转来留做纪念，学习他的热情、执着、还有敏锐的判断力。</p>
+<p>———————————–割[1]———————————–</p>
+<p><strong>在北邮追女孩</strong></p>
+<p>你们知道在我们那个上大学的年代不像你们这么丰富多彩。我们那时候除了追女孩外没有什么事情可做。（台下暴笑）你们比我们那时候惨，我们傻，老师让我们学啥我们学啥，也不管有没有用；而你们现在明明知道没有用，却还要学，所以比较郁闷。（支持的掌声）当然，除了大连理工大学的学科除外，因为卢校长在这。（暴笑）你们学的东西几乎没有什么用。（台下再次更暴笑）上大学的我平凡的不能再平凡了，那时候什么都没有，就长成我这样的，基本上不用考虑本班的战场，没有我的立足之地，我就发展别班的战场，我看上了一个女生，据听说还是北邮50校花之一呢。（笑）你们可别小瞧，50校花之一可了不得，当时我们北邮可有 156名女孩呢。（全场爆笑）你说我那时是弱势群体，我能做什么呢，我什么都做不了，最后想出了一招我能做的事：写信。第一封我写了身高1米82体重 132斤家在江苏常州，父母是干什么的，家有几个兄弟。这简直就是一份简历，没办法，那时的我没什么只有这些，就给她投了简历。她没有理我。我就开始写第二封信，为了展现自己的才华，我就介绍了一下国内国际经济形势，（台下暴笑）我未来会怎么怎么做。。。还是没回音。我就写了第三封，说我知道你不喜欢我，我不要求你做什么，我只要求你让我默默的喜欢你就好了。（全场暴笑）你知道那时的女生“纯”那！（纯音很重，全场笑）三封信就感动了她，她回信给我。我就约她看电影，看的什么电影我不记得了。之后我们散步，我对她说，要不你嫁给我吧。（全场惊讶）她很惊讶说唐骏你是认真的？我说是，她说好我嫁给你。（更惊讶）就这样，第一次约会，她就嫁给了我，而后我们一起走过了随后的20多个春秋。（全场热烈的掌声）</p>
+<p><strong>争取留学名额</strong></p>
+<p>我那时在北京邮电上学，花了两年时间考研究生，考了全校第一，当时每个重点院校有两个名额可以保送到美国，但我却没被保上。你们知道我当时是弱势群体，没有什么权利，但我不甘心就这样，然后四处打听，打听到北京广播学院（中国传媒大学）还有一个空的名额，我就去北广找老师，说想把学籍从北邮转到北广来。老师说，你为什么要转到北广来，我说为了中国的传播事业，中国的传播事业太落后了，我想尽一份自己的力量。老师说中国的邮电事业比广播事业还要落后，你怎么不推进邮电事业的发展呢。我说我太喜欢广播事业了，想为它献身，那时候的老师“纯”那，（全场爆笑）几句话就被我感动了。老师说好吧。经过复杂的转学手续转到了北广，我就向老师说想出国留学，老师怀疑的说你是不是为了出国才转到北广的？我说不是我想出国学人家先进的技术回来武装中国的广播事业。你们知道，那时候的老师“纯”那，（更暴笑）他相信了。但是他说，申报名额已经交到国家教育局了，时间已经耽搁了。我就去找国家教育部出国留学司司长，他说已经审批完了，现在来不及了。我那时候很失望，但我不想放弃，不想以前的努力就这么白费了。你们知道咱们大学生是弱势群体，什么也改变不了，咱们什么都没有，但有的是时间，于是我就想了一个我能想到的办法，很简单很笨的办法：我开始去国家教育局“上班”，上班地点是教育局门口，（台下狂笑）司长早上来上班的时候，我就迎上去说，司长好，来上班了？中午司长出门去对面食堂吃饭的时候，我就说司长吃饭啦，吃好点哈；司长吃饭回来的时候，我就说，司长吃完了，还有点时间，你可以午睡一会；下午下班的时候我说司长下班了。就这样一天两天，司长很奇怪什么时候教育局门口多了个保安，还只给他打招呼。你们知道，人那，不怕被人恨，被人凶，就怕被人盯上，司长开始不得劲了。我倒无所谓，我还有四个月才毕业，这段时间我正好没地方去，就可以天天到教育厅来“上班”，感觉也都很气派，来国家教育厅上班（台下暴笑）。到第五天的时候，司长撑不住了，中午我照样说，司长吃完啦，还有点时间可以午睡一下。司长说我不午睡了，你跟我上来一下。进了司长办公室，司长问你干吗的，我就说明了原因。司长什么也没说，第六天我照样过去“上班”，中午的时候又被叫进去，司长给了我一堆资料说这些你填一下，我就拿回去填。第七天，司长给了我一张纸，说这是你一直想要的东西，那张纸就是出国留学批准证。（全场爆发出热烈的掌声）大家知道吗，人们需要执着的精神，你就拿出执着的精神给他们看，世上就不怕没有办不成的事。（全场热烈的掌声）<br>获选全国十大帅哥CEO</p>
+<p>前一段时间参加鲁豫有约节目，鲁豫说唐骏博士你有这么多头衔我都不知道该叫您哪个，你认为你最重视的，最有价值的是哪个。我说我最有的价值的最有含金量的那个你介绍我时没说出来。鲁豫很奇怪，是哪个？前一阵我被时尚杂志评为全国十大帅哥CEO。这是我认为最有含金量的一个（全场爆笑）。我被评为过全国十大经济人物，全国十大CEO，只要经济方面有关十大的我都被评过，就是时尚方面还是第一次。像我这种没有貌的人能被评为帅哥，我能不激动嘛，这是我人生的一次里程碑，我得感谢我的爸爸妈妈。（全场笑）</p>
+<p><strong>在微软的差异化竞争</strong></p>
+<p>我进入微软以后，在一万五千人中是倒数第一，在技术方面是最差的，我若在技术上与他们竞争，过二十年三十年我也不过是个普普通通的人，顶多是个高级工程师。我想应该避开和他们正面竞争，走差异化竞争路线。在那五个月后发现开发模式上的错误，英文版本开发出来后，需要过八个月中文版本才开发出来，过五个月日语版本才开发出来。好多人都注意到这个问题，也有好多人提出来许多书面方案交给经理，将近有八十多份，但是你想想你要作为那个经理，你会看这么多的方案吗？所以，交书面方案效果甚微，我就想如果我自己解决了这个问题，即找到了方法也找到了技术支持，那样就很有效果了。然后我就开始发挥我勤奋的因素，利用晚上和周末的时间分析这三种版本的共同之处和不同之处，找出一种模式可以将三种不同版本都用这一模式进行开发，又找到了技术支持，然后写了一份书面报告，不仅提出这个问题也解决了这个问题，我将编的程序都放在这里面了。经理开会议一致通过了该方案，决定公司3500个人都使用这种研发模式，这样就需要成立一个宣传部门，在公司宣传这种模式，我称之为唐氏研发模式，理所当然的候选人就我一个，没有竞争对手，就在我刚进入微软八个月后就当上了部门经理。（热烈的掌声起。。。）这就是我要讲的差异化竞争。</p>
+<p><strong>运用与众不同的商业模式</strong></p>
+<p>我在洛杉矶开了一家第一移民律师事务所，我是计算机博士出身，对法律一点都不明白，光是有关的法律书就有一米这么高。我注意到别家事务所都是按小时收费，有时移民采用打电话的方式，一个小时都问不明白，但钱却搭进去了，让人感觉移民咨询像个无底洞，不知到得花多少钱才能办成。我就采用和别家事务所不一样的商业模式：我是按案例收费，如工作卡转签证收1000美金，签证转绿卡600美金等，还有最重要的一句：不成功不收费，成功了再收费。这样就在洛杉矶一炮打响，我的第一移民律师事务所在开业五个月后就排洛杉矶第一位。（热烈的掌声起。。。）我告诉大家接下来的两年内我准备做一件事情，我从未涉足的领域，电影事业，（台下一片惊讶），别惊讶，谁让我爱好广泛呢。。（台下哈哈大笑）中国好电影这么多，我的电影肯定做不成功，但我想运用一种和他们不同的商业模式，现在电影宣传力度很大，但许多观众看完后都会失望，好多人就自己买碟看，不再去电影院看电影。我不会请大腕明星，砸很多钱进去，我会采用就和我刚才讲的在洛杉矶开律师事务所一样的商业模式，就是满意了收钱，不满意可以退票。当然我有满意的标准的，我会在每个电影放映室里笑声安计数器，如果70%以上的大家都笑了，那他会记一，然后记二。我要拍喜剧片，励志型的外资喜剧片，我希望电影所达到的效果让观众笑二十次，如果观众没有笑二十次，那么观众可以退票，我们会无条件接受。（好方法，真的与众不同）当然我们拍片就得拍的很好看，有很高的标准。<br>八卦故事</p>
+<p>现在我将给大家一个特八卦的故事。这个故事我讲给了两个人听。一个是盖茨，他非常相信；另一个是朱镕基，他一点都不相信。所以在场的大家不用担心，你若相信，说不定你就是下一个盖茨，你若不相信，你或许就是下一个朱镕基。（全场笑）我讲的这个八卦故事，你们要是相信，就是未来的宏观经济学家。在 1985年的时候日本经济各个指数突然飘红，经济形势一片大好，据当时经济学家预计照这种形势发展下去，到2012年日本就会在各个方面超过美国，成为世界第一超级大国。许多经济学家找不到快速发展的原因所在，令人很费解，你们知道为什么吗?(台下一片疑惑)因为那时候有个年轻人到了日本。（噢。。。台下恍然大悟，许多人笑了起来，但还有些人不明白）后来90年几月份，日本经济萎靡不振，持续五年的增长突然停滞不前，而这时美国的经济从萎靡中摆脱出来开始快速增长，道格拉斯指数一天涨了28.3%，全世界的经济学家都无法解释这个原因，感觉很奇怪，你们又知道为什么吗？只有我知道，那时候有一个年轻人离开日本去了美国。不用我说你们知道那人是谁了吧。（我们恍然大悟）我把这个故事讲给盖茨后，问他微软从什么时候出现转折快速增长的，盖茨说94年几月份，他说不会你那时来的微软吧。我说你猜对了，然后盖茨目瞪口呆的盯着我。。。后来我告诉朱镕基总理这个八卦的故事后问他：中国经济什么时候开始快速发展的，总理说97年下半年吧，他说你不会那时回的国吧，我就告诉总理是97年下半年回的国。总理急忙说：这跟你没关系，是这届中央政府领导的好。总理果然是总理，什么事都会往政府上靠。（台下暴笑）</p>
+<p>97年我要离开微软的时候，写了一封很长的信给盖茨，据听说很煽情，（台下笑）我也给公司每个员工都发了一份，因为我是计算机出身，所以会COPY 很多份。（暴笑）好多员工都哭了，信中我记得有这么一段：在微软的几年里，我不敢说我是微软最勤奋的员工，但我敢说微软里没有比我更勤奋的员工。（台下一片钦佩和笑声））两句一个意思哈。很快盖茨打电话给我：骏（特深情），你一定要走吗？我说：比尔，我一定要走。“你真的不可以留下吗，我可以给你任何位置，随便你选。”（任何位置但不包括盖茨的那个位置哈（全场暴笑））“我离开中国太久了，我得回去参加祖国的建设。”“那好吧”。随后盖茨立即召开董事会会议，会上全体一致同意授予唐骏微软终身荣誉总裁称号。这是历史上唯一的一个微软终身荣誉总裁称号，以前没有，以后也不会再有了，你们知道为什么吗？就因为我曾经给盖茨讲了一个八卦的故事。。。授予我终身荣誉总裁，盖茨就可以一辈子把我留在微软了（全场爆笑加特热烈的掌声）我现在哪都不敢去，大家都知道，其实宏观经济给我没啥关系，但我就怕离开了中国，中国万一出点啥事，那我可就是千古罪人了。（台下暴笑）我可以负责任的告诉大家，未来50年我不会再离开中国！（台下热烈的鼓掌）</p>
+<p><strong>劝盖茨改行程</strong></p>
+<p>2003年我接到盖茨秘书打来的电话，她说盖茨要在2月几号来中国，我大吃一惊，也很惊喜，你们知道吗，我在中国当微软总裁，副总理谁都可以见，就是江主席见不着，盖茨来中国会和江主席见面，我高兴的不是盖茨来中国，是我可以见着江主席了。（台下狂笑）但算了一下，那一天正好是大年初三，和江主席见面可能有麻烦。我就告诉秘书说不行，那天大年初三盖茨不能来。你们知道有种人地位不高，但权力很大，（全场笑）秘书很生气说你竟然敢说不，你可知道盖茨的行程都是一年前安排好的。（台下一片惊讶声）是，我知道，可是那天来会有麻烦，会面不会顺利。你自己跟盖茨谈吧。我就打电话给盖茨，告诉他那天不能来中国，他很惊讶，说你可知道我的行程都是一年前安排好的。你们知道盖茨脾气很大，不是，应该说他是很有“个性”的一个人。（台下狂笑，暗指他脾气很大）。我说，我知道，你的行程是一年前安排好的，可是中国的春节是5000年前就安排好的。（全场鼓掌）盖茨更惊讶了。你想想美国人听到5000年是什么概念，盖茨得惊讶成什么样。（台下一片笑声）就这样盖茨同意改了行程。后来盖茨来中国，我到首都国际机场迎接的时候，盖茨见着我第一句话就是，你好大胆，这是我进入微软36年来第一次改行程。我说你不是输给了我，你是输给了中国5000年的文化。你看这样说，立马抬高了老板的地位，和5000年挂上了钩。（笑声掌声起）</p>
+<p><strong>盖茨口头语“That’s good!”</strong></p>
+<p>在中南海盖茨和江主席会面，我在旁边给盖茨说，现在正是中央换届的敏感时期，你要做的就两件事情，一个光听江主席讲就行，不要插嘴；还有一个你的改改你的口头语。你们知道，和盖茨说过话的人都知道他有一句口头禅“That’s good!”他想表达的意思是鼓励对方继续讲下去，我在听的意思。盖茨说这是从小的习惯我改不了，我说无论如何你得改，盖茨坚持说我改不了。我就说，你听江主席讲话的时候看我，你看我总不至于会说”That’s good”。见着江主席的时候，江主席拉着盖茨的手说：盖茨啊，你知道再过五天我就要辞去中国最高领导人的职位，由下一届领导班子接任。。。。你们知道我那时候最害怕什么吗？就怕盖茨嘴里蹦出一句“That’s good！”（全场爆笑）要是这样就闹出世界性的政治丑闻了。</p>
+<p>———————————–割[2]———————————–以下部分从其它演讲摘要转载而来</p>
+<p><strong>一个小发明救了一个知名公司，也成就了我自己</strong></p>
+<p>12年前我从美国回来时，搞了个小发明。当时我很兴奋，但跟中国很多企业沟通时。他们都说：这东西一点技术含量没有。但我没有放弃，我相信这个东西一定会有人气。在日本我刚谈了一家，他们就非常有兴趣。于是大家今天在街上见到了一种叫“大头贴”的机器。</p>
+<p>后来我又做了一个跟大头贴相近、但技术含量高一些的东西——大家常见的卡啦OK中的“计分器”。经常有人说：唐骏，原来是你发明的，怪不得不准！当时我做这个发明时，做了很多数学模式。同时用自己的标准制定一个体系来打分：如果我自己唱一个曲子，连自己都感动，那给个90分；唱得一般就给70多分，唱得不好就给30分。唱到最后我想多少分就写多少。所以实际上这是我的标准，如果你唱的效果跟我最相近就能得高分。所以想得高分？很简单，在KTV模仿唐骏的声音吧。（笑）</p>
+<p>但专利发明出来，光自己唱唱歌是没意义的，应该投向市场。当时我还是一个学生，一无资金，二无市场。怎么办？我应该寻找一个买家。后来我把专利卖给一个当时名不见经传的小公司，据说现在还有点名气，叫“三星公司”。（笑）<br>当时市场占有率最高的公司是日本的先锋公司，市场份额27%，第二名是三星公司，但只有2.3%的市场份额。我跟老大合作，他当然不会理我。于是我就跟老二合作，经过一番周折。他们最终决定给我8万美元。我跟他们说：中国人不在乎钱的！8万也好，7万也好，都不重要。（笑）其实我的心理价位是5万美元，就这么一笔生意，改变了我的人生。<br>后来我才知道三星公司当时快倒闭了，却因为拿了我这个专利，市场份额从2.3%涨到10%以上。更重要的是，它把专利使用权又卖给先锋公司。光第一笔使用专利就要了500万美元。更更重要的是今后先锋公司每用一次专利，就要付3美元！为什么今天有盖茨？盖茨不过做了一个DOS，但当时IBM要花2000万美元买下来，2000万美元对一个年轻人是非常诱惑的。但盖茨比我聪明得多，他没卖。而是签约：每使用一次DOS就收5美元。现在我明白了我与盖茨的差距。但当时我拿了这笔钱内心还是挺感动的。穷学生一下子变成了8万富翁！</p>
+<p><strong>以强势姿态卖车、谈判、办律所</strong></p>
+<p>当拿到三星公司的钱，我对自己说：现在的唐骏有了8万美元身价，绝对不能再开600美元的车了。第一件事就是把刚到美国时花600美元买的“五手车”换了——花1万美元买了辆“一手车”。旧车怎么办？卖掉。不然是种资源浪费。<br>我花了8美元把车一洗，拍张照，贴个广告，上面写的很简单：车很好，价格面谈。来了一个美国人，问：这车怎么样？我说：非常好。他问：为什么要卖？我说：看见那辆新车没？那是我的。我不是车要坏才要卖掉，而是因为有了新车。他问：车的性能好到什么程度？我说：你放心，拿回去先开三个月，不用交钱。开完后，你觉得好，回来交钱，不好，把车送回来。首先在气势上就把他压住。他从没听说过这种卖车方式：哪有用三个月还不用付钱的？性能一定很过关！不然你不会这么自信。他问：多少钱。我说中国人不在乎钱的！（笑）他说总得有个价格。我说：很简单，你说多少就多少，你只要开出价，即使不付钱我都让你开回去！（又在气势上压住他）他说：实在不好意思呀，我觉得这车各方面都挺好，我先开一价吧，900块行不行？我心想：我买来的时候600美元，我开了1年多还反倒升值 50%！其实我很想往600以下砍。最后为了保持信用，900块钱成交了（笑）。</p>
+<p>当时我除了有自己的软件公司，还有另外一家叫“好莱坞娱乐影业公司”的公司。（名字大吧？没办法，“皮包公司”一定要起个大名字！）</p>
+<p>因为我从小就是一个相声迷。当时我就想把中国一流的相声演员都请到美国的十大城市巡演，让美国人也感受一下相声，当时这叫“国际走穴”。中国人出国需要签证，我就委托洛山矶最有名的律师去办这些签证，他说没问题，结果离演出还有10天时，当我把所有场地包下来后，15场演出的30000张票全卖出去时，意外出现了：姜昆突然告诉我：签证没办出来。我一下子瘫了。倒不是在乎钱，最多我把场地费赔了，把广告几十万美元赔掉。但有一个我赔不起的是信誉！而美国人最喜欢做的就是起诉，这是欺诈行为呀！</p>
+<p>我又碰到壁垒了：面临进监狱。就剩下十天时间，我什么也做不了。但毕竟我在美国也混了两年，对美国社会有些了解：美国是一个政治的社会，他们的国会议员扮演着非常重要的角色。当时我把56个众议院、参议院的所有人名都拿到手。做什么？给每个议员写信。当然如果我在信的末端注明：在两天之内收不到回信，我会把信转抄给《纽约时报》等报纸。<br>很多人给我回了信，说很关注这些事情。也有一些议员直接给白宫、国务院、移民局、驻华使馆打电话、发电传，都询问这件事。因为总统最怕参议院、众议院。所以总统也发传真到驻华使馆询问这件事。如果你是驻华大使，一下子收到这么多有关同一件事的询问，他肯定觉得这家公司来历不小呀，连美国的国家机器都被他动用了，背景一定很强！（笑）<br>于是，所有签证很快拿下。花了19000美元请的最大的律师没有做成的事，我却做成了。那他能做成的事我就更能做了。于是我马上花100美元注册了一个公司——“美国第一移民律师事务所”。让人感觉还有第二、第三。把名字弄得响一点。（笑）</p>
+<p>但美国是一个律师市场很成熟的竞争社会。人家介绍律师时，都是哈佛、耶鲁的法学博士。唐骏算什么？计算机科学的博士。有人理你吗？于是我又采用了高姿态的强势方式。</p>
+<p>律师都是按小时收费，一小时300美元。所以，如果他缺钱就给我打个电话，随便侃一小时，你就要准备300美元支票。但有时候你谈几次、花很多个300美元，也不一定办下来。</p>
+<p>所以我跟他们玩得不一样，我采取完全透明的方式。怎么透明？把签证收费写清楚：学生签证转工作签证600美元！明码标价总比含糊其词容易让人信服。另外，对客户而言，比价格更重要的是成功率。抓住这个心态，我又采取了一个高调方式：不成功不收费！</p>
+<p>更重要的，别的律师事务所的广告措辞通常是模糊的：本事务所成功率“较高”。而我则说：目前，本律师事务所成功率是100%（我总共做了一个，就成功了，你说是不是100%？）。</p>
+<p>没有想到吸引了一大群人。我只租了三条电话线，根本接不过来，电话总占线，客户开始抱怨。我赶紧跟自己另外一个软件公司的部下说：你们先别做软件了，都过来帮我接电话！</p>
+<p>统一接电话模式是：当客户想跟律师谈一下时就回答说“我们律师很忙，所以你的案子只能以书面形式来交给我们。”总共就一个律师，当然很忙！一方面给人的感觉是，我们的生意很好。当然，我也根本不敢跟他们见面。我在做什么？我在读书呀。虽然美国的法律书那么厚一摞，而且全是英文。没办法还得硬着头皮啃。</p>
+<p>大学里什么最重要？不是学习成绩，而是学习方式。社会上需要的也是懂学习方式、有学习能力的人。尤其要学会快速学习方式，要学会抓重点。</p>
+<p>这么厚的律师书，我在看什么？目录，把目录记住就可以了。既然不可能把一个个案例细节记清，那只要听到一个案子时能以最快速度翻到对应的某页就可以了，到时再临时攻关。</p>
+<p>最后，越来越多人都要我这里来办理，一下子变得非常成功，比我的主营业务还要成功。我突然有种失落感：我是做软件出身的，结果软件没有做出什么来，做律所反倒成功了。而这个律师事务所最大的创意就是它的高姿态广告——抓住了消费者的心态。</p>
+<p>我喜欢挑战，虽然律师事务所做的还不错，但不是我的追求。我的追求是什么？做软件。但我觉得做软件我又做不大，30-40人的小公司，没有成就感。1994 年，到了事业顶峰时，我选择了放弃。虽然在洛杉矶有三份事业，可是我觉得做三个“小公司”，没有追求，我要到外面更大世界去看看。当时恰好因为在日本发明的“婚姻配对机”引起了微软注意，在接到了来自微软的两个招聘电话之后，我毫不犹豫地放弃了洛杉矶的三家公司，结束忙碌而无为的“小老板”生活。但加入微软时，我只是一个软件工程师。很多人不理解，放弃自己公司的总裁位置，去做工程师？我觉得人要能上也要能下。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://cpiz.com/2008/07/16/搬家Again/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cpiz">
+      <meta itemprop="description" content="Cpiz's blog">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cpiz's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2008/07/16/搬家Again/" itemprop="url">
+                  搬家Again
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2008-07-16 00:36:02" itemprop="dateCreated datePublished" datetime="2008-07-16T00:36:02+08:00">2008-07-16</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-05-24 14:44:42" itemprop="dateModified" datetime="2018-05-24T14:44:42+08:00">2018-05-24</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/建站/" itemprop="url" rel="index"><span itemprop="name">建站</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>数不清这是第几次了，由于之前的空间速度实在是太慢，再次搬家，顺便把WP升级到了2.6，升级了一批插件。</p>
+<p>现在速度快了不少，但从LAMP回到了WINDOWS平台，不再支持地址转向，以前被搜索引擎收录的地址全部无效。</p>
+<p>丢失了两天的数据，下载功能目前也失效了，又有得忙了。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://cpiz.com/2008/07/13/Cbook 3.0开发计划/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cpiz">
+      <meta itemprop="description" content="Cpiz's blog">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cpiz's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2008/07/13/Cbook 3.0开发计划/" itemprop="url">
+                  Cbook 3.0开发计划
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2008-07-13 15:13:02" itemprop="dateCreated datePublished" datetime="2008-07-13T15:13:02+08:00">2008-07-13</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-05-24 15:30:56" itemprop="dateModified" datetime="2018-05-24T15:30:56+08:00">2018-05-24</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/项目/" itemprop="url" rel="index"><span itemprop="name">项目</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>很多朋友向我反映过Cbook2的诸多问题，比如兼容性、书签不够用，只是自己太安于现状，不是很愿意改进。前阵子入手了E51，一直在用iSilo看小说，虽然功能很强大，但习惯了自己的Cbook，没有了背景灯控制和自动键盘锁这两个功能，总是觉得很别扭。这让我开发Cbook3的念头越来越浓烈，加上现在手头上的设备也不少，这次一定注意解决兼容性问题。</p>
+<p>以下是目前计划中Cbook3的特性：</p>
+<ul>
+<li><strong>软件命名</strong>：手机端和PC端生成器统一命名为Cbook3，解决之前版本命名混淆的问题。</li>
+<li><strong>使用目标</strong>：与之前的版本无异，提供对纯文本&amp;长篇小说的最佳阅读体验。</li>
+<li><strong>运行平台</strong>：Cbook最初的开发目标是实现全屏，在MIDP1.0时代，借助于Nokia UI API，这一目标得到了完美实现，但也导致了软件兼容性不佳，仅支持Nokia和索爱系列。随着MIDP2.0的普及，全屏特性已经不须依靠Nokia的专有API来实现。Cbook3将平台升级至MIDP2.0，可极大扩展Cbook的使用范围，包括PSP平台(基于PSP上的JAVA虚拟机)。当然，这也意味着放弃对一些老设备的支持，N3100、N3108…</li>
+<li><strong>体积控制</strong>：对于jar大小有限制的平台，提供更精准的体积控制；对无限制的平台，自然是一个文件搞定，不用再担心Cbookbuilder的滑动条不够长了。</li>
+<li><strong>生成器</strong>：绿色、操作更方便、配置更灵活、兼容更多的文本编码。</li>
+<li><p><strong>其它的新特性</strong>：</p>
+<ul>
+<li>提供书签管理功能</li>
+<li>更强大的跳转与搜索</li>
+<li>更灵活地颜色主题管理</li>
+<li>自动滚屏（视机能效率再定）</li>
+<li>(待想)<br>Cbook3基本不会继承Cbook2的代码，由于加入了更多的新功能，在体积、效率方面的控制将更加严格，生成器计划使用C++ Builder重写（还得再学），开发工作量比之前的版本大了很多，加上现在工作紧张时间不宽贷，一天两天是搞不出来的，发布计划就以后再定吧。</li>
+</ul>
+</li>
+</ul>
+<p><strong>2009-08-30 upcategories: 项目<br>date:</strong></p>
+<p><strong>项目最终还是搁置了，是我看不到应用的希望，现在的手机发展太快，优秀的软件太多，没必要再做一个</strong></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://cpiz.com/2008/07/09/Nokia E51入手一周感受/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cpiz">
+      <meta itemprop="description" content="Cpiz's blog">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cpiz's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2008/07/09/Nokia E51入手一周感受/" itemprop="url">
+                  Nokia E51入手一周感受
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2008-07-09 00:11:30" itemprop="dateCreated datePublished" datetime="2008-07-09T00:11:30+08:00">2008-07-09</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-05-24 15:39:46" itemprop="dateModified" datetime="2018-05-24T15:39:46+08:00">2018-05-24</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/扯淡/" itemprop="url" rel="index"><span itemprop="name">扯淡</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>和Potter将近两年没见面了，上星期把他邀到我这聚了一下。见面就是聊手机开发，最近他捣鼓出了一个WM5/6不占内存的来电归属地显示软件<a href="http://wstart.cn/" target="_blank" rel="noopener">CallerLoc</a>，人气相当的高，可惜我没在用WM系统的手机，享不到这个福。顺便给我展示了WM上一些神奇的软件，比如结合了基站定位功能的手机版Google Earth，惹得我心痒得紧，突然就想也弄个智能手机回来玩玩，有时间也写点软件什么的。</p>
+<p>以前没玩过Symbian的智能机，一直觉得很遗憾，这回应该要挑个Nokia的S60机器了。要求直板、1600万色屏幕、320x240以上的分辨率、蓝牙、WIFI，综合这些条件后，到友人网筛选了一下，确定了Nokia E51。当晚就在淘宝找了一家信誉比较高的店下了单，亚太版E51 + 原装电池/充电器 + 原装耳机 + 原装数据线 + 擦屏布 + 手机挂绳 + 飞毛腿电池 + 2G卡包快递一共1950RMB。两天后收到货，到现在已经使用了一周，下面说说感受。</p>
+<p><strong>外观：</strong></p>
+<p>E51的金属质感是一卖点，但我买的是黑色版，反倒把它掩盖掉了，早知道该选银色的。且镜面金属外观容易留下指纹，刚用没两天就看不出新旧了。</p>
+<p>手机薄到恰到好处，但长度有点过分，比我之前的N6070多了约15mm，看起来有点怪怪的（想到了《鹿鼎记》中有胖头陀）。</p>
+<p>正面上部有50%+的部分是屏面，但真正的显示屏只有2.0寸，与四周幅员辽阔的边框一比，越看越觉得小。不过这么小的屏有320x240的分辨率，显示效果没得说！</p>
+<p><strong>使用：</strong></p>
+<p>E51的运行配置非常强大，这是我选它的主要原因，操作非常流畅。有130M的存储，完全可以满足常用软件的安装。</p>
+<p>信号质量不错、WIFI连接很稳定，这一点比Potter的830要强多了。</p>
+<p>铃声音色不错，但扬声器设在手机背面，容易被遮挡影响效果，耳机听音乐差得一塌糊涂，还好有PSP和魅族E3，不听音乐也罢。</p>
+<p>键盘分功能区和数字区，数字区按键比较大，比较好用。但功能区的按键密度实在是不一搬，与数字区1-6键的区域相仿的一块地方挤了14个键。虽然其中11个键可以自定义功能，极大地方便了程序的启动，但平常操作中误按的机率太高，非常不爽。</p>
+<p>手机的金属后盖与机身契合设置不严密，打电话的时候我常常被上面夹到头发，下面又有点凸出常常会硌手。</p>
+<p>100克的重量还是嫌重了，躺床上长时间看小说比较累。</p>
+<p>摄像头效果一般，能扫清条形码，其它的我就不要求了。</p>
+<p>闹钟支持周期设定，这个功能太体贴了，相当满意。</p>
+<p>名片检索存在bug，比如查找姓“曾”的联系人，按z键会搜索不到，按c键才可以（同音字），这个问题在我最早用的N3108上也存在。</p>
+<p>手机侧面的开关、音量调节等按钮，手感相当的差，不用指甲加压根按不下去。</p>
+<p>电力续航不错，普通的使用三天不成问题。</p>
+<p>————————–总结的分割线————————–</p>
+<p>因为WIFI和CPU速度的出色，其它的缺点都可以睁一只眼闭一只眼了，希望以后在上面多写出点华丽的程序。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://cpiz.com/2008/06/18/Firefox 3发布, 喜忧参半/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cpiz">
+      <meta itemprop="description" content="Cpiz's blog">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cpiz's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2008/06/18/Firefox 3发布, 喜忧参半/" itemprop="url">
+                  Firefox 3发布, 喜忧参半
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2008-06-18 22:23:42" itemprop="dateCreated datePublished" datetime="2008-06-18T22:23:42+08:00">2008-06-18</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-05-24 15:33:27" itemprop="dateModified" datetime="2018-05-24T15:33:27+08:00">2018-05-24</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技术/" itemprop="url" rel="index"><span itemprop="name">技术</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>半个月前就加入了Firefox3的下载计划，主办方宣称要在发布的当日创造下载记录，后来收到封邮件通知我下载日定在了6月17。我昨天有事没事上官网去看看，盼了一天没来，还以为是跳票了。今早上班下去看一次终于公布了下载链接，马上装上。</p>
+<p>安装倒是很方便，启动前会自动检查插件的兼容性，我的十来个插件中大概有1/3不合格，其中包括鼠标手势插件<a href="https://addons.mozilla.org/zh-CN/firefox/addon/12" target="_blank" rel="noopener">All-in-One Gestures</a>，但很快找到了丝毫不弱的<a href="https://addons.mozilla.org/zh-CN/firefox/addon/6366" target="_blank" rel="noopener">FireGestures</a>来替代。而另外一个钟爱的<a href="https://addons.mozilla.org/zh-CN/firefox/addon/1865" target="_blank" rel="noopener">Adblock Plus</a>插件能够完全兼容FF3，让人很是欣慰。</p>
+<p>FF3启动速度明显快过FF2，界面也变得更加精致，操作上和FF2完全一致，但有很多贴心的改进，比如在地址栏输入地址时，会自动去收藏夹及历史记录中匹配并提醒，并能显示站点的标题。收藏夹开始支持标签，并会自动收集最近使用的书签和使用最多的书签。</p>
+<p>优点虽然不少，缺点也相当严重。从我早上开始用到现在，同时在公司和自己的两台机器上，FF3已经累计崩溃了10次左右，让人烦不胜烦。而且每次崩溃都没有前兆，让我想查都没法入手，不知道是插件不兼容还是FF3本身的问题。每次崩溃时我都把错误报告发了回去，希望马上能发布更稳定的版本。</p>
+<p>很高兴的是，到晚上的时候，我使用的插件中已经有四五款发布了新版本，应该都是针对FF3的，向这些FF的劳动者们致敬！</p>
+<p><a href="http://mozilla.ussg.indiana.edu/pub/mozilla.org/firefox/releases/3.0/win32/zh-CN/Firefox%20Setup%203.0.exe" target="_blank" rel="noopener">Firefox3 WIN32中文版下载</a></p>
 
           
         
@@ -2064,7 +2237,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -2107,7 +2280,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">143</span>
+                    <span class="site-state-item-count">170</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2117,7 +2290,7 @@
                 
                 
                 <div class="site-state-item site-state-categories">
-                  
+                  <a href="/categories/index.html">
                     
                     
                       
@@ -2142,7 +2315,7 @@
                     
                     <span class="site-state-item-count">10</span>
                     <span class="site-state-item-name">分类</span>
-                  
+                  </a>
                 </div>
               
 
@@ -2150,7 +2323,7 @@
                 
                 
                 <div class="site-state-item site-state-tags">
-                  
+                  <a href="/tags/index.html">
                     
                     
                       
@@ -2387,9 +2560,237 @@
                     
                       
                     
-                    <span class="site-state-item-count">117</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">231</span>
                     <span class="site-state-item-name">标签</span>
-                  
+                  </a>
                 </div>
               
             </nav>
@@ -2470,7 +2871,7 @@
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Muse</a> v6.3.0</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Mist</a> v6.3.0</div>
 
 
 
@@ -2597,6 +2998,326 @@
 
 
   
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
 
 
 

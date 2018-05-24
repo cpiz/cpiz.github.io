@@ -11,10 +11,8 @@
 
 
 
-  
 
-
-<html class="theme-next muse use-motion" lang="zh-CN">
+<html class="theme-next mist" lang="zh-CN">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -84,14 +82,14 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Mist',
     version: '6.3.0',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: false,
     fastclick: false,
     lazyload: false,
     tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     algolia: {
       applicationID: '',
       apiKey: '',
@@ -260,6 +258,14 @@
 
       
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+        </li>
+      
     </ul>
   
 
@@ -268,6 +274,29 @@
 
   
 
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
   
 </nav>
 
@@ -301,6 +330,978 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://cpiz.com/2010/12/14/Anyplayer 1.0.5 - Wordpress万能播放器插件/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cpiz">
+      <meta itemprop="description" content="Cpiz's blog">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cpiz's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2010/12/14/Anyplayer 1.0.5 - Wordpress万能播放器插件/" itemprop="url">
+                  Anyplayer 1.0.5 - Wordpress万能播放器插件
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2010-12-14 11:07:56" itemprop="dateCreated datePublished" datetime="2010-12-14T11:07:56+08:00">2010-12-14</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-05-24 15:30:56" itemprop="dateModified" datetime="2018-05-24T15:30:56+08:00">2018-05-24</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/项目/" itemprop="url" rel="index"><span itemprop="name">项目</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>原创作品，转载请注明出处</p>
+<h2 id="题外话："><a href="#题外话：" class="headerlink" title="题外话："></a>题外话：</h2><blockquote>
+<p>08年初写了Anyplayer插件后，由于各种各样的原因，博客渐渐疏离，插件自然也未能更新完善，辜负了很多朋友的支持与期待。09是twitter火热年，到10年各家微博开始在国内大行其道，曾经辉煌一时的个人博客、RSS逐渐式微。这两年我玩多了微博，人越发浮躁，这才记得起传统博客的好，准备重整家园写点东西，为这越过越快的日子多截几张屏来留念。</p>
+<p>这几日花了大把功夫，将Anyplayer重写了一遍，完善了很多功能，并按Wordpress的标准做了国际化，版本号正式定为1.0.0(最新版本至1.0.5)。</p>
+</blockquote>
+<h2 id="功能描述："><a href="#功能描述：" class="headerlink" title="功能描述："></a>功能描述：</h2><blockquote>
+<p>Anyplayer是一个Wordpress播放器插件, 能在文章中轻松添加Flash, MP3, WMA, WMV, QuickTime等媒体,可自定义展开与折叠.</p>
+<p>只须按格式输入媒体的地址与类型, 便能自动使用相应的播放器播放.支持自定义宽, 高, 是否展开.</p>
+<p>支持国际化.<br>more</p>
+</blockquote>
+<h2 id="使用方法："><a href="#使用方法：" class="headerlink" title="使用方法："></a>使用方法：</h2><blockquote>
+<p>在文章可视化编辑状态, 点击工具栏中的Anyplayer按钮（小三角形）, 按提示输入媒体属性, 将自动在光标处插入媒体标签.</p>
+<p><img src="http://cpiz.com/blog/wp-content/uploads/2010/12/anyplayer-input1.png" alt="anyplayer输入框" title="anyplayer-input"></p>
+<p>在非TinyMCE编辑器或HTML编辑状态, 也可手工输入媒体标签:</p>
+<p>[anyplayer:type=swf url=<a href="http://xxx.com/xxx/xxx.swf" target="_blank" rel="noopener">http://xxx.com/xxx/xxx.swf</a> width=480 height=400 open=yes title=my_video]</p>
+<p>所有参数值直接在等号后面输入, 不用单引号或双引号括起, 参数值中不能包含空格. 参数含义如下:</p>
+<ul>
+<li>type:   媒体类型, 非必须参数, 备选值为SWF, FLV, MP3, WMA, WMV, QT, 大小写无关.</li>
+<li>url:    媒体url, 必须参数, 如果未设置type参数, 将根据url参数中的文件后缀自行确定媒体类型, 大小写敏感.</li>
+<li>width:  播放器宽度, 非必须参数, 必须是数字. 该参数仅对视频媒体有效, 默认是480.</li>
+<li>height: 播放器高度, 非必须参数, 必须是数字. 该参数仅对视频媒体有效, 默认是400.</li>
+<li>open:   是否展开, 备选值为yes, no, auto. 参数值为auto或不使用该参数时, 页面中第一个anyplayer对象将自动展开.</li>
+<li>title:  媒体标题, 非必须参数, 将出现在媒体上方.</li>
+</ul>
+</blockquote>
+<h2 id="效果演示："><a href="#效果演示：" class="headerlink" title="效果演示："></a>效果演示：</h2><blockquote>
+<p>文章发布后，插件能将anyplayer标签自动转换成相应的播放器。自动使用块引用效果，可点击进行展开与折叠。</p>
+<p><strong>swf：</strong>目前大部分的视频网站都可使用这种方式嵌入，而且国内视频网站的视频尺寸也都是480x400，所以可以省略宽、高的输入。以优酷为例，点击网站视频下方的“分享”按钮，复制出“flash地址”栏中的内容，即为anyplayer需要的url。</p>
+<p>[anyplayer:url=<a href="http://player.youku.com/player.php/Type/Folder/Fid/5363178/Ob/1/Pt/0/sid/XMjI4NDIwMzI0/v.swf" target="_blank" rel="noopener">http://player.youku.com/player.php/Type/Folder/Fid/5363178/Ob/1/Pt/0/sid/XMjI4NDIwMzI0/v.swf</a> title=优酷挂牌纽交所_首家在美独立上市视频股 type=SWF]</p>
+<p>[anyplayer:url=<a href="http://player.youku.com/player.php/Type/Folder/Fid/5363178/Ob/1/Pt/0/sid/XMjI4NDIwMzI0/v.swf" target="_blank" rel="noopener">http://player.youku.com/player.php/Type/Folder/Fid/5363178/Ob/1/Pt/0/sid/XMjI4NDIwMzI0/v.swf</a> title=优酷挂牌纽交所_首家在美独立上市视频股 type=SWF]</p>
+<p><strong>mp3：</strong>插入MP3播放器不须要指定宽、高，这里使用了open=yes强制展开。MP3格式使用插件自带的播放器播放。</p>
+<p>[anyplayer:url=<a href="http://tjstart.com/special/tianlai2010/musics/3.mp3" target="_blank" rel="noopener">http://tjstart.com/special/tianlai2010/musics/3.mp3</a> title=孙燕姿-同类 open=yes]</p>
+<p>[anyplayer:url=<a href="http://tjstart.com/special/tianlai2010/musics/3.mp3" target="_blank" rel="noopener">http://tjstart.com/special/tianlai2010/musics/3.mp3</a> title=孙燕姿-同类 open=yes]</p>
+<p><strong>flv：</strong>虽然目前各大站的视频基本都是flv格式，但能得到真实flv地址的地方却很少了。这次不加open与title参数，可以看到是默认折叠，且无标题。flv格式使用插件自带的播放器（<a href="http://www.ruochi.com/main/2008/03/19/vcastr-30/" title="Vcastr 3.0" target="_blank" rel="noopener">开源的Vcastr 3.0</a>，赞！）播放</p>
+<p>[anyplayer:url=<a href="http://downloads.paramount.com/mp/transformers3/Trans3_Trl1_1024_A_rev2.flv" target="_blank" rel="noopener">http://downloads.paramount.com/mp/transformers3/Trans3_Trl1_1024_A_rev2.flv</a> width=600 height=360]</p>
+<p>[anyplayer:url=<a href="http://downloads.paramount.com/mp/transformers3/Trans3_Trl1_1024_A_rev2.flv" target="_blank" rel="noopener">http://downloads.paramount.com/mp/transformers3/Trans3_Trl1_1024_A_rev2.flv</a> width=600 height=360]</p>
+<p><strong>wma&amp;wmv：</strong>wma与wmv在非IE浏览器中须要下载插件支持</p>
+<p>[anyplayer:url=<a href="http://support.microsoft.com/support/mediaplayer/wmptest/samples/new/mediaexample.wma]" target="_blank" rel="noopener">http://support.microsoft.com/support/mediaplayer/wmptest/samples/new/mediaexample.wma]</a></p>
+<p>[anyplayer:url=<a href="http://support.microsoft.com/support/mediaplayer/wmptest/samples/new/mediaexample.wma]" target="_blank" rel="noopener">http://support.microsoft.com/support/mediaplayer/wmptest/samples/new/mediaexample.wma]</a></p>
+<p>[anyplayer:url=<a href="http://support.microsoft.com/support/mediaplayer/wmptest/samples/new/mediaexample.wmv]" target="_blank" rel="noopener">http://support.microsoft.com/support/mediaplayer/wmptest/samples/new/mediaexample.wmv]</a></p>
+<p>[anyplayer:url=<a href="http://support.microsoft.com/support/mediaplayer/wmptest/samples/new/mediaexample.wmv]" target="_blank" rel="noopener">http://support.microsoft.com/support/mediaplayer/wmptest/samples/new/mediaexample.wmv]</a></p>
+<p><strong>Quicktime：</strong>须要插件支持，此例使用了指定的宽高</p>
+<p>[anyplayer:url=<a href="http://movies.apple.com/movies/us/apple/wwdc2006/apple-spaces_672x416.mov" target="_blank" rel="noopener">http://movies.apple.com/movies/us/apple/wwdc2006/apple-spaces_672x416.mov</a> title=Quicktime演示 width=672 height=432]</p>
+<p>[anyplayer:url=<a href="http://movies.apple.com/movies/us/apple/wwdc2006/apple-spaces_672x416.mov" target="_blank" rel="noopener">http://movies.apple.com/movies/us/apple/wwdc2006/apple-spaces_672x416.mov</a> title=Quicktime演示 width=672 height=432]</p>
+</blockquote>
+<h2 id="安装说明："><a href="#安装说明：" class="headerlink" title="安装说明："></a>安装说明：</h2><blockquote>
+<ol>
+<li>将anyplayer目录上传至/wp-content/plugins/</li>
+<li>在插件管理中激活Anyplayer, OK!</li>
+</ol>
+<p>卸载则反向操作以上两步。从以前的版本升级，建议删除原目录后重新上传新版本。</p>
+</blockquote>
+<h2 id="更新记录："><a href="#更新记录：" class="headerlink" title="更新记录："></a>更新记录：</h2><blockquote>
+<p>1.0.5(new)</p>
+<ol>
+<li>更换了flv播放器, 支持音量调节, 体积只有原来的40%(24.8K)</li>
+<li>部分细节调整，如flv支持双击全屏<br>1.0.1</li>
+</ol>
+<ol>
+<li>&lt;修正了添加媒体对话框在某些条件下乱码问题，从1.0升级替换掉window.php文件即可<br>1.0.0</li>
+</ol>
+<ol>
+<li>支持通过编辑器按钮打开Anyplayer界面插入播放器</li>
+<li>支持在RSS中播放视频与音频</li>
+<li>新增open参数, 支持自定义是否展开</li>
+<li>新增title参数, 支持显示媒体标题</li>
+<li>支持自动侦测媒体类型, 可省略type参数</li>
+<li>取消了对RM格式支持(RM作为流媒体已经out了)</li>
+<li>支持国际化</li>
+<li>其它优化<br>0.0.4</li>
+</ol>
+<ol>
+<li>修正了部分主机对js参数有安全性检查, 可能导致无法显示播放器的Bug<br>0.0.3</li>
+</ol>
+<ol>
+<li>发布插件初版</li>
+</ol>
+</blockquote>
+<h2 id="感谢："><a href="#感谢：" class="headerlink" title="感谢："></a>感谢：</h2><blockquote>
+<p>本插件使用的MP3播放器源自WP插件audio-player（作者<a href="http://www.1pixelout.net" target="_blank" rel="noopener">Martin Laine</a>），FLV播放器来自开源项目<a href="http://www.ruochi.com/main/2008/03/19/vcastr-30/" target="_blank" rel="noopener">Vcastr</a>，特此感谢！</p>
+</blockquote>
+<h2 id="插件下载："><a href="#插件下载：" class="headerlink" title="插件下载："></a>插件下载：</h2><blockquote>
+<p>[download id=”14”]</p>
+<p>有任何问题或建议，请在本页留言。</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://cpiz.com/2010/12/04/博客已迁移到国外主机/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cpiz">
+      <meta itemprop="description" content="Cpiz's blog">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cpiz's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2010/12/04/博客已迁移到国外主机/" itemprop="url">
+                  博客已迁移到国外主机
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2010-12-04 11:44:42" itemprop="dateCreated datePublished" datetime="2010-12-04T11:44:42+08:00">2010-12-04</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-05-24 14:44:42" itemprop="dateModified" datetime="2018-05-24T14:44:42+08:00">2018-05-24</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/建站/" itemprop="url" rel="index"><span itemprop="name">建站</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>博客已迁移到国外主机，再也不用为过期的备案而担心烦恼</p>
+<p>呼~~空气真好</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://cpiz.com/2010/12/03/80后的老男孩/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cpiz">
+      <meta itemprop="description" content="Cpiz's blog">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cpiz's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2010/12/03/80后的老男孩/" itemprop="url">
+                  80后的老男孩
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2010-12-03 18:34:33" itemprop="dateCreated datePublished" datetime="2010-12-03T18:34:33+08:00">2010-12-03</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-05-24 15:32:45" itemprop="dateModified" datetime="2018-05-24T15:32:45+08:00">2018-05-24</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/视听/" itemprop="url" rel="index"><span itemprop="name">视听</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>昨晚看《老男孩》，最后时刻还是忍不住泪流满面，然后一整夜都在感怀。每一个青春年少的梦想，无论现在看来多么幼稚，都很神圣。你还记得吗？它实现了吗？</p>
+<p>[anyplayer:type=swf url=<a href="http://player.youku.com/player.php/sid/XMjE4MDU1MDE2/v.swf" target="_blank" rel="noopener">http://player.youku.com/player.php/sid/XMjE4MDU1MDE2/v.swf</a> width=600 height=450]</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://cpiz.com/2010/07/17/[转]java 4-ever/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cpiz">
+      <meta itemprop="description" content="Cpiz's blog">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cpiz's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2010/07/17/[转]java 4-ever/" itemprop="url">
+                  [转]java 4-ever
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2010-07-17 16:04:17" itemprop="dateCreated datePublished" datetime="2010-07-17T16:04:17+08:00">2010-07-17</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-05-24 18:01:02" itemprop="dateModified" datetime="2018-05-24T18:01:02+08:00">2018-05-24</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/视听/" itemprop="url" rel="index"><span itemprop="name">视听</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>看了第一遍，还真以为这是部电影预告片，制作实在是精良</p>
+<iframe height="300" width="540" src="http://player.youku.com/embed/XMTg3NDU3MjIw" frameborder="0" allowfullscreen></iframe>
+<p>话不多说了，真正程序员应该都能看得其乐无穷</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://cpiz.com/2009/08/28/Ultraedit高级应用(1) - 快速生成远程工程/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cpiz">
+      <meta itemprop="description" content="Cpiz's blog">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cpiz's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2009/08/28/Ultraedit高级应用(1) - 快速生成远程工程/" itemprop="url">
+                  Ultraedit高级应用(1) - 快速生成远程工程
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2009-08-28 16:19:51" itemprop="dateCreated datePublished" datetime="2009-08-28T16:19:51+08:00">2009-08-28</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-05-24 15:04:32" itemprop="dateModified" datetime="2018-05-24T15:04:32+08:00">2018-05-24</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技术/" itemprop="url" rel="index"><span itemprop="name">技术</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>由于目前我从事的开发工作只能在Unix上编译和测试，开发人员一般都习惯于在Windows下使用Ultraedit（以下简称UE）编辑代码，然后再FTP上传，这注定了IDE将与我们无缘。在无比怀念Eclipse、Visual Studio的同时，我尝试了很多Windows下优秀的C++开发工具，不断地比较和取舍后最终还是回归了UE。<br>UE曾经是16进制编辑器的代名词，强大的列编辑模式目前也无人能及，多年的演进让它的功能丰富了到让人望而生畏（想想那一屏高的右键菜单），幸好它还拥有着同样强大的可定制性。经过一番配置和二次开发后，现在我开发后台已经颇为顺手，下面介绍一下我的定制过程，均基于我当前在用的v15.10.0.1028版本。</p>
+<p>我的开发方式要求我们的工具要有远程编辑功能；为了方便，我还希望能以目录树的方式，随选随改；工作的网络环境不是很理想，希望切换远程目录时不会停顿；我的编辑仅限于代码文件，不希望编译过程中产生的中间文件(包括中间代码文件)干扰我的视线。在我尝试过的众多文本编辑器和IDE中，只有UE优雅地解决了这些问题。</p>
+<p>UE中的工程同时支持本地文件和远程文件，支持多层虚目录，只须将FTP上的源文件组织成一个工程，即可快速编辑，文件也可以保持原来的目录层次，避免了FTP方式的频繁加载目录和中间文件的干扰。more</p>
+<p><img src="http://pic.yupoo.com/cpiz/925947fafa7f/mk86req9.png" alt="" title="UE工程设置"></p>
+<p>我的工作可能涉及5个子系统，近200个模块，将这些模块人工组织成UE工程明显不现实。研究工程文件发现，一个工程共分为3部分，头部是格式声明，然后是目录层次，最后是每个目录下的文件全路径，如下：<br>[Project ID]<br>Signature=UE Proj: v.1<br>[Project Information]<br>Use Relative Directory=1<br>Relative to Project File=1<br>[Group]<br>0=busiaccep_svr<br>1=busiaccep_svr - busicompleteintfmgr<br>2=busiaccep_svr - busicompleteintfmgr - kernel<br>3=busiaccep_svr - busicompleteintfmgr - include<br>4=busiaccep_svr - busicompleteintfmgr – mgr<br>……<br>[Files - busiaccep_svr - busicompleteintfmgr - kernel]<br>0=FTP::182ng/home/blahblahblah/busiaccep_svr/busicompleteintfmgr/kernel|interfaceip_db.obd<br>1=FTP::182ng/home/blahblahblah/busiaccep_svr/busicompleteintfmgr/kernel|public_intf_db.obd<br>2=FTP::182ng/home/blahblahblah/busiaccep_svr/busicompleteintfmgr/kernel|Makefile<br>[Files - busiaccep_svr - busicompleteintfmgr - include]<br>0=FTP::182ng/home/blahblahblah/busiaccep_svr/busicompleteintfmgr/include|IUserProm_mgr.h<br>1=FTP::182ng/home/blahblahblah/busiaccep_svr/busicompleteintfmgr/include|IUserCell_mgr.h<br>……<br>这应该可以写一个Shell脚本，遍历UNIX上的源代码目录，生成项目文件，下载到Windows中用UE打开，最终证实是可行的。脚本如下：</p>
+<p>#!/bin/ksh</p>
+<p>#</p>
+<h1 id="根据当前目录生成UltraEdit工程文件内容"><a href="#根据当前目录生成UltraEdit工程文件内容" class="headerlink" title="根据当前目录生成UltraEdit工程文件内容"></a>根据当前目录生成UltraEdit工程文件内容</h1><h1 id="将生成的内容存储为-prj文件-即可作为UE工程打开"><a href="#将生成的内容存储为-prj文件-即可作为UE工程打开" class="headerlink" title="将生成的内容存储为.prj文件, 即可作为UE工程打开"></a>将生成的内容存储为.prj文件, 即可作为UE工程打开</h1><p>#</p>
+<h1 id="caijw-创建-2009-5-6-13-50-30"><a href="#caijw-创建-2009-5-6-13-50-30" class="headerlink" title="caijw 创建    2009-5-6 13:50:30"></a>caijw 创建    2009-5-6 13:50:30</h1><p>#</p>
+<h1 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h1><p>FILTER=”Makefile .c .cpp .h”<br>FTP_LINK=”182ng”<br>CUR_PATH=<code>pwd</code></p>
+<h1 id="生成项目头部信息"><a href="#生成项目头部信息" class="headerlink" title="生成项目头部信息"></a>生成项目头部信息</h1><p>echo “[Project ID]”<br>echo “Signature=UE Proj: v.1”<br>echo “[Project Information]”<br>echo “Use Relative Directory=1”<br>echo “Relative to Project File=1”</p>
+<h1 id="生成目录结构信息"><a href="#生成目录结构信息" class="headerlink" title="生成目录结构信息"></a>生成目录结构信息</h1><p>echo “[Group]”<br>find . -type d | egrep -v /CVS$ | egrep -v .svn | egrep -v ^.$ | awk -F”/“ ‘{print NR-1”=”substr($0, 3)}’ | sed ‘s/// - /g’</p>
+<h1 id="生成文件列表"><a href="#生成文件列表" class="headerlink" title="生成文件列表"></a>生成文件列表</h1><p>find . -type f | egrep -v /CVS/ | egrep -v /.svn/ | egrep -v ^.$ | awk ‘{print substr($0, 2)}’ | awk ‘<br>BEGIN{<br>    FS=”/“;<br>    LAST_PATH=”/DEV/NULL”;<br>    FILE_IDX = 0;<br>}<br>{<br>    SCAN_PATH = substr($0, 0, last_index($0, “/“) - 1);<br>    UE_PATH=SCAN_PATH;<br>    gsub(“/“, “ - “, UE_PATH);</p>
+<pre><code>if(SCAN_PATH != LAST_PATH) {
+    print &quot;[Files&quot;UE_PATH&quot;]&quot;;
+    LAST_PATH = SCAN_PATH;
+    FILE_IDX = 0;
+}
+
+print FILE_IDX&quot;=FTP::&apos;$FTP_LINK&apos;&apos;${CUR_PATH}&apos;&quot;SCAN_PATH&quot;|&quot;$NF;
+
+FILE_IDX++;
+</code></pre><p>}</p>
+<p>#</p>
+<h1 id="查找某字符串在另一字符中出现的最后一次位置"><a href="#查找某字符串在另一字符中出现的最后一次位置" class="headerlink" title="查找某字符串在另一字符中出现的最后一次位置"></a>查找某字符串在另一字符中出现的最后一次位置</h1><p>#<br>function last_index(strsrc, strsub){<br>    idx = index(strsrc, strsub);<br>    if (idx != 0){<br>        return idx + last_index(substr(strsrc, idx + 1), strsub);<br>    }else{<br>        return 0;<br>    }<br>}<br>‘</p>
+<h1 id="完成"><a href="#完成" class="headerlink" title="完成"></a>完成</h1><p>使用前修改脚本内容，将FTP_LINK=”182ng”中的182ng修改为UE中FTP的连接名称。建议名称尽量短小，以减少最终生成的项目文件的体积。</p>
+<p><img src="http://pic.yupoo.com/cpiz/662167fafa7f/23ijaneo.png" alt="" title="FTP账号"></p>
+<p>将脚本文件放到代码的最上级目录，执行chmod +x ue_prj.sh添加可执行权限，执行ue_prj.sh &gt; openboss.prj，即可生成该目录下所有文件组织成的UE工程，下载至Windows中即可用UE打开，效果如下：</p>
+<p><img src="http://pic.yupoo.com/cpiz/301917fafa80/bhbieyr2.png" alt="" title="打开工程"></p>
+<p><img src="http://pic.yupoo.com/cpiz/301917fafa80/bhbieyr2.png" alt="UE打开工程"></p>
+<p><strong>注意：</strong></p>
+<ul>
+<li>生成项目前先up一下代码，保证生成的项目是最新的</li>
+<li>对曾经编译的模块，最好gmake clean_all一次，避免中间文件也加入项目中</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -380,7 +1381,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-05-23 18:53:12" itemprop="dateModified" datetime="2018-05-23T18:53:12+08:00">2018-05-23</time>
+                <time title="修改时间：2018-05-24 14:44:43" itemprop="dateModified" datetime="2018-05-24T14:44:43+08:00">2018-05-24</time>
               
             
           </span>
@@ -552,7 +1553,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-05-23 18:53:57" itemprop="dateModified" datetime="2018-05-23T18:53:57+08:00">2018-05-23</time>
+                <time title="修改时间：2018-05-24 15:04:32" itemprop="dateModified" datetime="2018-05-24T15:04:32+08:00">2018-05-24</time>
               
             
           </span>
@@ -731,7 +1732,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-05-23 18:53:57" itemprop="dateModified" datetime="2018-05-23T18:53:57+08:00">2018-05-23</time>
+                <time title="修改时间：2018-05-24 14:46:27" itemprop="dateModified" datetime="2018-05-24T14:46:27+08:00">2018-05-24</time>
               
             
           </span>
@@ -904,7 +1905,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-05-23 18:46:08" itemprop="dateModified" datetime="2018-05-23T18:46:08+08:00">2018-05-23</time>
+                <time title="修改时间：2018-05-24 15:37:32" itemprop="dateModified" datetime="2018-05-24T15:37:32+08:00">2018-05-24</time>
               
             
           </span>
@@ -1051,7 +2052,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://cpiz.com/2008/09/23/钢琴/">
+    <link itemprop="mainEntityOfPage" href="http://cpiz.com/2008/12/16/[转]强人淘宝卖飞机/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Cpiz">
@@ -1070,8 +2071,8 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2008/09/23/钢琴/" itemprop="url">
-                  钢琴
+                <a class="post-title-link" href="/2008/12/16/[转]强人淘宝卖飞机/" itemprop="url">
+                  [转]强人淘宝卖飞机
                 </a>
               
             
@@ -1097,7 +2098,7 @@
                 
               
 
-              <time title="创建时间：2008-09-23 21:06:09" itemprop="dateCreated datePublished" datetime="2008-09-23T21:06:09+08:00">2008-09-23</time>
+              <time title="创建时间：2008-12-16 00:52:11" itemprop="dateCreated datePublished" datetime="2008-12-16T00:52:11+08:00">2008-12-16</time>
             
 
             
@@ -1114,7 +2115,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-05-23 18:53:57" itemprop="dateModified" datetime="2018-05-23T18:53:57+08:00">2018-05-23</time>
+                <time title="修改时间：2018-05-24 17:14:17" itemprop="dateModified" datetime="2018-05-24T17:14:17+08:00">2018-05-24</time>
               
             
           </span>
@@ -1167,980 +2168,41 @@
       
         
           
-            <p>一个Flash版的钢琴，琴键共26个，对应键盘的A-Z。玩的时候注意切换为E文输入法，并且用鼠标先点击一下Flash，以保证焦点。</p>
-<p><strong>A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</strong></p>
-<p>[anyplayer:type=swf url=<a href="http://cpiz.com/files/piano.swf">http://cpiz.com/files/piano.swf</a> width=400 height=300]</p>
-<p><strong>这里有一些现成的歌</strong></p>
-<p>《月亮代表我的心》<br>LOQSONQS STUVTS<br>QPOOO QPOOO<br>PQPOMPQP<br>LOQSONQS STUVTS<br>QPOOO QPOOO<br>PQPMNOPO<br>QSQPOSN MNMNMLQ<br>SQPOSN MNOOOPQP<br>LOQSONQS STUVTS<br>QPOOO QPOOO<br>PQPMNOPO</p>
-<p>《童话》<br>LONOL LONOL LONO OOMML<br>LONOL LQPPO LONOM MMOTS<br>PPRRQQ QQNPOONO ONOR LSRQP<br>PPRRQQ QQVUTUV VPOT TTSSS<br>LSRQQRQ QRQ RQPO<br>OQST TTSPPRQ OQST<br>TTSPPRQRQPO PQMMOONO</p>
-<p>《安静》<br>QQQQPONPPPO LQPOOOLQPOOP<br>QQQQPONPPPO LQPOOOLQPOOPPQR<br>RRRRQPOOOPP LSSSRQPPPQQ<br>MRQRQPOONOL QRQRQPOPS<br>LQRSRQSLQRSRQS LQRSRQOPPPQO<br>SSOONOOSSOONOO RRQQPPORRQQPPO<br>LQRSRQSLQRSRQS LQRSRQOPPPQO<br>SSOONOOSSOONOO RRQQPPOORQPOMOO</p>
-<p>《好好恋爱》<br>JKLLLLLKJIIL NNONOOOPQNNL<br>HMMMJMOLLLLJH KKKJKLMMMOML<br>JKJJKLLLLJIHHO NMLML<br>JHHMMLLLKJ OOOONOPP<br>LRQLLRPLRQRQRQPO ONMMQMQMLLQLQL<br>RQRQOP LRQLLRSPLRQQQRQPQ<br>ONMMQMQMLLQLQPOM OPNMNMNQPOO</p>
-<p>《痴心绝对》<br>OPQQQRQPPOPPSP ONOOOQQOOMNNQN<br>MLMMMRRQSO MLMMMRROOMP<br>OOPQQQRQPPOPPSP ONOOOQQOOMNNQN<br>MLMMRRQSO MLMMMRROOONO</p>
-<p>《会呼吸的痛》<br>STVTXXTW WWVUVWXWSV<br>VUTUVRRRVVWVSSS SYXWXX<br>STVTXXTW WWVUVWXWSVV<br>VUTUVRRRVVWVSSS STUVVUVV</p>
-<p>《欢乐颂》<br>J J K L L K J I H H I J J I I<br>J J K L L K J I H H I J I H H<br>I I J H I J K J H I J K J I H I E<br>J J K L L K J I H H I J I H H</p>
-<p>《小星星》<br>OOSSTTS RRQQPPO<br>SSRRQQP SSRRQQP<br>OOSSTTS RRQQPPO</p>
-<p>《千千阙歌》<br>HHIJ LMONNNLJ<br>IIIJK MOQPPNL<br>HHIJ LMONNNLJ<br>IIIJK MOQPPNL<br>MLMLMNNMN PPPPNOPQ<br>QQPPPOQ NLM<br>LMOPQQPQ QPOP OMM<br>LMOP QQPQ QSTSQQ<br>QQPPOPOM QQRQPOP QQ Q P<br>POP OMOO</p>
-<p>《婚礼进行曲》<br>HKKK HLJK HKNNMLKJKL<br>HKKK HLJK HKMOMKILMK<br>NMLII JKLL NMLII JKLL<br>HKKK HLJK HKMOMKILMK<br>ILMKK</p>
-<p>转载自<a href="http://user.qzone.qq.com/32329610/blog/1222054273" title="http://user.qzone.qq.com/32329610/blog/1222054273" target="_blank" rel="noopener">http://user.qzone.qq.com/32329610/blog/1222054273</a></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://cpiz.com/2008/09/23/体检/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Cpiz">
-      <meta itemprop="description" content="Cpiz's blog">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Cpiz's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2008/09/23/体检/" itemprop="url">
-                  体检
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2008-09-23 21:05:43" itemprop="dateCreated datePublished" datetime="2008-09-23T21:05:43+08:00">2008-09-23</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-05-23 18:46:08" itemprop="dateModified" datetime="2018-05-23T18:46:08+08:00">2018-05-23</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/生活/" itemprop="url" rel="index"><span itemprop="name">生活</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>入职一年半，在即将要滚蛋的时候，正好赶上了公司一年一度的体检。</p>
-<p>地点在南昌大学第四附属医院，去年来时还是破破烂烂的体检中心已经换了新地方，装修和灯光的效果让人还以为到了酒店，加上护士MM们热情的笑容与招待，一向惧医的我顿时紧张全消。</p>
-<p><img src="http://pic.yupoo.com/cpiz/2021263b0805/medium.jpg" alt=""></p>
-<p>检查科目包括血液、B超、尿液、内/外科、五官、视力、血压、体重、心力图、胸透。我多交了10块钱加上了血型检查，迷糊了二十多年，这回终于能知道自己是什么型号的了。。。<br>more </p>
-<p>医院还准备了简单的早餐，牛奶 + 包子/馒头，附一张餐台的照片</p>
-<p><img src="http://pic.yupoo.com/cpiz/6746063b07fc/medium.jpg" alt=""></p>
-<p><strong>目前已知的结果是：</strong></p>
-<p>血压，正常；</p>
-<p>视力，眼镜矫正后，左右眼都是1.0。不戴眼镜怎么样？大夫，我看不清您那棍棍。。。</p>
-<p>体重，56.2kg65.2kg，欣慰不少。。。（知道为什么要空腹来体检了吧）</p>
-<p>B超，大夫问我有没喝三鹿牛奶，我说没，他说你很健康-_-!!!</p>
-<p>咽喉，不出所料，的确是有慢性咽炎。我问大夫怎么办，她说不要抽烟喝酒，我说我都不会，她说平时少吃辣的，我心想这不是要饿死我么。</p>
-<p>内外科，正常；</p>
-<p>其它的检查项还在等结果。。。猜猜我是啥型号。 : )</p>
-<p>—————————————————11.02补充:————–</p>
-<p>汗…上回写错了，是65.2kg!!!</p>
-<p>本来以为自己蛮健康的，但体检结果严重打击了我：血脂高/心律不齐/屈光不正/慢性咽炎/乙肝无病毒抗体。。。整个一残疾人。</p>
-<p>PS：血型是A</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://cpiz.com/2008/08/24/休假归来/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Cpiz">
-      <meta itemprop="description" content="Cpiz's blog">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Cpiz's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2008/08/24/休假归来/" itemprop="url">
-                  休假归来
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2008-08-24 23:38:27" itemprop="dateCreated datePublished" datetime="2008-08-24T23:38:27+08:00">2008-08-24</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-05-23 18:46:08" itemprop="dateModified" datetime="2018-05-23T18:46:08+08:00">2018-05-23</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/生活/" itemprop="url" rel="index"><span itemprop="name">生活</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>好日子总是过得很快，从16号开始在家休假，转眼明天又要开始上班了。</p>
-<p>工作一年多，极少特意调休或请假，这是第一次享受年假。申请了5天，加上前后两个周末，跟春节假期一样能休9天。但这个时候回家，远没有春节期间那么多应酬，加上企盼了N年的北京奥运，这可是经27层过滤的纯假期。</p>
-<p>除了出门买了个空调，和老友游了回泳外，生活就是吃、睡、看奥运、上网。</p>
-<p>最大的遗憾，那天看到了中学时的化学老师，却突然忘了他姓什么，装作无视飘过。。。自责很久</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://cpiz.com/2008/08/20/如果这也是奥林匹克。。。/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Cpiz">
-      <meta itemprop="description" content="Cpiz's blog">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Cpiz's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2008/08/20/如果这也是奥林匹克。。。/" itemprop="url">
-                  如果这也是奥林匹克。。。
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2008-08-20 00:19:52" itemprop="dateCreated datePublished" datetime="2008-08-20T00:19:52+08:00">2008-08-20</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-05-23 18:53:57" itemprop="dateModified" datetime="2018-05-23T18:53:57+08:00">2018-05-23</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/视听/" itemprop="url" rel="index"><span itemprop="name">视听</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>看到奥运会体操中没有男子高低杠、平衡木项目，某大叔很不服气，化装报名了。光那穿着女子健身装、扎着辫子、留着马里奥胡子的造型，就已经囧到了不行。。。</p>
-<p><strong>高低杠：</strong></p>
-<p>[anyplayer:type=swf url=<a href="http://www.youtube.com/v/tu-YAMiS5wA&amp;hl=en&amp;fs=1" target="_blank" rel="noopener">http://www.youtube.com/v/tu-YAMiS5wA&amp;hl=en&amp;fs=1</a> width=425 height=355]</p>
-<p><strong>自由体操：</strong></p>
-<p>[anyplayer:type=swf url=<a href="http://www.youtube.com/v/_JaEtgL8mcM&amp;hl=en&amp;fs=1" target="_blank" rel="noopener">http://www.youtube.com/v/_JaEtgL8mcM&amp;hl=en&amp;fs=1</a> width=425 height=355]</p>
-<p><strong>平衡木：</strong></p>
-<p>[anyplayer:type=swf url=<a href="http://www.youtube.com/v/EO_BnsrWMnI&amp;hl=en&amp;fs=1" target="_blank" rel="noopener">http://www.youtube.com/v/EO_BnsrWMnI&amp;hl=en&amp;fs=1</a> width=425 height=355]</p>
-<p>笑归笑，对他的体操水平还是要表示无比的佩服！</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://cpiz.com/2008/07/27/亚信江西PSO2008年新年晚会讲稿/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Cpiz">
-      <meta itemprop="description" content="Cpiz's blog">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Cpiz's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2008/07/27/亚信江西PSO2008年新年晚会讲稿/" itemprop="url">
-                  亚信江西PSO2008年新年晚会讲稿
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2008-07-27 00:34:47" itemprop="dateCreated datePublished" datetime="2008-07-27T00:34:47+08:00">2008-07-27</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-05-23 18:46:08" itemprop="dateModified" datetime="2018-05-23T18:46:08+08:00">2018-05-23</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/生活/" itemprop="url" rel="index"><span itemprop="name">生活</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>这是今年新年年会上念的稿子, 仿照的央视新闻评论部2002年晚会。当时觉得特搞笑，这回终于整来了稿子，贴出来纪念。男女主持人系我们项目经理胖子与助理娟娟。</p>
+            <p>我公司主营重型攻击性武器，现有3架F22猛禽战斗机（每架售价RMB28 亿）和15辆M1A2主站坦克（每台RMB1.8亿）出售，另外还有1枚白杨-M(SS-27)地对地远程洲际弹道导弹（可以携带核弹头），欢迎各界军阀和阿拉伯世界的KB分子前来我公司选购。省略武器介绍…</p>
+<p>—————我是分割线—————</p>
+<p>以上该人才在掏宝上所出售商品的介绍.<br>真正被雷到是以下是众强人的提问以及掌柜的回复</p>
+<p>—————我是分割线—————</p>
+<p>j**y：我想订购一枚核弹，有么？<br>掌柜：不好意思，核弹已经被一位爱好和平的中东人士订购了，谢谢，如果到货，我会第一时间贴出来的</p>
+<p>vkjkgb：忘了问了，买战机送不送导弹?最好是2个空空，一个反舰，如果可以卖1送3的话，正好曰本停的有艘航母，我想可以先试下机不?<br>掌柜：格不包含武器装备，需要的话我们会另外报价</p>
+<p>wang02t03c：根据现在的汇率计算，28亿是不是贵了点？<br>掌柜：你找遍全世界，只有我能搞到F22</p>
+<p>dongsl2：老板，这个f22刷什么版本的软件？价格高了点，有山寨版麽，我就拿去虎虎人，有个样子就成<br>掌柜：我们是卖ammo的，不卖手机</p>
+<p>wang02t03c：请问店家空运的意思是直接飞过来吗？会不会后面跟着“尾巴”<br>掌柜：海运</p>
+<p>rainshen_fly：提供雇佣军服务么？<br>掌柜：我们是正经商人，不提供人口买卖</p>
+<p>a**g：我老婆她要做环球旅行，你们的飞机环球旅行效果怎么样啊<br>掌柜：我们的飞机只卖不租，谢谢</p>
+<p>rainshen_fly：你们那里还出售银河战舰，黑洞BoB!!!么?有没有星河舰队雇佣军提供?<br>掌柜：我们是卖地球上用的东西。。。</p>
+<p>boddah719：你好我想买一架！你们负责培训不？(我有驾驶摩托车基础)如果培训包食宿不？还有，如果飞机故障，你们负责上门维修不?谢谢!<br>掌柜：培训和维修都需要另外收费，不过你的底子差了点，不保证能学会。。。。</p>
+<p>丁**6：老板有擎天柱变形金刚卖吗？要正品哦~~~~<br>掌柜：有圣斗士，要吗？</p>
+<p>臭**p：请问颜色可选吗？<br>掌柜：额，目前只有一种颜色，不过你可以自己买回来喷上你喜欢的颜色，这个成本不是很高的</p>
+<p>幽灵无际：我想预定一个核弹。有的话直接扔到靖国神厕，我直接付双款<br>掌柜：核弹目前没货，你可以先买颗白杨，回头等我有核弹了通知你，我也想炸曰本。。。</p>
+<p>baobao20070919：请问烧93#汽油能飞不？<br>掌柜：额。。。这个木有相关的科学试验，不过你可以买一架回去试试看</p>
+<p>city878198：请问这个价钱附带瞄准盔具吗？我想配套买几枚AMI-120C，可以提供吗？<br>掌柜：我们不做配件，AMI-120C无货</p>
+<p>a**g：忘了问了买航母送飞机吗<br>掌柜：木有航母。。。</p>
+<p>天**克：掌柜的好！我是一个和平主义者，为了维护我们村的和平，我想购买一辆M1A2主站坦克，请问能不能用快递包裹帮我寄过来。另外，基于我的出发点，能否给我打个折。：）<br>掌柜：这个价格是不包含运费的，如果你需要的话可以来我公司详谈</p>
+<p>taoli2008：请问老板终结者T3000有货么。。。。或者T2000也可以。。<br>掌柜：目前没有，如果需要的话，可以支付5千万定金，我们帮助你联系好莱坞定做一台</p>
+<p>smy1977：掌柜，买了帮上牌照，带票吗，说明书包装都齐吧<br>掌柜：contraband货 不上牌 不开票</p>
+<p>zhangjun110110：问下掌柜，飞机上有挂菜篮子的地方没啊，我开出去的时候好方便买菜。<br>掌柜：可以根据你的要求焊个挂点但是隐身性能就不能保证了</p>
+<p>diablolk：对了，买F22送坦克吗?人家买电脑都送网线的，送的话我考虑入手一架!<br>掌柜：送鸭脖子要不</p>
+<p>s**2：团购便宜吗？想团购一下！<br>掌柜：团购每架送2枚AIM-120C-7</p>
+<p>chenglixjtu029： 大哥. . 买这个阿可以送白宫一日游的阿？<br>掌柜：送白宫3日游，还可以和小不死共进晚餐</p>
+<p>ws_magic：<br>兄弟，真的能买吗？<br>掌柜：真的能买，兄弟</p>
+<p>ahfmz：还有没有货？我想做我们村的总代理，大概需要什么手续？请发克斯详细资料过来！谢谢！<br>掌柜：供不应求 不需要代理 谢谢</p>
+<p>n**n：掌柜的~买了送不送导弹啊 最好先给两颗实验一下 一个空空 一个对地的好了<br>掌柜：导弹不送 送手枪要不~</p>
+<p>r**n：我想买一个上下班代步，但是不知道上海这里办牌照方便吗.我还想问下用什么快递公司的.几天可以到货？<br>掌柜：我们有职业驾驶员送货。上海没办法办牌，不过我们可以用搪瓷给您做一个</p>
+<p>埃弗艾克斯：老板，你这F22水货还是行货？是可变形版的还是美版的，有保修没？<br>掌柜：这玩意儿有行货吗??不能变形，美版外贸尾单</p>
+<p>寸**梦：掌柜的您好 请问这个飞机上面有厕所吗？<br>掌柜：没有，飞行员都用尿布的，，不知道吗?</p>
+<p>yaoyue1982：可以垂直起降吗？家里地方小，没地方盖跑道<br>掌柜：过两天有阿帕奇</p>
 <hr>
-<p><strong>第一幕：成立</strong><br>[主持人]</p>
-<p>[女]亚信江西PSO年末吃饱喝足后的娱乐节目现在开始</p>
-<p>[男]雄鸡一唱天下白，咱们的队伍拉出来</p>
-<p>[女]雄鸡一唱出太阳，咱们的队伍兵强马又壮</p>
-<p>[男]雄鸡一唱东方红，江西出了个亚信PSO</p>
-<p>[女]雄鸡一唱百鸡唱，咱们的事业正兴旺</p>
-<p>[男]2004年4月，亚信江西PSO成立</p>
-<p>2004年12月，BOSS1.0上线</p>
-<p>2005年7月，经分1.5上线</p>
-<p>[女]上线了，上线了，上线了，激动人心的一刻就要到来了，我们期盼着盼望着</p>
-<p>[合]时刻准备着</p>
-<p>[女]在那个不堪回首的2004年，就那么7、8个人，4、5杆枪。</p>
-<p>[男]在那个不堪回首的2004年，我们还要奔走在各个地市之间。</p>
-<p>[女]在那个不堪回首的2004年，客户几乎对我们丧失了信心。</p>
-<p>[男]在那个不堪回首的2004年，我们卷起铺盖搬到公司争当优秀员工。</p>
-<p>[女]沉沉黑暗，一夜又一夜的战斗，漫漫长夜，一次又一次的呻吟，路漫漫、夜漫漫、星光颤抖，长夜漫漫</p>
-<p>[男]夜正长，足够把路灯一盏盏点亮，夜正黑，足够把灯油一点点熬干。千万次的问这是人过的日子吗</p>
-<p>[女]残酷啊，现实！这正是IT人不堪忍受的所谓加班生活</p>
-<p>[男]耕地靠牛，点灯靠油，日复一日娱乐靠个球</p>
-<p>[女]这样的夜晚，连创造人类的时间都没有，我们还能有什么追求。我们曾经一忍再忍如今已经忍无可忍</p>
-<p>[男]唱吧、叫吧、呐喊吧！不在放荡中变坏，就在沉默中变态</p>
-<p><strong>第二幕：初春</strong></p>
-<p>[女]没有雄鸡报晓，黎明一样如期而至了。2005年初，随着各级领导的支持，我们的队伍壮大了。我们的系统逐步稳定了，客户又重新对我们有了信心，我们睡觉也可以回家了。</p>
-<p>[男]哈哈哈</p>
-<p>[女]哈哈哈</p>
-<p>[男]我们的生活多美好</p>
-<p>[女]哈哈哈，哈哈哈</p>
-<p>[合]我们的生活多美好，我们期盼着春天的来到！</p>
-<p>[女]春天在哪里？春天在客户期盼的目光里</p>
-<p>[男]春天在哪里？春天在亚信人的心坎里</p>
-<p>[女]春风吹绿江南岸，春风已过玉门关，春风二月似剪刀啊，是春风换了朔风寒</p>
-<p>[男]不管是加晚班，还是加假日班，只要客户能满意，我们的付出就是值得的</p>
-<p>[女]一年一度桃花盛，东方风来，满眼春</p>
-<p>[男]历史的经验又一次告诉我们：春从来不是叫出来的</p>
-<p>[女]春那是真刀真枪干出来的</p>
-<p>[男]看：我们制造春天的队伍来了</p>
-<p>[女]来了！来了！该来的来了！不该来的也来了<br>―――――――――――――――――――――――――――<br>[鹏]我们天津人来了<br>[威]我们湖南人也来了<br>[陈]我们湖北人也来了<br>[姚]我们重庆人也来了<br>[刘]我们山东人也来了<br>[黄]我们浙江人也来了<br>[刘]俺们广东人都来了<br>[叶]我们南昌人该来的都来了<br>[合]我们抹干净嘴角的油迹，安抚好同床的伴侣，轻装上阵，步伐整齐</p>
-<p><strong>第三幕：发展</strong></p>
-<p>[男]宝剑锋从磨砺来，梅花香自苦寒来，经理都从基层来，牛B得靠熬出来</p>
-<p>[女]火车不是推的，泰山不是堆的，牛皮不是吹出来的</p>
-<p>[男]PSO的经理吃得比猪少，干得比牛多，睡得比狗晚，起得比鸡还早</p>
-<p>[女]PSO的工程师们没日没夜，任劳任怨，抱着测试好的版本就进了11楼</p>
-<p>[男]不怕你鸡蛋里面挑骨头，不怕你沙子里面挑石头，不怕你瘦肉里面挑肥肉，我们已经百炼成钢，身经百战</p>
-<p>[女]你看人家刘jia都长成那样了，都敢当项目经理，我们还能怕客户测试吗。。。投入新的战斗吧，为了不改变一切的理想，为了改变不理想的一切</p>
-<p>[男]我们是光荣的江西PSO人，我们是千锤百炼的硬骨头，纪律严明的好枪手，三大纪律不敢忘，八项注意记心头</p>
-<p>[女]听：经理给我们讲纪律，能战斗的队伍要有规矩</p>
-<p>[合]政治合格，军事过硬，作风优良，纪律严明</p>
-<p>[女]徐～总～</p>
-<p>[徐]哎[唱]江西队伍是根常青藤，你们都是藤上的瓜，瓜儿连着藤，藤儿牵着瓜，你们越听话，我官儿越大，我心情越好，钱越多发呀啊</p>
-<p>[男]我们的事业，是正义的事业，正义的事业是不可战胜的。江西PSO的队伍不断扩大，人马汇聚，群英汇聚，人才济济，群雄汇聚</p>
-<p>[女]但是从我们身边还是有人悄悄地离开，悄悄地他们走了，正如他们悄悄地来，悄悄地挥手，作别西天的云彩。</p>
-<p>[男]不如意事常八九，瓜不甜不能使劲扭，牛不喝水不能强摁头，人往高处走，水往低处流，离开我们他们走上更重要的工作岗位，天要下雨水要流，儿打不中留</p>
-<p>[男]江西PSO是一片人才辈出的黑土地，优秀的工程师、牛B的管理者就像丰产的韭菜，一茬又一茬地生出来。</p>
-<p>[女]我们的人到了一个地方就要和那里的人们联合起来，在祖国各地生根开花</p>
-<p>[男]谢他们都是江西PSO播撒出去的良种啊，他们已经在各个重要岗位上生根发芽</p>
-<p>[女]种豆得豆，种瓜得瓜，江西PSO的种子遍天下</p>
-<p>[男]走掉的光荣，留下来的也光荣，一日夫妻百日恩，一日同事终生朋友</p>
-<p>[女]天之涯地之角，我们是莫逆之交，君子之交，歃血为盟刎颈之交，生死与共患难之交，千载难逢世纪之交</p>
-<p>[男]大浪行船，我们风雨同舟，精诚团结，我们并肩携手，打虎亲兄弟，上阵父子兵，在家靠父母，出外靠朋友。40人团结如一人，试看天下谁更牛</p>
-<p><strong>第四幕：我们的2008</strong></p>
-<p>[女]无论经历狂风暴雨，无论远隔天涯海角，我们的心永远在一个楼道，我们本来就是一母同胞，我们是同一个人的奶水养大的，俗话说得好：血比水浓，命运把我们联系在一起。心往一处想，劲往一处使，我们正在湛瑞、徐青、刘佳第二代领导集体的集体领导下昂首走进2008奥运年。<br>[男]我好像是一代的。。。。。。</p>
-<p>[女]我们对着高山喊徐总、小青、死胖子</p>
-<p>[男]哎来了</p>
-<p>[唱]大海航行全靠我</p>
-<p>[唱]大海航行全靠我</p>
-<p><a href="靠你靠你靠你">女</a></p>
-<p>[唱]万物生长也靠我</p>
-<p><a href="靠你靠你靠你">女</a></p>
-<p>[女]亚信的事业蓬勃发展，江西PSO焕发出勃勃生机</p>
-<p>[男]我们是鸡，是那昂然报晓的雄鸡</p>
-<p>[女]我们是鸡，是那辛勤下蛋的母鸡</p>
-<p>[男]鸡！我们是真诚面对客户的播种机</p>
-<p>[女]鸡！我们是亚信领导的收割机</p>
-<p>[男]鸡！我们是系统稳定的侦察机</p>
-<p>[女]鸡！我们是实话实说的录音机</p>
-<p>[女]。。。呻吟。。。</p>
-<p>[男]飞翔啊～曾经是鸡！如今像烈火中永生的凤凰，向着太阳，向着自由，向着新世纪</p>
-<p>[合]发出万丈光芒</p>
-<p>[女]亚信江西PSO2008年新年聚会到此结束。最后为大家奉献今天的大奖。。。</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://cpiz.com/2008/07/16/搬家Again/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Cpiz">
-      <meta itemprop="description" content="Cpiz's blog">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Cpiz's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2008/07/16/搬家Again/" itemprop="url">
-                  搬家Again
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2008-07-16 00:36:02" itemprop="dateCreated datePublished" datetime="2008-07-16T00:36:02+08:00">2008-07-16</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-05-23 18:53:12" itemprop="dateModified" datetime="2018-05-23T18:53:12+08:00">2018-05-23</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/建站/" itemprop="url" rel="index"><span itemprop="name">建站</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>数不清这是第几次了，由于之前的空间速度实在是太慢，再次搬家，顺便把WP升级到了2.6，升级了一批插件。</p>
-<p>现在速度快了不少，但从LAMP回到了WINDOWS平台，不再支持地址转向，以前被搜索引擎收录的地址全部无效。</p>
-<p>丢失了两天的数据，下载功能目前也失效了，又有得忙了。</p>
+<p>近来看到最有意思的一篇东西，转来留念，应该被转载过多次的，我的版本来自<a href="http://www.911usa.com.cn/happy/post/497/" title="强人淘宝卖飞机" target="_blank" rel="noopener">水煮沉浮</a></p>
 
           
         
@@ -2183,7 +2245,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -2226,7 +2288,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">143</span>
+                    <span class="site-state-item-count">170</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2236,7 +2298,7 @@
                 
                 
                 <div class="site-state-item site-state-categories">
-                  
+                  <a href="/categories/index.html">
                     
                     
                       
@@ -2261,7 +2323,7 @@
                     
                     <span class="site-state-item-count">10</span>
                     <span class="site-state-item-name">分类</span>
-                  
+                  </a>
                 </div>
               
 
@@ -2269,7 +2331,7 @@
                 
                 
                 <div class="site-state-item site-state-tags">
-                  
+                  <a href="/tags/index.html">
                     
                     
                       
@@ -2506,9 +2568,237 @@
                     
                       
                     
-                    <span class="site-state-item-count">117</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">231</span>
                     <span class="site-state-item-name">标签</span>
-                  
+                  </a>
                 </div>
               
             </nav>
@@ -2589,7 +2879,7 @@
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Muse</a> v6.3.0</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Mist</a> v6.3.0</div>
 
 
 
@@ -2716,6 +3006,326 @@
 
 
   
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
 
 
 

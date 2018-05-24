@@ -11,10 +11,8 @@
 
 
 
-  
 
-
-<html class="theme-next muse use-motion" lang="zh-CN">
+<html class="theme-next mist" lang="zh-CN">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -84,14 +82,14 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Mist',
     version: '6.3.0',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: false,
     fastclick: false,
     lazyload: false,
     tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     algolia: {
       applicationID: '',
       apiKey: '',
@@ -109,7 +107,7 @@
 
 
   <meta name="description" content="2000年我还在读高中，在某个小网吧里初次接触Foxmail，用它的远程邮件管理帮同学删邮件炸弹。那个时候它还有着浓重的个人软件风格，Logo旁写着作者张小龙。工作后每天面对无数邮件，我尝遍了OutLook、DreamMail、TheBat、ThunderBird…之后，还是留下了Foxmail，因为它的简单轻巧。 我习惯不删工作邮件，为了让邮件更有条理，创建了很多过滤器与目录。而老Foxmai">
-<meta name="keywords" content="Foxmail, QQMail, 产品">
+<meta name="keywords" content="Foxmail,QQMail,产品">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Foxmail 7.0 试用体验">
 <meta property="og:url" content="http://cpiz.com/2011/09/04/Foxmail7.0试用体验/index.html">
@@ -117,7 +115,7 @@
 <meta property="og:description" content="2000年我还在读高中，在某个小网吧里初次接触Foxmail，用它的远程邮件管理帮同学删邮件炸弹。那个时候它还有着浓重的个人软件风格，Logo旁写着作者张小龙。工作后每天面对无数邮件，我尝遍了OutLook、DreamMail、TheBat、ThunderBird…之后，还是留下了Foxmail，因为它的简单轻巧。 我习惯不删工作邮件，为了让邮件更有条理，创建了很多过滤器与目录。而老Foxmai">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://cpiz.com/2011/09/04/Foxmail7.0试用体验/foxmail7.png">
-<meta property="og:updated_time" content="2018-05-23T16:27:43.025Z">
+<meta property="og:updated_time" content="2018-05-24T08:58:08.857Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Foxmail 7.0 试用体验">
 <meta name="twitter:description" content="2000年我还在读高中，在某个小网吧里初次接触Foxmail，用它的远程邮件管理帮同学删邮件炸弹。那个时候它还有着浓重的个人软件风格，Logo旁写着作者张小龙。工作后每天面对无数邮件，我尝遍了OutLook、DreamMail、TheBat、ThunderBird…之后，还是留下了Foxmail，因为它的简单轻巧。 我习惯不删工作邮件，为了让邮件更有条理，创建了很多过滤器与目录。而老Foxmai">
@@ -263,6 +261,14 @@
 
       
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+        </li>
+      
     </ul>
   
 
@@ -271,6 +277,29 @@
 
   
 
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
   
 </nav>
 
@@ -379,7 +408,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-05-24 00:27:43" itemprop="dateModified" datetime="2018-05-24T00:27:43+08:00">2018-05-24</time>
+                <time title="修改时间：2018-05-24 16:58:08" itemprop="dateModified" datetime="2018-05-24T16:58:08+08:00">2018-05-24</time>
               
             
           </span>
@@ -416,14 +445,16 @@
 <p>2000年我还在读高中，在某个小网吧里初次接触Foxmail，用它的远程邮件管理帮同学删邮件炸弹。那个时候它还有着浓重的个人软件风格，Logo旁写着作者张小龙。工作后每天面对无数邮件，我尝遍了OutLook、DreamMail、TheBat、ThunderBird…之后，还是留下了Foxmail，因为它的简单轻巧。</p>
 <p>我习惯不删工作邮件，为了让邮件更有条理，创建了很多过滤器与目录。而老Foxmail中每一个邮件目录对应磁盘上的一个物理文件，要让文件不太大影响效率，还得按时间建目录进行归档，归档完了还压缩，控制每个存储文件在100M以下，很快就堆了几G。那时候WEB开始流行标签化，而Foxmail虽然能给邮件打标签，但不支持标签管理，比较遗憾。Foxmail6.5提高了搜索速度，加入了搜索文件夹方便邮件组织，但受限于文件存储方式，效果提升有限。</p>
 <p>时隔两年，腾讯最近终于吐出了Foxmail7.0，马上下载体验，有不少惊喜。</p>
-<p>7.0这次最大的改进在于彻底修改了邮件的存储方式，<strong>由之前每个邮件夹对应一个文件，变成每封邮件对应一个文件</strong>。存储粒度的减小让邮件摆脱了文件的限制，能支持更加灵活的组织方式，我久盼的标签化也就顺理成章。通过标签化管理，对邮件的存放组织更加符合真实应用，看着舒心用着顺心。<br>还有邮件在不同目录之间的移动，只须更改文件索引的位置，不用再做数据的分离与追加，可以瞬间完成（类似文件的同盘剪切-粘贴）。更不用像历史版本一样，还要对原目录压缩以收回空间。<br>另外，我电脑之前速度挺快，后来越来越卡，经常硬盘灯狂闪，换硬盘重装系统都无效，换上了Foxmail7后这几天却表现极好，这让我很怀疑Foxmail老版本在邮件堆积后会影响严重系统IO。</p>
-<p>除了邮件存储，7.0开始全面支持MicrosoftExchange邮件服务，这个我用不上，估计是为了配合QQmail最近的终<a href="http://blog.mail.qq.com/?p=803" title="QQ邮箱推出Exchange移动终端同步服务" target="_blank" rel="noopener">端Exchange特性</a>。另外最大的改进是更强大的邮件编辑器，老版这点之前经常我抓狂，改个颜色或字号老不一致，这次总算满意了。搜索的速度提升不少，新增的附件预览和鼠标手势（strokeit用户对此无视）比较贴心。</p>
+<p>7.0这次最大的改进在于彻底修改了邮件的存储方式，<strong>由之前每个邮件夹对应一个文件，变成每封邮件对应一个文件</strong>。存储粒度的减小让邮件摆脱了文件的限制，能支持更加灵活的组织方式，我久盼的标签化也就顺理成章。通过标签化管理，对邮件的存放组织更加符合真实应用，看着舒心用着顺心。</p>
+<p>还有邮件在不同目录之间的移动，只须更改文件索引的位置，不用再做数据的分离与追加，可以瞬间完成（类似文件的同盘剪切-粘贴）。更不用像历史版本一样，还要对原目录压缩以收回空间。</p>
+<p>另外，我电脑之前速度挺快，后来越来越卡，经常硬盘灯狂闪，换硬盘重装系统都无效，换上了Foxmail7后这几天却表现极好，这让我很怀疑Foxmail老版本在邮件堆积后会影响严重系统IO。</p>
+<p>除了邮件存储，7.0开始全面支持MicrosoftExchange邮件服务，这个我用不上，估计是为了配合QQmail最近的终端<a href="http://blog.mail.qq.com/?p=803" title="QQ邮箱推出Exchange移动终端同步服务" target="_blank" rel="noopener">Exchange特性</a>。另外最大的改进是更强大的邮件编辑器，老版这点之前经常我抓狂，改个颜色或字号老不一致，这次总算满意了。搜索的速度提升不少，新增的附件预览和鼠标手势（strokeit用户对此无视）比较贴心。</p>
 <p>仅标签化这一改进已经有了让我不得不升级的理由，但作为一个软件控+细节控，我还是要列列bug，提提建议。</p>
 <h2 id="bug："><a href="#bug：" class="headerlink" title="bug："></a>bug：</h2><blockquote>
 <ul>
 <li>草稿箱的邮件，按回车键打开是阅读模式，且邮件无法编辑（双击打开编辑正常）</li>
 <li>转发邮件，将光标移到原邮件内容中，按Esc键，会插入自己的邮箱账号名</li>
-<li>软件帮助菜单，链接到网址<a href="http://help.foxmail.com/foxmail7/help.html#，竟然显示“正在建设中...”，然后是一片空白" target="_blank" rel="noopener">http://help.foxmail.com/foxmail7/help.html#，竟然显示“正在建设中...”，然后是一片空白</a></li>
+<li>软件帮助菜单，链接到网址<code>http://help.foxmail.com/foxmail7/help.html#</code>，竟然显示“正在建设中…”，然后是一片空白</li>
 <li>创建过滤器，输入的搜索条件含有空格，如“x y”，保存会发现被保存了“x” And “y”，意义完全不一样了</li>
 <li>机器休眠一夜，或者过了0点，打开界面收取到邮件，新邮件会被放入昨天的列表，重新切换邮件夹后正常（这个bug很多年了）</li>
 <li>在我的两台机器上，Office文档预览不成功</li>
@@ -446,7 +477,8 @@
 </ul>
 <p>新版本在界面上的修改很大，有极多的细节可以改进，如用词不当，还有控件位置导致的视线、鼠标移动过长等等，我再列下去就太龟毛了，但请体谅下下一个老用户的憋闷太久终于释放的心情。</p>
 </blockquote>
-<h2 id="总的来说QQMaill团队花了两年时间，让Foxmail7连个Beta的帽子都不戴就出门，还是有点不负责任。最初发布的版本，有6-5导入的账号不能收取邮件的问题，让我受挫不小，好在上周发布的Build79版本解决了这一问题。但瑕不掩瑜，试用几天下来，惊喜程度还是超过了缺陷带来的影响，推荐追求速度的朋友使用。对那些不怎么在意6-5效率的朋友，还可以等几个月。"><a href="#总的来说QQMaill团队花了两年时间，让Foxmail7连个Beta的帽子都不戴就出门，还是有点不负责任。最初发布的版本，有6-5导入的账号不能收取邮件的问题，让我受挫不小，好在上周发布的Build79版本解决了这一问题。但瑕不掩瑜，试用几天下来，惊喜程度还是超过了缺陷带来的影响，推荐追求速度的朋友使用。对那些不怎么在意6-5效率的朋友，还可以等几个月。" class="headerlink" title="总的来说QQMaill团队花了两年时间，让Foxmail7连个Beta的帽子都不戴就出门，还是有点不负责任。最初发布的版本，有6.5导入的账号不能收取邮件的问题，让我受挫不小，好在上周发布的Build79版本解决了这一问题。但瑕不掩瑜，试用几天下来，惊喜程度还是超过了缺陷带来的影响，推荐追求速度的朋友使用。对那些不怎么在意6.5效率的朋友，还可以等几个月。"></a>总的来说QQMaill团队花了两年时间，让Foxmail7连个Beta的帽子都不戴就出门，还是有点不负责任。最初发布的版本，有6.5导入的账号不能收取邮件的问题，让我受挫不小，好在上周发布的Build79版本解决了这一问题。但瑕不掩瑜，试用几天下来，惊喜程度还是超过了缺陷带来的影响，推荐追求速度的朋友使用。对那些不怎么在意6.5效率的朋友，还可以等几个月。</h2><p>收件箱是个信息的大泥塘，无论是Web端还是客户端，让用户能更及时更有效的分拣与处理信息，都应当是最核心的需求。QQMail与Foxmail这几年增加了很多功能，追求新增长的同时还是要不忘根本，在这方面永远还有创新可挖。</p>
+<p>总的来说QQMaill团队花了两年时间，让Foxmail7连个Beta的帽子都不戴就出门，还是有点不负责任。最初发布的版本，有6.5导入的账号不能收取邮件的问题，让我受挫不小，好在上周发布的Build79版本解决了这一问题。但瑕不掩瑜，试用几天下来，惊喜程度还是超过了缺陷带来的影响，推荐追求速度的朋友使用。对那些不怎么在意6.5效率的朋友，还可以等几个月。</p>
+<p>收件箱是个信息的大泥塘，无论是Web端还是客户端，让用户能更及时更有效的分拣与处理信息，都应当是最核心的需求。QQMail与Foxmail这几年增加了很多功能，追求新增长的同时还是要不忘根本，在这方面永远还有创新可挖。</p>
 
       
     </div>
@@ -467,7 +499,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Foxmail-QQMail-产品/" rel="tag"># Foxmail, QQMail, 产品</a>
+            <a href="/tags/Foxmail/" rel="tag"># Foxmail</a>
+          
+            <a href="/tags/QQMail/" rel="tag"># QQMail</a>
+          
+            <a href="/tags/产品/" rel="tag"># 产品</a>
           
         </div>
       
@@ -566,7 +602,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">143</span>
+                    <span class="site-state-item-count">170</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -576,7 +612,7 @@
                 
                 
                 <div class="site-state-item site-state-categories">
-                  
+                  <a href="/categories/index.html">
                     
                     
                       
@@ -601,7 +637,7 @@
                     
                     <span class="site-state-item-count">10</span>
                     <span class="site-state-item-name">分类</span>
-                  
+                  </a>
                 </div>
               
 
@@ -609,7 +645,7 @@
                 
                 
                 <div class="site-state-item site-state-tags">
-                  
+                  <a href="/tags/index.html">
                     
                     
                       
@@ -846,9 +882,237 @@
                     
                       
                     
-                    <span class="site-state-item-count">117</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">231</span>
                     <span class="site-state-item-name">标签</span>
-                  
+                  </a>
                 </div>
               
             </nav>
@@ -903,7 +1167,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#bug："><span class="nav-number">1.</span> <span class="nav-text">bug：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#建议："><span class="nav-number">2.</span> <span class="nav-text">建议：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总的来说QQMaill团队花了两年时间，让Foxmail7连个Beta的帽子都不戴就出门，还是有点不负责任。最初发布的版本，有6-5导入的账号不能收取邮件的问题，让我受挫不小，好在上周发布的Build79版本解决了这一问题。但瑕不掩瑜，试用几天下来，惊喜程度还是超过了缺陷带来的影响，推荐追求速度的朋友使用。对那些不怎么在意6-5效率的朋友，还可以等几个月。"><span class="nav-number">3.</span> <span class="nav-text">总的来说QQMaill团队花了两年时间，让Foxmail7连个Beta的帽子都不戴就出门，还是有点不负责任。最初发布的版本，有6.5导入的账号不能收取邮件的问题，让我受挫不小，好在上周发布的Build79版本解决了这一问题。但瑕不掩瑜，试用几天下来，惊喜程度还是超过了缺陷带来的影响，推荐追求速度的朋友使用。对那些不怎么在意6.5效率的朋友，还可以等几个月。</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#bug："><span class="nav-number">1.</span> <span class="nav-text">bug：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#建议："><span class="nav-number">2.</span> <span class="nav-text">建议：</span></a></li></ol></div>
             
 
           </div>
@@ -945,7 +1209,7 @@
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Muse</a> v6.3.0</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Mist</a> v6.3.0</div>
 
 
 
@@ -1076,6 +1340,326 @@
 
 
   
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
 
 
 

@@ -11,10 +11,8 @@
 
 
 
-  
 
-
-<html class="theme-next muse use-motion" lang="zh-CN">
+<html class="theme-next mist" lang="zh-CN">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -84,14 +82,14 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Mist',
     version: '6.3.0',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: false,
     fastclick: false,
     lazyload: false,
     tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     algolia: {
       applicationID: '',
       apiKey: '',
@@ -108,18 +106,19 @@
 
 
 
-  <meta name="description" content="最近在玩微信小程序，有一部分业务需要部署后端，为了省事我选择了Leancloud。它有多种语言支持，文档也很完善，能快速搭建服务，正好合适。其后端云引擎支持Node.js、Python、Java、Php四种语言，因为我近来写Android多一些，所以采用了更熟悉的Java。 下载了SDK来一看，是基于maven构建，用法挺简单。但我的云服务需要用到的一个算法是我以前在Android上用Kotlin">
+  <meta name="description" content="最近在玩微信小程序，有一部分业务需要部署后端，为了省事我选择了LeanCloud。它有多种语言支持，文档也很完善，能快速搭建服务，正好合适。其后端云引擎支持Node.js、Python、Java、Php四种语言，因为我近来写Android多一些，所以采用了更熟悉的Java。 下载了SDK来一看，是基于maven构建，用法挺简单。但我的云服务需要用到的一个算法是我以前在Android上用Kotlin">
+<meta name="keywords" content="LeanCloud,Kotlin">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用Kotlin语言写Leancloud云后台服务">
+<meta property="og:title" content="使用Kotlin语言写LeanCloud云后台服务">
 <meta property="og:url" content="http://cpiz.com/2016/12/15/使用Kotlin语言写Leancloud云后台服务/index.html">
 <meta property="og:site_name" content="Cpiz&#39;s blog">
-<meta property="og:description" content="最近在玩微信小程序，有一部分业务需要部署后端，为了省事我选择了Leancloud。它有多种语言支持，文档也很完善，能快速搭建服务，正好合适。其后端云引擎支持Node.js、Python、Java、Php四种语言，因为我近来写Android多一些，所以采用了更熟悉的Java。 下载了SDK来一看，是基于maven构建，用法挺简单。但我的云服务需要用到的一个算法是我以前在Android上用Kotlin">
+<meta property="og:description" content="最近在玩微信小程序，有一部分业务需要部署后端，为了省事我选择了LeanCloud。它有多种语言支持，文档也很完善，能快速搭建服务，正好合适。其后端云引擎支持Node.js、Python、Java、Php四种语言，因为我近来写Android多一些，所以采用了更熟悉的Java。 下载了SDK来一看，是基于maven构建，用法挺简单。但我的云服务需要用到的一个算法是我以前在Android上用Kotlin">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://cpiz.com/2016/12/15/使用Kotlin语言写Leancloud云后台服务/1.png">
-<meta property="og:updated_time" content="2018-05-23T16:28:27.097Z">
+<meta property="og:updated_time" content="2018-05-24T06:49:03.149Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="使用Kotlin语言写Leancloud云后台服务">
-<meta name="twitter:description" content="最近在玩微信小程序，有一部分业务需要部署后端，为了省事我选择了Leancloud。它有多种语言支持，文档也很完善，能快速搭建服务，正好合适。其后端云引擎支持Node.js、Python、Java、Php四种语言，因为我近来写Android多一些，所以采用了更熟悉的Java。 下载了SDK来一看，是基于maven构建，用法挺简单。但我的云服务需要用到的一个算法是我以前在Android上用Kotlin">
+<meta name="twitter:title" content="使用Kotlin语言写LeanCloud云后台服务">
+<meta name="twitter:description" content="最近在玩微信小程序，有一部分业务需要部署后端，为了省事我选择了LeanCloud。它有多种语言支持，文档也很完善，能快速搭建服务，正好合适。其后端云引擎支持Node.js、Python、Java、Php四种语言，因为我近来写Android多一些，所以采用了更熟悉的Java。 下载了SDK来一看，是基于maven构建，用法挺简单。但我的云服务需要用到的一个算法是我以前在Android上用Kotlin">
 <meta name="twitter:image" content="http://cpiz.com/2016/12/15/使用Kotlin语言写Leancloud云后台服务/1.png">
 
 
@@ -139,7 +138,7 @@
   };
 </script>
 
-  <title>使用Kotlin语言写Leancloud云后台服务 | Cpiz's blog</title>
+  <title>使用Kotlin语言写LeanCloud云后台服务 | Cpiz's blog</title>
   
 
 
@@ -262,6 +261,14 @@
 
       
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+        </li>
+      
     </ul>
   
 
@@ -270,6 +277,29 @@
 
   
 
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
   
 </nav>
 
@@ -336,7 +366,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">使用Kotlin语言写Leancloud云后台服务
+          <h1 class="post-title" itemprop="name headline">使用Kotlin语言写LeanCloud云后台服务
               
             
           </h1>
@@ -378,7 +408,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-05-24 00:28:27" itemprop="dateModified" datetime="2018-05-24T00:28:27+08:00">2018-05-24</time>
+                <time title="修改时间：2018-05-24 14:49:03" itemprop="dateModified" datetime="2018-05-24T14:49:03+08:00">2018-05-24</time>
               
             
           </span>
@@ -429,13 +459,13 @@
       
 
       
-        <p>最近在玩微信小程序，有一部分业务需要部署后端，为了省事我选择了Leancloud。它有多种语言支持，文档也很完善，能快速搭建服务，正好合适。其后端云引擎支持Node.js、Python、Java、Php四种语言，因为我近来写Android多一些，所以采用了更熟悉的Java。</p>
+        <p>最近在玩微信小程序，有一部分业务需要部署后端，为了省事我选择了LeanCloud。它有多种语言支持，文档也很完善，能快速搭建服务，正好合适。其后端云引擎支持Node.js、Python、Java、Php四种语言，因为我近来写Android多一些，所以采用了更熟悉的Java。</p>
 <p>下载了SDK来一看，是基于maven构建，用法挺简单。但我的云服务需要用到的一个算法是我以前在Android上用Kotlin写的，为了避免重新翻译，我尝试将Kotlin也引入云引擎项目，果然可行。在这记录分享一下。</p>
 <p>整个修改分为三步</p>
 <h2 id="1-pom配置"><a href="#1-pom配置" class="headerlink" title="1. pom配置"></a>1. pom配置</h2><p>增加kotlin的依赖与maven-plugin的配置<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">xmlns</span>=<span class="string">"http://maven.apache.org/POM/4.0.0"</span> <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></span><br><span class="line"><span class="tag">         <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line">    <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">        ...</span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.jetbrains.kotlin<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>kotlin-stdlib<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0.5<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        ...</span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">            ...</span><br><span class="line">            <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.jetbrains.kotlin<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>kotlin-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0.5<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">executions</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">execution</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">id</span>&gt;</span>compile<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">goals</span>&gt;</span> <span class="tag">&lt;<span class="name">goal</span>&gt;</span>compile<span class="tag">&lt;/<span class="name">goal</span>&gt;</span> <span class="tag">&lt;/<span class="name">goals</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">                            <span class="tag">&lt;<span class="name">sourceDirs</span>&gt;</span></span><br><span class="line">                                <span class="tag">&lt;<span class="name">sourceDir</span>&gt;</span>$&#123;project.basedir&#125;/src/main/kotlin<span class="tag">&lt;/<span class="name">sourceDir</span>&gt;</span></span><br><span class="line">                            <span class="tag">&lt;/<span class="name">sourceDirs</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;/<span class="name">execution</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">execution</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">id</span>&gt;</span>test-compile<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">goals</span>&gt;</span> <span class="tag">&lt;<span class="name">goal</span>&gt;</span>test-compile<span class="tag">&lt;/<span class="name">goal</span>&gt;</span> <span class="tag">&lt;/<span class="name">goals</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">                            <span class="tag">&lt;<span class="name">sourceDirs</span>&gt;</span></span><br><span class="line">                                <span class="tag">&lt;<span class="name">sourceDir</span>&gt;</span>$&#123;project.basedir&#125;/src/test/kotlin<span class="tag">&lt;/<span class="name">sourceDir</span>&gt;</span></span><br><span class="line">                            <span class="tag">&lt;/<span class="name">sourceDirs</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;/<span class="name">execution</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">executions</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">            ...</span><br><span class="line">        <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 <p>所以工程的文件结构是这样的<br><img src="/2016/12/15/使用Kotlin语言写Leancloud云后台服务/1.png"></p>
-<h2 id="2-翻译AppInitListener类为Kotlin语言版"><a href="#2-翻译AppInitListener类为Kotlin语言版" class="headerlink" title="2. 翻译AppInitListener类为Kotlin语言版"></a>2. 翻译AppInitListener类为Kotlin语言版</h2><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.cpiz.loanassistant.cloud</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> cn.leancloud.LeanEngine</span><br><span class="line"><span class="keyword">import</span> com.avos.avoscloud.AVOSCloud</span><br><span class="line"><span class="keyword">import</span> com.avos.avoscloud.<span class="keyword">internal</span>.impl.JavaRequestSignImplementation</span><br><span class="line"><span class="keyword">import</span> org.apache.logging.log4j.LogManager</span><br><span class="line"><span class="keyword">import</span> javax.servlet.ServletContextEvent</span><br><span class="line"><span class="keyword">import</span> javax.servlet.ServletContextListener</span><br><span class="line"><span class="keyword">import</span> javax.servlet.<span class="keyword">annotation</span>.WebListener</span><br><span class="line"></span><br><span class="line"><span class="meta">@WebListener</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AppInitListener</span> : <span class="type">ServletContextListener &#123;</span></span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">val</span> appId = System.getenv(<span class="string">"LEANCLOUD_APP_ID"</span>)</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">val</span> appKey = System.getenv(<span class="string">"LEANCLOUD_APP_KEY"</span>)</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">val</span> appMasterKey = System.getenv(<span class="string">"LEANCLOUD_APP_MASTER_KEY"</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">contextDestroyed</span><span class="params">(arg0: <span class="type">ServletContextEvent</span>)</span></span> &#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">contextInitialized</span><span class="params">(arg0: <span class="type">ServletContextEvent</span>)</span></span> &#123;</span><br><span class="line">        logger.info(<span class="string">"LeanEngine app init."</span>)</span><br><span class="line">        logger.info(<span class="string">"Environment: <span class="subst">$&#123;System.getenv("LEANCLOUD_APP_ENV")&#125;</span>"</span>)</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 初始化AVOSCloud，请保证在整个项目中间只初始化一次</span></span><br><span class="line">        LeanEngine.initialize(appId, appKey, appMasterKey)</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 在请求签名中使用masterKey以激活云代码的最高权限</span></span><br><span class="line">        JavaRequestSignImplementation.instance().setUseMasterKey(<span class="literal">true</span>)</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 向云引擎注册云函数</span></span><br><span class="line">        <span class="comment">// com.cpiz.loanassistant.cloud.CloudKt即为云函数的实现</span></span><br><span class="line">        LeanEngine.register(Class.forName(<span class="string">"com.cpiz.loanassistant.cloud.CloudKt"</span>))</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (System.getenv(<span class="string">"LEANCLOUD_APP_ENV"</span>) == <span class="string">"development"</span>) &#123;</span><br><span class="line">            <span class="comment">// 打开 debug 日志</span></span><br><span class="line">            AVOSCloud.setDebugLogEnabled(<span class="literal">true</span>)</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 如果是开发环境，则设置 AVCloud.callFunction 和 AVCloud.rpcFunction 调用本地云函数实现</span></span><br><span class="line">            <span class="comment">// 如果需要本地开发时调用云端云函数实现，则注释掉下面语句。</span></span><br><span class="line">            LeanEngine.setLocalEngineCallEnabled(<span class="literal">true</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">companion</span> <span class="keyword">object</span> &#123;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">val</span> logger = LogManager.getLogger(AppInitListener::<span class="class"><span class="keyword">class</span>.<span class="title">java</span>)</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="3-开始使用Kotlin写云函数"><a href="#3-开始使用Kotlin写云函数" class="headerlink" title="3. 开始使用Kotlin写云函数"></a>3. 开始使用Kotlin写云函数</h2><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.cpiz.loanassistant.cloud</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> cn.leancloud.EngineFunction</span><br><span class="line"><span class="keyword">import</span> cn.leancloud.EngineFunctionParam</span><br><span class="line"><span class="keyword">import</span> ......</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 测试云函数</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="meta">@EngineFunction</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">hello</span><span class="params">()</span></span>: String &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"Hello world!"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="2-翻译AppInitListener类为Kotlin语言版"><a href="#2-翻译AppInitListener类为Kotlin语言版" class="headerlink" title="2. 翻译AppInitListener类为Kotlin语言版"></a>2. 翻译AppInitListener类为Kotlin语言版</h2><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.cpiz.loanassistant.cloud</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> cn.LeanCloud.LeanEngine</span><br><span class="line"><span class="keyword">import</span> com.avos.avoscloud.AVOSCloud</span><br><span class="line"><span class="keyword">import</span> com.avos.avoscloud.<span class="keyword">internal</span>.impl.JavaRequestSignImplementation</span><br><span class="line"><span class="keyword">import</span> org.apache.logging.log4j.LogManager</span><br><span class="line"><span class="keyword">import</span> javax.servlet.ServletContextEvent</span><br><span class="line"><span class="keyword">import</span> javax.servlet.ServletContextListener</span><br><span class="line"><span class="keyword">import</span> javax.servlet.<span class="keyword">annotation</span>.WebListener</span><br><span class="line"></span><br><span class="line"><span class="meta">@WebListener</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AppInitListener</span> : <span class="type">ServletContextListener &#123;</span></span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">val</span> appId = System.getenv(<span class="string">"LeanCloud_APP_ID"</span>)</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">val</span> appKey = System.getenv(<span class="string">"LeanCloud_APP_KEY"</span>)</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">val</span> appMasterKey = System.getenv(<span class="string">"LeanCloud_APP_MASTER_KEY"</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">contextDestroyed</span><span class="params">(arg0: <span class="type">ServletContextEvent</span>)</span></span> &#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">contextInitialized</span><span class="params">(arg0: <span class="type">ServletContextEvent</span>)</span></span> &#123;</span><br><span class="line">        logger.info(<span class="string">"LeanEngine app init."</span>)</span><br><span class="line">        logger.info(<span class="string">"Environment: <span class="subst">$&#123;System.getenv("LeanCloud_APP_ENV")&#125;</span>"</span>)</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 初始化AVOSCloud，请保证在整个项目中间只初始化一次</span></span><br><span class="line">        LeanEngine.initialize(appId, appKey, appMasterKey)</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 在请求签名中使用masterKey以激活云代码的最高权限</span></span><br><span class="line">        JavaRequestSignImplementation.instance().setUseMasterKey(<span class="literal">true</span>)</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 向云引擎注册云函数</span></span><br><span class="line">        <span class="comment">// com.cpiz.loanassistant.cloud.CloudKt即为云函数的实现</span></span><br><span class="line">        LeanEngine.register(Class.forName(<span class="string">"com.cpiz.loanassistant.cloud.CloudKt"</span>))</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (System.getenv(<span class="string">"LeanCloud_APP_ENV"</span>) == <span class="string">"development"</span>) &#123;</span><br><span class="line">            <span class="comment">// 打开 debug 日志</span></span><br><span class="line">            AVOSCloud.setDebugLogEnabled(<span class="literal">true</span>)</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 如果是开发环境，则设置 AVCloud.callFunction 和 AVCloud.rpcFunction 调用本地云函数实现</span></span><br><span class="line">            <span class="comment">// 如果需要本地开发时调用云端云函数实现，则注释掉下面语句。</span></span><br><span class="line">            LeanEngine.setLocalEngineCallEnabled(<span class="literal">true</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">companion</span> <span class="keyword">object</span> &#123;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">val</span> logger = LogManager.getLogger(AppInitListener::<span class="class"><span class="keyword">class</span>.<span class="title">java</span>)</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="3-开始使用Kotlin写云函数"><a href="#3-开始使用Kotlin写云函数" class="headerlink" title="3. 开始使用Kotlin写云函数"></a>3. 开始使用Kotlin写云函数</h2><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.cpiz.loanassistant.cloud</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> cn.LeanCloud.EngineFunction</span><br><span class="line"><span class="keyword">import</span> cn.LeanCloud.EngineFunctionParam</span><br><span class="line"><span class="keyword">import</span> ......</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 测试云函数</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="meta">@EngineFunction</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">hello</span><span class="params">()</span></span>: String &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"Hello world!"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>至此结束，原本的目的只是想让算法那部分直接用Kotlin的实现，但最终做到了使用Kotlin编写整个项目，开发效率可比Java高多了。</p>
 
       
@@ -455,6 +485,14 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/LeanCloud/" rel="tag"># LeanCloud</a>
+          
+            <a href="/tags/Kotlin/" rel="tag"># Kotlin</a>
+          
+        </div>
+      
 
       
       
@@ -464,8 +502,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2014/01/29/菜鸟追车记，3个月尊瑞驾驶感受/" rel="next" title="菜鸟追车记，3个月尊瑞驾驶感受">
-                <i class="fa fa-chevron-left"></i> 菜鸟追车记，3个月尊瑞驾驶感受
+              <a href="/2016/12/15/moved_to_farbox/" rel="next" title="博客迁移至Farbox平台">
+                <i class="fa fa-chevron-left"></i> 博客迁移至Farbox平台
               </a>
             
           </div>
@@ -474,8 +512,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/12/16/使用IDEA单步调试Leancloud云引擎服务/" rel="prev" title="使用IDEA单步调试Leancloud云引擎服务（Java）">
-                使用IDEA单步调试Leancloud云引擎服务（Java） <i class="fa fa-chevron-right"></i>
+              <a href="/2016/12/16/使用IDEA单步调试Leancloud云引擎服务/" rel="prev" title="使用IDEA单步调试LeanCloud云引擎服务（Java）">
+                使用IDEA单步调试LeanCloud云引擎服务（Java） <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -550,7 +588,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">143</span>
+                    <span class="site-state-item-count">170</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -560,7 +598,7 @@
                 
                 
                 <div class="site-state-item site-state-categories">
-                  
+                  <a href="/categories/index.html">
                     
                     
                       
@@ -585,7 +623,7 @@
                     
                     <span class="site-state-item-count">10</span>
                     <span class="site-state-item-name">分类</span>
-                  
+                  </a>
                 </div>
               
 
@@ -593,7 +631,7 @@
                 
                 
                 <div class="site-state-item site-state-tags">
-                  
+                  <a href="/tags/index.html">
                     
                     
                       
@@ -830,9 +868,237 @@
                     
                       
                     
-                    <span class="site-state-item-count">117</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">231</span>
                     <span class="site-state-item-name">标签</span>
-                  
+                  </a>
                 </div>
               
             </nav>
@@ -929,7 +1195,7 @@
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Muse</a> v6.3.0</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Mist</a> v6.3.0</div>
 
 
 
@@ -1060,6 +1326,326 @@
 
 
   
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
 
 
 

@@ -11,10 +11,8 @@
 
 
 
-  
 
-
-<html class="theme-next muse use-motion" lang="zh-CN">
+<html class="theme-next mist" lang="zh-CN">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -84,14 +82,14 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Mist',
     version: '6.3.0',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: false,
     fastclick: false,
     lazyload: false,
     tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     algolia: {
       applicationID: '',
       apiKey: '',
@@ -260,6 +258,14 @@
 
       
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+        </li>
+      
     </ul>
   
 
@@ -268,6 +274,29 @@
 
   
 
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
   
 </nav>
 
@@ -380,7 +409,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-05-23 18:53:13" itemprop="dateModified" datetime="2018-05-23T18:53:13+08:00">2018-05-23</time>
+                <time title="修改时间：2018-05-24 15:04:32" itemprop="dateModified" datetime="2018-05-24T15:04:32+08:00">2018-05-24</time>
               
             
           </span>
@@ -579,7 +608,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-05-24 00:05:27" itemprop="dateModified" datetime="2018-05-24T00:05:27+08:00">2018-05-24</time>
+                <time title="修改时间：2018-05-24 14:52:43" itemprop="dateModified" datetime="2018-05-24T14:52:43+08:00">2018-05-24</time>
               
             
           </span>
@@ -779,7 +808,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-05-23 18:53:13" itemprop="dateModified" datetime="2018-05-23T18:53:13+08:00">2018-05-23</time>
+                <time title="修改时间：2018-05-24 14:54:41" itemprop="dateModified" datetime="2018-05-24T14:54:41+08:00">2018-05-24</time>
               
             
           </span>
@@ -955,7 +984,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 <a class="post-title-link" href="/2016/12/16/使用IDEA单步调试Leancloud云引擎服务/" itemprop="url">
-                  使用IDEA单步调试Leancloud云引擎服务（Java）
+                  使用IDEA单步调试LeanCloud云引擎服务（Java）
                 </a>
               
             
@@ -998,7 +1027,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-05-24 00:28:23" itemprop="dateModified" datetime="2018-05-24T00:28:23+08:00">2018-05-24</time>
+                <time title="修改时间：2018-05-24 14:48:43" itemprop="dateModified" datetime="2018-05-24T14:48:43+08:00">2018-05-24</time>
               
             
           </span>
@@ -1051,9 +1080,9 @@
       
         
           
-            <p>最近在使用Leancloud的云引擎服务，我使用了Java版SDK，在IDEA中进行项目开发（实际上写的是Kotlin语言）。Leancloud云引擎提供了一个<code>lean.exe</code>的命令行工具，使用<code>lean up</code>命令可以启动一个http服务，非常方便本地测试。代码修改后使用IDEA重新编译一下即可热更新，不用重新执行命令。</p>
+            <p>最近在使用LeanCloud的云引擎服务，我使用了Java版SDK，在IDEA中进行项目开发（实际上写的是Kotlin语言）。LeanCloud云引擎提供了一个<code>lean.exe</code>的命令行工具，使用<code>lean up</code>命令可以启动一个http服务，非常方便本地测试。代码修改后使用IDEA重新编译一下即可热更新，不用重新执行命令。</p>
 <p>如果业务复杂一些，可能需要加点日志来调查。但如果想跟进一步直接用IDEA单步调试，找遍了它们文档和社区都没有方法，也没有其他的网友分享过，所以今天研究了一下。</p>
-<p>因为Leancloud的Java版运行的是一个Jetty服务，我先尝试不用lean命令行，自己在IDEA中配置了Jetty来运行。结果是能显示Web页，但真正想要调试的API接口都返回404。</p>
+<p>因为LeanCloud的Java版运行的是一个Jetty服务，我先尝试不用lean命令行，自己在IDEA中配置了Jetty来运行。结果是能显示Web页，但真正想要调试的API接口都返回404。</p>
 <p>研究了一下lean.exe的工作方式，发现它执行lean up后，该进程自己启动了3001端口，提供了一个快速调用API的web页。真正的云业务页面和API服务是它调用<code>mvn jetty:run</code>来运行的，默认是3000端口。而maven是用的开发者自己配置的路径，实际上执行的<code>mvn.cmd jetty:run</code>启用了一串如下java命令：</p>
 <figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">"D:\Program Files\Java\jdk1.<span class="number">8</span>.<span class="number">0</span>_92\bin\java.exe" -classpath "d:\work\maven\bin\..\boot\plexus-classworlds-<span class="number">2</span>.<span class="number">5</span>.<span class="number">2</span>.jar" "-Dclassworlds.conf=d:\work\maven\bin\..\bin\m2.conf" "-Dmaven.home=d:\work\maven\bin\.." "-Dmaven.multiModuleProjectDirectory=D:\svnwork\playground\loanassistant-cloud" org.codehaus.plexus.classworlds.launcher.Launcher jetty:run</span><br></pre></td></tr></table></figure>
 <p>分析到这里就有办法了：<strong>java是可以通过参数开启远程调试的，只要把java的调试参数配置在<code>mvn.cmd</code>中，应该就可以调试真正的业务接口了</strong>。</p>
@@ -1137,7 +1166,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 <a class="post-title-link" href="/2016/12/15/使用Kotlin语言写Leancloud云后台服务/" itemprop="url">
-                  使用Kotlin语言写Leancloud云后台服务
+                  使用Kotlin语言写LeanCloud云后台服务
                 </a>
               
             
@@ -1180,7 +1209,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-05-24 00:28:27" itemprop="dateModified" datetime="2018-05-24T00:28:27+08:00">2018-05-24</time>
+                <time title="修改时间：2018-05-24 14:49:03" itemprop="dateModified" datetime="2018-05-24T14:49:03+08:00">2018-05-24</time>
               
             
           </span>
@@ -1233,14 +1262,187 @@
       
         
           
-            <p>最近在玩微信小程序，有一部分业务需要部署后端，为了省事我选择了Leancloud。它有多种语言支持，文档也很完善，能快速搭建服务，正好合适。其后端云引擎支持Node.js、Python、Java、Php四种语言，因为我近来写Android多一些，所以采用了更熟悉的Java。</p>
+            <p>最近在玩微信小程序，有一部分业务需要部署后端，为了省事我选择了LeanCloud。它有多种语言支持，文档也很完善，能快速搭建服务，正好合适。其后端云引擎支持Node.js、Python、Java、Php四种语言，因为我近来写Android多一些，所以采用了更熟悉的Java。</p>
 <p>下载了SDK来一看，是基于maven构建，用法挺简单。但我的云服务需要用到的一个算法是我以前在Android上用Kotlin写的，为了避免重新翻译，我尝试将Kotlin也引入云引擎项目，果然可行。在这记录分享一下。</p>
 <p>整个修改分为三步</p>
 <h2 id="1-pom配置"><a href="#1-pom配置" class="headerlink" title="1. pom配置"></a>1. pom配置</h2><p>增加kotlin的依赖与maven-plugin的配置<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">xmlns</span>=<span class="string">"http://maven.apache.org/POM/4.0.0"</span> <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></span><br><span class="line"><span class="tag">         <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line">    <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">        ...</span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.jetbrains.kotlin<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>kotlin-stdlib<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0.5<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        ...</span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">            ...</span><br><span class="line">            <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.jetbrains.kotlin<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>kotlin-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0.5<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">executions</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">execution</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">id</span>&gt;</span>compile<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">goals</span>&gt;</span> <span class="tag">&lt;<span class="name">goal</span>&gt;</span>compile<span class="tag">&lt;/<span class="name">goal</span>&gt;</span> <span class="tag">&lt;/<span class="name">goals</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">                            <span class="tag">&lt;<span class="name">sourceDirs</span>&gt;</span></span><br><span class="line">                                <span class="tag">&lt;<span class="name">sourceDir</span>&gt;</span>$&#123;project.basedir&#125;/src/main/kotlin<span class="tag">&lt;/<span class="name">sourceDir</span>&gt;</span></span><br><span class="line">                            <span class="tag">&lt;/<span class="name">sourceDirs</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;/<span class="name">execution</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">execution</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">id</span>&gt;</span>test-compile<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">goals</span>&gt;</span> <span class="tag">&lt;<span class="name">goal</span>&gt;</span>test-compile<span class="tag">&lt;/<span class="name">goal</span>&gt;</span> <span class="tag">&lt;/<span class="name">goals</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">                            <span class="tag">&lt;<span class="name">sourceDirs</span>&gt;</span></span><br><span class="line">                                <span class="tag">&lt;<span class="name">sourceDir</span>&gt;</span>$&#123;project.basedir&#125;/src/test/kotlin<span class="tag">&lt;/<span class="name">sourceDir</span>&gt;</span></span><br><span class="line">                            <span class="tag">&lt;/<span class="name">sourceDirs</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;/<span class="name">execution</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">executions</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">            ...</span><br><span class="line">        <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 <p>所以工程的文件结构是这样的<br><img src="/2016/12/15/使用Kotlin语言写Leancloud云后台服务/1.png"></p>
-<h2 id="2-翻译AppInitListener类为Kotlin语言版"><a href="#2-翻译AppInitListener类为Kotlin语言版" class="headerlink" title="2. 翻译AppInitListener类为Kotlin语言版"></a>2. 翻译AppInitListener类为Kotlin语言版</h2><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.cpiz.loanassistant.cloud</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> cn.leancloud.LeanEngine</span><br><span class="line"><span class="keyword">import</span> com.avos.avoscloud.AVOSCloud</span><br><span class="line"><span class="keyword">import</span> com.avos.avoscloud.<span class="keyword">internal</span>.impl.JavaRequestSignImplementation</span><br><span class="line"><span class="keyword">import</span> org.apache.logging.log4j.LogManager</span><br><span class="line"><span class="keyword">import</span> javax.servlet.ServletContextEvent</span><br><span class="line"><span class="keyword">import</span> javax.servlet.ServletContextListener</span><br><span class="line"><span class="keyword">import</span> javax.servlet.<span class="keyword">annotation</span>.WebListener</span><br><span class="line"></span><br><span class="line"><span class="meta">@WebListener</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AppInitListener</span> : <span class="type">ServletContextListener &#123;</span></span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">val</span> appId = System.getenv(<span class="string">"LEANCLOUD_APP_ID"</span>)</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">val</span> appKey = System.getenv(<span class="string">"LEANCLOUD_APP_KEY"</span>)</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">val</span> appMasterKey = System.getenv(<span class="string">"LEANCLOUD_APP_MASTER_KEY"</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">contextDestroyed</span><span class="params">(arg0: <span class="type">ServletContextEvent</span>)</span></span> &#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">contextInitialized</span><span class="params">(arg0: <span class="type">ServletContextEvent</span>)</span></span> &#123;</span><br><span class="line">        logger.info(<span class="string">"LeanEngine app init."</span>)</span><br><span class="line">        logger.info(<span class="string">"Environment: <span class="subst">$&#123;System.getenv("LEANCLOUD_APP_ENV")&#125;</span>"</span>)</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 初始化AVOSCloud，请保证在整个项目中间只初始化一次</span></span><br><span class="line">        LeanEngine.initialize(appId, appKey, appMasterKey)</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 在请求签名中使用masterKey以激活云代码的最高权限</span></span><br><span class="line">        JavaRequestSignImplementation.instance().setUseMasterKey(<span class="literal">true</span>)</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 向云引擎注册云函数</span></span><br><span class="line">        <span class="comment">// com.cpiz.loanassistant.cloud.CloudKt即为云函数的实现</span></span><br><span class="line">        LeanEngine.register(Class.forName(<span class="string">"com.cpiz.loanassistant.cloud.CloudKt"</span>))</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (System.getenv(<span class="string">"LEANCLOUD_APP_ENV"</span>) == <span class="string">"development"</span>) &#123;</span><br><span class="line">            <span class="comment">// 打开 debug 日志</span></span><br><span class="line">            AVOSCloud.setDebugLogEnabled(<span class="literal">true</span>)</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 如果是开发环境，则设置 AVCloud.callFunction 和 AVCloud.rpcFunction 调用本地云函数实现</span></span><br><span class="line">            <span class="comment">// 如果需要本地开发时调用云端云函数实现，则注释掉下面语句。</span></span><br><span class="line">            LeanEngine.setLocalEngineCallEnabled(<span class="literal">true</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">companion</span> <span class="keyword">object</span> &#123;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">val</span> logger = LogManager.getLogger(AppInitListener::<span class="class"><span class="keyword">class</span>.<span class="title">java</span>)</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="3-开始使用Kotlin写云函数"><a href="#3-开始使用Kotlin写云函数" class="headerlink" title="3. 开始使用Kotlin写云函数"></a>3. 开始使用Kotlin写云函数</h2><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.cpiz.loanassistant.cloud</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> cn.leancloud.EngineFunction</span><br><span class="line"><span class="keyword">import</span> cn.leancloud.EngineFunctionParam</span><br><span class="line"><span class="keyword">import</span> ......</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 测试云函数</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="meta">@EngineFunction</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">hello</span><span class="params">()</span></span>: String &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"Hello world!"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="2-翻译AppInitListener类为Kotlin语言版"><a href="#2-翻译AppInitListener类为Kotlin语言版" class="headerlink" title="2. 翻译AppInitListener类为Kotlin语言版"></a>2. 翻译AppInitListener类为Kotlin语言版</h2><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.cpiz.loanassistant.cloud</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> cn.LeanCloud.LeanEngine</span><br><span class="line"><span class="keyword">import</span> com.avos.avoscloud.AVOSCloud</span><br><span class="line"><span class="keyword">import</span> com.avos.avoscloud.<span class="keyword">internal</span>.impl.JavaRequestSignImplementation</span><br><span class="line"><span class="keyword">import</span> org.apache.logging.log4j.LogManager</span><br><span class="line"><span class="keyword">import</span> javax.servlet.ServletContextEvent</span><br><span class="line"><span class="keyword">import</span> javax.servlet.ServletContextListener</span><br><span class="line"><span class="keyword">import</span> javax.servlet.<span class="keyword">annotation</span>.WebListener</span><br><span class="line"></span><br><span class="line"><span class="meta">@WebListener</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AppInitListener</span> : <span class="type">ServletContextListener &#123;</span></span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">val</span> appId = System.getenv(<span class="string">"LeanCloud_APP_ID"</span>)</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">val</span> appKey = System.getenv(<span class="string">"LeanCloud_APP_KEY"</span>)</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">val</span> appMasterKey = System.getenv(<span class="string">"LeanCloud_APP_MASTER_KEY"</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">contextDestroyed</span><span class="params">(arg0: <span class="type">ServletContextEvent</span>)</span></span> &#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">contextInitialized</span><span class="params">(arg0: <span class="type">ServletContextEvent</span>)</span></span> &#123;</span><br><span class="line">        logger.info(<span class="string">"LeanEngine app init."</span>)</span><br><span class="line">        logger.info(<span class="string">"Environment: <span class="subst">$&#123;System.getenv("LeanCloud_APP_ENV")&#125;</span>"</span>)</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 初始化AVOSCloud，请保证在整个项目中间只初始化一次</span></span><br><span class="line">        LeanEngine.initialize(appId, appKey, appMasterKey)</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 在请求签名中使用masterKey以激活云代码的最高权限</span></span><br><span class="line">        JavaRequestSignImplementation.instance().setUseMasterKey(<span class="literal">true</span>)</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 向云引擎注册云函数</span></span><br><span class="line">        <span class="comment">// com.cpiz.loanassistant.cloud.CloudKt即为云函数的实现</span></span><br><span class="line">        LeanEngine.register(Class.forName(<span class="string">"com.cpiz.loanassistant.cloud.CloudKt"</span>))</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (System.getenv(<span class="string">"LeanCloud_APP_ENV"</span>) == <span class="string">"development"</span>) &#123;</span><br><span class="line">            <span class="comment">// 打开 debug 日志</span></span><br><span class="line">            AVOSCloud.setDebugLogEnabled(<span class="literal">true</span>)</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 如果是开发环境，则设置 AVCloud.callFunction 和 AVCloud.rpcFunction 调用本地云函数实现</span></span><br><span class="line">            <span class="comment">// 如果需要本地开发时调用云端云函数实现，则注释掉下面语句。</span></span><br><span class="line">            LeanEngine.setLocalEngineCallEnabled(<span class="literal">true</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">companion</span> <span class="keyword">object</span> &#123;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">val</span> logger = LogManager.getLogger(AppInitListener::<span class="class"><span class="keyword">class</span>.<span class="title">java</span>)</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="3-开始使用Kotlin写云函数"><a href="#3-开始使用Kotlin写云函数" class="headerlink" title="3. 开始使用Kotlin写云函数"></a>3. 开始使用Kotlin写云函数</h2><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.cpiz.loanassistant.cloud</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> cn.LeanCloud.EngineFunction</span><br><span class="line"><span class="keyword">import</span> cn.LeanCloud.EngineFunctionParam</span><br><span class="line"><span class="keyword">import</span> ......</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 测试云函数</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="meta">@EngineFunction</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">hello</span><span class="params">()</span></span>: String &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"Hello world!"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>至此结束，原本的目的只是想让算法那部分直接用Kotlin的实现，但最终做到了使用Kotlin编写整个项目，开发效率可比Java高多了。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://cpiz.com/2016/12/15/moved_to_farbox/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cpiz">
+      <meta itemprop="description" content="Cpiz's blog">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cpiz's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016/12/15/moved_to_farbox/" itemprop="url">
+                  博客迁移至Farbox平台
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2016-12-15 19:49:00" itemprop="dateCreated datePublished" datetime="2016-12-15T19:49:00+08:00">2016-12-15</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-05-24 15:30:56" itemprop="dateModified" datetime="2018-05-24T15:30:56+08:00">2018-05-24</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/建站/" itemprop="url" rel="index"><span itemprop="name">建站</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>最近几年，空闲的时间越来越少，已经很少再写博客，只是偶然会翻起。从2005至2016，12年一晃而过，因为有博客，那些记忆和心情还冻结在那里，仿佛是昨天。</p>
+<p>玩了十二年博客，它曾经属于微软（MsnSpace）、Google（Blogger），然后是自己搭的PJBlog、Wordpress，我从一个充满好奇跃跃欲试的青年，终于变成了一个仍然好奇但再无法在时间上奢侈的中年。我不想再要什么模板、动态、图片，能安安静静想点东西，趁它们没那么快健忘，来得及记录就好。所以越来越喜欢Markdown，可以让人先把东西写下来，再去管格式。</p>
+<p>最近突然想重新开始记录，不愿意再面对WP那个愚蠢的编辑器，又舍不得以前那么多老文章，发现Farbox迁移成本最低。虽然丢失了评论，一些文章的图片和下载有问题，但没关系，最宝贵的是文字。</p>
+<p>Farbox肯定也不是折腾的终点，我大胆的预测一下：未来的互联网，不管用户使用了哪公司的服务，用户创造的内容是会永远跟随他自己的。</p>
 
           
         
@@ -1357,7 +1559,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-05-23 18:35:04" itemprop="dateModified" datetime="2018-05-23T18:35:04+08:00">2018-05-23</time>
+                <time title="修改时间：2018-05-24 15:04:32" itemprop="dateModified" datetime="2018-05-24T15:04:32+08:00">2018-05-24</time>
               
             
           </span>
@@ -1580,7 +1782,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-05-24 00:28:11" itemprop="dateModified" datetime="2018-05-24T00:28:11+08:00">2018-05-24</time>
+                <time title="修改时间：2018-05-24 15:04:32" itemprop="dateModified" datetime="2018-05-24T15:04:32+08:00">2018-05-24</time>
               
             
           </span>
@@ -1770,7 +1972,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-05-23 18:35:04" itemprop="dateModified" datetime="2018-05-23T18:35:04+08:00">2018-05-23</time>
+                <time title="修改时间：2018-05-24 15:04:32" itemprop="dateModified" datetime="2018-05-24T15:04:32+08:00">2018-05-24</time>
               
             
           </span>
@@ -1966,7 +2168,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-05-23 18:35:04" itemprop="dateModified" datetime="2018-05-23T18:35:04+08:00">2018-05-23</time>
+                <time title="修改时间：2018-05-24 15:04:32" itemprop="dateModified" datetime="2018-05-24T15:04:32+08:00">2018-05-24</time>
               
             
           </span>
@@ -2093,202 +2295,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://cpiz.com/2012/11/04/漂洋过海去看你·沙巴（一）/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Cpiz">
-      <meta itemprop="description" content="Cpiz's blog">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Cpiz's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2012/11/04/漂洋过海去看你·沙巴（一）/" itemprop="url">
-                  漂洋过海去看你·沙巴（一）
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2012-11-04 18:10:58" itemprop="dateCreated datePublished" datetime="2012-11-04T18:10:58+08:00">2012-11-04</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-05-23 18:35:04" itemprop="dateModified" datetime="2018-05-23T18:35:04+08:00">2018-05-23</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/生活/" itemprop="url" rel="index"><span itemprop="name">生活</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<h4 id="旅行归来第6天"><a href="#旅行归来第6天" class="headerlink" title="旅行归来第6天"></a><strong>旅行归来第6天</strong></h4><h4 id="那些欢快的记忆"><a href="#那些欢快的记忆" class="headerlink" title="那些欢快的记忆"></a><strong>那些欢快的记忆</strong></h4><h4 id="像梦的片段"><a href="#像梦的片段" class="headerlink" title="像梦的片段"></a><strong>像梦的片段</strong></h4><h4 id="还时常跳出脑海"><a href="#还时常跳出脑海" class="headerlink" title="还时常跳出脑海"></a><strong>还时常跳出脑海</strong></h4><h4 id="黝黑的皮肤，还有晒伤的肩膀"><a href="#黝黑的皮肤，还有晒伤的肩膀" class="headerlink" title="黝黑的皮肤，还有晒伤的肩膀"></a><strong>黝黑的皮肤，还有晒伤的肩膀</strong></h4><h4 id="是摔倒的陀螺"><a href="#是摔倒的陀螺" class="headerlink" title="是摔倒的陀螺"></a><strong>是摔倒的陀螺</strong></h4><h4 id="告诉我"><a href="#告诉我" class="headerlink" title="告诉我"></a><strong>告诉我</strong></h4><h4 id="那是已过去的真实"><a href="#那是已过去的真实" class="headerlink" title="那是已过去的真实"></a><strong>那是已过去的真实</strong></h4><h4 id="Good-times-Crazy-friends-Amazing-memories"><a href="#Good-times-Crazy-friends-Amazing-memories" class="headerlink" title="Good times + Crazy friends = Amazing memories"></a><em>Good times + Crazy friends = Amazing memories</em></h4><h4 id="欢乐时光＋疯子般的朋友＝最棒的回忆"><a href="#欢乐时光＋疯子般的朋友＝最棒的回忆" class="headerlink" title="欢乐时光＋疯子般的朋友＝最棒的回忆"></a><em>欢乐时光＋疯子般的朋友＝最棒的回忆</em></h4></blockquote>
-<p>他们说关于旅行，当你决定要出发的时候，最困难的那部分其实就已经完成了。我们的决定很简单，3月份LP看到亚航的Big Sale不舍得错过，约上几个朋友，很快订下了10月份广州-吉隆坡-亚庇-吉隆坡-广州的4飞机票，每人总价才1400+。</p>
-<p>太长的计划其实是种折磨，虽然Junior同学早早的做好了攻略，护照、签证办理也按部就班，但积累的期待总让人担心有变数，怕LP会怀孕、怕请不到假期。临行前获知小强同学因为户口问题最终没能搞定护照，吉隆坡和亚庇的天气预报又不太理想，最后5人带着兴奋、遗憾、担心开始上路……</p>
-<h1 id="Day-1-广州-–-吉隆坡-–-亚庇-–-Weston红树林"><a href="#Day-1-广州-–-吉隆坡-–-亚庇-–-Weston红树林" class="headerlink" title="Day 1 广州 – 吉隆坡 – 亚庇 – Weston红树林"></a>Day 1 广州 – 吉隆坡 – 亚庇 – Weston红树林</h1><p><a href="http://www.yupoo.com/photos/cpiz/87081215/" title="凌晨1点，下一站吉隆坡" target="_blank" rel="noopener"><img src="http://pic.yupoo.com/cpiz/CnO85uhn/small.jpg" alt="凌晨1点，下一站吉隆坡"></a>机票便宜，所以凌晨一点多起飞不奇怪，大半夜在白云机场找不到吃的也很自然，5个人饿着肚子上了飞机。作为廉价航空公司的典范，亚航的飞机不提供免费的食物和水，幸好有准备，带了些零食。还没起飞，旁边的大叔已经呼噜震天，很是羡慕。</p>
-<p>飞机五点半降落吉隆坡亚航LCCT机场，出舱门就立刻感受到湿热的热带空气。过关检的时候自然着跟随大部队去排队，这时旁边一位同行的大爷问了一句：“你们是外国人吗？”，众人愣。“外国人从那边过”，大爷指了指另一边空荡荡的外国人入境柜台。这是在马来西亚感受的第一笔热情，也提醒了我们这是个有很多华人的国家，不必太紧张。</p>
-<p>确定好中转的航班后，换了点马币，在马来西亚的第一顿选择了麦当劳，热烘烘的食物给疲惫的队伍增加了一点活力。<br><a href="http://www.yupoo.com/photos/cpiz/87081216/" title="饿，LCCT 麦当劳拯救我们" target="_blank" rel="noopener"><img src="http://pic.yupoo.com/cpiz/CnO85xEp/small.jpg" alt="饿，LCCT 麦当劳拯救我们"></a><a href="http://www.yupoo.com/photos/cpiz/87110354/" title="补充体力中" target="_blank" rel="noopener"><img src="http://pic.yupoo.com/cpiz/CoibSacB/small.jpg" alt="补充体力中"></a><a href="http://www.yupoo.com/photos/cpiz/87081217/" title="等吉隆坡飞亚庇，天都亮了" target="_blank" rel="noopener"><img src="http://pic.yupoo.com/cpiz/CnO85IhY/small.jpg" alt="等吉隆坡飞亚庇，天都亮了" title="在候机厅等飞亚庇，天都亮了"></a></p>
-<p>在吉隆坡至亚庇的飞机上终于睡着了，醒来时被窗外的蓝天和蓝水打动，这是第一次在海上的飞行。<br><a href="http://www.yupoo.com/photos/cpiz/87081218/" title="上面上蓝天，下面是蓝水" target="_blank" rel="noopener"><img src="http://pic.yupoo.com/cpiz/CnO85NJH/medium.jpg" alt="上面上蓝天，下面是蓝水"></a></p>
-<p>即将降落亚庇，好像在下雨？</p>
-<p><img src="http://pic.yupoo.com/cpiz/CnO865Ai/medium.jpg" alt="水黄成这样，看来没少下雨"><a href="http://www.yupoo.com/photos/cpiz/87081220/" title="即将落亚庇，天气不好，有点担心" target="_blank" rel="noopener"><img src="http://pic.yupoo.com/cpiz/CnO860Xk/medium.jpg" alt="即将落亚庇，天气不好，有点担心"></a></p>
-<p>我们在亚庇的活动都包给了当地华人旅游圈中很有口碑的洪叔，出机场的时候他家的工作人员小林已经在外面等着了。小林是祖籍福建的华人 ，酷似马来西亚羽毛球巨星李宗伟，在车上给我们介绍了当地的风土人情以及亚庇热门的吃喝去处。亚庇看样子刚下完雨，我们问及这几天的天气，小林说现在是沙巴的雨季，最近都在下雨，他们当天的一趟美人鱼岛安排就因为天气不好已经取消，至于第二天我们的环滩岛之旅能不能成行，得到时候看天才知道。</p>
-<p>我们预订的酒店叫eden54，后缀54其实是它的门牌号码，不远处还有家新一点的Sixty3也一样。eden54不豪华但很舒适，充满旅行的情调，从老板娘到工作人员都很Nice。</p>
-<p><a href="http://www.yupoo.com/photos/cpiz/87110926/" title="eden54" target="_blank" rel="noopener"><img src="http://pic.yupoo.com/cpiz/CoiIZWTq/small.jpg" alt="eden54"></a><a href="http://www.yupoo.com/photos/cpiz/87081225/" title="Hotel Eden54" target="_blank" rel="noopener"><img src="http://pic.yupoo.com/cpiz/CnO86KME/small.jpg" alt="Hotel Eden54"></a><a href="http://www.yupoo.com/photos/cpiz/87081227/" title="Hotel Eden54" target="_blank" rel="noopener"><img src="http://pic.yupoo.com/cpiz/CnO87h2p/small.jpg" alt="Hotel Eden54"></a></p>
-<p>下午的计划是去红树林看长鼻猴和萤火虫，不过之前要先找点吃的，来到了这家家嫂板面。他乡的华人都很亲近华人游客，老板不耐其烦地向我们介绍他们的特色饮食，跟我们聊中国，聊戏曲。抱着体验的心态，我们尽量点了不同的东西。<br><a href="http://www.yupoo.com/photos/cpiz/87111068/" title="榴莲布丁" target="_blank" rel="noopener"><img src="http://pic.yupoo.com/cpiz/CoiQABhx/small.jpg" alt="榴莲布丁"></a><a href="http://www.yupoo.com/photos/cpiz/87111072/" title="粽" target="_blank" rel="noopener"><img src="http://pic.yupoo.com/cpiz/CoiQNClc/small.jpg" alt="粽"></a><a href="http://www.yupoo.com/photos/cpiz/87111074/" title="橘子冰" target="_blank" rel="noopener"><img src="http://pic.yupoo.com/cpiz/CoiQZaLj/small.jpg" alt="橘子冰"></a><br><a href="http://www.yupoo.com/photos/cpiz/87081230/" title="家嫂XX面" target="_blank" rel="noopener"><img src="http://pic.yupoo.com/cpiz/CnO87COY/small.jpg" alt="家嫂XX面"></a><a href="http://www.yupoo.com/photos/cpiz/87081229/" title="本地小橘，朝天辣椒" target="_blank" rel="noopener"><img src="http://pic.yupoo.com/cpiz/CnO87zI9/small.jpg" alt="本地小橘，朝天辣椒"></a></p>
-<p>榴莲布丁很香，粽子也不错，橘子冰更是当地的特色。这种本地特长的小橘子，有一种特别的酸味，当地人似乎将它当做柠檬使用，用于制作饮料和调味。香菇板面也不错，但印象更深的里面香喷喷的小鱼干。餐饮物价和广州差不多，一碗面人民币10元出头，消费无压力。</p>
-<p><a href="http://www.yupoo.com/photos/cpiz/87111508/" title="亚庇" target="_blank" rel="noopener"><img src="http://pic.yupoo.com/cpiz/CojaHMxd/medium.jpg" alt="亚庇"></a></p>
-<p>回到酒店，启程Weston红树林。<br><a href="http://www.yupoo.com/photos/cpiz/87111289/" title="至Weston中途遇雨" target="_blank" rel="noopener"><img src="http://pic.yupoo.com/cpiz/Coj3lPD5/small.jpg" alt="至Weston中途遇雨"></a><a href="http://www.yupoo.com/photos/cpiz/87111294/" title="至Weston中途遇雨" target="_blank" rel="noopener"><img src="http://pic.yupoo.com/cpiz/Coj3v0SE/small.jpg" alt="至Weston中途遇雨"></a><br>路上遇雨，担心啊。中途在一家巧克力店停留了十来分钟，没有强制消费，店员还为我们上下车提供了雨伞。</p>
-<p>Weston湿地在亚庇的西南方100多公里处，近3小时路程，这有一种特有的长鼻猴，已经濒危，晚上则能看到很多萤火虫。</p>
-<p>这似乎没受下雨影响，由车换船，高速飞驰把心情也带High了起来。<br><a href="http://www.yupoo.com/photos/cpiz/87081231/" title="红树林" target="_blank" rel="noopener"><img src="http://pic.yupoo.com/cpiz/CnO87SOL/small.jpg" alt="红树林"></a><a href="http://www.yupoo.com/photos/cpiz/87081234/" title="Weston红树林" target="_blank" rel="noopener"><img src="http://pic.yupoo.com/cpiz/CnO88lsq/small.jpg" alt="Weston红树林"></a><br><a href="http://www.yupoo.com/photos/cpiz/87081236/" title="Weston红树林，当地下午茶" target="_blank" rel="noopener"><img src="http://pic.yupoo.com/cpiz/CnO88DgF/small.jpg" alt="Weston红树林，当地下午茶"></a><a href="http://www.yupoo.com/photos/cpiz/87081235/" title="Weston红树林，当地下午茶" target="_blank" rel="noopener"><img src="http://pic.yupoo.com/cpiz/CnO88EeD/small.jpg" alt="Weston红树林，当地下午茶"></a><br>来到接待码头稍作休整，品尝了当地下午茶，只是味道一般，然后出发去看长鼻猴。车上的导游开始当上了船长，一本正经还挺有范儿。<br><a href="http://www.yupoo.com/photos/cpiz/87081240/" title="船长小胖" target="_blank" rel="noopener"><img src="http://pic.yupoo.com/cpiz/CnO89Ery/small.jpg" alt="船长小胖"></a><a href="http://www.yupoo.com/photos/cpiz/87111767/" title="身后水滔滔" target="_blank" rel="noopener"><img src="http://pic.yupoo.com/cpiz/CojiKamE/small.jpg" alt="身后水滔滔"></a><br><a href="http://www.yupoo.com/photos/cpiz/87111776/" title="DSC_0103" target="_blank" rel="noopener"><img src="http://pic.yupoo.com/cpiz/CojiTBvU/medium.jpg" alt="DSC_0103"></a></p>
-<p>运气不错，遇到几群长鼻猴，但距离太远又不能互动，互相参观了一阵，掉头去看夕阳。<br><a href="http://www.yupoo.com/photos/cpiz/87081244/" title="传说中的长鼻猴" target="_blank" rel="noopener"><img src="http://pic.yupoo.com/cpiz/CnO8aVWh/small.jpg" alt="传说中的长鼻猴"></a><a href="http://www.yupoo.com/photos/cpiz/87081245/" title="IMG_0447" target="_blank" rel="noopener"><img src="http://pic.yupoo.com/cpiz/CnO8bd6o/small.jpg" alt="IMG_0447"></a><a href="http://www.yupoo.com/photos/cpiz/87081247/" title="快船" target="_blank" rel="noopener"><img src="http://pic.yupoo.com/cpiz/CnO8bKQi/medium.jpg" alt="快船"></a><br>夕阳美，但比起我们后面几天看到的，实在不算什么，略过不言。<br><a href="http://www.yupoo.com/photos/cpiz/87081246/" title="快日落了" target="_blank" rel="noopener"><img src="http://pic.yupoo.com/cpiz/CnO8bvT5/medium.jpg" alt="快日落了"></a></p>
-<p>日落后回到码头吃完一顿简单的晚饭，天已经黑得差不多，再次坐船出去看萤火虫。白天普通水中树木晚上则是萤火虫的乐土，只是荧光不比日光，加上船一直在荡，出不来好片。<br><a href="http://www.yupoo.com/photos/cpiz/87081248/" title="萤火虫" target="_blank" rel="noopener"><img src="http://pic.yupoo.com/cpiz/CnO8bXFN/medium.jpg" alt="萤火虫"></a></p>
-<p>回到岸上乘车转返，一路睡到亚庇。大家意犹未尽出门逛荡一番，可惜这边不兴夜生活，没多少东西可看。回到酒店躺下，期待第二天的好天气。</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -2331,7 +2342,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">143</span>
+                    <span class="site-state-item-count">170</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2341,7 +2352,7 @@
                 
                 
                 <div class="site-state-item site-state-categories">
-                  
+                  <a href="/categories/index.html">
                     
                     
                       
@@ -2366,7 +2377,7 @@
                     
                     <span class="site-state-item-count">10</span>
                     <span class="site-state-item-name">分类</span>
-                  
+                  </a>
                 </div>
               
 
@@ -2374,7 +2385,7 @@
                 
                 
                 <div class="site-state-item site-state-tags">
-                  
+                  <a href="/tags/index.html">
                     
                     
                       
@@ -2611,9 +2622,237 @@
                     
                       
                     
-                    <span class="site-state-item-count">117</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">231</span>
                     <span class="site-state-item-name">标签</span>
-                  
+                  </a>
                 </div>
               
             </nav>
@@ -2694,7 +2933,7 @@
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Muse</a> v6.3.0</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Mist</a> v6.3.0</div>
 
 
 
@@ -2821,6 +3060,326 @@
 
 
   
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
 
 
 
