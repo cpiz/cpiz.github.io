@@ -116,7 +116,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://pic.yupoo.com/cpiz/BOTyq2xX/medish.jpg">
 <meta property="og:image" content="http://pic.yupoo.com/cpiz/BPaTsP88/uhP9C.png">
-<meta property="og:updated_time" content="2018-05-24T06:57:47.874Z">
+<meta property="og:updated_time" content="2018-05-25T13:46:33.248Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="用Python实现QQ找茬游戏外挂工具">
 <meta name="twitter:description" content="(原创作品，转载请注明出处)好久没写技术相关的博文，这次写篇有意思的，关于一个有意思的游戏——QQ找茬，关于一种有意思的语音——Python，关于一个有意思的库——Qt。 这是一个用于QQ大家来找茬（美女找茬）的辅助外挂，开发的原因是看到老爸天天在玩这个游戏，分数是惨不忍睹的负4000多。他玩游戏有他的乐趣，并不很在意输赢，我做这个也只是自我娱乐，顺便讨他个好，毕竟我们搞编程的实在难有机会在父辈面">
@@ -409,7 +409,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-05-24 14:57:47" itemprop="dateModified" datetime="2018-05-24T14:57:47+08:00">2018-05-24</time>
+                <time title="修改时间：2018-05-25 21:46:33" itemprop="dateModified" datetime="2018-05-25T21:46:33+08:00">2018-05-25</time>
               
             
           </span>
@@ -466,7 +466,7 @@
 <p>话不多说，进入正题。这不是一篇完整的代码讲解，只是过程中的一些技术做个分享，包括后来被放弃的一些技术点。当初搜索这些东西也挺费力的，在这做个笔记，后来者也许能搜到收益。</p>
 <p>先上个图：</p>
 <p>[caption id=”” align=”aligncenter” width=”600” caption=”话说这位是游戏中出镜最多的MM，和QQ什么关系啊？”]<a href="http://www.yupoo.com/photos/cpiz/84787761/" target="_blank" rel="noopener"><img src="http://pic.yupoo.com/cpiz/BOTyq2xX/medish.jpg" alt="QQ找茬助手" title="QQ找茬助手"></a>[/caption]</p>
-<p>辅助工具在游戏中增加了两个按钮，点击“对比”则自动找“茬”，用蓝色小框标识，点击“擦除”清除标识。more</p>
+<p>辅助工具在游戏中增加了两个按钮，点击“对比”则自动找“茬”，用蓝色小框标识，点击“擦除”清除标识。<br><a id="more"></a></p>
 <h2 id="游戏窗口探查"><a href="#游戏窗口探查" class="headerlink" title="游戏窗口探查"></a>游戏窗口探查</h2><p>这得用PyWin32库，它是对windows接口的Python封装，VC能做的它基本都行。</p>
 <p>下载地址：<a href="http://sourceforge.net/projects/pywin32/" target="_blank" rel="noopener">http://sourceforge.net/projects/pywin32/</a>，但不能直接点Download图标，不然下下来是一个Readme.txt，点“<a href="http://sourceforge.net/projects/pywin32/files/" title="Browse All Files" target="_blank" rel="noopener">Browse All Files</a>”寻找需要的版本。</p>
 <p>#coding=gbk</p>
