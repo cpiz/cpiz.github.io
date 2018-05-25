@@ -346,189 +346,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://cpiz.com/2008/06/13/一懒到底——轻松注册Exe程序为Windows系统服务/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Cpiz">
-      <meta itemprop="description" content="Cpiz's blog">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Cpiz's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2008/06/13/一懒到底——轻松注册Exe程序为Windows系统服务/" itemprop="url">
-                  一懒到底——轻松注册Exe程序为Windows系统服务
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2008-06-13 22:26:00" itemprop="dateCreated datePublished" datetime="2008-06-13T22:26:00+08:00">2008-06-13</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-05-24 14:47:03" itemprop="dateModified" datetime="2018-05-24T14:47:03+08:00">2018-05-24</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/category/项目/" itemprop="url" rel="index"><span itemprop="name">项目</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>前几天搞那个邮件接口的程序，用到一个叫1st smtp server的程序来做smtp服务器，但这个东西是不支持以服务方式运行的，又不能像java一样使用java service wrapper。Google了几个小时，看到有介绍用sc.exe注册系统服务的文章，但压根就不能用，新添加的服务怎么也启不来，有说要改注册表的，又说了半天也说不清楚。后来发动鸡肉搜索引擎，帮我找到篇比较靠谱的文章《<a href="http://hi.baidu.com/zzz0058/blog/item/0db80c0848b73a35e8248848.html" target="_blank" rel="noopener">把EXE文件注册成服务的方法</a>》，介绍了使用Windows 2000 Resource Kit Tools中两个小程序Instsrv.exe和Srvany.exe可以达到目的，虽然找这两个程序又花了很久，但最终还是搞定了。</p>
-<p>该文提到的步骤比较繁琐，原理大概是以Srvany.exe作为一个shell来启动其它的exe程序作为服务，Instsrv.exe是配合注册服务用的，作为服务的程序路径要记在注册表里。我在实施的时候顺便结合了一下新学习到的sc.exe，为该服务更改了启动方式，并修改描述内容。</p>
-<p>为了方便和我有同样想法的人，干脆写了个批处理脚本，一步实现停止-&gt;删除-&gt;注册-&gt;启动的功能，包括生成注册表文件并导入。</p>
-<ul>
-<li>脚本内容如下：</li>
-</ul>
-<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line"></span><br><span class="line">::设置服务名称</span><br><span class="line"><span class="built_in">set</span> service_name=smtpsvr</span><br><span class="line"></span><br><span class="line">::设置服务描述</span><br><span class="line"><span class="built_in">set</span> service_description=<span class="number">1</span>st smtp server 服务</span><br><span class="line"></span><br><span class="line">::设置服务程序路径</span><br><span class="line"><span class="built_in">set</span> prog_path=D:\\Green Programs\\fstsmtp\\smtpserver.exe</span><br><span class="line"></span><br><span class="line">::设置服务的启动方式 auto:自动 demand:手动 disabled:禁用</span><br><span class="line"><span class="built_in">set</span> strt=auto</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span>                     EasyService 一键服务</span><br><span class="line"><span class="built_in">echo</span> =========================================================== </span><br><span class="line">::<span class="built_in">pause</span></span><br><span class="line">::======================以下部分勿随意修改==========================</span><br><span class="line"><span class="built_in">set</span> s32=<span class="variable">%windir%</span>\system32</span><br><span class="line"><span class="built_in">set</span> reg_file=EasyService.reg</span><br><span class="line"></span><br><span class="line"><span class="built_in">net</span> stop <span class="variable">%service_name%</span> <span class="number">2</span>&gt;<span class="built_in">nul</span></span><br><span class="line"><span class="built_in">copy</span> instsrv.exe <span class="variable">%s32%</span></span><br><span class="line"><span class="built_in">copy</span> srvany.exe <span class="variable">%s32%</span></span><br><span class="line"></span><br><span class="line"><span class="variable">%s32%</span>\instsrv.exe <span class="variable">%service_name%</span> remove <span class="number">2</span>&gt;<span class="built_in">nul</span></span><br><span class="line"><span class="variable">%s32%</span>\instsrv.exe <span class="variable">%service_name%</span> <span class="variable">%s32%</span>\srvany.exe &gt;<span class="built_in">nul</span></span><br><span class="line"></span><br><span class="line">::设置服务的启动方式 auto:自动 demand:手动 disabled:禁用</span><br><span class="line">sc config <span class="variable">%service_name%</span> <span class="built_in">start</span>= <span class="variable">%strt%</span></span><br><span class="line">sc description <span class="variable">%service_name%</span> "<span class="variable">%service_description%</span>"</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> 生成注册表文件...</span><br><span class="line"><span class="built_in">echo</span> Windows Registry Editor Version <span class="number">5</span>.<span class="number">00</span> &gt; <span class="variable">%reg_file%</span></span><br><span class="line"><span class="built_in">echo</span> [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\<span class="variable">%service_name%</span>\Parameters] &gt;&gt; <span class="variable">%reg_file%</span></span><br><span class="line"><span class="built_in">echo</span> "Application"="<span class="variable">%prog_path%</span>" &gt;&gt; <span class="variable">%reg_file%</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> 导入注册表文件...</span><br><span class="line"><span class="variable">%reg_file%</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">net</span> <span class="built_in">start</span> <span class="variable">%service_name%</span></span><br><span class="line"><span class="built_in">echo</span> ===========================完成============================</span><br><span class="line"><span class="built_in">pause</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>使用方法：</li>
-</ul>
-<p>修改脚本中service_name、service_description、prog_path、strt这4个变量的内容，分别设置为服务名、功能描述、程序路径、启动方式，保存后运行脚本，弹出是否导入注册表，选是，大功告成，已在winxp及win2k下测试通过。</p>
-<ul>
-<li>下载：<br><a href="/项目/_attachment/一懒到底——轻松注册Exe程序为Windows系统服务/EasyService.rar">EasyService.rar</a>  包括了Instsrv.exe、Srvany.exe、sc.exe三个程序，是脚本运行的基础。</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://cpiz.com/2008/06/12/幸福的程序员/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1581,179 +1398,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://cpiz.com/2008/04/02/工作一周年/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Cpiz">
-      <meta itemprop="description" content="Cpiz's blog">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Cpiz's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2008/04/02/工作一周年/" itemprop="url">
-                  工作一周年
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2008-04-02 05:15:06" itemprop="dateCreated datePublished" datetime="2008-04-02T05:15:06+08:00">2008-04-02</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-05-24 14:44:42" itemprop="dateModified" datetime="2018-05-24T14:44:42+08:00">2018-05-24</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/category/生活/" itemprop="url" rel="index"><span itemprop="name">生活</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>去年4月2号开始进入公司实习, 到今天正好一周年了.</p>
-<p>一年前的今天, 我们三个新人怀着兴奋, 打量着公司的一切, 憧憬着未来; 一年后的今天, 我独坐在空荡的办公室, 在加班中回味过去.</p>
-<p>一年有12个月, 这是第12次月初通宵, 五一、十一、元旦是这样过来, 若干个周末也是这样耗去, 其它大大小小的通宵升级与加班不计期数。多少次忙得身心疲惫，接到领导或局方发来的任务还要撑出一副精神百倍信心满满的样子欣然接受；多少次刚吞下半口粮食或刚躺下两个钟头，就被电话叫到公司去加班还要健步如飞；每天几十到几百条的告警，已经将我的短信交际完全驱逐。每到周末，最想做的事就是躺着，答应了同学朋友抽空聚聚，一直没能兑现。我一直希望我能为了生活而工作，现在感觉则是为了工作而活着！茫然，很茫然。。。</p>
-<p>像一块吸水的海绵，一年里我拼命挖掘着任何可用的知识与业务，尝试着各种可以提升效率的工作方法，终于我也学会在unix上运指如飞、各种SQL可以信手捻来、业务表与字段如数家珍，三两分钟解决一个投诉，一天处理十几封邮件，接打十几个电话。领导很满意，客户很满意，我不满意，换个地方，恐怕又得从头开始！茫然，很茫然。。。</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://cpiz.com/2008/03/26/曾经的自己/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2089,6 +1733,362 @@
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://cpiz.com/2008/02/03/冰雪年关/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cpiz">
+      <meta itemprop="description" content="Cpiz's blog">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cpiz's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2008/02/03/冰雪年关/" itemprop="url">
+                  冰雪年关
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2008-02-03 23:18:18" itemprop="dateCreated datePublished" datetime="2008-02-03T23:18:18+08:00">2008-02-03</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-05-24 15:04:32" itemprop="dateModified" datetime="2018-05-24T15:04:32+08:00">2018-05-24</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/category/生活/" itemprop="url" rel="index"><span itemprop="name">生活</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>今天某光给我发来一笑话</p>
+<blockquote>
+<p>昨天，我看见一群大雁由南往北飞回，它们排成“南方更冷”几个大字，嘴里说：“他妈的，白跑一趟，刚过去就看见一兄弟冻死在那儿了！哥几个赶快飞回来了！” </p>
+</blockquote>
+<p>感觉超级冷，超级哭笑不得。</p>
+<p>以前总觉得我们南方的冬天不纯粹，期望着多下雪、下大雪，今年如愿了，还超出预期地降下了罕见的冻雨。公司的年会正好赶上那一天，我又正好因为那天下午打羽毛球而穿了双破球鞋，打完球后在外面晃荡一下。路面滑得要死不说，因为鞋漏水一会儿后就里外全湿了，我就这么忍着挨了六七个小时，活动的时候也提不起兴致来。回家的时候经过公司附近的司马庙立交桥，桥上区区百米的距离就发生了多起连环事故，开始担心这天气美丽的背后将会给我们带来多大的麻烦。</p>
+<p>接下来的两天依然没什么好转，大家相互说的和上网上看的都是天气天气天气！看到楼下停车场一辆流动营业车在两侧挂上了横幅：“冰雪无情，移动有情。关键时刻，依赖中国移动”，虽然内容非常肉麻，但不得不说中国移动在这次灾情中表现得很可靠，像郴州这样的水、电、广播、电视都停了重灾区却依然维持着手机通讯。</p>
+<p>我住的地方没有制暖设备，每天回到家洗潄一下就只能钻进被窝玩电脑，两个小时下来手脚冻得发麻。早上起来更加痛苦，我的房间一面是阳台，怀疑室内温度比室外高不了多少。原本是8点钟上班，被大学自觉地改成了8点半甚至9点，领导见大家都不容易，也默许了。这次还头一回买了帽子和围巾，出门的时候全副武装，样子特傻B。最惨的是洗澡，热水器出水太小不说，十来分钟后水温还会骤然下降，怎么调也上不去，现在只得洗之前烧两壶开水，拎进去随时备用。听爸妈说家里更惨，水停了好多天了。这时候公司总部决定给灾情最严重的贵州与湖南两省员工一人500块的补贴，让我们南昌众同事颇为眼红：凭啥江西不算灾区啊？</p>
+<p>比生活更令人伤心的是春运，全国人民终于熬到了年底可以回家松口气，却因为冰雪而步进艰难。有同学买不到票的、有同学买到了票也只能退掉。大学的室友阿水在深圳等车等了十几个小时，据说晚上被安排在一所小学里过夜，冷个半死；师兄俊哥因为南昌下雪飞机不能降落而在深圳机场宾馆等了一晚。我虽然提交9天就买好了4号回家的票，但因为两天的风雪，南昌所有至萍乡的火车都停开了，担心了两天。万幸的是刚刚得到消息：由南昌发出的三辆动车组将从4号开始恢复，其中正好有我买的D205，如果当初买的是其它两辆省内车就惨了。</p>
+<p>这样的年景，不知道这次的春晚该怎么搞了，明天就要回家了，希望能够顺利！</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://cpiz.com/2008/01/31/聊天幽默/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cpiz">
+      <meta itemprop="description" content="Cpiz's blog">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cpiz's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2008/01/31/聊天幽默/" itemprop="url">
+                  聊天幽默
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2008-01-31 21:46:10" itemprop="dateCreated datePublished" datetime="2008-01-31T21:46:10+08:00">2008-01-31</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-05-24 15:04:32" itemprop="dateModified" datetime="2018-05-24T15:04:32+08:00">2018-05-24</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/category/生活/" itemprop="url" rel="index"><span itemprop="name">生活</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>几个月前，我在<a href="http://www.zhuaxia.com" target="_blank" rel="noopener">抓虾</a>推荐频道里订阅了一个<a href="http://www.douban.com/group/Gia-club/" target="_blank" rel="noopener">我们爱讲冷笑话小组</a>，经常能看到些有意思的笑话，为此还培养出一个生活记事的习惯，顺带记录了不少和朋友的幽默对话，其中不少来自某光同学。贴出来晒晒，不定期更新。</p>
+<p><strong>1.查票</strong><br>某光 11:51:05<br>check it out 是什么意思了？<br>无所谓 11:52:04<br>可能是上车没买票被查出来了吧。。。</p>
+<p><strong>2.流水
+</strong>某光  9:00:53<br>听说你病了？<br>无所谓  9:01:07<br>有点感冒而已<br>某光  9:02:17<br>你居然也会感冒啊，哇哈哈<br>无所谓  9:02:33<br>流点鼻涕而已<br>无所谓  9:02:42<br>流水不腐嘛</p>
+<p><strong>3.腿
+</strong>无所谓 00:36:58<br><a href="http://auction1.taobao.com/auction/item_detail-db2-bcd8596e969f246be70359e710651b3a.jhtml" target="_blank" rel="noopener">http://auction1.taobao.com/auction/item_detail-db2-bcd8596e969f246be70359e710651b3a.jhtml</a><br>皇冠商城 原装出口韩国恋人 1.6米 棕色大抱熊 箱装 送寄语<br>无所谓 00:37:03<br>哇，买个给我吧<br>某光 00:37:34<br>我要买个给我老婆！<br>某光 00:37:35<br>！！<br>无所谓 00:37:56<br>分条腿给我吧。。。<br>某光 00:38:43<br>我的腿给你<br>无所谓 00:38:57<br>。。。</p>
+<p><strong>4.理想</strong><br>争取在三年内收支平衡，五年内利润翻番，十年内融资上市！！！现正招募精英中…..[  女士优先！：)  ]<br>无所谓  11:24:03<br>发现你是我QQ里面签名最持久的一个人了<br>刀下留人  11:24:42<br>一个理想，值得奋斗一生<br>无所谓  11:24:51<br>[表情：竖大拇指]<br>刀下留人  11:24:52<br>打牌，<br>刀下留人  11:24:57<br>还有嫖<br>无所谓  11:24:58<br>。。。。</p>
+<p><strong>?5.笑话</strong><br>无所谓 说:<br>跟我说说话啊,不然要睡着了<br>某光 说:<br>话话话话<br>无所谓 说:<br>…<br>某光 说:<br>你说笑话给我听吧<br>某光 说:<br>我给你个机会<br>无所谓 说:<br>你说吧<br>无所谓 说:<br>好,我先说五个<br>无所谓 说:<br>笑话笑话笑话笑话笑话<br>某光 说:<br>好,我再说五个<br>某光 说:<br>吧吧吧吧吧</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
   </section>
 
   
@@ -2136,7 +2136,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">170</span>
+                    <span class="site-state-item-count">168</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>

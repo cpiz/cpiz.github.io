@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://cpiz.com/about/index.html</loc>
+    
+    <lastmod>2018-05-25T03:42:29.183Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://cpiz.com/2008/01/19/AnyPlayer%20-%20%E4%B8%BAWordPress%E5%B5%8C%E5%85%A5%E5%90%84%E7%A7%8D%E7%B1%BB%E5%9E%8B%E6%92%AD%E6%94%BE%E5%99%A8/</loc>
     
     <lastmod>2018-05-24T12:40:53.456Z</lastmod>
@@ -215,13 +222,6 @@
     <loc>http://cpiz.com/2016/12/15/moved_to_farbox/</loc>
     
     <lastmod>2018-05-24T07:30:56.279Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://cpiz.com/2011/11/24/%E5%85%B3%E4%BA%8E%E6%B7%98%E5%AE%9D%E8%AF%84%E4%BB%B7%E6%9C%BA%E5%88%B6%E7%9A%84%E4%B8%80%E7%82%B9%E6%83%B3%E6%B3%95/</loc>
-    
-    <lastmod>2018-05-24T07:30:56.271Z</lastmod>
     
   </url>
   
@@ -1094,13 +1094,6 @@
   </url>
   
   <url>
-    <loc>http://cpiz.com/2008/04/02/%E5%B7%A5%E4%BD%9C%E4%B8%80%E5%91%A8%E5%B9%B4/</loc>
-    
-    <lastmod>2018-05-24T06:44:42.833Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://cpiz.com/2008/05/19/%E5%9B%BD%E6%AE%87/</loc>
     
     <lastmod>2018-05-24T06:44:42.751Z</lastmod>
@@ -1174,13 +1167,6 @@
     <loc>http://cpiz.com/2007/04/03/%E4%B8%8A%E7%8F%AD%E7%AC%AC%E4%B8%80%E5%A4%A9/</loc>
     
     <lastmod>2018-05-24T06:44:42.529Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://cpiz.com/about/index.html</loc>
-    
-    <lastmod>2018-05-24T05:33:02.691Z</lastmod>
     
   </url>
   

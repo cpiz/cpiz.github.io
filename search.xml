@@ -70,8 +70,8 @@
         <category>建站</category>
       </categories>
       <tags>
-        <tag>建站</tag>
         <tag>博客</tag>
+        <tag>建站</tag>
       </tags>
   </entry>
   <entry>
@@ -203,20 +203,12 @@
         <category>生活</category>
       </categories>
       <tags>
-        <tag>青春</tag>
         <tag>总结</tag>
         <tag>工作</tag>
+        <tag>青春</tag>
         <tag>理想</tag>
         <tag>生活</tag>
       </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[关于淘宝评价机制的一点想法]]></title>
-    <url>%2F2011%2F11%2F24%2F%E5%85%B3%E4%BA%8E%E6%B7%98%E5%AE%9D%E8%AF%84%E4%BB%B7%E6%9C%BA%E5%88%B6%E7%9A%84%E4%B8%80%E7%82%B9%E6%83%B3%E6%B3%95%2F</url>
-    <content type="text"><![CDATA[出于各种巧合与预谋，几乎所有中国电商都选择在11月开展了激烈的促销。QQ商城买300送300、京东图书日光棍节、当当店庆、淘宝商城1111……你方唱罢我登场，11月的中国互联网处处都是电商广告，消费者与快递商偷着乐的背后，也不知谁家是赚是赔。 2000年互联网泡沫的时候，电子商务就是其中的骄子，只是谁也没想到它的成熟需要这么多年。到今天，C2C淘宝独树一帜，B2C百花齐放，真正的电子商务时代方才开始。货源、平台、物流都是各家的发展的重点，这是电商的硬件，那在各家价格、物流越来越接近的趋势下，怎样的服务才能留住客户的心呢？ 质量、售后、响应 晒单]]></content>
-      <categories>
-        <category>扯淡</category>
-      </categories>
   </entry>
   <entry>
     <title><![CDATA[深圳世界之窗]]></title>
@@ -587,11 +579,11 @@
         <category>项目</category>
       </categories>
       <tags>
+        <tag>Cbook3</tag>
         <tag>J2ME</tag>
+        <tag>Java</tag>
         <tag>手机</tag>
         <tag>电子书</tag>
-        <tag>Cbook3</tag>
-        <tag>Java</tag>
       </tags>
   </entry>
   <entry>
@@ -698,17 +690,6 @@
       </categories>
       <tags>
         <tag>就业</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[工作一周年]]></title>
-    <url>%2F2008%2F04%2F02%2F%E5%B7%A5%E4%BD%9C%E4%B8%80%E5%91%A8%E5%B9%B4%2F</url>
-    <content type="text"><![CDATA[去年4月2号开始进入公司实习, 到今天正好一周年了. 一年前的今天, 我们三个新人怀着兴奋, 打量着公司的一切, 憧憬着未来; 一年后的今天, 我独坐在空荡的办公室, 在加班中回味过去. 一年有12个月, 这是第12次月初通宵, 五一、十一、元旦是这样过来, 若干个周末也是这样耗去, 其它大大小小的通宵升级与加班不计期数。多少次忙得身心疲惫，接到领导或局方发来的任务还要撑出一副精神百倍信心满满的样子欣然接受；多少次刚吞下半口粮食或刚躺下两个钟头，就被电话叫到公司去加班还要健步如飞；每天几十到几百条的告警，已经将我的短信交际完全驱逐。每到周末，最想做的事就是躺着，答应了同学朋友抽空聚聚，一直没能兑现。我一直希望我能为了生活而工作，现在感觉则是为了工作而活着！茫然，很茫然。。。 像一块吸水的海绵，一年里我拼命挖掘着任何可用的知识与业务，尝试着各种可以提升效率的工作方法，终于我也学会在unix上运指如飞、各种SQL可以信手捻来、业务表与字段如数家珍，三两分钟解决一个投诉，一天处理十几封邮件，接打十几个电话。领导很满意，客户很满意，我不满意，换个地方，恐怕又得从头开始！茫然，很茫然。。。]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>工作</tag>
       </tags>
   </entry>
   <entry>
@@ -1119,10 +1100,10 @@
         <category>技术</category>
       </categories>
       <tags>
-        <tag>Cbook</tag>
-        <tag>CbookBuilder</tag>
         <tag>手机</tag>
         <tag>电子书</tag>
+        <tag>Cbook</tag>
+        <tag>CbookBuilder</tag>
         <tag>Editplus</tag>
       </tags>
   </entry>
@@ -1159,8 +1140,8 @@
         <category>项目</category>
       </categories>
       <tags>
-        <tag>Eclipse</tag>
         <tag>J2ME</tag>
+        <tag>Eclipse</tag>
         <tag>毕业设计</tag>
         <tag>泡泡堂</tag>
         <tag>炸弹人</tag>
@@ -1288,13 +1269,13 @@
         <category>项目</category>
       </categories>
       <tags>
+        <tag>J2ME</tag>
+        <tag>手机</tag>
+        <tag>电子书</tag>
         <tag>Cbook</tag>
         <tag>CbookBuilder</tag>
         <tag>Eclipse</tag>
-        <tag>J2ME</tag>
         <tag>Nokia</tag>
-        <tag>手机</tag>
-        <tag>电子书</tag>
       </tags>
   </entry>
   <entry>
@@ -1494,8 +1475,8 @@
       </categories>
       <tags>
         <tag>Nokia</tag>
-        <tag>N6070</tag>
         <tag>SPV</tag>
+        <tag>N6070</tag>
       </tags>
   </entry>
   <entry>
@@ -1835,8 +1816,8 @@
       </categories>
       <tags>
         <tag>手机</tag>
-        <tag>SPV</tag>
         <tag>E200</tag>
+        <tag>SPV</tag>
       </tags>
   </entry>
   <entry>
@@ -1885,11 +1866,11 @@
       </categories>
       <tags>
         <tag>高数</tag>
+        <tag>读书</tag>
         <tag>三国演义</tag>
         <tag>水浒传</tag>
         <tag>红楼梦</tag>
         <tag>西游记</tag>
-        <tag>读书</tag>
       </tags>
   </entry>
   <entry>
@@ -1968,13 +1949,13 @@
         <category>项目</category>
       </categories>
       <tags>
+        <tag>J2ME</tag>
+        <tag>手机</tag>
+        <tag>电子书</tag>
         <tag>Cbook</tag>
         <tag>CbookBuilder</tag>
         <tag>Eclipse</tag>
-        <tag>J2ME</tag>
         <tag>Nokia</tag>
-        <tag>手机</tag>
-        <tag>电子书</tag>
       </tags>
   </entry>
   <entry>
@@ -2038,8 +2019,8 @@
         <tag>考试</tag>
         <tag>重修</tag>
         <tag>高数</tag>
-        <tag>离散数学</tag>
         <tag>校园生活</tag>
+        <tag>离散数学</tag>
       </tags>
   </entry>
   <entry>
