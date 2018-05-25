@@ -128,9 +128,9 @@
       <category term="技术" scheme="http://cpiz.com/category/%E6%8A%80%E6%9C%AF/"/>
     
     
-      <category term="IDEA" scheme="http://cpiz.com/tag/IDEA/"/>
-    
       <category term="LeanCloud" scheme="http://cpiz.com/tag/LeanCloud/"/>
+    
+      <category term="IDEA" scheme="http://cpiz.com/tag/IDEA/"/>
     
   </entry>
   
@@ -155,9 +155,9 @@
       <category term="技术" scheme="http://cpiz.com/category/%E6%8A%80%E6%9C%AF/"/>
     
     
-      <category term="LeanCloud" scheme="http://cpiz.com/tag/LeanCloud/"/>
-    
       <category term="Kotlin" scheme="http://cpiz.com/tag/Kotlin/"/>
+    
+      <category term="LeanCloud" scheme="http://cpiz.com/tag/LeanCloud/"/>
     
   </entry>
   
@@ -487,11 +487,11 @@
       <category term="生活" scheme="http://cpiz.com/category/%E7%94%9F%E6%B4%BB/"/>
     
     
+      <category term="工作" scheme="http://cpiz.com/tag/%E5%B7%A5%E4%BD%9C/"/>
+    
       <category term="总结" scheme="http://cpiz.com/tag/%E6%80%BB%E7%BB%93/"/>
     
       <category term="青春" scheme="http://cpiz.com/tag/%E9%9D%92%E6%98%A5/"/>
-    
-      <category term="工作" scheme="http://cpiz.com/tag/%E5%B7%A5%E4%BD%9C/"/>
     
       <category term="理想" scheme="http://cpiz.com/tag/%E7%90%86%E6%83%B3/"/>
     
