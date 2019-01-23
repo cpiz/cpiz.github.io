@@ -346,6 +346,764 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://cpiz.com/2019/01/23/windows-64bit-pysqlcipher3-for-python37/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cpiz">
+      <meta itemprop="description" content="Cpiz's blog">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cpiz's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/01/23/windows-64bit-pysqlcipher3-for-python37/" itemprop="url">
+                  编译Windows 64bit平台pysqlcipher3 for Python3.7
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-01-23 20:57:39 / 修改时间：21:00:33" itemprop="dateCreated datePublished" datetime="2019-01-23T20:57:39+08:00">2019-01-23</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/category/技术/" itemprop="url" rel="index"><span itemprop="name">技术</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="编译与安装"><a href="#编译与安装" class="headerlink" title="编译与安装"></a>编译与安装</h2><ol start="0">
+<li><p>安装Python3 64bit<br> <a href="https://www.python.org/ftp/python/3.7.2/python-3.7.2-amd64.exe" target="_blank" rel="noopener">https://www.python.org/ftp/python/3.7.2/python-3.7.2-amd64.exe</a></p>
+</li>
+<li><p>安装OpenSSL<br> <a href="https://slproweb.com/products/Win32OpenSSL.html" target="_blank" rel="noopener">https://slproweb.com/products/Win32OpenSSL.html</a></p>
+<p> 这里使用了<code>Win64 OpenSSL v1.0.2q</code>版本。</p>
+<p> 注意需要将OpenSSL的dll安装到系统目录，如果只是安装在OpenSSL的bin目录的话，使用的时候需要将bin目录加入系统PATH，或者自行拷贝相关dll到调用程序目录。<br> <img src="http://static.zybuluo.com/caipiz/i81q7y6ilef78p3c4zuyssxp/image.png" alt="image.png-21.2kB"></p>
+</li>
+<li><p>安装Tcl Windows(64-bit, x64)<br> <a href="https://www.activestate.com/products/activetcl/downloads/" target="_blank" rel="noopener">https://www.activestate.com/products/activetcl/downloads/</a></p>
+<p> 我使用了<code>8.6.8.0</code>版本。</p>
+</li>
+<li><p>安装 VisualStudio 2017<br> <a href="https://visualstudio.microsoft.com/zh-hans/downloads/" target="_blank" rel="noopener">https://visualstudio.microsoft.com/zh-hans/downloads/</a><br> 社区版即可，只须安装“使用C++的桌面开发”相关工具集。<br> <img src="http://static.zybuluo.com/caipiz/umgjq7si65mx0xr9d0y2izyn/image.png" alt="image.png-130kB"></p>
+</li>
+<li><p>下载 sqlcipher</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">D:\MyDocs\Desktop&gt;git clone https://github.com/sqlcipher/sqlcipher.git</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>生成sqlite3源码<br> 从开始菜单找到<code>适用于 VS 2017 的 x64 本机工具命令提示</code>，启动，打开附带了VS工作环境的控制台。<br> <img src="http://static.zybuluo.com/caipiz/0s8k17yd3ps2fw7ewwahkq95/image.png" alt="image.png-9.9kB"></p>
+<p> 切换到sqlcipher源码目录，执行 </p>
+ <figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">D:\<span class="title">MyDocs</span>\<span class="title">Desktop</span>\<span class="title">sqlcipher</span>&gt;<span class="title">nmake</span> /<span class="title">f</span> <span class="title">Makefile.msc</span></span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<pre><code>结果
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">Microsoft (R) 程序维护实用工具 14.16.27026.1 版</span><br><span class="line">版权所有 (C) Microsoft Corporation。  保留所有权利。</span><br><span class="line"></span><br><span class="line">        copy .\tool\lempar.c .</span><br><span class="line">已复制         1 个文件。</span><br><span class="line">        cl -nologo -W4   -MT -DNDEBUG -D_CRT_SECURE_NO_DEPRECATE -D_CRT_SECURE_NO_WARNINGS -D_CRT_NONSTDC_NO_DEPRECATE -D_CRT_NONSTDC_NO_WARNINGS -O2 -Zi -wd4054 -wd4055 -wd4100 -wd4127 -wd4130 -wd4152 -wd4189 -wd4206 -wd4210 -wd4232 -wd4305 -wd4306 -wd4702 -wd4706 -Daccess=_access  -Felemon.exe .\tool\lemon.c /link /DEBUG</span><br><span class="line">lemon.c</span><br><span class="line">        del /Q parse.y parse.h parse.h.temp 2&gt;NUL</span><br><span class="line">        copy .\src\parse.y .</span><br><span class="line">已复制         1 个文件。</span><br><span class="line">        .\lemon.exe  -DSQLITE_MAX_TRIGGER_DEPTH=100  -DSQLITE_ENABLE_FTS3=1 -DSQLITE_ENABLE_RTREE=1 -DSQLITE_ENABLE_GEOPOLY=1 -DSQLITE_ENABLE_JSON1=1 -DSQLITE_ENABLE_STMTVTAB=1 -DSQLITE_ENABLE_DBPAGE_VTAB=1 -DSQLITE_ENABLE_DBSTAT_VTAB=1 -DSQLITE_INTROSPECTION_PRAGMAS=1 -DSQLITE_ENABLE_DESERIALIZE=1 -DSQLITE_ENABLE_COLUMN_METADATA=1   parse.y</span><br><span class="line">        move parse.h parse.h.temp</span><br><span class="line">移动了         1 个文件。</span><br><span class="line">        tclsh .\tool\addopcodes.tcl parse.h.temp &gt; parse.h</span><br><span class="line">        type parse.h .\src\vdbe.c | tclsh .\tool\mkopcodeh.tcl &gt; opcodes.h</span><br><span class="line"></span><br><span class="line">parse.h</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">.\src\vdbe.c</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        tclsh .\tool\mkopcodec.tcl opcodes.h &gt; opcodes.c</span><br><span class="line">        cl -nologo -W4   -MT -DNDEBUG -D_CRT_SECURE_NO_DEPRECATE -D_CRT_SECURE_NO_WARNINGS -D_CRT_NONSTDC_NO_DEPRECATE -D_CRT_NONSTDC_NO_WARNINGS -O2 -Zi -wd4054 -wd4055 -wd4100 -wd4127 -wd4130 -wd4152 -wd4189 -wd4206 -wd4210 -wd4232 -wd4305 -wd4306 -wd4702 -wd4706 -Femkkeywordhash.exe  -DSQLITE_MAX_TRIGGER_DEPTH=100  -DSQLITE_ENABLE_FTS3=1 -DSQLITE_ENABLE_RTREE=1 -DSQLITE_ENABLE_GEOPOLY=1 -DSQLITE_ENABLE_JSON1=1 -DSQLITE_ENABLE_STMTVTAB=1 -DSQLITE_ENABLE_DBPAGE_VTAB=1 -DSQLITE_ENABLE_DBSTAT_VTAB=1 -DSQLITE_INTROSPECTION_PRAGMAS=1 -DSQLITE_ENABLE_DESERIALIZE=1 -DSQLITE_ENABLE_COLUMN_METADATA=1    .\tool\mkkeywordhash.c /link /DEBUG</span><br><span class="line">mkkeywordhash.c</span><br><span class="line">        .\mkkeywordhash.exe &gt; keywordhash.h</span><br><span class="line">        tclsh .\tool\mkshellc.tcl &gt; shell.c</span><br><span class="line">        cl -nologo -W4   -MT -DNDEBUG -D_CRT_SECURE_NO_DEPRECATE -D_CRT_SECURE_NO_WARNINGS -D_CRT_NONSTDC_NO_DEPRECATE -D_CRT_NONSTDC_NO_WARNINGS -O2 -Zi -wd4054 -wd4055 -wd4100 -wd4127 -wd4130 -wd4152 -wd4189 -wd4206 -wd4210 -wd4232 -wd4305 -wd4306 -wd4702 -wd4706 -Femksourceid.exe .\tool\mksourceid.c /link /DEBUG</span><br><span class="line">mksourceid.c</span><br><span class="line">        tclsh .\tool\mksqlite3h.tcl . &gt; sqlite3.h</span><br><span class="line">        copy .\ext\fts5\fts5parse.y .</span><br><span class="line">已复制         1 个文件。</span><br><span class="line">        del /Q fts5parse.h 2&gt;NUL</span><br><span class="line">        .\lemon.exe  -DSQLITE_MAX_TRIGGER_DEPTH=100  -DSQLITE_ENABLE_FTS3=1 -DSQLITE_ENABLE_RTREE=1 -DSQLITE_ENABLE_GEOPOLY=1 -DSQLITE_ENABLE_JSON1=1 -DSQLITE_ENABLE_STMTVTAB=1 -DSQLITE_ENABLE_DBPAGE_VTAB=1 -DSQLITE_ENABLE_DBSTAT_VTAB=1 -DSQLITE_INTROSPECTION_PRAGMAS=1 -DSQLITE_ENABLE_DESERIALIZE=1 -DSQLITE_ENABLE_COLUMN_METADATA=1   fts5parse.y</span><br><span class="line">        tclsh .\ext\fts5\tool\mkfts5c.tcl</span><br><span class="line">        copy .\ext\fts5\fts5.h .</span><br><span class="line">已复制         1 个文件。</span><br><span class="line">        rmdir /Q/S tsrc 2&gt;NUL</span><br><span class="line">        mkdir tsrc</span><br><span class="line">        for %i in (.\src\crypto.c  .\src\crypto_cc.c  .\src\crypto_impl.c  .\src\crypto_libtomcrypt.c  .\src\crypto_openssl.c  .\src\crypto.h  .\src\sqlcipher.h  .\src\alter.c  .\src\analyze.c  .\src\attach.c  .\src\auth.c  .\src\backup.c  .\src\bitvec.c  .\src\btmutex.c  .\src\btree.c  .\src\build.c  .\src\callback.c  .\src\complete.c  .\src\ctime.c  .\src\date.c  .\src\dbpage.c  .\src\dbstat.c  .\src\delete.c  .\src\expr.c  .\src\fault.c  .\src\fkey.c  .\src\func.c  .\src\global.c  .\src\hash.c  .\src\insert.c  .\src\legacy.c  .\src\loadext.c  .\src\main.c  .\src\malloc.c  .\src\mem0.c  .\src\mem1.c  .\src\mem2.c  .\src\mem3.c  .\src\mem5.c  .\src\memdb.c  .\src\memjournal.c  .\src\mutex.c  .\src\mutex_noop.c  .\src\mutex_unix.c  .\src\mutex_w32.c  .\src\notify.c  .\src\os.c  .\src\os_unix.c  .\src\os_win.c) do copy /Y %i tsrc</span><br><span class="line"></span><br><span class="line">......略</span><br><span class="line"></span><br><span class="line">NMAKE : fatal error U1077: “&quot;C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\bin\HostX64\x64\cl.EXE&quot;”: 返回代码“0x2”</span><br><span class="line">Stop.</span><br></pre></td></tr></table></figure>
+
+
+**最终编译会报错，不过没关系，我们这里并不需要真正的编译，只需要中间生成的`sqlite3.h`和`sqlite3.c`就够了。**
+
+中间过程如果执行有其他差错，可以clean一下再重试
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">D:\MyDocs\Desktop\sqlcipher&gt;nmake /f Makefile.msc clean</span><br></pre></td></tr></table></figure>
+</code></pre><ol start="0">
+<li><p>编译正式的sqlcipher控制台程序（非必须）<br> 这并不是 pysqlcipher3 需要的，但如果自己想成功编译一份 sqlcipher 的 Windows 程序，可以参考这篇 <a href="https://github.com/sqlitebrowser/sqlitebrowser/wiki/Win64-setup-%E2%80%94-Compiling-SQLCipher%20Win64%20setup%20%E2%80%94%20Compiling%20SQLCipher" target="_blank" rel="noopener">Win64 setup — Compiling SQLCipher</a>，修改Makefile.msc再构建。</p>
+</li>
+<li><p>下载<code>pysqlcipher3</code></p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/rigglemania/pysqlcipher3.git</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在<code>pysqlcipher3</code>目录下创建<code>amalgamation</code>目录，拷贝上一步 sqlcipher 项目目录中生成的<code>sqlite3.h</code>和<code>sqlite3.c</code>文件到其中。并在其下创建一个<code>sqlcipher</code>目录，且再次拷贝一份<code>sqlite3.h</code>文件到<code>sqlcipher</code>目录中。</p>
+</li>
+<li><p>执行编译</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">D:\MyDocs\Desktop\pysqlcipher3&gt;python setup.py build_amalgamation</span><br></pre></td></tr></table></figure>
+<p> 结果</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">D:\MyDocs\Desktop\pysqlcipher3&gt;python setup.py build_amalgamation</span><br><span class="line">running build_amalgamation</span><br><span class="line">Builds a C extension using a sqlcipher amalgamation</span><br><span class="line">building &apos;pysqlcipher3._sqlite3&apos; extension</span><br><span class="line">creating build\temp.win-amd64-3.7</span><br><span class="line">creating build\temp.win-amd64-3.7\Release</span><br><span class="line">creating build\temp.win-amd64-3.7\Release\src</span><br><span class="line">creating build\temp.win-amd64-3.7\Release\src\python3</span><br><span class="line">creating build\temp.win-amd64-3.7\Release\amalgamation</span><br><span class="line">C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\bin\HostX86\x64\cl.exe /c /nologo /Ox /W3 /GL /DNDEBUG /MD -DMODULE_NAME=\&quot;pysqlcipher3.dbapi2\&quot; -DSQLITE_ENABLE_FTS3=1 -DSQLITE_ENABLE_RTREE=1 -DSQLITE_ENABLE_LOAD_EXTENSION=1 -DSQLITE_HAS_CODEC=1 -DSQLITE_TEMP_STORE=2 -Dinline=__inline -Iamalgamation -Id:\Work\OpenSSL-Win64\include -ID:\work\Python37\include -ID:\work\Python37\include &quot;-IC:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\ATLMFC\include&quot; &quot;-IC:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\include&quot; &quot;-IC:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\ucrt&quot; &quot;-IC:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\shared&quot; &quot;-IC:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\um&quot; &quot;-IC:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\winrt&quot; &quot;-IC:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\cppwinrt&quot; /Tcsrc\python3\module.c /Fobuild\temp.win-amd64-3.7\Release\src\python3\module.obj</span><br><span class="line">module.c</span><br><span class="line">C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\bin\HostX86\x64\cl.exe /c /nologo /Ox /W3 /GL /DNDEBUG /MD -DMODULE_NAME=\&quot;pysqlcipher3.dbapi2\&quot; -DSQLITE_ENABLE_FTS3=1 -DSQLITE_ENABLE_RTREE=1 -DSQLITE_ENABLE_LOAD_EXTENSION=1 -DSQLITE_HAS_CODEC=1 -DSQLITE_TEMP_STORE=2 -Dinline=__inline -Iamalgamation -Id:\Work\OpenSSL-Win64\include -ID:\work\Python37\include -ID:\work\Python37\include &quot;-IC:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\ATLMFC\include&quot; &quot;-IC:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\include&quot; &quot;-IC:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\ucrt&quot; &quot;-IC:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\shared&quot; &quot;-IC:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\um&quot; &quot;-IC:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\winrt&quot; &quot;-IC:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\cppwinrt&quot; /Tcsrc\python3\connection.c /Fobuild\temp.win-amd64-3.7\Release\src\python3\connection.obj</span><br><span class="line">connection.c</span><br><span class="line">src\python3\connection.c(1546): warning C4090: “=”: 不同的“const”限定符</span><br><span class="line">C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\bin\HostX86\x64\cl.exe /c /nologo /Ox /W3 /GL /DNDEBUG /MD -DMODULE_NAME=\&quot;pysqlcipher3.dbapi2\&quot; -DSQLITE_ENABLE_FTS3=1 -DSQLITE_ENABLE_RTREE=1 -DSQLITE_ENABLE_LOAD_EXTENSION=1 -DSQLITE_HAS_CODEC=1 -DSQLITE_TEMP_STORE=2 -Dinline=__inline -Iamalgamation -Id:\Work\OpenSSL-Win64\include -ID:\work\Python37\include -ID:\work\Python37\include &quot;-IC:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\ATLMFC\include&quot; &quot;-IC:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\include&quot; &quot;-IC:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\ucrt&quot; &quot;-IC:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\shared&quot; &quot;-IC:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\um&quot; &quot;-IC:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\winrt&quot; &quot;-IC:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\cppwinrt&quot; /Tcsrc\python3\cursor.c /Fobuild\temp.win-amd64-3.7\Release\src\python3\cursor.obj</span><br><span class="line">cursor.c</span><br><span class="line">C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\bin\HostX86\x64\cl.exe /c /nologo /Ox /W3 /GL /DNDEBUG /MD -DMODULE_NAME=\&quot;pysqlcipher3.dbapi2\&quot; -DSQLITE_ENABLE_FTS3=1 -DSQLITE_ENABLE_RTREE=1 -DSQLITE_ENABLE_LOAD_EXTENSION=1 -DSQLITE_HAS_CODEC=1 -DSQLITE_TEMP_STORE=2 -Dinline=__inline -Iamalgamation -Id:\Work\OpenSSL-Win64\include -ID:\work\Python37\include -ID:\work\Python37\include &quot;-IC:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\ATLMFC\include&quot; &quot;-IC:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\include&quot; &quot;-IC:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\ucrt&quot; &quot;-IC:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\shared&quot; &quot;-IC:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\um&quot; &quot;-IC:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\winrt&quot; &quot;-IC:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\cppwinrt&quot; /Tcsrc\python3\cache.c /Fobuild\temp.win-amd64-3.7\Release\src\python3\cache.obj</span><br><span class="line">cache.c</span><br><span class="line">C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\bin\HostX86\x64\cl.exe /c /nologo /Ox /W3 /GL /DNDEBUG /MD -DMODULE_NAME=\&quot;pysqlcipher3.dbapi2\&quot; -DSQLITE_ENABLE_FTS3=1 -DSQLITE_ENABLE_RTREE=1 -DSQLITE_ENABLE_LOAD_EXTENSION=1 -DSQLITE_HAS_CODEC=1 -DSQLITE_TEMP_STORE=2 -Dinline=__inline -Iamalgamation -Id:\Work\OpenSSL-Win64\include -ID:\work\Python37\include -ID:\work\Python37\include &quot;-IC:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\ATLMFC\include&quot; &quot;-IC:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\include&quot; &quot;-IC:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\ucrt&quot; &quot;-IC:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\shared&quot; &quot;-IC:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\um&quot; &quot;-IC:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\winrt&quot; &quot;-IC:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\cppwinrt&quot; /Tcsrc\python3\microprotocols.c /Fobuild\temp.win-amd64-3.7\Release\src\python3\microprotocols.obj</span><br><span class="line">microprotocols.c</span><br><span class="line">C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\bin\HostX86\x64\cl.exe /c /nologo /Ox /W3 /GL /DNDEBUG /MD -DMODULE_NAME=\&quot;pysqlcipher3.dbapi2\&quot; -DSQLITE_ENABLE_FTS3=1 -DSQLITE_ENABLE_RTREE=1 -DSQLITE_ENABLE_LOAD_EXTENSION=1 -DSQLITE_HAS_CODEC=1 -DSQLITE_TEMP_STORE=2 -Dinline=__inline -Iamalgamation -Id:\Work\OpenSSL-Win64\include -ID:\work\Python37\include -ID:\work\Python37\include &quot;-IC:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\ATLMFC\include&quot; &quot;-IC:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\include&quot; &quot;-IC:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\ucrt&quot; &quot;-IC:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\shared&quot; &quot;-IC:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\um&quot; &quot;-IC:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\winrt&quot; &quot;-IC:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\cppwinrt&quot; /Tcsrc\python3\prepare_protocol.c /Fobuild\temp.win-amd64-3.7\Release\src\python3\prepare_protocol.obj</span><br><span class="line">prepare_protocol.c</span><br><span class="line">C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\bin\HostX86\x64\cl.exe /c /nologo /Ox /W3 /GL /DNDEBUG /MD -DMODULE_NAME=\&quot;pysqlcipher3.dbapi2\&quot; -DSQLITE_ENABLE_FTS3=1 -DSQLITE_ENABLE_RTREE=1 -DSQLITE_ENABLE_LOAD_EXTENSION=1 -DSQLITE_HAS_CODEC=1 -DSQLITE_TEMP_STORE=2 -Dinline=__inline -Iamalgamation -Id:\Work\OpenSSL-Win64\include -ID:\work\Python37\include -ID:\work\Python37\include &quot;-IC:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\ATLMFC\include&quot; &quot;-IC:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\include&quot; &quot;-IC:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\ucrt&quot; &quot;-IC:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\shared&quot; &quot;-IC:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\um&quot; &quot;-IC:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\winrt&quot; &quot;-IC:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\cppwinrt&quot; /Tcsrc\python3\statement.c /Fobuild\temp.win-amd64-3.7\Release\src\python3\statement.obj</span><br><span class="line">statement.c</span><br><span class="line">src\python3\statement.c(138): warning C4090: “=”: 不同的“const”限定符</span><br><span class="line">src\python3\statement.c(158): warning C4244: “函数”: 从“Py_ssize_t”转换到“int”，可能丢失数据</span><br><span class="line">C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\bin\HostX86\x64\cl.exe /c /nologo /Ox /W3 /GL /DNDEBUG /MD -DMODULE_NAME=\&quot;pysqlcipher3.dbapi2\&quot; -DSQLITE_ENABLE_FTS3=1 -DSQLITE_ENABLE_RTREE=1 -DSQLITE_ENABLE_LOAD_EXTENSION=1 -DSQLITE_HAS_CODEC=1 -DSQLITE_TEMP_STORE=2 -Dinline=__inline -Iamalgamation -Id:\Work\OpenSSL-Win64\include -ID:\work\Python37\include -ID:\work\Python37\include &quot;-IC:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\ATLMFC\include&quot; &quot;-IC:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\include&quot; &quot;-IC:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\ucrt&quot; &quot;-IC:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\shared&quot; &quot;-IC:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\um&quot; &quot;-IC:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\winrt&quot; &quot;-IC:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\cppwinrt&quot; /Tcsrc\python3\util.c /Fobuild\temp.win-amd64-3.7\Release\src\python3\util.obj</span><br><span class="line">util.c</span><br><span class="line">C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\bin\HostX86\x64\cl.exe /c /nologo /Ox /W3 /GL /DNDEBUG /MD -DMODULE_NAME=\&quot;pysqlcipher3.dbapi2\&quot; -DSQLITE_ENABLE_FTS3=1 -DSQLITE_ENABLE_RTREE=1 -DSQLITE_ENABLE_LOAD_EXTENSION=1 -DSQLITE_HAS_CODEC=1 -DSQLITE_TEMP_STORE=2 -Dinline=__inline -Iamalgamation -Id:\Work\OpenSSL-Win64\include -ID:\work\Python37\include -ID:\work\Python37\include &quot;-IC:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\ATLMFC\include&quot; &quot;-IC:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\include&quot; &quot;-IC:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\ucrt&quot; &quot;-IC:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\shared&quot; &quot;-IC:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\um&quot; &quot;-IC:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\winrt&quot; &quot;-IC:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\cppwinrt&quot; /Tcsrc\python3\row.c /Fobuild\temp.win-amd64-3.7\Release\src\python3\row.obj</span><br><span class="line">row.c</span><br><span class="line">src\python3\row.c(101): warning C4090: “=”: 不同的“const”限定符</span><br><span class="line">src\python3\row.c(111): warning C4090: “=”: 不同的“const”限定符</span><br><span class="line">src\python3\row.c(168): warning C4244: “=”: 从“Py_ssize_t”转换到“int”，可能丢失数据</span><br><span class="line">C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\bin\HostX86\x64\cl.exe /c /nologo /Ox /W3 /GL /DNDEBUG /MD -DMODULE_NAME=\&quot;pysqlcipher3.dbapi2\&quot; -DSQLITE_ENABLE_FTS3=1 -DSQLITE_ENABLE_RTREE=1 -DSQLITE_ENABLE_LOAD_EXTENSION=1 -DSQLITE_HAS_CODEC=1 -DSQLITE_TEMP_STORE=2 -Dinline=__inline -Iamalgamation -Id:\Work\OpenSSL-Win64\include -ID:\work\Python37\include -ID:\work\Python37\include &quot;-IC:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\ATLMFC\include&quot; &quot;-IC:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\include&quot; &quot;-IC:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\ucrt&quot; &quot;-IC:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\shared&quot; &quot;-IC:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\um&quot; &quot;-IC:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\winrt&quot; &quot;-IC:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\cppwinrt&quot; /Tcamalgamation\sqlite3.c /Fobuild\temp.win-amd64-3.7\Release\amalgamation\sqlite3.obj</span><br><span class="line">sqlite3.c</span><br><span class="line">amalgamation\sqlite3.c(23097): warning C4996: &apos;fopen&apos;: This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.</span><br><span class="line">C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\ucrt\stdio.h(208): note: 参见“fopen”的声明</span><br><span class="line">C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\bin\HostX86\x64\link.exe /nologo /INCREMENTAL:NO /LTCG /DLL /MANIFEST:EMBED,ID=2 /MANIFESTUAC:NO /LIBPATH:D:\work\Python37\libs /LIBPATH:D:\work\Python37\PCbuild\amd64 &quot;/LIBPATH:C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\ATLMFC\lib\x64&quot; &quot;/LIBPATH:C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.16.27023\lib\x64&quot; &quot;/LIBPATH:C:\Program Files (x86)\Windows Kits\10\lib\10.0.17763.0\ucrt\x64&quot; &quot;/LIBPATH:C:\Program Files (x86)\Windows Kits\10\lib\10.0.17763.0\um\x64&quot; /EXPORT:PyInit__sqlite3 build\temp.win-amd64-3.7\Release\src\python3\module.obj build\temp.win-amd64-3.7\Release\src\python3\connection.obj build\temp.win-amd64-3.7\Release\src\python3\cursor.obj build\temp.win-amd64-3.7\Release\src\python3\cache.obj build\temp.win-amd64-3.7\Release\src\python3\microprotocols.obj build\temp.win-amd64-3.7\Release\src\python3\prepare_protocol.obj build\temp.win-amd64-3.7\Release\src\python3\statement.obj build\temp.win-amd64-3.7\Release\src\python3\util.obj build\temp.win-amd64-3.7\Release\src\python3\row.obj build\temp.win-amd64-3.7\Release\amalgamation\sqlite3.obj /OUT:build\lib.win-amd64-3.7\pysqlcipher3\_sqlite3.cp37-win_amd64.pyd /IMPLIB:build\temp.win-amd64-3.7\Release\src\python3\_sqlite3.cp37-win_amd64.lib libeay32.lib /LIBPATH:d:\Work\OpenSSL-Win64\lib</span><br><span class="line">  正在创建库 build\temp.win-amd64-3.7\Release\src\python3\_sqlite3.cp37-win_amd64.lib 和对象 build\temp.win-amd64-3.7\Release\src\python3\_sqlite3.cp37-win_amd64.exp</span><br><span class="line">正在生成代码</span><br><span class="line">已完成代码的生成</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装至python环境</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">D:\MyDocs\Desktop\pysqlcipher3&gt;python setup.py install</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<pre><code>结果
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line">running install</span><br><span class="line">running bdist_egg</span><br><span class="line">running egg_info</span><br><span class="line">writing pysqlcipher3.egg-info\PKG-INFO</span><br><span class="line">writing dependency_links to pysqlcipher3.egg-info\dependency_links.txt</span><br><span class="line">writing top-level names to pysqlcipher3.egg-info\top_level.txt</span><br><span class="line">reading manifest file &apos;pysqlcipher3.egg-info\SOURCES.txt&apos;</span><br><span class="line">reading manifest template &apos;MANIFEST.in&apos;</span><br><span class="line">warning: no previously-included files matching &apos;*~&apos; found anywhere in distribution</span><br><span class="line">warning: no previously-included files matching &apos;*.pyc&apos; found anywhere in distribution</span><br><span class="line">writing manifest file &apos;pysqlcipher3.egg-info\SOURCES.txt&apos;</span><br><span class="line">installing library code to build\bdist.win-amd64\egg</span><br><span class="line">running install_lib</span><br><span class="line">running build_py</span><br><span class="line">running build_ext</span><br><span class="line">Builds a C extension linking against libsqlcipher library</span><br><span class="line">creating build\bdist.win-amd64</span><br><span class="line">creating build\bdist.win-amd64\egg</span><br><span class="line">creating build\bdist.win-amd64\egg\pysqlcipher3</span><br><span class="line">copying build\lib.win-amd64-3.7\pysqlcipher3\dbapi2.py -&gt; build\bdist.win-amd64\egg\pysqlcipher3</span><br><span class="line">copying build\lib.win-amd64-3.7\pysqlcipher3\dump.py -&gt; build\bdist.win-amd64\egg\pysqlcipher3</span><br><span class="line">creating build\bdist.win-amd64\egg\pysqlcipher3\test</span><br><span class="line">creating build\bdist.win-amd64\egg\pysqlcipher3\test\python3</span><br><span class="line">copying build\lib.win-amd64-3.7\pysqlcipher3\test\python3\dbapi.py -&gt; build\bdist.win-amd64\egg\pysqlcipher3\test\python3</span><br><span class="line">copying build\lib.win-amd64-3.7\pysqlcipher3\test\python3\dump.py -&gt; build\bdist.win-amd64\egg\pysqlcipher3\test\python3</span><br><span class="line">copying build\lib.win-amd64-3.7\pysqlcipher3\test\python3\factory.py -&gt; build\bdist.win-amd64\egg\pysqlcipher3\test\python3</span><br><span class="line">copying build\lib.win-amd64-3.7\pysqlcipher3\test\python3\hooks.py -&gt; build\bdist.win-amd64\egg\pysqlcipher3\test\python3</span><br><span class="line">copying build\lib.win-amd64-3.7\pysqlcipher3\test\python3\regression.py -&gt; build\bdist.win-amd64\egg\pysqlcipher3\test\python3</span><br><span class="line">copying build\lib.win-amd64-3.7\pysqlcipher3\test\python3\sqlcipher.py -&gt; build\bdist.win-amd64\egg\pysqlcipher3\test\python3</span><br><span class="line">copying build\lib.win-amd64-3.7\pysqlcipher3\test\python3\transactions.py -&gt; build\bdist.win-amd64\egg\pysqlcipher3\test\python3</span><br><span class="line">copying build\lib.win-amd64-3.7\pysqlcipher3\test\python3\types.py -&gt; build\bdist.win-amd64\egg\pysqlcipher3\test\python3</span><br><span class="line">copying build\lib.win-amd64-3.7\pysqlcipher3\test\python3\userfunctions.py -&gt; build\bdist.win-amd64\egg\pysqlcipher3\test\python3</span><br><span class="line">copying build\lib.win-amd64-3.7\pysqlcipher3\test\python3\__init__.py -&gt; build\bdist.win-amd64\egg\pysqlcipher3\test\python3</span><br><span class="line">copying build\lib.win-amd64-3.7\pysqlcipher3\test\__init__.py -&gt; build\bdist.win-amd64\egg\pysqlcipher3\test</span><br><span class="line">copying build\lib.win-amd64-3.7\pysqlcipher3\_sqlite3.cp37-win_amd64.pyd -&gt; build\bdist.win-amd64\egg\pysqlcipher3</span><br><span class="line">copying build\lib.win-amd64-3.7\pysqlcipher3\__init__.py -&gt; build\bdist.win-amd64\egg\pysqlcipher3</span><br><span class="line">byte-compiling build\bdist.win-amd64\egg\pysqlcipher3\dbapi2.py to dbapi2.cpython-37.pyc</span><br><span class="line">byte-compiling build\bdist.win-amd64\egg\pysqlcipher3\dump.py to dump.cpython-37.pyc</span><br><span class="line">byte-compiling build\bdist.win-amd64\egg\pysqlcipher3\test\python3\dbapi.py to dbapi.cpython-37.pyc</span><br><span class="line">byte-compiling build\bdist.win-amd64\egg\pysqlcipher3\test\python3\dump.py to dump.cpython-37.pyc</span><br><span class="line">byte-compiling build\bdist.win-amd64\egg\pysqlcipher3\test\python3\factory.py to factory.cpython-37.pyc</span><br><span class="line">byte-compiling build\bdist.win-amd64\egg\pysqlcipher3\test\python3\hooks.py to hooks.cpython-37.pyc</span><br><span class="line">byte-compiling build\bdist.win-amd64\egg\pysqlcipher3\test\python3\regression.py to regression.cpython-37.pyc</span><br><span class="line">byte-compiling build\bdist.win-amd64\egg\pysqlcipher3\test\python3\sqlcipher.py to sqlcipher.cpython-37.pyc</span><br><span class="line">byte-compiling build\bdist.win-amd64\egg\pysqlcipher3\test\python3\transactions.py to transactions.cpython-37.pyc</span><br><span class="line">byte-compiling build\bdist.win-amd64\egg\pysqlcipher3\test\python3\types.py to types.cpython-37.pyc</span><br><span class="line">byte-compiling build\bdist.win-amd64\egg\pysqlcipher3\test\python3\userfunctions.py to userfunctions.cpython-37.pyc</span><br><span class="line">byte-compiling build\bdist.win-amd64\egg\pysqlcipher3\test\python3\__init__.py to __init__.cpython-37.pyc</span><br><span class="line">byte-compiling build\bdist.win-amd64\egg\pysqlcipher3\test\__init__.py to __init__.cpython-37.pyc</span><br><span class="line">byte-compiling build\bdist.win-amd64\egg\pysqlcipher3\__init__.py to __init__.cpython-37.pyc</span><br><span class="line">creating stub loader for pysqlcipher3\_sqlite3.cp37-win_amd64.pyd</span><br><span class="line">byte-compiling build\bdist.win-amd64\egg\pysqlcipher3\_sqlite3.py to _sqlite3.cpython-37.pyc</span><br><span class="line">creating build\bdist.win-amd64\egg\EGG-INFO</span><br><span class="line">copying pysqlcipher3.egg-info\PKG-INFO -&gt; build\bdist.win-amd64\egg\EGG-INFO</span><br><span class="line">copying pysqlcipher3.egg-info\SOURCES.txt -&gt; build\bdist.win-amd64\egg\EGG-INFO</span><br><span class="line">copying pysqlcipher3.egg-info\dependency_links.txt -&gt; build\bdist.win-amd64\egg\EGG-INFO</span><br><span class="line">copying pysqlcipher3.egg-info\top_level.txt -&gt; build\bdist.win-amd64\egg\EGG-INFO</span><br><span class="line">writing build\bdist.win-amd64\egg\EGG-INFO\native_libs.txt</span><br><span class="line">zip_safe flag not set; analyzing archive contents...</span><br><span class="line">pysqlcipher3.__pycache__._sqlite3.cpython-37: module references __file__</span><br><span class="line">creating dist</span><br><span class="line">creating &apos;dist\pysqlcipher3-1.0.3-py3.7-win-amd64.egg&apos; and adding &apos;build\bdist.win-amd64\egg&apos; to it</span><br><span class="line">removing &apos;build\bdist.win-amd64\egg&apos; (and everything under it)</span><br><span class="line">Processing pysqlcipher3-1.0.3-py3.7-win-amd64.egg</span><br><span class="line">creating d:\work\python37\lib\site-packages\pysqlcipher3-1.0.3-py3.7-win-amd64.egg</span><br><span class="line">Extracting pysqlcipher3-1.0.3-py3.7-win-amd64.egg to d:\work\python37\lib\site-packages</span><br><span class="line">Adding pysqlcipher3 1.0.3 to easy-install.pth file</span><br><span class="line"></span><br><span class="line">Installed d:\work\python37\lib\site-packages\pysqlcipher3-1.0.3-py3.7-win-amd64.egg</span><br><span class="line">Processing dependencies for pysqlcipher3==1.0.3</span><br><span class="line">Finished processing dependencies for pysqlcipher3==1.0.3</span><br></pre></td></tr></table></figure>
+
+
+中间过程如果执行有差错，可以clean一下再重试
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">D:\MyDocs\Desktop\pysqlcipher3&gt;python setup.py clean</span><br></pre></td></tr></table></figure>
+</code></pre><h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p>至此pysqlcipher3编译安装完毕，写个程序测试一下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pysqlcipher3 <span class="keyword">import</span> dbapi2 <span class="keyword">as</span> sqlite</span><br><span class="line"></span><br><span class="line">conn1 = sqlite.connect(<span class="string">"test.db"</span>)</span><br><span class="line">c1 = conn1.cursor()</span><br><span class="line">c1.execute(<span class="string">"PRAGMA key='123456'"</span>)</span><br><span class="line">c1.execute(<span class="string">"""create table stocks (date text, trans text, symbol text, qty real, price real)"""</span>)</span><br><span class="line">c1.execute(<span class="string">"""insert into stocks values ('2006-01-05','BUY','RHAT',100,35.14)"""</span>)</span><br><span class="line">conn1.commit()</span><br><span class="line">c1.close()</span><br><span class="line"></span><br><span class="line">conn2 = sqlite.connect(<span class="string">"test.db"</span>)</span><br><span class="line">c2 = conn2.cursor()</span><br><span class="line">c2.execute(<span class="string">"PRAGMA key='123456'"</span>)</span><br><span class="line">print(c2.execute(<span class="string">"""select * from stocks"""</span>).fetchall())</span><br><span class="line">c2.close()</span><br></pre></td></tr></table></figure></p>
+<p>结果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">D:\work\Python37\python.exe C:/Users/caipi/IdeaProjects/wechat_db_decrypt/test.py</span><br><span class="line">[(&apos;2006-01-05&apos;, &apos;BUY&apos;, &apos;RHAT&apos;, 100.0, 35.14)]</span><br><span class="line"></span><br><span class="line">Process finished with exit code 0</span><br></pre></td></tr></table></figure></p>
+<p>也可能执行失败，提示<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">D:\work\Python37\python.exe C:/Users/caipi/IdeaProjects/wechat_db_decrypt/test.py</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;C:/Users/caipi/IdeaProjects/wechat_db_decrypt/test.py&quot;, line 1, in &lt;module&gt;</span><br><span class="line">    from pysqlcipher3 import dbapi2 as sqlite</span><br><span class="line">  File &quot;D:\work\Python37\lib\site-packages\pysqlcipher3-1.0.3-py3.7-win-amd64.egg\pysqlcipher3\dbapi2.py&quot;, line 33, in &lt;module&gt;</span><br><span class="line">    from pysqlcipher3._sqlite3 import *</span><br><span class="line">ImportError: DLL load failed: 找不到指定的模块。</span><br></pre></td></tr></table></figure></p>
+<p>最有可能的原因是上面提到的 OpenSSL 问题，没有拷贝到 Windows 系统目录，或者没有将 OpenSSL-Win64\bin 目录增加到环境变量PATH。</p>
+<h2 id="关于sqlcipher版本问题"><a href="#关于sqlcipher版本问题" class="headerlink" title="关于sqlcipher版本问题"></a>关于sqlcipher版本问题</h2><p>编译完成后，自己测试创建一个db再读取没问题，但可能打开其他现成的加密db会失败，提示<code>file is not a database</code>，实际错误是解密失败，最大的可能性是我们clone的sqlcipher当前是4.x版本，而要打开的db是由3.x版本创建的。</p>
+<p>参考<a href="https://www.zetetic.net/blog/2018/11/30/sqlcipher-400-release/" target="_blank" rel="noopener">SQLCipher 4的更新说明</a></p>
+<blockquote>
+<p>SQLCipher Core</p>
+<ul>
+<li>Default page size for databases increased to 4096 bytes (up from 1024)</li>
+<li>Default PBKDF2 iterations increased to 256,000 (up from 64,000)</li>
+<li>Default KDF algorithm is now PBKDF2-HMAC-SHA512 (from PBKDF2-HMAC-SHA1)</li>
+<li>Default HMAC algorithm is now HMAC-SHA512 (from HMAC-SHA1)</li>
+<li>…</li>
+</ul>
+</blockquote>
+<p>使用最新版本的DB Browser for SQLCipher也无法打开测试代码创建的test.db，原因也是如此<br><img src="http://static.zybuluo.com/caipiz/itzr00wb790eb1jgf5ujw4la/image.png" alt="image.png-38.3kB"></p>
+<p>想要使用Python打开sqlcipher3版本的数据库，可以在调用代码里指定加密算法<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">cur.execute(<span class="string">"PRAGMA cipher_page_size = 1024"</span>)</span><br><span class="line">cur.execute(<span class="string">"PRAGMA cipher_kdf_algorithm = PBKDF2_HMAC_SHA1"</span>)</span><br><span class="line">cur.execute(<span class="string">"PRAGMA cipher_hmac_algorithm = HMAC_SHA1"</span>)</span><br><span class="line">...</span><br></pre></td></tr></table></figure></p>
+<p>如果完全不需要sqlcipher4的支持，可以在<code>第5步</code>时指定切换到sqlcipher3编译（目前最新的是3.4.2版本）：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">D:\MyDocs\Desktop&gt;git clone https://github.com/sqlcipher/sqlcipher.git</span><br><span class="line">D:\MyDocs\Desktop&gt;git checkout tags/v3.4.2</span><br></pre></td></tr></table></figure></p>
+<p>这样生成的<code>test.db</code>也可以用DB Browser for SQLCipher来打开编辑了。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://cpiz.com/2018/06/26/试遍淘宝手机辅助按键，看谁才是真·吃鸡神器/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cpiz">
+      <meta itemprop="description" content="Cpiz's blog">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cpiz's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/26/试遍淘宝手机辅助按键，看谁才是真·吃鸡神器/" itemprop="url">
+                  试遍淘宝手机辅助按键，看谁才是真·吃鸡神器
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-06-26 20:49:00" itemprop="dateCreated datePublished" datetime="2018-06-26T20:49:00+08:00">2018-06-26</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-01-23 20:47:38" itemprop="dateModified" datetime="2019-01-23T20:47:38+08:00">2019-01-23</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/category/技术/" itemprop="url" rel="index"><span itemprop="name">技术</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="手残党的怨念"><a href="#手残党的怨念" class="headerlink" title="手残党的怨念"></a>手残党的怨念</h2><p>本人多年FPS玩家，水平虽然不高，但从Delta Force玩到CS、COD、守望先锋、绝地求生，自认为游戏见识还算丰富。自从Steam吃鸡火爆，国内各厂争先往手机端移植，一开始我是不看好的：不相信通过触摸屏也能还原FPS的体验，因为通常手游最多只能用左右手各一根手指操作，而FPS需要同时控制移动、视角、射击三个变量，必然操作不便。然而接下来很快被刺激战场打脸，这可能是手游史上将端游FPS还原得最好的一款游戏，提供了双射击键、陀螺仪、3D Touch，还有很方便的探头操作方案，这些设计让没有高性能PC的玩家也能很大程度上体验到吃鸡的乐趣。</p>
+<p>随着对操作的熟悉和游戏理解的加深，很快发现搓屏的操作方式终究还是限制了我的战绩，主要两个问题：</p>
+<ol>
+<li>被偷袭时，一紧张经常不能准确地按中射击键反击，气得想摔手机。</li>
+<li>通常习惯左手按射击键，方便精准瞄准，但交火时左手占用无法左右横移，发挥不了身法优势，而这在PC或主机FPS游戏中只是基本操作。</li>
+</ol>
+<p>当时想到解决这两个问题最好的方案就是键鼠，也发现已经有PC模拟器提供了现成解决方案，但失去了手机移动优势，还不如玩端游吃鸡，而且光子也很快发宣布将模拟器玩家隔离排位。</p>
+<p>第二个方案就是手柄。认真调研后购买了价格最贵的飞智八爪鱼，体验了半天就彻底放弃。首次配置极其繁琐，上手困难，按键手感奇差，转身速度和瞄准精度都不如手机搓，虽然也提供了陀螺仪瞄准，但灵敏度和精度也远不如手机原生陀螺仪。</p>
+<p>第三个方案就是辅助按键了，也是本文的主角。之前偶然看到一个用口香糖铝箔制作辅助射击键的视频，心想到这么简单的原理，应该会有商家做出成熟的产品吧。在万能的淘宝一找果然有很多款，设计各不相同，价位大多十几二十元。</p>
+<p><img src="http://static.zybuluo.com/caipiz/7buwta6078sw4lj05f6a4xex/image.png" alt="image.png-722.8kB"></p>
+<p>在购买了一款尝试后，虽然发现有诸多不便，但的确能显著提升射击速度，很可能是最有效的方案。为了找到最好用的那款辅助按键，我干脆把淘宝热门的款式都买了回来（反正加起来也没到一个手柄钱），并记录下各自的体验结果，在这里分享给大家。</p>
+<h2 id="辅助按键的原理"><a href="#辅助按键的原理" class="headerlink" title="辅助按键的原理"></a>辅助按键的原理</h2><p>先说一下手机电容屏的原理：</p>
+<blockquote>
+<p>一片四边形绝缘片的单面被涂上传导层。给传导层施加微小的电压后，产生了一个均匀的静电场。当一个导体，如人的手指接触到没有涂层的（绝缘）表面时，一个电容就动态的形成了。感应器的控制器将能够从绝缘片的四个角测量到电容量，从而能够得知触摸的位置。</p>
+</blockquote>
+<p>摘自<a href="https://zh.wikipedia.org/wiki/%E7%94%B5%E5%AE%B9%E5%BC%8F%E6%84%9F%E5%BA%94" target="_blank" rel="noopener">维基百科：电容式感应</a></p>
+<p>正常操作手机游戏，需要眼睛的协助才能准确点击中屏幕上的射击、瞄准键，但拇指只有两根，想同时操作移动、视角、射击至少需要三根手指。利用电容屏导电的原理，通过在屏幕按键位置固定两个电极，将电极另一端固定在手机的上沿靠近左右手食指的位置，食指按下电极时相当于触摸了屏幕上对应的虚拟按键，而且左右食指只各自负责一个按键（射击与开镜），触发距离很小，完全可以盲操。这使得我们可以用最多四只手指同时操作游戏，分别实现移动、视角、开镜、射击，互相独立，分工和主流游戏机手柄一样，达到效率最高。</p>
+<p>提前说明一个辅助按键的缺点：按键安装上手机之后本身就会破坏屏幕电感的平衡，手机可能误以为已经有两根手指压在屏幕上而产生“误触”，这时候再点击物理按键是无法模拟点击屏幕的。因此，<strong>安装好按键后必须先对手机进行锁屏（熄屏）再重新解锁（亮屏）</strong>，这会对触摸定位算法进行重置，建立一个新的平衡，辅助按键才可以正常响应。初次体验辅助按键的用户往往没注意到商品页面上的说明（如我），以为买了个骗人玩意，也有不少淘宝卖家因此获得了糟糕的商品评价。</p>
+<h2 id="考察标准"><a href="#考察标准" class="headerlink" title="考察标准"></a>考察标准</h2><p>具体介绍每一款按键之前，先说一下考察的标准。在没接触之前，本以为做一款辅助按键很简单，后来发现要考虑的细节其实很多，这也是为什么淘宝上有多款不同的设计。</p>
+<p>按重要性逐个说明：</p>
+<ol>
+<li><p><strong>可靠性</strong></p>
+<p>正因为手指触屏易失误，所以才需要物理“外挂”来提升可靠性，灵敏度是一款按键最重要的指标，但太过灵敏的话又有误触风险（容易走火也是原生触屏操作的一大缺点），所以需要的是可靠的灵敏，开火的时候快速响应，停火的时候快速中止，跑毒的时候不易误触。</p>
+</li>
+<li><p><strong>兼容性</strong></p>
+<p>手机那么多型号，苹果/安卓、全面屏/非全面屏，带壳/不带壳、贴膜/不贴膜，是否容易安装和卸下，是否牢固稳定。</p>
+<p>有可能你期待满满的吃鸡神器收到后根本装不上手机，设计不良的辅助按键，轻可能夹坏贴膜、刮花屏幕，重可能损伤摄像头。</p>
+</li>
+<li><p><strong>舒适性</strong></p>
+<p>安装后按键位置是否合理，长期持握是否舒适，是否会遮挡太多屏幕内容，是否影响手指进行其他操作。</p>
+</li>
+<li><p><strong>工艺性</strong></p>
+<p>是否坚固耐久，是否精致美观，做工太差的产品，可能还没开始装机调试就开始怀疑自己很SB。</p>
+</li>
+</ol>
+<h2 id="谁是终极神器？"><a href="#谁是终极神器？" class="headerlink" title="谁是终极神器？"></a>谁是终极神器？</h2><p>开始进入正题，先晒下订单，然后按我的体验顺序逐个介绍，并会在每一个体验的感受中总结。</p>
+<p><img src="http://static.zybuluo.com/caipiz/vyqq7pyovtr69i5v24mdbswh/image.png" alt="image.png-1225.5kB"></p>
+<p><img src="http://static.zybuluo.com/caipiz/nrnzb91o1prqbegsnp58q7bl/image.png" alt="image.png-14953.8kB"></p>
+<p><strong>注意，我主要使用的手机是iPhoneX，也用iPhone 6 Plus及小米6进行了简单试用，仅仅是个人观点，不一定代表你手上机器的真正体验。</strong></p>
+<hr>
+<h3 id="1-原始经典款"><a href="#1-原始经典款" class="headerlink" title="1. 原始经典款"></a>1. 原始经典款</h3><p>这可能是手游吃鸡辅助按键的鼻祖，是2018春节前能在淘宝搜到的唯一款式。因为正在评估考察的时候朋友已经先下单了，就直接借来体验了一下，但最后并没有真正购买。</p>
+<p><img src="http://static.zybuluo.com/caipiz/aetbvy1p0txrbxydy6vm267b/image.png" alt="image.png-670kB"></p>
+<p><img src="http://static.zybuluo.com/caipiz/z3w9ymgsw28y4bwq3x7l30y6/image.png" alt="image.png-270.9kB"></p>
+<p>从细节图上可以看到吃鸡按键的基本结构：电容导电棉用于接触屏幕模拟手指，金属触点用于食指按压触发，金属导线连接导电棉与金属触点，通过三者实现指尖电场的延伸。</p>
+<p>按键其他部分都是塑料，没有任何活动件，用塑料本身的弹性夹住手机。出于稳固需要，包括导电棉的一脚外共有四爪前后固定。</p>
+<ul>
+<li><p>可靠性：★★★★</p>
+<p>响应迅速可靠</p>
+<p>初代产品触点可能存在氧化问题，后期产品使用了紫铜触点改进</p>
+</li>
+<li><p>兼容性：★★</p>
+<p>对手机厚度有要求。目前大多数手机的裸机可直接安装（如iPhone 6 Plus），对戴保护套且贴膜的手机较难兼容。而对iPhone X这样本来比较厚，且摄像头凸起还正好在左上方（横屏时）的手机则彻底无法安装。有人说把手机倒过来就不冲突摄像头了，确实是，但有带来了另外3个缺点。一、倒置横屏需要开启手机横竖屏重力感应，对于不需要这个功能的人（如我）在每次安装时又多了一步操作。二、iPhone X正常横持时辅助按键会包围左侧电源键，电源键在游戏进行中是不需要使用的，影响不大。倒置横持右侧辅助按键会包围音量控制键，音量在游戏过程中经常需要操作。三、边玩边充电的情况下，正常横持时充电线在右侧，影响开镜还可以忍受，倒置时充电线在左侧，影响射击不能忍受。</p>
+<p>二、iPhone正常横持时，充电口在右侧，右手负责</p>
+<p>双爪设计，多余的爪子对非全屏手机正好在屏幕外不影响视线，但在全面屏手机吃鸡时多余的爪分别会挡住队友名称和游戏地图，严重破坏游戏体验。</p>
+<p>安装位置与手机电源键或音量键（反向持握）冲突，对于安装后需要锁屏重置非常不便。另外稍用力按下可能触发锁屏/音量调节，导致成盒悲剧。</p>
+</li>
+<li><p>舒适性：★★★</p>
+<p>触点位置在手机的顶部两角，待机与射击时时食指都需要保持一个弓形的姿势，长时间下来容易疲劳，在小屏手机上更加明显（因为侧边更短）。</p>
+</li>
+<li><p>工艺性：★★</p>
+<p>存在毛边、接缝和裸露的导线，做工较简陋。</p>
+</li>
+</ul>
+<p><strong>点评</strong>：创意与执行力值得敬佩。整体中规中矩，初代产品选用最稳妥的方案无可厚非，做到了“让一部分鸡友先用起来”。<a href="https://s.click.taobao.com/lONAFQw" target="_blank" rel="noopener">淘宝链接</a></p>
+<h3 id="2-按键触摸双模款"><a href="#2-按键触摸双模款" class="headerlink" title="2. 按键触摸双模款"></a>2. 按键触摸双模款</h3><p>使用螺丝调节压力固定，对保护膜和手机壳友好。</p>
+<p>使用物理按键按压触发，便于手指待机时停放。提供按压与触摸双模式，左右键调换使用则方便切换为触摸触发。</p>
+<p><img src="http://static.zybuluo.com/caipiz/c6jj0o2j3mfongwx2uitnbj8/image.png" alt="image.png-264.4kB"></p>
+<p><img src="http://static.zybuluo.com/caipiz/wngn7e71n1olrrgm555ql8na/image.png" alt="image.png-405.1kB"></p>
+<p><img src="http://static.zybuluo.com/caipiz/3f3dtirc08rdw73kv346ui7l/image.png" alt="image.png-194.9kB"></p>
+<ul>
+<li><p>可靠性：★★★</p>
+<p>食指可停放在按键上待机，开镜射击响应快。</p>
+<p>按压阻尼偏大，导致手感不清晰，不易掌握触发力度，偶尔出现按下无触发。</p>
+<p>存在金属触点，容易腐蚀氧化，长久可靠性会下降。</p>
+</li>
+<li><p>兼容性：★★★★☆</p>
+<p>最大支持厚度11mm，兼容所有手机，兼容全屏与非全屏。</p>
+<p>单爪设计，对屏幕遮挡极小。</p>
+<p>精心设计了顶部凹槽，完美防误触电源键。</p>
+<p>顶部全包围设计，安装后锁屏重置稍有不便。</p>
+</li>
+<li><p>舒适性：★★★</p>
+<p>按键水平位置可调，按压式设计，食指悬停在手机上沿舒展自然。</p>
+<p>按键面积太小，阻尼偏大，导致手感差，也影响响应速度。</p>
+</li>
+<li><p>工艺性：★★★☆</p>
+<p>集成了塑料、橡胶、铜、铝多种材质，工艺设计出彩，堆料扎实，但加工精度稍逊。</p>
+</li>
+</ul>
+<p><strong>点评</strong>：优秀的创意与工艺设计，可惜按键手感功亏一篑，期待改进（加大按键面积，优化阻尼）。<a href="https://item.taobao.com/item.htm?spm=a1z09.2.0.0.3a482e8dG1Kt9E&amp;id=567353220195&amp;_u=vh56pkd181" target="_blank" rel="noopener">淘宝链接</a></p>
+<h3 id="3-销量明星C9"><a href="#3-销量明星C9" class="headerlink" title="3. 销量明星C9"></a>3. 销量明星C9</h3><p>单爪设计，预留一定空间嵌入手机，使用翻转扣挤压手机背面固定。</p>
+<p>按键式，采用导电塑料作为手指电极，用塑料弯曲提供按键回弹。</p>
+<p>可能是淘宝分销做得最成功的款式，众多店铺代理销售。</p>
+<p><img src="http://static.zybuluo.com/caipiz/23dvhvq1h7fc1gkh11dqpmnh/image.png" alt="image.png-195.3kB"></p>
+<ul>
+<li><p>可靠性：★★★★</p>
+<p>按键式的优点，食指自然停放待机，开镜射击响应快。</p>
+<p>按下时导电塑料与导电棉的接触不完全可靠，偶现无触发。</p>
+</li>
+<li><p>兼容性：★★</p>
+<p>对手机厚度要求高，最大支持厚度8mm，不兼容较厚或带壳手机。iPhone 6 Plus裸机可使用，尝试上iPhone X时夹坏了我的玻璃膜，不敢再试。</p>
+<p>同样设计有顶部凹槽，防误触电源键。</p>
+</li>
+<li><p>舒适性：★★★★☆</p>
+<p>待机悬停舒展自然，按键面积大，弹性适当，使用体验接近手柄。</p>
+</li>
+<li><p>工艺性：★★★★</p>
+<p>设计简单巧妙，精细度较高。</p>
+</li>
+</ul>
+<p><strong>点评</strong>：兼顾功能与成本的巧妙设计，可惜一体化结构带来的兼容性短板，对手机厚度有严格要求。<a href="https://s.click.taobao.com/GwWHCQw" target="_blank" rel="noopener">淘宝链接</a></p>
+<h3 id="4-无语米形"><a href="#4-无语米形" class="headerlink" title="4. 无语米形"></a>4. 无语米形</h3><p>一体化单爪设计，通过弹簧加多个不同厚度的海绵垫片兼容不同手机。</p>
+<p>专业的产品介绍页面，夸张的销量数字（可惜期望越大，失望也越大）。</p>
+<p><img src="http://static.zybuluo.com/caipiz/kgrpnmgcziydwfcuix4fizse/image.png" alt="image.png-279.1kB"></p>
+<p><img src="http://static.zybuluo.com/caipiz/rcyjfx69mag1po0hk242014k/image.png" alt="image.png-154.3kB"></p>
+<p><img src="http://static.zybuluo.com/caipiz/elno148f7w2vnftqpaqefy8k/image.png" alt="image.png-143.7kB"></p>
+<ul>
+<li><p>可靠性：★★</p>
+<p>手指直接按压一个尾端伸出来的不锈钢丝圈触发，触发可靠性OK。</p>
+<p>单爪固定设计加长度夸张的主体，安装在iPhone 6 Plus这种正常厚度手机上时，按键的一端容易绕单爪固定点为轴心产生滑动，是所有试验过的辅助按键中稳定性最差的一款。</p>
+</li>
+<li><p>兼容性：★★★</p>
+<p>弹簧提供了一定的余量，通过随机附送的不同厚度的3M不干胶贴配合，最大可兼容厚度10mm的手机，iPhone X加手机壳也不在话下。</p>
+<p>顶部全包围设计，与锁屏激活操作存在冲突，用力按下主体时会传递到电源键导致游戏中锁屏。</p>
+</li>
+<li><p>舒适性：★★</p>
+<p>触点不是按键也不是金属片，而是一个从主体中伸出7~8mm的U型的钢丝圈电极，手指按压在U型圈底部触发。钢丝直径0.5mm，按下后手指被顶出凹印，有明显不适感。</p>
+<p>安装位置固定，无法调节。</p>
+<p>触点位置在手机上沿两角，待机姿势极其别扭，时间稍长易疲劳。</p>
+</li>
+<li><p>工艺性：★</p>
+<p>硬塑料廉价感明显；不对称设计和夸张比例带来奇怪的重心，永远无法在一个平面稳定摆放。</p>
+<p>应该是为了照顾部分非全屏手机两侧非屏幕区高度不一致在《终结者》这款游戏中不好适配的问题，设计了左键52mm、右侧59mm的长度。但面对全面屏对称屏手机越来越普及，《终结者》已凉的现在，这样不对称的设计极其丑陋。</p>
+</li>
+</ul>
+<p><strong>点评</strong>：卖家秀和买家秀的惨痛教训。<a href="https://item.taobao.com/item.htm?spm=2013.1.w4023-18248156073.2.3c541de7K73p4x&amp;id=566874272318" target="_blank" rel="noopener">淘宝链接</a></p>
+<h3 id="5-微动诱惑"><a href="#5-微动诱惑" class="headerlink" title="5. 微动诱惑"></a>5. 微动诱惑</h3><p>双爪一体化，背面卡扣翻转用于固定；使用机械微动开关实现按键式触发，手感清晰。</p>
+<p><img src="http://static.zybuluo.com/caipiz/3alkubhac3wsjlr08yiu4brn/image.png" alt="image.png-370.8kB"></p>
+<p><img src="http://static.zybuluo.com/caipiz/vvntwynlpn0xcn9ge9mg6zu3/image.png" alt="image.png-206.6kB"></p>
+<ul>
+<li><p>可靠性：★★★</p>
+<p>与鼠标按键一样，通过微动开关按下和释放产生清脆的咔哒声带来了清晰的反馈。但因为增加了微动开关，相比之前介绍的按键式额外增多了一个传导触点，可能带来更多的不稳定性。</p>
+</li>
+<li><p>兼容性：★★★</p>
+<p>一体化设计的缺陷，兼容手机范围有限。勉强支持iPhone X不带壳，安装过程容易碎膜。这种依赖塑料弹性嵌住手机的按键，在插入过程中都容易顶压贴膜边缘，这是贴膜最脆弱的位置。</p>
+<p>窄爪对屏幕遮挡小，但双爪设计对全面屏不友好。</p>
+<p>顶部全包围设计，与锁屏激活操作存在冲突，用力按下主体时会传递到电源键导致游戏中锁屏。</p>
+</li>
+<li><p>舒适性：★★</p>
+<p>可能由于微动装置体积较大，并没有设计在主体的上沿，而是附加在主体背面。这导致持握手机时食指不是自然包围手机边沿，而是呈一定角度上的斜错（如下图），这降低了持握的安全感，姿势也极容易疲劳。</p>
+<p><img src="http://static.zybuluo.com/caipiz/2hru4dg7tz50wo1nhmrfs8xr/image.png" alt="image.png-282.3kB"></p>
+<p>通过压下不锈钢制的一个杠杆片触发微动，触发键程较大，反而对微动带来的优点产生了抵销。</p>
+<p>手指触点虽然做了一定的弧形弯折提高舒适度，但不锈钢片边缘切割锐利，未经打磨极其硌手。</p>
+</li>
+<li><p>工艺性：★★</p>
+<p>塑料廉价感明显，触点切割锐利，工艺粗糙。</p>
+</li>
+</ul>
+<p><strong>点评</strong>：机械微动开关是很好的创意，败在设计与工艺。<a href="https://s.click.taobao.com/kz4e9Qw" target="_blank" rel="noopener">淘宝链接</a></p>
+<h3 id="6-平板也吃鸡"><a href="#6-平板也吃鸡" class="headerlink" title="6. 平板也吃鸡"></a>6. 平板也吃鸡</h3><p>因为iPad的大屏幕更易发现和瞄准敌人，平时偶尔也会用iPad吃鸡，这款辅助按键就是专为iPad而设计。</p>
+<p>不同于其他辅助按键设计，这款按键很像一个晾衣夹，用的时候直接夹在平板上。一个导电圆柱体既作为屏幕电极，同时也是手指电极。食指平时停放在夹子正面，射击时直接按压柱体的侧面来连导屏幕。</p>
+<p><img src="http://static.zybuluo.com/caipiz/ssq0hr13s3v49r4vlmbktqfp/image.png" alt="image.png-673.8kB"></p>
+<p><img src="http://static.zybuluo.com/caipiz/40dtmuygqhr166z1hyk9ll82/image.png" alt="image.png-68.4kB"></p>
+<ul>
+<li><p>可靠性：★★★</p>
+<p>电极简单可靠，响应灵敏。</p>
+<p>夹子力臂较长，无法提供足够的弹力，游戏过程中用例稍大就容易移位，导致开镜射击无响应。</p>
+</li>
+<li><p>兼容性：★★☆</p>
+<p>理论上兼容所有平板，但夹子深度有限，在iPad上电极无法完全覆盖到屏幕区域，大约有1/4的电极落在屏幕外框，加上夹子弹力不足，稍稍一位移就功能失效。</p>
+</li>
+<li><p>舒适性：★★☆</p>
+<p>一般持握iPad时食指通常放平板背面，但此套装置要求食指放屏幕正面，相当于用双手食指与中指夹住iPad，姿势与高玩们的四指操作非常接近，手残党感觉非常别扭，容易疲劳，</p>
+</li>
+<li><p>工艺性：★★★★★</p>
+<p>主体塑料上镀有一层亲肤材质，带来了非常舒适的手感，各种边角圆滑光润，做工极其精致。</p>
+</li>
+</ul>
+<p><strong>点评</strong>：相比起玩耍，更适合收藏。<a href="https://s.click.taobao.com/JCAm6Qw" target="_blank" rel="noopener">淘宝链接</a></p>
+<h3 id="7-铁的教训款"><a href="#7-铁的教训款" class="headerlink" title="7. 铁的教训款"></a>7. 铁的教训款</h3><p>试过这么多塑料结构后，突然想试试金属一体式的，这套设计简洁美观，屏幕遮挡少，应该会不错，然而……</p>
+<p><img src="http://static.zybuluo.com/caipiz/qoirh3vqp1mrcpdrpvqggzg8/image.png" alt="image.png-511.3kB"></p>
+<ul>
+<li>可靠性：☆<br>在iPhone X和iPhone 6 Plus上完全无法触发，与卖家沟通后毫不惊讶表示给你退货，但懒得寄快递了。目前卖家共9个评价，其中1个中评和1个差评。</li>
+<li>兼容性：★★★</li>
+<li>舒适性：★★☆</li>
+<li>工艺性：★★☆</li>
+</ul>
+<p><strong>点评</strong>：不做太多评价，就当买了个教训。<a href="https://item.taobao.com/item.htm?spm=a1z09.2.0.0.67002e8djRtInJ&amp;id=566619586909&amp;_u=1h56pk598e" target="_blank" rel="noopener">淘宝链接</a></p>
+<h3 id="8-转角遇真爱"><a href="#8-转角遇真爱" class="headerlink" title="8. 转角遇真爱"></a>8. 转角遇真爱</h3><p>受上一款金属版伤害后继续寻觅，被这款价格所吸引，随便买了一对，没想遇到真爱。</p>
+<p><img src="http://static.zybuluo.com/caipiz/1p5bhhtnvuictnsdpkerfw4k/image.png" alt="image.png-329.2kB"></p>
+<ul>
+<li><p>可靠性：★★★★☆</p>
+<p>结构简单，全部拆开也就是铝合金主体、海绵垫、固定螺丝、螺丝垫脚4个元件。铝合金主体展开的话（如果能）是十字结构，四瓣分别充当屏幕电极x1、手指电极x2、后背固定脚x1。手指按在主体任意位置都能够触发开镜/射击。</p>
+<p>一个小缺陷是是螺丝上的橡胶垫脚是用3M不干胶粘在螺丝上的，螺丝旋紧时本身会受到一定扭力，游戏过程中手指推移也可能导致脚垫松脱失去固定。解决办法是用一滴502来替代不干胶，一劳永逸。</p>
+</li>
+<li><p>兼容性：★★★★☆</p>
+<p>按键主体不可形变，通过调整螺丝深浅顶住手机后背来固定，最高12mm的厚度理论上兼容所有手机，iPhone X + 贴膜 + 厚保护套不在话下。</p>
+<p><img src="http://static.zybuluo.com/caipiz/kxn5dcis8fyi6kloujowje6r/image.png" alt="image.png-377.8kB"></p>
+<p>主体内侧贴有一块5mm厚的海绵垫，一开始我认为这个设计很奇葩，装上手机像一双厚厚的松糕鞋。但随后发现这能分散手指压力，避免力量传导到电源键上触发锁屏。海绵垫形状跟主体一致呈8字形，内凹的区域正好给下面的电源键留出了一点点空间，于是可以在安装完毕后用指甲按到电源键，方便锁屏激活。这个矛盾的电源键竟然通过一块海绵垫解决，实在有点巧妙。</p>
+<p>虽然是单爪设计，但遮挡屏幕面积稍大，未能完美。</p>
+</li>
+<li><p>舒适性：★★★★☆</p>
+<p>按键位置可调，食指自然围绕手机边沿，持握舒适稳固。</p>
+<p>按键面积适当，所有棱面都进行过打磨，按键操作舒适。</p>
+<p>左右键完全对称，安装方便。</p>
+</li>
+<li><p>工艺性：★★★★</p>
+<p>按键主体加工整齐，漆面细致。结构简单，不易损坏。</p>
+<p>固定螺丝精细度稍逊，不干胶贴保护垫方案稳定性不足。</p>
+<p>第一次买的时候没的挑，收货后发现正面印刷的Logo非常不美观，后来复购了一对银色无Logo版本。</p>
+</li>
+</ul>
+<p><strong>点评</strong>：无心插柳，简单的却是最好的。<a href="https://s.click.taobao.com/rTKq7Qw" target="_blank" rel="noopener">淘宝链接</a> <a href="https://mobile.yangkeduo.com/goods2.html?goods_id=2067446328" target="_blank" rel="noopener">拼多多链接</a></p>
+<h3 id="9-金属收藏款"><a href="#9-金属收藏款" class="headerlink" title="9. 金属收藏款"></a>9. 金属收藏款</h3><p>受到<code>第6款</code>失败刺激后与<code>第7款</code>同日购买，结构也类似。工艺极其优秀，甚至怀疑是整块CNC切削而来。</p>
+<p><img src="http://static.zybuluo.com/caipiz/e4yfsjkyygrfjjcq8j3sj1d6/image.png" alt="image.png-302.1kB"></p>
+<ul>
+<li><p>可靠性：★★☆</p>
+<p>金属电极响应可靠，但后背爪与固定螺丝体积巨大，持握手机时一般中指贴在手机后背，游戏时中指容易碰触背爪或金属螺丝而误触发，哭笑不得。</p>
+</li>
+<li><p>兼容性：★★★★</p>
+<p>左右位置可调，最大支持厚度11mm，兼容各种手机。</p>
+</li>
+<li><p>舒适性：★★☆</p>
+<p>按键面积太小，金属棱角锋利，硌手。</p>
+</li>
+<li><p>工艺性：★★★★★</p>
+<p>无论是主体还是螺丝，都精细漂亮，无可挑剔。</p>
+</li>
+</ul>
+<p><strong>点评</strong>：一个华丽的鸡肋，我会好好收藏。<a href="https://s.click.taobao.com/2HLo7Qw" target="_blank" rel="noopener">淘宝链接</a></p>
+<h3 id="10-ZNNCO"><a href="#10-ZNNCO" class="headerlink" title="10. ZNNCO"></a>10. ZNNCO</h3><p>这是评论区<code>@一笑</code>朋友极力推荐的，价格不贵16.9元一对包邮，我也下单了一副来体验。ZNNCO可能只是京东卖家的一个渠道号，淘宝上还有大量的无牌同款产品。</p>
+<p><img src="http://static.zybuluo.com/caipiz/nqj05oizv2grafj50d6n8cum/image.png" alt="image.png-19.4kB"></p>
+<p>京东发货物流神速，凌晨下单当天即达。</p>
+<p><img src="http://static.zybuluo.com/caipiz/b2ucs1fgyssmia7qncv57lyu/image.png" alt="image.png-664.3kB"></p>
+<p>外形与第3款C9很像，单爪一体化+卡口嵌入式，主体采用透明塑料，视觉上更精致。</p>
+<p>触发结构非常巧妙，与C9完全不同。顶部是一副桥式对称按键，桥片两端分别卡在主体上，底部中心的突起被一片中央拱起的圆形金属簧片顶住，呈三点式临时固定。桥片两端都可以作为按键按下，压力传导至簧片，簧片先是提供按下的阻力，在反曲变形瞬间阻力会反向变成助力，迅速连通电路到底部的电极，这本身就是一个典型的微动开关结构。另外，所有的电路包括电极都是纯铜的薄片。</p>
+<p><img src="http://static.zybuluo.com/caipiz/p8bswd0r6ylaxo10ul9x65qu/image.png" alt="image.png-468.3kB"></p>
+<ul>
+<li><p>可靠性：★★★☆</p>
+<p>我收到的两个按键其中一个很正常，而另一个不需要按下，只要手指触摸按键上的电极就会触发开枪。拆开后了解了它的结构原理，发现就是簧片底部的铜片弹起太高，直接接触簧片的底部导致了上下连通。重新调整了底部的铜片高度后问题解决，这个问题估计会比较普遍，显然与设计和装配工艺有关。</p>
+<p>3层金属带来2个开关点，随着铜电极的氧化和簧片反复弯折积累的金属疲劳，预计未来的可靠性会显著下降。</p>
+</li>
+<li><p>兼容性：★★★☆</p>
+<p>卡口结构与第<code>5</code>款非常相似，在塑料主体上实现了较大的兼容性，最佳厚度是8mm左右手机，但iPhone X带壳带膜（10mm）可以非常勉强地装配上去（注意碎膜风险）。而且这种透明塑料应该脆性比较大，操作不当容易断裂，翻京东的评价得到了证实。</p>
+<p>左右对称，位置可调；单爪设计，对屏幕遮挡小，好评。</p>
+</li>
+<li><p>舒适性：★★★★☆</p>
+<p>待机悬停舒展自然，按键面积大，弹性适当，使用体验接近手柄。</p>
+<p>键程稍涩，随着簧片老化，会逐渐严重。</p>
+</li>
+<li><p>工艺性：★★★☆</p>
+<p>设计巧妙，外观讨喜，但用料与工艺精度一般，从实拍图上已经可以看到铜片的氧化情况，对寿命不太有信心。</p>
+</li>
+</ul>
+<p><strong>点评</strong>：价格厚道，可以尝试，不差钱可以多买几副。<a href="https://union-click.jd.com/jdc?d=dx1T2t" target="_blank" rel="noopener">京东连接</a></p>
+<h3 id="11-第三代金属按键版"><a href="#11-第三代金属按键版" class="headerlink" title="11. 第三代金属按键版"></a>11. 第三代金属按键版</h3><p>这是一位知友<code>@千城暮雪</code>给我私信发来的体验，按天猫页面的描述应该是第<code>1</code>款的三代升级版本，获得知友同意后，我把它补充进来，供大家参考。</p>
+<p><img src="http://static.zybuluo.com/caipiz/cseu8gq63b52vun8u5u8pnk6/image.png" alt="image.png-598.2kB"></p>
+<p>这款按键采用了两个杠杆联动作为触发，因为安装时没有导电体在屏幕上，按下后模拟手指点击，所以安装完不需要重新亮屏。Mix的id设计大家都知道，我习惯把下巴放左边玩，能够完美的避开音量键，这款按键屏幕上要卡两个地方做支撑，一个是模拟按键的，需要放到射击键上，另外一边为了防滑用了硅胶，所以我们可以在不用的时候把按键往上面一拉，这样就能完美的不挡住屏幕了。</p>
+<ul>
+<li><p>可靠性：★★★★</p>
+<p>因为使用了铜上镀铬的处理。使用了两个联动杠杆。虽然杠杆用了两个，可能会降低可靠性，但是我仍然能给他四星，因为表面镀了铬没那么容易氧化。我用了差不多一个月了，到现在为止没有出现过失灵或者走火的现象。</p>
+</li>
+<li><p>兼容性：暂缺</p>
+<p>本人手机裸奔，所以不在乎卡不卡的上的问题，不过Mix2的厚度大家也都知道。应该能兼容主流的大部分手机的。</p>
+<p>这个按钮目前我发现的缺点就是，当你开枪的时候，你不知道到底有没有按下去，没有鼠标按键的那种段落感。</p>
+</li>
+<li><p>舒适性：暂缺</p>
+<p>这个按键金属部分使用了铸造的铜构件。表面看起来是镀铬处理，所以手感十分的顺滑，不会像金属片那样割到手。按键位置比较适中，做了圆弧处理。</p>
+</li>
+<li><p>工艺性：暂缺</p>
+</li>
+</ul>
+<p>作者点评：通过杠杆结构将开关触点移到离屏幕最近的地方，避免了安装后需要重新激活屏幕的问题，这是非常聪明的设计。但双爪结构会带来对全屏的遮挡，也因为双爪结构按键只能在最顶两端，持握不舒适。作者尝试在淘宝找到了它的单爪版本，正在物流途中，回头继续补充。<a href="https://s.click.taobao.com/cP4xwPw" target="_blank" rel="noopener">天猫链接</a></p>
+<h3 id="12-单脚透明杠杆式"><a href="#12-单脚透明杠杆式" class="headerlink" title="12. 单脚透明杠杆式"></a>12. 单脚透明杠杆式</h3><p>这是看了知友的第11款评价后，作者另行购买的改进版。基本原理和结构都与第10款一样，但从双脚变为了单脚。理论上与第10款性能相当，但经过我自己的亲手测试，感受更真切。</p>
+<p><img src="http://static.zybuluo.com/caipiz/qh9kco4mcy6lq0h486ccmmm9/image.png" alt="image.png-542.3kB"></p>
+<p><img src="http://static.zybuluo.com/caipiz/xboggyqg8dgfbtzsvamw6sc7/image.png" alt="image.png-362.9kB"></p>
+<p>双杠杆联动结构，平常没有任何电极与屏幕接触，因此完全不存在锁屏重置的麻烦。按下扳机时（这个手感相比按键确实更像扳机），抬起杠杆1的另一端，顶起杠杆2，杠杆2的另一端是电极，被撬动往下压接触到屏幕，完成整个感应电路。</p>
+<ul>
+<li><p>可靠性：★★☆</p>
+<p>杠杆联动设计解决了锁屏重置问题，但带来了非常机械的手感，按下的前半段有虚位而后半段艰涩。有时轻轻一按即可触发射击，有时却需要更大的大量，缺乏清晰的手感，无法提供强烈的射击信心。<code>@千城暮雪</code>在第10款的兼容性部分也有提到。</p>
+</li>
+<li><p>兼容性：★★★</p>
+<p>塑料嵌入式，勉强可支持iPhone X带壳，意味着可兼容市面绝大多数手机。</p>
+<p>单脚设计避免了双脚带来的额外遮蔽，但单脚塑料结构在夹住双面玻璃手机（iPhone X）时无法提供稳定的固定，会出现类似第4款的晃动，极其影响游戏体验。其他材质手机应该有改善。</p>
+</li>
+<li><p>舒适性：★★★★</p>
+<p>按键水平位置可任意调整，按键圆润不硌手。</p>
+<p>全物理联动，需要按键力气偏大，久易疲劳。</p>
+</li>
+<li><p>工艺性：★★★</p>
+<p>设计巧妙，既是机械结构，也是电路结构。</p>
+<p>透明材质讨喜，防滑考虑不足。</p>
+</li>
+</ul>
+<p><strong>点评</strong>：设计巧妙，为电子游戏提供了扳机手感，成也在此，亏也在此。<a href="https://s.click.taobao.com/4f0gjPw" target="_blank" rel="noopener">淘宝链接</a></p>
+<h3 id="13-鸡霸·屏后扳机式"><a href="#13-鸡霸·屏后扳机式" class="headerlink" title="13. 鸡霸·屏后扳机式"></a>13. 鸡霸·屏后扳机式</h3><p>这是评论区<code>@悲伤的闪光</code>推荐的产品，基本原理与第11、12款一样，双杠杆联动、扳机手感，但第一节杠杆的方向不是水平的，而是垂直于屏幕方向，因此扳机位于屏幕背后。</p>
+<p><img src="http://static.zybuluo.com/caipiz/6zav417i9is7tgsv40uqa14c/image.png" alt="image.png-455.7kB"></p>
+<p><img src="http://static.zybuluo.com/caipiz/mtryw7pgxpq4rzpv4vhi2ino/image.png" alt="image.png-155.1kB"></p>
+<p>由于大部分机构在屏后，装上手机后，这是目前所有按键中屏上面积最小的一款。</p>
+<ul>
+<li><p>可靠性：★★☆</p>
+<p>与第12款同样的原理，也存在同样的问题，而且第一节杠杆是垂直屏幕，由于重力的原因平常处于下垂状态导致了近3mm的虚位，按下3mm后须要再进一步用力才可触发第二节杠杆触点触屏，手感极其模糊。</p>
+</li>
+<li><p>兼容性：★★☆</p>
+<p>最大支持9mm厚度手机，只能支持不戴壳的iPhone X，但由于结构以及纯塑料材质的原因，无论是iPhone X还是小米6，安装后都容易发生滑动。商家随机附送了两个防滑贴纸，有一定效果，但未能彻底解决。</p>
+<p>对于iPhone X这样两面光滑的手机，必须倒持安装，避开锁屏与音量键一侧，否则极其容易按下时触发锁屏/音量键。</p>
+</li>
+<li><p>舒适性：★★☆</p>
+<p>在第5款的介绍中我提到了屏后按键会带来持握不稳定以及疲劳，再一次得到了验证。为了确定不是我自己手残，我观察了周围6个以上朋友玩吃鸡的姿势，无一不是双手食指呈90度卡在屏幕顶部两角，以提供最大的稳定性。屏后扳机每次按下时会产生一个从屏幕部朝向自己的作用力，带来手机一定的翻转，为了减小翻转幅度又不得不将双手拇指更用力顶在屏幕上，这降低了拇指动作的精确性，时间一长也带来了疲劳。XBox与PS手柄之所以能将按钮置于手柄背面，是因为游戏机手柄提供了两个握把，按压背部按键时，通过抓紧握把可以完全保持住手柄水平稳定性。而在手机上，其余的手指只能提供简单的支撑，难以水平稳定。因此，以后不会再尝试屏后按键式了。</p>
+<p>需要按键力气偏大，久易疲劳。</p>
+</li>
+<li><p>工艺性：★★★☆</p>
+<p>屏后扳机很有创意，既是机械结构，也是电路结构。</p>
+<p>透明材质讨喜，防滑考虑不足。</p>
+</li>
+</ul>
+<p><strong>点评</strong>：好的创意没有带来好的体验，可惜可惜。<a href="https://s.click.taobao.com/LzCahPw" target="_blank" rel="noopener">淘宝链接</a></p>
+<hr>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>作为一个物理“外挂”，吃鸡辅助按键原理简单，但要兼容不同的手机、不同的游戏、乃至不同的用户习惯，挑战并不简单。做好了是帮助，没做好就是累赘，这很需要创意、设计与工艺的完美结合。</p>
+<p>合适的产品能够提升战绩，但目前无论哪一款辅助按键，都有以下所有的缺点：</p>
+<ol>
+<li>携带累赘，拆卸繁琐</li>
+<li>大部分产品初次安装后须要锁屏激活才可使用</li>
+<li>阻碍手机侧面物理按键的操作：电源、音量</li>
+<li>存在视野遮蔽</li>
+<li>存在操作阻碍，可能影响跳伞跟随，语音，视野等屏幕上半区的小操作</li>
+<li>必须将开镜、射击键设置在屏幕顶部，正好也是横屏时Push通知弹出的区域，这时候要是按开枪可能就进微信了</li>
+</ol>
+<p>想尝鲜的朋友，请提前做好心理预期。</p>
+<p>最后分享一个我用辅助按键操作吃鸡的小视频：</p>
+<p>瘾大时间少，水平一般，目前星钻，但六种模式基本都有S+/SS，80以上的评分，有时间应该能上皇冠，大神们看了轻点吐槽。</p>
+<h2 id="答网友问"><a href="#答网友问" class="headerlink" title="答网友问"></a>答网友问</h2><p>评论区不少疑问，我更新统一回答在这里。</p>
+<h3 id="到底哪款好？"><a href="#到底哪款好？" class="headerlink" title="到底哪款好？"></a>到底哪款好？</h3><p>文章的目的尽可能全面的介绍我用过的这些玩意，给想尝试的同学一些信息。但每个人使用习惯不同，每人手机也不同，我在意的地方你可能不在意，在我手机上不方便在你手机可能没问题，而且目前所有的按键都不完美，直接给一个推荐是不太负责的。我个人常用的是第8款，觉得游戏体验还不错，缺点也还能接受。目前正在体验第10款，是评论区一位朋友推荐的，体验也很好，解决了第8款的一些缺点，但也有它的新问题。</p>
+<p>这里也列一下我个人的选择标准，结合上面各款的案例，各位的理解应该会更准确。</p>
+<ul>
+<li>兼容性必须满足，装不上就只能送垃圾桶。最好是不需要倒置才能安装，安装后一定不能容易误触电源键，要出人命的。</li>
+<li>可靠性必须满足，这一方结构越简单越可靠，金属触摸款完全不存在该问题，按键款由于多了电路开关，存在触电氧化问题，可靠性会逐渐降低。</li>
+<li>持握舒适度。必须保证按键位置在手机上沿，持握更舒适，按压时也不影响水平稳定性。有时一玩就两个小时，持握姿势别扭、端不稳手机会手指发僵，有这耐力不如去苦练三指四指。</li>
+<li>按键舒适度。手指触点必须光滑、宽大。理论上按键式会提供更好的反馈，手指自然悬停在按键上，也能提升持握舒适度和响应时间，但按键阻尼的微调是门技术活，用料不当的话弹性元件还存在老化问题，而成本只有几块钱又只能选择廉价方案……</li>
+<li>安装便利度。螺丝式固定式安装稍麻烦，但兼容性广。弹性嵌入式安装相对简便，但要特别小心手机插入时易碎膜。两者各有优劣。</li>
+<li>屏幕遮挡。应越小越好，不管是不是全面屏手机，只选择单爪式。大多数单爪式都是左右对称设计，安装更方便且水平方向上位置可调整，能找到个人最舒适的位置。</li>
+<li>单个 or 双个？可以只安装一个左键用于开枪，但我仍推荐用双键模式，缩短开镜开枪时间。</li>
+<li>工艺，实用、不丑陋即可。</li>
+</ul>
+<p>以我的标准，给了3星的选项表示还能接受，但有些扣分项是因为我的iPhone X特征，你可以根据自己手机情况参考评分。</p>
+<p>最后购买之前，你可以仔细观察一下自己平常是用什么姿势持握手机游戏，尤其是食指一般放在哪里。再想象一下如果买了某款按键，它会安装在你手机上的什么位置，安装后持握是什么姿势，食指是否能够灵活操作，持机是否稳定。总之好的辅助按键应该让你在游戏的时候忘记它，把注意力全部投入到战场上，而不是让你觉得是在为了战绩而忍受。</p>
+<h3 id="有3D-Touch还需要这个？"><a href="#有3D-Touch还需要这个？" class="headerlink" title="有3D Touch还需要这个？"></a>有3D Touch还需要这个？</h3><p>3D Touch只支持部分设备，手机不支持的朋友没得选。</p>
+<p>刺激战场在支持3D Touch的版本发布后我立即尝试过，但也很快放弃了。我认为跟真枪操作一样，瞄准与射击操作应该是分离开的，这样最自然，效率也最高。3D Touch操作模式要求右手拇指兼顾瞄准和射击，在刚枪走位时确实方便，但远程狙击时需要精确操作，瞄准（移动）和射击（按下）动作可能互相干扰，无法提供信心。</p>
+<p>另外，人和人的差异确实是存在的，我玩游戏的时候容易兴奋，手指力量忽大忽小，3D Touch模式走火率奇高。</p>
+<h3 id="为什么用这个？我两指-四指操作比这6多了"><a href="#为什么用这个？我两指-四指操作比这6多了" class="headerlink" title="为什么用这个？我两指/四指操作比这6多了"></a>为什么用这个？我两指/四指操作比这6多了</h3><p>这个问题不是很有争论的必要，为什么大家都有眼睛而有的人却要戴眼镜？每个人情况不同，接触游戏时间不同，玩游戏的目的也不一样，我的目的是在工作之余得到快乐和放松，不是做主播打职业上天梯。辅助按键能让我专注在游戏本身，而不是如何搓屏幕上，我觉得更适合我而已。</p>
+<p>发我的游戏视频只是一个小演示，不是炫耀技术。发我的游戏视频只是一个小演示，不是炫耀技术。觉得自己不用按键水平高的朋友，欢迎回答这题<a href="https://www.zhihu.com/question/266950585" target="_blank" rel="noopener">《绝地求生：刺激战场》有哪些吃鸡技巧？</a>，不用在本文评论浪费时间。</p>
+<h3 id="辅助按键算不算开挂？"><a href="#辅助按键算不算开挂？" class="headerlink" title="辅助按键算不算开挂？"></a>辅助按键算不算开挂？</h3><p>我对开挂的定义是使用电子设备通过软件或硬件手段，读取或修改游戏数据，而实现游戏正常规则之外的行为。</p>
+<p>辅助按键没有外接其他的电子设备，没有任何数据的读取和修改，只是实现了人类肢体的延伸。就像我们现在不会说赤裸才是人类，而指责穿衣穿鞋的人不是人。</p>
+<p>对于手游来说，物理上的绝对公平是不存在的，苹果安卓、大屏小屏，性能和视觉的表现就不一样。游戏本身还给苹果手机提供了独有的3D Touch支持，说明官方也对目前的射击操作也不满意，希望能用尽硬件的潜能，给玩家提供方便。即使对于模拟器+键鼠游戏，腾讯官方也没定性为开挂，甚至提供了官方模拟器支持，但是心里过意不去，而做了匹配隔离。放大到整个电子游戏的领域，有条件的玩家追逐性能更强的CPU显卡、更大更高刷新率的显示器、更精准的鼠标、更精准的耳机，和普通的玩家相比，这也不能算是开挂吧？</p>
+<p>辅助按键合理优化了手指分工，让玩家可以更专注在游戏而不是操作冲突上，若是发展足够好，出现了更完美的装置，会得到腾讯的官方推荐也不一定。</p>
+<p>还是觉得不公平的话就向腾讯举报吧，腾讯只要发篇公告给辅助按键下定论我就删文章。官方要想屏蔽此“外挂”也很容易，下一个版本禁止射击瞄准按钮放置在屏幕上半区，所有按钮就全部做废了。</p>
+<h2 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h2><ul>
+<li>以上的评价完全出于个人的主观体验，不代表其他人的操作习惯与感受。</li>
+<li>所有结果仅代表当时购买的商家版本或产品个体，不代表其他外观类似或后续改进版本。</li>
+<li>大部分图片来源于淘宝介绍，页面链接附在各款点评尾部，侵删。</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://cpiz.com/2017/01/17/小程序周记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1898,407 +2656,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://cpiz.com/2012/11/05/漂洋过海去看你·沙巴（三）/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Cpiz">
-      <meta itemprop="description" content="Cpiz's blog">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Cpiz's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2012/11/05/漂洋过海去看你·沙巴（三）/" itemprop="url">
-                  漂洋过海去看你·沙巴（三）
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2012-11-05 00:20:07" itemprop="dateCreated datePublished" datetime="2012-11-05T00:20:07+08:00">2012-11-05</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-05-26 11:44:48" itemprop="dateModified" datetime="2018-05-26T11:44:48+08:00">2018-05-26</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/category/生活/" itemprop="url" rel="index"><span itemprop="name">生活</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Day-2-亚庇-–-环滩岛"><a href="#Day-2-亚庇-–-环滩岛" class="headerlink" title="Day 2 亚庇 – 环滩岛"></a>Day 2 亚庇 – 环滩岛</h1><p>五点半被闹钟叫醒，开门看天，有戏！</p>
-<p>来到海边，静静等待。<br><img src="http://pic.yupoo.com/cpiz/CnO8lHQd/medium.jpg" alt="日将出"></p>
-<p>地平线上的云层太厚，看不到日出水，只能等日出云了。</p>
-<p><img src="http://pic.yupoo.com/cpiz/CnO8mzIQ/medium.jpg" alt="思考？不，补觉"></p>
-<p>等！</p>
-<p><img src="http://pic.yupoo.com/cpiz/CnO8mNm2/medium.jpg" alt="来了"></p>
-<p>天空被点燃，快来了！</p>
-<p><img src="http://pic.yupoo.com/cpiz/CnO8ohJp/medium.jpg" alt="幸福的码头"></p>
-<p><img src="http://pic.yupoo.com/cpiz/CnO8oK0a/medium.jpg" alt="1/8000快门，最小光圈，相机极限"></p>
-<p>一出生则不可直视。</p>
-<p><img src="http://pic.yupoo.com/cpiz/CojMGA4H/medium.jpg" alt="跳跃"></p>
-<p>太阳底下没有新鲜事，所以有装逼青年↑，也一定会有二逼青年↓</p>
-<p><img src="http://pic.yupoo.com/cpiz/CojNhvC7/medium.jpg" alt="二逼青年"></p>
-<p><img src="http://pic.yupoo.com/cpiz/CojNVujb/medium.jpg" alt="装逼青年"></p>
-<p><img src="http://pic.yupoo.com/cpiz/CojNMH0X/medium.jpg" alt="阳光下走来"></p>
-<p><img src="http://pic.yupoo.com/cpiz/CojOwtFs/medium.jpg" alt="可怜的摄影师"></p>
-<p><img src="http://pic.yupoo.com/cpiz/CnO8piHA/medium.jpg" alt="睡醒了吗？"></p>
-<p><img src="http://pic.yupoo.com/cpiz/CnO8pFNi/medium.jpg" alt="装酷"></p>
-<p>早晨后，5人开始环岛一周的壮举。</p>
-<p><img src="http://pic.yupoo.com/cpiz/Colni1MQ/medium.jpg" alt="123跳"></p>
-<p><img src="http://pic.yupoo.com/cpiz/CnO8qkeq/medium.jpg" alt="大跃进青年"></p>
-<p>环岛一周全是海滩，遇到各种活物死物。无论是何者，和不息的海浪相比都显得无比寂寞，好像怀着无数的故事，在等待愿意倾听且有足够耐心的听众，却不是我们这样的过客。</p>
-<p><img src="http://pic.yupoo.com/cpiz/CnO8qTzl/medium.jpg" alt="携家而行的小蟹"><br>携家而行的勤蟹</p>
-<p><img src="http://pic.yupoo.com/cpiz/CnO8qvLK/medium.jpg" alt="疑似睡着的螃蟹"><br>疑似宿醉的懒蟹</p>
-<p><img src="http://pic.yupoo.com/cpiz/CnO8qRZN/medium.jpg" alt="曾经也是一条好汉"><br>一节巨鱼（鲸？）的脊骨，曾经也是一条好汉</p>
-<p><img src="http://pic.yupoo.com/cpiz/CnO8racJ/medium.jpg" alt="朽木"><br>被小蚌寄生的朽木</p>
-<p>终于，过客们要离开这块净土，返回亚庇。<br><img src="http://pic.yupoo.com/cpiz/ColHTlJb/medium.jpg" alt="再见"></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://cpiz.com/2012/11/04/漂洋过海去看你·沙巴（二）/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Cpiz">
-      <meta itemprop="description" content="Cpiz's blog">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Cpiz's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2012/11/04/漂洋过海去看你·沙巴（二）/" itemprop="url">
-                  漂洋过海去看你·沙巴（二）
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2012-11-04 22:32:21" itemprop="dateCreated datePublished" datetime="2012-11-04T22:32:21+08:00">2012-11-04</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-05-26 11:45:02" itemprop="dateModified" datetime="2018-05-26T11:45:02+08:00">2018-05-26</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/category/生活/" itemprop="url" rel="index"><span itemprop="name">生活</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Day-2-亚庇-–-环滩岛"><a href="#Day-2-亚庇-–-环滩岛" class="headerlink" title="Day 2 亚庇 – 环滩岛"></a>Day 2 亚庇 – 环滩岛</h1><p>第二天早早起床第一件事就是看天气，似乎不错。洪叔的小弟7点半钟准时到酒店门口接我们去码头，这时天已大亮，一切完美。<br><img src="http://pic.yupoo.com/cpiz/CnO8c1w2/medium.jpg" alt="码头"></p>
-<p>终于见到了传说中的洪叔，很精神很Nice的一个阿叔。同行的还有另一个11人的朋友团，登上他的快船，以每小时60公里速度开向环滩岛。轰鸣的引擎+迎面的劲风+飞溅的水花+透亮的蓝天+清澈的海水=飞一般的感觉。</p>
-<p><img src="http://pic.yupoo.com/cpiz/CnO8clb8/medium.jpg" alt="抵达环滩岛"><br>靠近环滩岛的时候因为海水变浅，颜色也由蓝转绿。</p>
-<p>环滩岛正经的名字是Pulau Mengalum（孟加伦岛），距离亚庇56公里，叫环滩岛估计因为全岛地势很低，整个边缘都是海滩的缘故。这是个私人岛屿，据洪叔说岛主正想出售，你要有6000w马币（1.2亿人民币）就可将岛屿和所有设施全部接手，当时我没带那么多钱，想想算了。</p>
-<p><img src="http://pic.yupoo.com/cpiz/CojdB3pD/medium.jpg" alt="登岛后受到冰毛巾与冰橙汁接待"></p>
-<p>登岛后受到冰毛巾和冰橙汁的招待，正是雪中送炭的享受。两个工作人员接过我们的行李，领我们到各自的住所——五个人两栋木屋，实在奢侈。<br><img src="http://pic.yupoo.com/cpiz/CojMXlDb/medium.jpg" alt="木屋小径"><br><img src="http://pic.yupoo.com/cpiz/CnO8oYXP/medium.jpg" alt="晨中木屋"></p>
-<p><img src="http://pic.yupoo.com/cpiz/CnO8cqZz/medium.jpg" alt="岛上木屋，客厅"></p>
-<p><img src="http://pic.yupoo.com/cpiz/CnO8cEis/medium.jpg" alt="房间B"></p>
-<p><img src="http://pic.yupoo.com/cpiz/CojMjUp6/medium.jpg" alt="面朝大海，春暖花开"></p>
-<p>换装完毕，准备第一次浮潜。</p>
-<p><img src="http://pic.yupoo.com/cpiz/CnO8cUtC/medium.jpg" alt="浮潜去"></p>
-<p><img src="http://pic.yupoo.com/cpiz/CnO8dsqb/medium.jpg" alt="LP"></p>
-<p>重新登上洪叔的船，慢慢开到不远的近海，洪叔一手抓缆绳稳稳的站在船头，手搭凉棚查看合适的浮潜地点，用手势通知舵手。到位，抛锚落定。大家戴上浮潜面罩，逐个下水。水深两三米，就像很多次从电视里看到的一样，底部各种奇形怪状的珊瑚礁，穿梭着各种海鱼。我找洪叔要了条饵鱼，在水里慢慢撕碎，很快就有一群聚了上来围绕我转，可惜没有准备水下相机。</p>
-<p><img src="http://pic.yupoo.com/cpiz/CojRCeXk/medium.jpg" alt="浮潜"><br><img src="http://pic.yupoo.com/cpiz/CojRnrPT/medium.jpg" alt="浮潜收获"></p>
-<p>浮潜到后程，因为吞了不少海水，感觉想吐，提前翻上船休息。<br><img src="http://pic.yupoo.com/cpiz/CnO8dCvO/medium.jpg" alt="水手哥"></p>
-<p>回到岛上自助午餐，这时候才注意到，除了几个工作人员，整个岛上才我们十几个游客……除了尝点特色食品外，我的所有精力都用在了咖喱蟹上，直到所有人都放下筷子我还在继续。后来我才知道，什么叫吃海鲜吃到吐……</p>
-<p><img src="http://pic.yupoo.com/cpiz/CojRRkou/medium.jpg" alt="海鲜自助餐"><br><img src="http://pic.yupoo.com/cpiz/CnO8e9Rq/medium.jpg" alt="螃蟹吃到吐啊"></p>
-<p>饱餐后恢复体力的众人开始了一套饭后小清新</p>
-<p><img src="http://pic.yupoo.com/cpiz/CnO8efqO/medium.jpg" alt="饭后小清新"><br><img src="http://pic.yupoo.com/cpiz/CnO8fbOm/medium.jpg" alt="饭后小清新"></p>
-<p>小清新专用二逼摄影师是也↓<br><img src="http://pic.yupoo.com/cpiz/CojDlZv5/medium.jpg" alt="_1080891"></p>
-<p>继续在海边发呆，发现一艘疑似美帝航母的军舰，舷号6，兴奋。</p>
-<p><img src="http://pic.yupoo.com/cpiz/CnO8fZ0L/medium.jpg" alt="美帝？"></p>
-<p>回来后查资料发现这是美帝的黄蜂级两栖登陆攻击舰USS Bonhomme Richard，排水量45000吨，确实很像航母。</p>
-<p>下午继续出浮潜，我游了一会感觉还是晕得不行爬回了船，不过这次没坚持住，哇一声把中午的螃蟹都吐海里了，立刻一大群鱼聚集过来，分享了这顿盛宴……囧rz。</p>
-<p>因为当天是个伊斯兰节日，早市上没买到什么海鲜，洪叔决定出海去钓鱼来补充晚餐，愿意的可以一起跟去，不愿意的可回岛自由活动，我们选择了跟随。洪叔凭经验再加声纳找了个好地方，几个助手很快抛出了钩子。钓具很简单，一个线轴、一个鱼钩、一个铅垂，饵是提前准备的小鱿鱼，我们也有样学样跟着摆弄。<br><img src="http://pic.yupoo.com/cpiz/CnO8gvfU/medium.jpg" alt="寻找晚餐"></p>
-<p><img src="http://pic.yupoo.com/cpiz/CnO8hAW5/medium.jpg" alt="重新上饵"></p>
-<p><img src="http://pic.yupoo.com/cpiz/CojQkJ5f/medium.jpg" alt="IMG_0895"></p>
-<p>当水手钓起了第一石斑，全船欢呼。</p>
-<p>我一开始根本站不稳，得一只手扶着栏杆放钓，后来大着胆子上了船头，慢慢适应了波动，半蹲着身子也能站住。这里大概6米深度，海底的珊瑚让我钓上来好几块，也有不小心卡住最后丢了钩子或铅垂的时候，不过最后还是让我也钓上来一条石斑。</p>
-<p><img src="http://pic.yupoo.com/cpiz/Col076f3/medium.jpg" alt="_1080974"></p>
-<p>太阳即将落下的时候，开始回岛，欣赏了一场美丽的日落。</p>
-<p><img src="http://pic.yupoo.com/cpiz/CojPe51L/medium.jpg" alt="自拍夕阳"><br><img src="http://pic.yupoo.com/cpiz/CnO8j4na/medium.jpg" alt="鸡蛋黄"></p>
-<p><img src="http://pic.yupoo.com/cpiz/CnO8jKHF/medium.jpg" alt="水也改了颜色"><br>云层开始堆积，水也改了颜色，莫非要下雨？</p>
-<p><img src="http://pic.yupoo.com/cpiz/CnO8jUiC/medium.jpg" alt="即将出炉的晚餐"></p>
-<p>晚餐的主题是烧烤，食物端上桌后，暴雨同时来临。餐厅是个凉棚性质的建筑，巨风卷着雨雾穿堂而过，很快打湿了所有人的皮肤，但仍然没有破坏我们美食的心情。<br><img src="http://pic.yupoo.com/cpiz/CnO8llme/medium.jpg" alt="风雨无阻的美食心情"></p>
-<p>回到了木屋，大家早早睡下，期待暴雨过后还有日出黎明。</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2346,7 +2703,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">168</span>
+                    <span class="site-state-item-count">170</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2913,7 +3270,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>

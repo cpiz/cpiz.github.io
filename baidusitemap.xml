@@ -4,6 +4,76 @@
 
     
   <url>
+    <loc>http://cpiz.com/2019/01/23/windows-64bit-pysqlcipher3-for-python37/</loc>
+    <lastmod>2019-01-23T13:00:33.121Z</lastmod>
+    <data>
+        <display>
+        <title>编译Windows 64bit平台pysqlcipher3 for Python3.7</title>
+        <pubTime>2019-01-23T12:57:39.000Z</pubTime>
+        
+        <tag>Python</tag>
+         
+         
+           
+             
+              <breadCrumb title="技术" url="http://cpiz.com/category/%E6%8A%80%E6%9C%AF/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://cpiz.com/2018/06/26/%E8%AF%95%E9%81%8D%E6%B7%98%E5%AE%9D%E6%89%8B%E6%9C%BA%E8%BE%85%E5%8A%A9%E6%8C%89%E9%94%AE%EF%BC%8C%E7%9C%8B%E8%B0%81%E6%89%8D%E6%98%AF%E7%9C%9F%C2%B7%E5%90%83%E9%B8%A1%E7%A5%9E%E5%99%A8/</loc>
+    <lastmod>2019-01-23T12:47:38.921Z</lastmod>
+    <data>
+        <display>
+        <title>试遍淘宝手机辅助按键，看谁才是真·吃鸡神器</title>
+        <pubTime>2018-06-26T12:49:00.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="技术" url="http://cpiz.com/category/%E6%8A%80%E6%9C%AF/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://cpiz.com/2012/03/18/%E7%94%A8Python%E5%AE%9E%E7%8E%B0QQ%E6%89%BE%E8%8C%AC%E6%B8%B8%E6%88%8F%E5%A4%96%E6%8C%82%E5%B7%A5%E5%85%B7/</loc>
+    <lastmod>2018-05-28T14:32:48.993Z</lastmod>
+    <data>
+        <display>
+        <title>用Python实现QQ找茬游戏外挂工具</title>
+        <pubTime>2012-03-18T11:27:00.000Z</pubTime>
+        
+        <tag>cx_Freeze</tag>
+         
+        <tag>PIL</tag>
+         
+        <tag>PyQt4</tag>
+         
+        <tag>Python</tag>
+         
+        <tag>QQ游戏</tag>
+         
+        <tag>外挂</tag>
+         
+        <tag>大家来找茬</tag>
+         
+         
+           
+             
+              <breadCrumb title="项目" url="http://cpiz.com/category/%E9%A1%B9%E7%9B%AE/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://cpiz.com/2007/08/25/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1%20-%20%E6%89%8B%E6%9C%BA%E7%89%88%E6%B3%A1%E6%B3%A1%E5%A0%82/</loc>
     <lastmod>2018-05-26T09:22:18.684Z</lastmod>
     <data>
@@ -53,38 +123,6 @@
            
              
               <breadCrumb title="生活" url="http://cpiz.com/category/%E7%94%9F%E6%B4%BB/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://cpiz.com/2012/03/18/%E7%94%A8Python%E5%AE%9E%E7%8E%B0QQ%E6%89%BE%E8%8C%AC%E6%B8%B8%E6%88%8F%E5%A4%96%E6%8C%82%E5%B7%A5%E5%85%B7/</loc>
-    <lastmod>2018-05-26T03:46:55.256Z</lastmod>
-    <data>
-        <display>
-        <title>用Python实现QQ找茬游戏外挂工具</title>
-        <pubTime>2012-03-18T11:27:00.000Z</pubTime>
-        
-        <tag>cx_Freeze</tag>
-         
-        <tag>PIL</tag>
-         
-        <tag>PyQt4</tag>
-         
-        <tag>Python</tag>
-         
-        <tag>QQ游戏</tag>
-         
-        <tag>外挂</tag>
-         
-        <tag>大家来找茬</tag>
-         
-         
-           
-             
-              <breadCrumb title="项目" url="http://cpiz.com/category/%E9%A1%B9%E7%9B%AE/"/>
           
         </display>
     </data>
@@ -319,9 +357,9 @@
         
         <tag>工作</tag>
          
-        <tag>青春</tag>
-         
         <tag>总结</tag>
+         
+        <tag>青春</tag>
          
         <tag>理想</tag>
          
@@ -615,11 +653,11 @@
         <title>Anyplayer 1.0.5 - Wordpress万能播放器插件</title>
         <pubTime>2010-12-14T03:07:56.000Z</pubTime>
         
-        <tag>PHP</tag>
-         
         <tag>WordPress</tag>
          
         <tag>Anyplayer</tag>
+         
+        <tag>PHP</tag>
          
         <tag>原创</tag>
          
@@ -643,11 +681,11 @@
         
         <tag>Flash</tag>
          
-        <tag>PHP</tag>
-         
         <tag>WordPress</tag>
          
         <tag>Anyplayer</tag>
+         
+        <tag>PHP</tag>
          
         <tag>原创</tag>
          
@@ -1233,9 +1271,9 @@
         <title>BLOXORZ</title>
         <pubTime>2007-12-26T05:12:33.000Z</pubTime>
         
-        <tag>Flash</tag>
-         
         <tag>BLOXORZ</tag>
+         
+        <tag>Flash</tag>
          
         <tag>游戏</tag>
          
@@ -1329,9 +1367,9 @@
         <title>blogger终于开了</title>
         <pubTime>2007-03-28T14:33:42.000Z</pubTime>
         
-        <tag>blogger</tag>
-         
         <tag>blog</tag>
+         
+        <tag>blogger</tag>
          
          
            
@@ -1785,9 +1823,9 @@
         <title>于2005末</title>
         <pubTime>2005-12-29T05:37:00.000Z</pubTime>
         
-        <tag>考试</tag>
-         
         <tag>总结</tag>
+         
+        <tag>考试</tag>
          
         <tag>学习</tag>
          
@@ -1833,6 +1871,8 @@
         
         <tag>高数</tag>
          
+        <tag>读书</tag>
+         
         <tag>三国演义</tag>
          
         <tag>水浒传</tag>
@@ -1840,8 +1880,6 @@
         <tag>红楼梦</tag>
          
         <tag>西游记</tag>
-         
-        <tag>读书</tag>
          
          
            
@@ -1935,9 +1973,9 @@
         
         <tag>找工作</tag>
          
-        <tag>简历</tag>
-         
         <tag>面试</tag>
+         
+        <tag>简历</tag>
          
          
            
@@ -2023,9 +2061,9 @@
         <title>升级到WordPress2.3</title>
         <pubTime>2007-09-29T16:19:42.000Z</pubTime>
         
-        <tag>WordPress</tag>
-         
         <tag>插件</tag>
+         
+        <tag>WordPress</tag>
          
         <tag>blog</tag>
          
@@ -2327,9 +2365,9 @@
         <title>我的WordPress及所使用的插件</title>
         <pubTime>2007-08-27T17:45:27.000Z</pubTime>
         
-        <tag>WordPress</tag>
-         
         <tag>插件</tag>
+         
+        <tag>WordPress</tag>
          
         <tag>blog</tag>
          
@@ -2357,9 +2395,9 @@
          
         <tag>高数</tag>
          
-        <tag>离散数学</tag>
-         
         <tag>校园生活</tag>
+         
+        <tag>离散数学</tag>
          
          
            
@@ -2591,9 +2629,9 @@
         <title>极速快感——极品飞车9体验</title>
         <pubTime>2005-11-24T17:07:00.000Z</pubTime>
         
-        <tag>Eclipse</tag>
-         
         <tag>游戏</tag>
+         
+        <tag>Eclipse</tag>
          
         <tag>飞车</tag>
          
@@ -3171,9 +3209,9 @@
         <title>使用Kotlin语言写LeanCloud云后台服务</title>
         <pubTime>2016-12-15T15:53:00.000Z</pubTime>
         
-        <tag>LeanCloud</tag>
-         
         <tag>Kotlin</tag>
+         
+        <tag>LeanCloud</tag>
          
          
            
@@ -3193,9 +3231,9 @@
         <title>使用IDEA单步调试LeanCloud云引擎服务（Java）</title>
         <pubTime>2016-12-15T16:19:00.000Z</pubTime>
         
-        <tag>IDEA</tag>
-         
         <tag>LeanCloud</tag>
+         
+        <tag>IDEA</tag>
          
          
            
