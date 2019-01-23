@@ -5,7 +5,7 @@
     
   <url>
     <loc>http://cpiz.com/2019/01/23/windows-64bit-pysqlcipher3-for-python37/</loc>
-    <lastmod>2019-01-23T13:00:33.121Z</lastmod>
+    <lastmod>2019-01-23T14:11:37.821Z</lastmod>
     <data>
         <display>
         <title>编译Windows 64bit平台pysqlcipher3 for Python3.7</title>
@@ -653,11 +653,11 @@
         <title>Anyplayer 1.0.5 - Wordpress万能播放器插件</title>
         <pubTime>2010-12-14T03:07:56.000Z</pubTime>
         
-        <tag>WordPress</tag>
-         
         <tag>Anyplayer</tag>
          
         <tag>PHP</tag>
+         
+        <tag>WordPress</tag>
          
         <tag>原创</tag>
          
@@ -679,15 +679,15 @@
         <title>AnyPlayer - 为WordPress嵌入各种类型播放器</title>
         <pubTime>2008-01-19T10:02:37.000Z</pubTime>
         
-        <tag>Flash</tag>
-         
-        <tag>WordPress</tag>
-         
         <tag>Anyplayer</tag>
          
         <tag>PHP</tag>
          
+        <tag>WordPress</tag>
+         
         <tag>原创</tag>
+         
+        <tag>Flash</tag>
          
         <tag>多媒体</tag>
          
@@ -1271,9 +1271,9 @@
         <title>BLOXORZ</title>
         <pubTime>2007-12-26T05:12:33.000Z</pubTime>
         
-        <tag>BLOXORZ</tag>
-         
         <tag>Flash</tag>
+         
+        <tag>BLOXORZ</tag>
          
         <tag>游戏</tag>
          
@@ -1823,9 +1823,9 @@
         <title>于2005末</title>
         <pubTime>2005-12-29T05:37:00.000Z</pubTime>
         
-        <tag>总结</tag>
-         
         <tag>考试</tag>
+         
+        <tag>总结</tag>
          
         <tag>学习</tag>
          
@@ -2061,9 +2061,9 @@
         <title>升级到WordPress2.3</title>
         <pubTime>2007-09-29T16:19:42.000Z</pubTime>
         
-        <tag>插件</tag>
-         
         <tag>WordPress</tag>
+         
+        <tag>插件</tag>
          
         <tag>blog</tag>
          
@@ -2365,9 +2365,9 @@
         <title>我的WordPress及所使用的插件</title>
         <pubTime>2007-08-27T17:45:27.000Z</pubTime>
         
-        <tag>插件</tag>
-         
         <tag>WordPress</tag>
+         
+        <tag>插件</tag>
          
         <tag>blog</tag>
          
@@ -2629,9 +2629,9 @@
         <title>极速快感——极品飞车9体验</title>
         <pubTime>2005-11-24T17:07:00.000Z</pubTime>
         
-        <tag>游戏</tag>
-         
         <tag>Eclipse</tag>
+         
+        <tag>游戏</tag>
          
         <tag>飞车</tag>
          
@@ -3209,9 +3209,9 @@
         <title>使用Kotlin语言写LeanCloud云后台服务</title>
         <pubTime>2016-12-15T15:53:00.000Z</pubTime>
         
-        <tag>Kotlin</tag>
-         
         <tag>LeanCloud</tag>
+         
+        <tag>Kotlin</tag>
          
          
            
@@ -3231,9 +3231,9 @@
         <title>使用IDEA单步调试LeanCloud云引擎服务（Java）</title>
         <pubTime>2016-12-15T16:19:00.000Z</pubTime>
         
-        <tag>LeanCloud</tag>
-         
         <tag>IDEA</tag>
+         
+        <tag>LeanCloud</tag>
          
          
            
